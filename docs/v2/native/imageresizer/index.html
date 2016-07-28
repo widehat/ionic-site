@@ -16,8 +16,8 @@
       <title>Ionic Native: Harness the power of Native APIs</title>
     
   </head>
-  <body id="docs-page-base64-to-gallery"
-        class="v2 docs page-base64-to-gallery"
+  <body id="docs-page-imageresizer"
+        class="v2 docs page-imageresizer"
         data-spy="scroll"
         data-offset="100"
         data-target="#components-index"
@@ -149,7 +149,7 @@
 <li class="capitalize ">
   <a href="/docs/v2/native/barcode-scanner">Barcode Scanner</a>
 </li>
-<li class="capitalize active">
+<li class="capitalize ">
   <a href="/docs/v2/native/base64-to gallery">Base64 To Gallery</a>
 </li>
 <li class="capitalize ">
@@ -248,7 +248,7 @@
 <li class="capitalize ">
   <a href="/docs/v2/native/image-picker">Image Picker</a>
 </li>
-<li class="capitalize ">
+<li class="capitalize active">
   <a href="/docs/v2/native/imageresizer">ImageResizer</a>
 </li>
 <li class="capitalize ">
@@ -354,7 +354,7 @@
         <h1 class="api-title">
 
   
-  Base64 To Gallery
+  ImageResizer
   
 
   
@@ -363,109 +363,56 @@
 
 </h1>
 
-<p><a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/base64togallery.ts#L0">
+<p><a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/imageresizer.ts#L36">
   Improve this doc
 </a></p>
 
 <!-- decorators -->
 
-<pre><code>$ ionic plugin add cordova-base64-to-gallery</code></pre>
+<pre><code>$ ionic plugin add https://github.com/protonet/cordova-plugin-image-resizer.git</code></pre>
 <p>Repo:
-  <a href="https://github.com/Nexxa/cordova-base64-to-gallery">
-    https://github.com/Nexxa/cordova-base64-to-gallery
+  <a href="https://github.com/protonet/cordova-plugin-image-resizer">
+    https://github.com/protonet/cordova-plugin-image-resizer
   </a>
 </p>
 
 <!-- description -->
 
-<p>This plugin allows you to save base64 data as a png image into the device</p>
-
-<!-- @platforms tag -->
-<h2>Supported platforms</h2>
-
-<ul>
-  <li>Android</li>
-  
-  <li>iOS</li>
-  
-  <li>Windows Phone 8</li>
-  </ul>
-
-<!-- @platforms tag end -->
+<p>Cordova Plugin For Image Resize</p>
+<p>Requires plugin <code>info.protonet.imageresizer</code> - use the Ionic CLI and type in the following command:
+<code>ionic plugin add https://github.com/protonet/cordova-plugin-image-resizer.git</code></p>
+<p>For more info, please see the <a href="https://github.com/protonet/cordova-plugin-image-resizer">https://github.com/protonet/cordova-plugin-image-resizer</a></p>
 
 <!-- @usage tag -->
 
 <h2>Usage</h2>
 
-<pre><code class="lang-ts">import {Base64ToGallery} from &#39;ionic-native&#39;;
+<pre><code class="lang-typescript">import { ImageResizer, ImageResizerOptions } from &#39;ionic-native&#39;;
 
+let options = {
+ uri: uri,
+ folderName: &#39;Protonet&#39;,
+ quality: 90,
+ width: 1280,
+ height: 1280
+} as ImageResizerOptions;
 
-Base64ToGallery.base64ToGallery(base64Data, &#39;img_&#39;).then(
-  res =&gt; console.log(&quot;Saved image to gallery &quot;, res),
-  err =&gt; console.log(&quot;Error saving image to gallery &quot;, err)
-);
+ImageResizer
+.resize(options)
+.then(
+ (filePath: string) =&gt; { console.log(&#39;FilePath&#39;, filePath); },
+ () =&gt; { console.log(&#39;Error occured&#39;); }
+)
 </code></pre>
 
 <!-- @property tags -->
-
-<!-- methods on the class -->
-
-<h2>Instance Methods</h2>
-
-<div id="base64ToGallery"></div>
-
-<h3>
-  <code>base64ToGallery(data,&nbsp;prefix)</code>
-
-
+<h2>Static Members</h2>
+<div id="resize"></div>
+<h3><code>resize()</code>
+  
 </h3>
 
-<p>Converts a base64 string to an image file in the device gallery</p>
-
-<table class="table param-table" style="margin:0;">
-  <thead>
-  <tr>
-    <th>Param</th>
-    <th>Type</th>
-    <th>Details</th>
-  </tr>
-  </thead>
-  <tbody>
-  
-  <tr>
-    <td>
-      data
-      
-      
-    </td>
-    <td>
-      
-
-    </td>
-    <td>
-      
-      
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      prefix
-      
-      
-    </td>
-    <td>
-      
-
-    </td>
-    <td>
-      
-      
-    </td>
-  </tr>
-  
-  </tbody>
-</table>
+<!-- methods on the class -->
 
 <!-- related link -->
 <!-- end content block -->
