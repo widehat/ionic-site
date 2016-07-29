@@ -309,11 +309,17 @@
 <li class="capitalize ">
   <a href="/docs/v2/nightly/api/util/Events">Events</a>
 </li>
+<li class="capitalize active">
+  <a href="/docs/v2/nightly/api/components/toolbar/Footer">Footer</a>
+</li>
 <li class="capitalize ">
   <a href="/docs/v2/nightly/api/gestures/GestureController">GestureController</a>
 </li>
 <li class="capitalize ">
   <a href="/docs/v2/nightly/api/gestures/GestureDelegate">GestureDelegate</a>
+</li>
+<li class="capitalize ">
+  <a href="/docs/v2/nightly/api/components/toolbar/Header">Header</a>
 </li>
 <li class="capitalize ">
   <a href="/docs/v2/nightly/api/components/show-hide-when/HideWhen">HideWhen</a>
@@ -496,11 +502,28 @@ Footer
 
 </h1>
 
-<p><a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/toolbar/toolbar.ts#L19">
+<p><a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/toolbar/toolbar.ts#L43">
 Improve this doc
 </a></p>
 
+<p>Footer is a root component of a page that sits at the bottom of the page.
+Footer can be a wrapper for <code>ion-toolbar</code> to make sure the content area is sized correctly.</p>
+
 <!-- @usage tag -->
+
+<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
+
+<pre><code class="lang-ts">@Component({
+  template: `
+     &lt;ion-content&gt;&lt;/ion-content&gt;
+     &lt;ion-footer&gt;
+       &lt;ion-toolbar&gt;
+         &lt;ion-title&gt;Footer&lt;/ion-title&gt;
+       &lt;/ion-toolbar&gt;
+     &lt;/ion-footer&gt;
+  `
+})
+</code></pre>
 
 <!-- @property tags -->
 
