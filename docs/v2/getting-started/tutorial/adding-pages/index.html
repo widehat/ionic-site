@@ -414,7 +414,10 @@
 <span class="kr">class</span> <span class="nx">MyApp</span> <span class="p">{</span>
   <span class="p">...</span>
 
-  <span class="kd">constructor</span><span class="p">(</span><span class="nx">app</span><span class="p">,</span> <span class="nx">platform</span><span class="p">,</span> <span class="nx">menu</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">constructor</span><span class="p">(</span>
+      <span class="k">private</span> <span class="nx">platform</span><span class="err">:</span> <span class="nx">Platform</span><span class="p">,</span>
+      <span class="k">private</span> <span class="nx">menu</span><span class="err">:</span> <span class="nx">MenuController</span>
+    <span class="p">)</span> <span class="p">{</span>
     <span class="p">...</span>
 
     <span class="c1">// make HelloIonicPage the root (or first) page</span>
@@ -499,12 +502,8 @@
   <span class="na">templateUrl</span><span class="p">:</span> <span class="s1">'build/pages/list/list.html'</span>
 <span class="p">})</span>
 <span class="k">export</span> <span class="kr">class</span> <span class="nx">ListPage</span> <span class="p">{</span>
-  <span class="c1">// provide Angular with metadata about things it should inject in the constructor</span>
-  <span class="k">static</span> <span class="nx">get</span> <span class="nx">parameters</span><span class="p">()</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="p">[[</span><span class="nx">NavController</span><span class="p">],</span> <span class="p">[</span><span class="nx">NavParams</span><span class="p">]];</span>
-  <span class="p">}</span>
 
-  <span class="kd">constructor</span><span class="p">(</span><span class="nx">nav</span><span class="p">,</span> <span class="nx">navParams</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">constructor</span><span class="p">(</span><span class="k">private</span> <span class="nx">navCtrl</span><span class="err">:</span> <span class="nx">NavController</span><span class="p">,</span> <span class="nx">navParams</span><span class="err">:</span> <span class="nx">NavParams</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">this</span><span class="p">.</span><span class="nx">nav</span> <span class="o">=</span> <span class="nx">nav</span><span class="p">;</span>
 
     <span class="c1">// If we navigated to this page, we will have an item available as a nav param</span>
@@ -533,10 +532,6 @@
 </div>
 
 <p>This page will create a basic list page containing a number of items.</p>
-
-<blockquote>
-  <p>What the heck is that <code class="highlighter-rouge">static get parameters()</code>? Angular2 is written in TypeScript, and normally depends on <a href="http://www.typescriptlang.org/Handbook#basic-types">types</a> to know what kind of objects to inject into class constructors as part of its <a href="https://angular.io/docs/ts/latest/guide/dependency-injection.html">dependency injection</a> framework.  Since these examples are in JavaScript and not TypeScript, we need a way to tell Angular what “types” of objects should be injected, without actually using types. The way we do this is with the static getter <code class="highlighter-rouge">parameters</code> which attaches this type information to the class.</p>
-</blockquote>
 
 <p>Overall, this page is very similar to the <code class="highlighter-rouge">HelloIonicPage</code> we saw earlier. In the next section, we will learn how to navigate to a new page!</p>
 
