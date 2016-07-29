@@ -566,15 +566,6 @@ removing items.</p>
 
 <h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 
-<div id="gestureCtrl"></div>
-
-<h3>
-<a class="anchor" name="gestureCtrl" href="#gestureCtrl"></a>
-<code>gestureCtrl</code>
-  
-
-</h3>
-
 <div id="closeSlidingItems"></div>
 
 <h3>
@@ -584,23 +575,7 @@ removing items.</p>
 
 </h3>
 
-<p>Close the open sliding item.</p>
-
-<div class="language-ts highlighter-rouge"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">Component</span><span class="p">,</span> <span class="nx">ViewChild</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'@angular/core'</span><span class="p">;</span>
-<span class="k">import</span> <span class="p">{</span> <span class="nx">List</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'ionic-angular'</span><span class="p">;</span>
-
-<span class="err">@</span><span class="nx">Component</span><span class="p">({...})</span>
-<span class="k">export</span> <span class="kr">class</span> <span class="nx">MyClass</span> <span class="p">{</span>
-  <span class="err">@</span><span class="nx">ViewChild</span><span class="p">(</span><span class="nx">List</span><span class="p">)</span> <span class="nx">list</span><span class="err">:</span> <span class="nx">List</span><span class="p">;</span>
-
-  <span class="kd">constructor</span><span class="p">()</span> <span class="p">{</span> <span class="p">}</span>
-
-  <span class="nx">closeItems</span><span class="p">()</span> <span class="p">{</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">list</span><span class="p">.</span><span class="nx">closeSlidingItems</span><span class="p">();</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-</code></pre>
-</div>
+<p>Close any sliding items that are open.</p>
 
 <!-- input methods on the class -->
 <h2><a class="anchor" name="input-properties" href="#input-properties"></a>Input Properties</h2>
@@ -616,24 +591,29 @@ removing items.</p>
     
     <tr>
       <td>sliding</td>
-      <td><code> Component, ViewChild </code></td>
-      <td><p> from &#39;@angular/core&#39;;
-import { List } from &#39;ionic-angular&#39;;</p>
-<p>@Component({...})
-export class MyClass {
-  @ViewChild(List) list: List;</p>
-<p>  constructor() { }</p>
-<p>  stopSliding() {
-    this.list.enableSlidingItems(false);
-  }
-}
-```
-@param {boolean} shouldEnable whether the item-sliding should be enabled or not</p>
+      <td><code>boolean</code></td>
+      <td><p> shouldEnable whether the item-sliding should be enabled or not</p>
 </td>
     </tr>
     
   </tbody>
 </table>
+<h2><a class="anchor" name="advanced" href="#advanced"></a>Advanced</h2>
+<p>Enable the sliding items.</p>
+<pre><code class="lang-ts">import { Component, ViewChild } from &#39;@angular/core&#39;;
+import { List } from &#39;ionic-angular&#39;;
+
+@Component({...})
+export class MyClass {
+  @ViewChild(List) list: List;
+
+  constructor() { }
+
+  stopSliding() {
+    this.list.enableSlidingItems(false);
+  }
+}
+</code></pre>
 
 <!-- related link -->
 
