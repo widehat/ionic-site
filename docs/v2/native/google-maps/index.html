@@ -392,9 +392,7 @@
 ...
 
 // somewhere in your component
-let map = new GoogleMap(&#39;elementID&#39;, {
- // Map Options: https://developers.google.com/maps/documentation/javascript/3.exp/reference#MapOptions
- });
+let map = new GoogleMap(&#39;elementID&#39;);
 
 map.on(GoogleMapsEvent.MAP_READY).subscribe(() =&gt; console.log(&#39;Map is ready!&#39;));
 </code></pre>
@@ -406,12 +404,12 @@ map.on(GoogleMapsEvent.MAP_READY).subscribe(() =&gt; console.log(&#39;Map is rea
   
 </h3>
 
-<p>Checks if a map object has been created and is available.</p>
+<p>Checks if a map object has been created.</p>
 
 <div class="return-value">
   <p><i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise&lt;boolean&gt;</code></p>
+<code>Promise&lt;boolean&gt;</code> returns a promise that resolves with a boolean that indicates if the plugin is available.</p>
 </div>
 
 <!-- methods on the class -->
@@ -426,14 +424,6 @@ map.on(GoogleMapsEvent.MAP_READY).subscribe(() =&gt; console.log(&#39;Map is rea
 
 </h3>
 
-<p>Listen to a map event.</p>
-
-<div class="return-value">
-  <p><i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Observable&lt;any&gt;</code></p>
-</div>
-
 <div id="one"></div>
 
 <h3>
@@ -441,14 +431,6 @@ map.on(GoogleMapsEvent.MAP_READY).subscribe(() =&gt; console.log(&#39;Map is rea
   
 
 </h3>
-
-<p>Listen to a map event only once.</p>
-
-<div class="return-value">
-  <p><i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;any&gt;</code></p>
-</div>
 
 <div id="setDebuggable"></div>
 
@@ -474,13 +456,7 @@ map.on(GoogleMapsEvent.MAP_READY).subscribe(() =&gt; console.log(&#39;Map is rea
 
 </h3>
 
-<p>Get the position of the camera.</p>
-
-<div class="return-value">
-  <p><i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;CameraPosition&gt;</code></p>
-</div>
+<p>Get the position of the camera</p>
 
 <div id="getMyLocation"></div>
 
@@ -490,13 +466,7 @@ map.on(GoogleMapsEvent.MAP_READY).subscribe(() =&gt; console.log(&#39;Map is rea
 
 </h3>
 
-<p>Get the location of the user.</p>
-
-<div class="return-value">
-  <p><i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;MyLocation&gt;</code></p>
-</div>
+<p>Get the location of the user</p>
 
 <div id="getVisibleRegion"></div>
 
@@ -506,13 +476,7 @@ map.on(GoogleMapsEvent.MAP_READY).subscribe(() =&gt; console.log(&#39;Map is rea
 
 </h3>
 
-<p>Get the visible region.</p>
-
-<div class="return-value">
-  <p><i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;VisibleRegion&gt;</code></p>
-</div>
+<p>Get the visible region</p>
 
 <div id="showDialog"></div>
 
