@@ -445,37 +445,46 @@
 
 <p>The Action Sheet always appears above any other components on the page, and must be dismissed in order to interact with the underlying content. When it is triggered, the rest of the page darkens to give more focus to the Action Sheet options.</p>
 
+<p><em>For more information, Check out the <a href="../api/components/action-sheet/ActionSheetController">API docs</a>.</em></p>
+
 <h3 class="section-nav">Basic Usage</h3>
 <p><a target="_blank" class="component-doc-demo" href="https://github.com/driftyco/ionic-preview-app/tree/master/app/pages/action-sheets/basic">
   Demo Source
 </a></p>
 
-<div class="language-typescript highlighter-rouge"><pre class="highlight"><code><span class="nx">presentActionSheet</span><span class="p">()</span> <span class="p">{</span>
-  <span class="kd">let</span> <span class="nx">actionSheet</span> <span class="o">=</span> <span class="nx">ActionSheet</span><span class="p">.</span><span class="nx">create</span><span class="p">({</span>
-    <span class="na">title</span><span class="p">:</span> <span class="s1">'Modify your album'</span><span class="p">,</span>
-    <span class="na">buttons</span><span class="p">:</span> <span class="p">[</span>
-      <span class="p">{</span>
-        <span class="na">text</span><span class="p">:</span> <span class="s1">'Destructive'</span><span class="p">,</span>
-        <span class="na">role</span><span class="p">:</span> <span class="s1">'destructive'</span><span class="p">,</span>
-        <span class="na">handler</span><span class="p">:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
-          <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'Destructive clicked'</span><span class="p">);</span>
-        <span class="p">}</span>
-      <span class="p">},{</span>
-        <span class="na">text</span><span class="p">:</span> <span class="s1">'Archive'</span><span class="p">,</span>
-        <span class="na">handler</span><span class="p">:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
-          <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'Archive clicked'</span><span class="p">);</span>
-        <span class="p">}</span>
-      <span class="p">},{</span>
-        <span class="na">text</span><span class="p">:</span> <span class="s1">'Cancel'</span><span class="p">,</span>
-        <span class="na">role</span><span class="p">:</span> <span class="s1">'cancel'</span><span class="p">,</span>
-        <span class="na">handler</span><span class="p">:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
-          <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'Cancel clicked'</span><span class="p">);</span>
-        <span class="p">}</span>
-      <span class="p">}</span>
-    <span class="p">]</span>
-  <span class="p">});</span>
-  <span class="k">this</span><span class="p">.</span><span class="nx">nav</span><span class="p">.</span><span class="nx">present</span><span class="p">(</span><span class="nx">actionSheet</span><span class="p">);</span>
+<div class="language-typescript highlighter-rouge"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">ActionSheetController</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'ionic-angular'</span><span class="p">;</span>
+
+<span class="k">export</span> <span class="kr">class</span> <span class="nx">MyPage</span> <span class="p">{</span>
+  <span class="kd">constructor</span> <span class="p">(</span> <span class="k">private</span> <span class="nx">actionSheetController</span> <span class="err">:</span> <span class="nx">ActionSheetController</span> <span class="p">){</span>
   <span class="p">}</span>
+
+  <span class="nx">presentActionSheet</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nx">actionSheet</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">actionSheetController</span><span class="p">.</span><span class="nx">create</span><span class="p">({</span>
+      <span class="na">title</span><span class="p">:</span> <span class="s1">'Modify your album'</span><span class="p">,</span>
+      <span class="na">buttons</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+          <span class="na">text</span><span class="p">:</span> <span class="s1">'Destructive'</span><span class="p">,</span>
+          <span class="na">role</span><span class="p">:</span> <span class="s1">'destructive'</span><span class="p">,</span>
+          <span class="na">handler</span><span class="p">:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'Destructive clicked'</span><span class="p">);</span>
+          <span class="p">}</span>
+        <span class="p">},{</span>
+          <span class="na">text</span><span class="p">:</span> <span class="s1">'Archive'</span><span class="p">,</span>
+          <span class="na">handler</span><span class="p">:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'Archive clicked'</span><span class="p">);</span>
+          <span class="p">}</span>
+        <span class="p">},{</span>
+          <span class="na">text</span><span class="p">:</span> <span class="s1">'Cancel'</span><span class="p">,</span>
+          <span class="na">role</span><span class="p">:</span> <span class="s1">'cancel'</span><span class="p">,</span>
+          <span class="na">handler</span><span class="p">:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'Cancel clicked'</span><span class="p">);</span>
+          <span class="p">}</span>
+        <span class="p">}</span>
+      <span class="p">]</span>
+    <span class="p">});</span>
+    <span class="nx">actionSheet</span><span class="p">.</span><span class="nx">present</span><span class="p">();</span>
+  <span class="p">}</span>
+<span class="p">}</span>
 </code></pre>
 </div>
 
@@ -487,9 +496,11 @@
 
 <p>Alerts are a great way to offer the user the ability to choose a specific action or list of actions. They also can provide the user with important information, or require them to make a decision (or multiple decisions).</p>
 
-<p>From a UI perspective, you can think of Alerts as a type of “floating” modal, that covers only a portion of the screen. This means Alerts should only be used for quick actions like password verification, small app notifications, or quick options. More in depth user flows should be reserved for full screen ​<a href="#modals">Modals</a>​.</p>
+<p>From a UI perspective, Alerts can be thought of as a type of “floating” modal that covers only a portion of the screen. This means Alerts should only be used for quick actions like password verification, small app notifications, or quick options. More in depth user flows should be reserved for full screen ​<a href="#modals">Modals</a>​.</p>
 
-<p>Alerts are quite flexible, and can easily be customized. Check out the <a href="../api/components/alert/Alert">API docs</a> for more information.</p>
+<p>Alerts are quite flexible, and can easily be customized.</p>
+
+<p><em>For more information, Check out the <a href="../api/components/alert/AlertController">API docs</a>.</em></p>
 
 <ul class="docs-content">
   <li class="docs-content-header">Contents</li>
@@ -506,16 +517,23 @@
   Demo Source
 </a></p>
 
-<p>Basic Alerts are generally used to notify the user about new information (a change in the app, a new feature), an urgent situation that requires acknowledgement, or as a confirmation to the user that an action was successful or not.</p>
+<p>Basic Alerts are typically used to notify the user about new information (a change in the app, a new feature, etc), an urgent situation that requires acknowledgement, or as a confirmation to the user that an action was successful or not.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>  doAlert() {
-    let alert = Alert.create({
-      title: 'New Friend!',
-      subTitle: 'Your friend, Obi wan Kenobi, just accepted your friend request!',
-      buttons: ['OK']
-    });
-    this.nav.present(alert);
-  }
+<div class="language-typescript highlighter-rouge"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">AlertController</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'ionic-angular'</span><span class="p">;</span>
+
+<span class="k">export</span> <span class="kr">class</span> <span class="nx">MyPage</span> <span class="p">{</span>
+  <span class="kd">constructor</span><span class="p">(</span><span class="k">private</span> <span class="nx">alertController</span><span class="err">:</span> <span class="nx">AlertController</span><span class="p">){</span>
+  <span class="p">}</span>
+
+  <span class="nx">showAlert</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nx">alert</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">alertController</span><span class="p">.</span><span class="nx">create</span><span class="p">({</span>
+      <span class="na">title</span><span class="p">:</span> <span class="s1">'New Friend!'</span><span class="p">,</span>
+      <span class="na">subTitle</span><span class="p">:</span> <span class="s1">'Your friend, Obi wan Kenobi, just accepted your friend request!'</span><span class="p">,</span>
+      <span class="na">buttons</span><span class="p">:</span> <span class="p">[</span><span class="s1">'OK'</span><span class="p">]</span>
+    <span class="p">});</span>
+    <span class="nx">alert</span><span class="p">.</span><span class="nx">present</span><span class="p">();</span>
+  <span class="p">}</span>
+<span class="p">}</span>
 </code></pre>
 </div>
 
@@ -525,9 +543,16 @@
   Demo Source
 </a></p>
 
-<p>Prompts offer the user a way to input data or information. For example, often times Prompt Alerts will be used to ask the user for password confirmation as a means of security before moving forward in an app’s ux flow.</p>
+<p>Prompts offer a way to input data or information.  Often times  Prompts will be used to ask the user for a password before moving forward in an application’s flow.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>    let prompt = Alert.create({
+<div class="highlighter-rouge"><pre class="highlight"><code>import { AlertController } from 'ionic-angular';
+
+export class MyPage {
+  constructor(private alertController: AlertController){
+  }
+
+  showPrompt() {
+    let prompt = this.alertController.create({
       title: 'Login',
       message: "Enter a name for this new album you're so keen on adding",
       inputs: [
@@ -551,6 +576,9 @@
         }
       ]
     });
+    prompt.present();
+  }
+}
 </code></pre>
 </div>
 
@@ -562,7 +590,14 @@
 
 <p>Confirmation Alerts are used when it is required that the user explicitly confirms a particular choice before progressing forward in the app. A common example of the Confirmation Alert is checking to make sure a user wants to delete or remove a contact from their address book.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>    let confirm = Alert.create({
+<div class="highlighter-rouge"><pre class="highlight"><code>import { AlertController } from 'ionic-angular';
+
+export class MyPage {
+  constructor(private alertController: AlertController){
+  }
+
+  showConfirm() {
+    let confirm = this.alertController.create({
       title: 'Use this lightsaber?',
       message: 'Do you agree to use this lightsaber to do good across the intergalactic galaxy?',
       buttons: [
@@ -580,6 +615,9 @@
         }
       ]
     });
+    confirm.present();
+  }
+}
 </code></pre>
 </div>
 
@@ -589,10 +627,16 @@
   Demo Source
 </a></p>
 
-<p>Radio Alerts are simply another type of Confirmation Alert, but use the <a href="http://ionicframework.com/docs/v2/components/#radio">Radio</a> component to offer several choices. They offer the user a set of options to choose from, but are allowed to only make one final selection before continuing forward.</p>
+<p>Radio Alerts are a type of Confirmation Alert, but use the <a href="http://ionicframework.com/docs/v2/components/#radio">Radio</a> component to offer several choices. They offer A set of options is provided to the user, but only one option can be chosen.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>  doRadio() {
-    let alert = Alert.create();
+<div class="highlighter-rouge"><pre class="highlight"><code>import { AlertController } from 'ionic-angular';
+
+export class MyPage {
+  constructor(private alertController: AlertController){
+  }
+
+  showRadio() {
+    let alert = this.alertController.create();
     alert.setTitle('Lightsaber color');
 
     alert.addInput({
@@ -610,6 +654,9 @@
         this.testRadioResult = data;
       }
     });
+    alert.present();
+  }
+}
 </code></pre>
 </div>
 
@@ -619,10 +666,16 @@
   Demo Source
 </a></p>
 
-<p>Checkbox Alerts are simply another type of Confirmation Alert, but use the <a href="/docs/v2/components/#checkbox">Checkbox</a> component to offer several choices. They offer the user a set of options to choose from.</p>
+<p>Checkbox Alerts are a type of Confirmation Alert, but use the <a href="/docs/v2/components/#checkbox">Checkbox</a> component to offer several choices. They offer the user a set of options to choose from.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>  doCheckbox() {
-    let alert = Alert.create();
+<div class="highlighter-rouge"><pre class="highlight"><code>import { AlertController } from 'ionic-angular';
+
+export class MyPage {
+  constructor(private alertController: AlertController){
+  }
+
+  showCheckbox() {
+    let alert = this.alertController.create();
     alert.setTitle('Which planets have you visited?');
 
     alert.addInput({
@@ -647,7 +700,9 @@
         this.testCheckboxResult = data;
       }
     });
+    alert.present();
   }
+}
 </code></pre>
 </div>
 
@@ -658,6 +713,8 @@
 </a></p>
 
 <p>Badges are small components that typically communicate a numerical value to the user. They are typically used within an item.</p>
+
+<p><em>For more information, Check out the <a href="../api/components/badge/Badge">API docs</a>.</em></p>
 
 <h3 class="section-nav">Basic Usage</h3>
 
@@ -685,7 +742,9 @@
   Improve this Doc
 </a></p>
 
-<p>Buttons are an essential way to interact with and navigate through an app, and should clearly communicate what action will occur after the user taps them. Buttons are simple components in Ionic, can consist of text, an icon, or both, and can be enhanced with a wide range of attributes.</p>
+<p>Buttons are an essential way to interact with and navigate through an app, and should clearly communicate what action will occur after the user taps them. Buttons can consist of text and/or an icon, and can be enhanced with a wide variety of attributes.</p>
+
+<p><em>For more information, Check out the <a href="../api/components/button/Button">API docs</a>.</em></p>
 
 <ul class="docs-content">
   <li class="docs-content-header">Contents</li>
@@ -839,7 +898,7 @@
   Demo Source
 </a></p>
 
-<p>Adding <code class="highlighter-rouge">fab</code> to a button will turn it into a floating action button. This is a material design styled button that is meant to draw the user to take a specific action. Fab buttons are positioned absolutely, and their placement can be controlled by adding attributes like <code class="highlighter-rouge">fab-top</code> and <code class="highlighter-rouge">fab-left</code>. See the <a href="../api/components/button/Button">button API spec</a> for a full list of attributes.</p>
+<p>Adding <code class="highlighter-rouge">fab</code> to a button will turn it into a floating action button. This is a material design styled button that is meant to draw the user to take a specific action. Fab buttons are positioned absolutely, and their placement can be controlled by adding attributes like <code class="highlighter-rouge">fab-top</code> and <code class="highlighter-rouge">fab-left</code>. See the <a href="../api/components/button/Button">Button API spec</a> for a full list of attributes.</p>
 
 <div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;button</span> <span class="na">fab</span><span class="nt">&gt;</span>FAB<span class="nt">&lt;/button&gt;</span>
 </code></pre>
@@ -903,12 +962,12 @@
   <li class="docs-content-item"><a href="#advanced-cards">Advanced Cards</a></li>
 </ul>
 
-<h3 class="no-para">Basic Usage:</h3>
+<h3 class="no-para">Basic Usage</h3>
 <p><a target="_blank" class="component-doc-demo" href="https://github.com/driftyco/ionic-preview-app/tree/master/app/pages/cards/basic">
   Demo Source
 </a></p>
 
-<p>Cards are primarily a CSS component. To use add a basic card, follow this structure:</p>
+<p>Cards are primarily a CSS component. To use a basic card, follow this structure:</p>
 
 <div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;ion-card&gt;</span>
 
@@ -925,7 +984,7 @@
 </div>
 
 <h3 class="section-nav" id="card-header">Card Headers</h3>
-<p>Just like a normal page, cards can be customized to include headers. To add use add a card header, add the <code class="highlighter-rouge">&lt;ion-card-header&gt;</code> component inside of your card:</p>
+<p>Just like a normal page, cards can be customized to include headers. To add a header to a card, add the <code class="highlighter-rouge">&lt;ion-card-header&gt;</code> component inside of your card:</p>
 
 <div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;ion-card&gt;</span>
   <span class="nt">&lt;ion-card-header&gt;</span>
@@ -943,7 +1002,7 @@
   Demo Source
 </a></p>
 
-<p>A card can contain a list of items. To create a card list, add elements with the <code class="highlighter-rouge">ion-item</code> attribute inside of an <code class="highlighter-rouge">ion-list</code> in your card:</p>
+<p>A card can contain a list of items. Add an <code class="highlighter-rouge">ion-list</code> component inside of the <code class="highlighter-rouge">ion-card-content</code> to display a list:</p>
 
 <div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;ion-card&gt;</span>
   <span class="nt">&lt;ion-card-header&gt;</span>
@@ -1079,7 +1138,7 @@
 
 <h2 id="advanced-cards" class="section-header">Advanced Cards</h2>
 
-<p>The styles from different types of cards can be combined to create advanced cards. Cards can also receive custom CSS. Below are a few advanced cards that have been built by combining various card attributes with a small amount of custom CSS.</p>
+<p>The styles from different types of cards can be combined to create advanced cards. Cards can also use custom CSS. Below are a few advanced cards that have been built by combining various card attributes with a small amount of custom CSS.</p>
 
 <ul class="docs-content">
   <li class="docs-content-header">Contents</li>
@@ -1189,6 +1248,8 @@
 
 <p>A checkbox is an input component that holds a <em>boolean</em> value. Checkboxes are no different than HTML checkbox inputs. However, like other Ionic components, checkboxes are styled differently on each platform. Use the <code class="highlighter-rouge">checked</code> attribute to set the default value, and the <code class="highlighter-rouge">disabled</code> attribute to disable the user from changing the value.</p>
 
+<p><em>For more information, Check out the <a href="../api/components/checkbox/Checkbox">API docs</a>.</em></p>
+
 <h3 class="no-para">Basic Usage</h3>
 <p><a target="_blank" class="component-doc-demo" href="https://github.com/driftyco/ionic-preview-app/tree/master/app/pages/checkboxes">
   Demo Source
@@ -1214,6 +1275,8 @@
 
 <p>The DateTime component is used to present an interface which makes it easy for users to select dates and times. The DateTime component is similar to the native <code class="highlighter-rouge">&lt;input type="datetime-local"&gt;</code> element, however, Ionic’s DateTime component makes it easy to display the date and time in a preferred format, and manage the datetime values.</p>
 
+<p><em>For more information, Check out the <a href="../api/components/datetime/DateTime">API docs</a>.</em></p>
+
 <h3 class="no-para">Basic Usage</h3>
 <p><a target="_blank" class="component-doc-demo" href="https://github.com/driftyco/ionic-preview-app/tree/master/app/pages/datetime">
   Demo Source
@@ -1226,15 +1289,13 @@
 </code></pre>
 </div>
 
-<p>For more information on tabs, check out the <a href="../api/components/datetime/DateTime/">DateTime API reference</a>.</p>
-
 <h2 id="gestures" class="section-header">Gestures</h2>
 
 <p><a target="_blank" class="improve-v2-docs" href="https://github.com/driftyco/ionic-site/edit/master/_includes/v2_fluid/component-docs/gestures.html">
   Improve this Doc
 </a></p>
 
-<p>You can target specific gestures to trigger specific functionality. Built on top of Hammer.js, you can bind to <code class="highlighter-rouge">tap</code>, <code class="highlighter-rouge">press</code>, <code class="highlighter-rouge">pan</code>, <code class="highlighter-rouge">swipe</code>, <code class="highlighter-rouge">rotate</code>, and <code class="highlighter-rouge">pinch</code>.</p>
+<p>Basic gestures can be accessed from HTML by binding to <code class="highlighter-rouge">tap</code>, <code class="highlighter-rouge">press</code>, <code class="highlighter-rouge">pan</code>, <code class="highlighter-rouge">swipe</code>, <code class="highlighter-rouge">rotate</code>, and <code class="highlighter-rouge">pinch</code> events.</p>
 
 <h3 class="no-para">Basic Usage</h3>
 <p><a target="_blank" class="component-doc-demo" href="https://github.com/driftyco/ionic-preview-app/tree/master/app/pages/gestures">
@@ -1334,37 +1395,39 @@
 
 <p>Ionic comes with the same 700+ <a href="/docs/v2/ionicons/">Ionicons</a> icons we’ve all come to know and love.</p>
 
-<h3 id="basic-usage">Basic Usage:</h3>
+<p><em>For more information, Check out the <a href="../api/components/icon/Icon">API docs</a>.</em></p>
+
+<h3 id="basic-usage">Basic Usage</h3>
 <p><a target="_blank" class="component-doc-demo" href="https://github.com/driftyco/ionic-preview-app/tree/master/app/pages/icons">
   Demo Source
 </a></p>
 
-<p>To use an icon, just add the Icon’s CSS class to your element:</p>
+<p>To use an icon, populate the <code class="highlighter-rouge">name</code> attribute on the <code class="highlighter-rouge">ion-icon</code> component:</p>
 
 <div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;ion-icon</span> <span class="na">name=</span><span class="s">"heart"</span><span class="nt">&gt;&lt;/ion-icon&gt;</span>
 </code></pre>
 </div>
 
-<h3 id="active--inactive-icons">Active / Inactive Icons:</h3>
+<h3 id="active--inactive-icons">Active / Inactive Icons</h3>
 
-<p>All icons have both <code class="highlighter-rouge">active</code> and <code class="highlighter-rouge">inactive</code> states. Active icons are typically full and thick, where as inactive icons are outlined and thin. Set the <code class="highlighter-rouge">isActive</code> attribute to <code class="highlighter-rouge">true</code> or false to change the state of the icon. Icons will default to active if a value is not specified.</p>
+<p>All icons have both <code class="highlighter-rouge">active</code> and <code class="highlighter-rouge">inactive</code> states. Active icons are typically full and thick, where as inactive icons are outlined and thin. Set the <code class="highlighter-rouge">isActive</code> attribute to <code class="highlighter-rouge">true</code> or <code class="highlighter-rouge">false</code> to change the state of the icon. Icons will default to active if a value is not specified.</p>
 
 <div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;ion-icon</span> <span class="na">name=</span><span class="s">"heart"</span><span class="nt">&gt;&lt;/ion-icon&gt;</span>                    <span class="c">&lt;!-- active --&gt;</span>
 <span class="nt">&lt;ion-icon</span> <span class="na">name=</span><span class="s">"heart"</span> <span class="na">isActive=</span><span class="s">"false"</span><span class="nt">&gt;&lt;/ion-icon&gt;</span>  <span class="c">&lt;!-- inactive --&gt;</span>
 </code></pre>
 </div>
 
-<h3 id="platform-specific-icons">Platform Specific Icons:</h3>
+<h3 id="platform-specific-icons">Platform Specific Icons</h3>
 
 <p>Many icons have both <strong>Material Design</strong> and <strong>iOS</strong> versions. Ionic will automatically use the correct version based on the platform.</p>
 
-<p>However, if you want more control, you can explicitly set the icon to use for each platform. Use the <code class="highlighter-rouge">md</code> (material design) and <code class="highlighter-rouge">ios</code> attributes to specify a platform specific icon:</p>
+<p>To specify the icon to use for each platform, use the <code class="highlighter-rouge">md</code> and <code class="highlighter-rouge">ios</code> attributes and provide the platform specific icon name.</p>
 
 <div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;ion-icon</span> <span class="na">ios=</span><span class="s">"logo-apple"</span> <span class="na">md=</span><span class="s">"logo-android"</span><span class="nt">&gt;&lt;/ion-icon&gt;</span>
 </code></pre>
 </div>
 
-<h3 id="variable-icons">Variable Icons:</h3>
+<h3 id="variable-icons">Variable Icons</h3>
 
 <p>To set an icon using a variable:</p>
 
@@ -1395,6 +1458,8 @@
 
 <p>A number of attributes that can be used to style forms and their various input fields are listed below. For more info on form logic, check out the <a href="../api/components/input/Input/">Inputs API docs</a>.</p>
 
+<p><em>For more information, Check out the <a href="../api/components/input/Input">API docs</a>.</em></p>
+
 <ul class="docs-content">
   <li class="docs-content-header">Contents</li>
   <li class="docs-content-item"><a href="#fixed-inline-labels">Fixed Inline Labels</a></li>
@@ -1410,7 +1475,7 @@
   Demo Source
 </a></p>
 
-<p>Use <code class="highlighter-rouge">fixed</code> to place a label to the left of the input element. When the user enters text, the label does not hide. The user’s input will align on the same position, regardless of the length of the label. Note that there’s nothing stopping you from also using a placeholder label too.</p>
+<p>Use <code class="highlighter-rouge">fixed</code> to place a label to the left of the input element. The label does not hide when text is entered. The input will align on the same position, regardless of the length of the label. Placeholder text can be used in conjunction with a fixed label.</p>
 
 <div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;ion-list&gt;</span>
 
@@ -1433,7 +1498,7 @@
   Demo Source
 </a></p>
 
-<p>Floating labels are just like <a href="#forms-stacked-labels">Stacked Labels</a>, except that their labels animate, or “float” up when text is entered in the input. Each <code class="highlighter-rouge">&lt;ion-label&gt;</code> should have the <code class="highlighter-rouge">floating</code> attribute assigned.</p>
+<p>Floating labels are labels that animate or “float” up when the input is selected. Add the <code class="highlighter-rouge">floating</code> attribute to an <code class="highlighter-rouge">ion-label</code> to use.</p>
 
 <p>Enter text in the example to the right to see the floating labels in action.</p>
 
@@ -1458,7 +1523,7 @@
   Demo Source
 </a></p>
 
-<p>If a label attribute is not provided, an <code class="highlighter-rouge">&lt;ion-label&gt;</code> component will default to using an inline label. When the user enters text, the label does not hide. Note that there’s nothing stopping you from also using a placeholder as well.</p>
+<p>An <code class="highlighter-rouge">ion-label</code> without any attributes is an inline label. The label does not hide when text is entered. Placeholder text can be used in conjunction with an inline label.</p>
 
 <div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;ion-list&gt;</span>
 
@@ -1484,7 +1549,7 @@
   Demo Source
 </a></p>
 
-<p>By default each input item will fill 100% of the width of its parent element (the list). However, you can inset the list by adding the <code class="highlighter-rouge">inset</code> attribute.</p>
+<p>By default each input item will fill 100% of the width of its parent element. Make the input inset by adding the <code class="highlighter-rouge">inset</code> attribute to the <code class="highlighter-rouge">ion-list</code> component.</p>
 
 <div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;ion-list</span> <span class="na">inset</span><span class="nt">&gt;</span>
 
@@ -1507,7 +1572,7 @@
   Demo Source
 </a></p>
 
-<p>Add the <code class="highlighter-rouge">placeholder</code> attribute to an <code class="highlighter-rouge">&lt;input&gt;</code> element to simulate the input’s label. When the user begins to enter text into the input, the placeholder label will be hidden.</p>
+<p>Add the <code class="highlighter-rouge">placeholder</code> attribute to an <code class="highlighter-rouge">&lt;input&gt;</code> element to simulate the input’s label. When text is entered into the input, the placeholder label is hidden.</p>
 
 <div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;ion-list&gt;</span>
 
@@ -1529,8 +1594,7 @@
   Demo Source
 </a></p>
 
-<p>A stacked label will always appear on top of the input. Each <code class="highlighter-rouge">&lt;ion-label&gt;</code> should have the <code class="highlighter-rouge">stacked</code> attribute.
-You can also add a placeholder so that users have a hint of what type of text the input is looking for.</p>
+<p>A stacked label will always appear on top of the input. Add the <code class="highlighter-rouge">stacked</code> attribute to an <code class="highlighter-rouge">ion-label</code> to use. Placeholder text can be used in conjunction with an stacked label.</p>
 
 <div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;ion-list&gt;</span>
 
@@ -1556,6 +1620,8 @@ You can also add a placeholder so that users have a hint of what type of text th
 
 <p>Lists are used to display rows of information, such as a contact list, playlist, or menu. Or maybe something crazy we don’t even know exists yet!</p>
 
+<p><em>For more information, Check out the <a href="../api/components/list/List">List API docs</a> and the <a href="../api/components/item/Item">Item API docs</a>.</em></p>
+
 <ul class="docs-content">
   <li class="docs-content-header">Contents</li>
   <li class="docs-content-item"><a href="#lists">Basic Lists</a></li>
@@ -1564,12 +1630,12 @@ You can also add a placeholder so that users have a hint of what type of text th
   <li class="docs-content-item"><a href="#list-headers">List Headers</a></li>
   <li class="docs-content-item"><a href="#icon-list">Icon List</a></li>
   <li class="docs-content-item"><a href="#avatar-list">Avatar List</a></li>
-  <li class="docs-content-item"><a href="#multiline-list">Multiline List</a></li>
+  <li class="docs-content-item"><a href="#multiline-list">Multi-line List</a></li>
   <li class="docs-content-item"><a href="#sliding-list">Sliding List</a></li>
   <li class="docs-content-item"><a href="#thumbnail-list">Thumbnail List</a></li>
 </ul>
 
-<h3 class="section-nav" id="list-lines">Basic Usage (Default)</h3>
+<h3 class="section-nav" id="list-lines">Basic Usage</h3>
 <p><a target="_blank" class="component-doc-demo" href="https://github.com/driftyco/ionic-preview-app/tree/master/app/pages/lists/basic">
   Demo Source
 </a></p>
@@ -1584,7 +1650,7 @@ You can also add a placeholder so that users have a hint of what type of text th
 </code></pre>
 </div>
 
-<h3 class="no-para" id="list-no-lines">Basic Usage (No Lines)</h3>
+<h3 class="no-para" id="list-no-lines">No Lines</h3>
 <p><a target="_blank" class="component-doc-demo" href="https://github.com/driftyco/ionic-preview-app/tree/master/app/pages/lists/no-lines">
   Demo Source
 </a></p>
@@ -1604,7 +1670,7 @@ You can also add a placeholder so that users have a hint of what type of text th
   Demo Source
 </a></p>
 
-<p>By default, lists have no outside margin, to add one, add the <code class="highlighter-rouge">inset</code> property to the list component.</p>
+<p>Lists don’t have an outside margin by default.  To add one, add the <code class="highlighter-rouge">inset</code> attribute to <code class="highlighter-rouge">ion-list</code> component.</p>
 
 <div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;ion-list</span> <span class="na">inset</span><span class="nt">&gt;</span>
   <span class="nt">&lt;ion-item</span> <span class="err">*</span><span class="na">ngFor=</span><span class="s">"let item of items"</span> <span class="err">(</span><span class="na">click</span><span class="err">)="</span><span class="na">itemSelected</span><span class="err">(</span><span class="na">item</span><span class="err">)"</span><span class="nt">&gt;</span>
@@ -1656,7 +1722,7 @@ You can also add a placeholder so that users have a hint of what type of text th
   Demo Source
 </a></p>
 
-<p>Adding <a href="#icons">icons</a> to list items is a great way to hint about the contents of each item. The position of the icon can be set using the <code class="highlighter-rouge">item-left</code> and <code class="highlighter-rouge">item-right</code> attributes:</p>
+<p>Adding <a href="#icons">icons</a> to list items is a great way to hint about the contents of each item. The position of the icon can be set using the <code class="highlighter-rouge">item-left</code> and <code class="highlighter-rouge">item-right</code> attributes. The size of the icon defaults to <code class="highlighter-rouge">small</code>, and can be made larger with the <code class="highlighter-rouge">large</code> attribute.</p>
 
 <div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;ion-list&gt;</span>
   <span class="nt">&lt;ion-item&gt;</span>
@@ -1687,12 +1753,12 @@ You can also add a placeholder so that users have a hint of what type of text th
 </code></pre>
 </div>
 
-<h3 class="section-nav" id="multiline-list">Multiline List</h3>
+<h3 class="section-nav" id="multiline-list">Multi-line List</h3>
 <p><a target="_blank" class="component-doc-demo" href="https://github.com/driftyco/ionic-preview-app/tree/master/app/pages/lists/multiline">
   Demo Source
 </a></p>
 
-<p>Multiline lists are identical to regular lists, except they can multiple lines of text. When multiple header or paragraph tags are added to an <code class="highlighter-rouge">&lt;ion-item&gt;</code>, the item will automatically adjust its height to fit the new lines. Below is an example with three lines of text:</p>
+<p>Multi-line lists are identical to regular lists, except items have multiple lines of text. When an <code class="highlighter-rouge">&lt;ion-item</code>&gt; component contains multiple header or paragraph elements, it will automatically expand it’s height to fit the new lines of text. Below is an example with three lines of text:</p>
 
 <div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;ion-list&gt;</span>
   <span class="nt">&lt;ion-item&gt;</span>
@@ -1712,7 +1778,9 @@ You can also add a placeholder so that users have a hint of what type of text th
   Demo Source
 </a></p>
 
-<p>Sliding items can be swiped to the left to reveal a set of buttons. To use a sliding item, add a <code class="highlighter-rouge">&lt;ion-item-sliding&gt;</code> component inside of a list. Next, add a <code class="highlighter-rouge">&lt;ion-item-options&gt;</code> component inside of the sliding item to contain the buttons:</p>
+<p>Sliding items can be swiped to the left or right to reveal a hidden set of buttons.  To use a sliding item, add an <code class="highlighter-rouge">ion-item-sliding</code> component inside of an <code class="highlighter-rouge">ion-list</code> component.  Next, add an <code class="highlighter-rouge">&lt;ion-item-options&gt;</code> component inside of the sliding item to contain the buttons.</p>
+
+<p>For more information, Check out the <a href="../api/components/item/ItemSliding">API docs</a>.</p>
 
 <div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;ion-list&gt;</span>
   <span class="nt">&lt;ion-item-sliding&gt;</span>
@@ -1722,7 +1790,7 @@ You can also add a placeholder so that users have a hint of what type of text th
       <span class="nt">&lt;/ion-avatar&gt;</span>
       <span class="nt">&lt;h2&gt;</span>Slimer<span class="nt">&lt;/h2&gt;</span>
     <span class="nt">&lt;/ion-item&gt;</span>
-    <span class="nt">&lt;ion-item-options&gt;</span>
+    <span class="nt">&lt;ion-item-options</span> <span class="na">side=</span><span class="s">"left"</span><span class="nt">&gt;</span>
       <span class="nt">&lt;button</span> <span class="na">primary</span><span class="nt">&gt;</span>
         <span class="nt">&lt;ion-icon</span> <span class="na">name=</span><span class="s">"text"</span><span class="nt">&gt;&lt;/ion-icon&gt;</span>
         Text
@@ -1730,6 +1798,12 @@ You can also add a placeholder so that users have a hint of what type of text th
       <span class="nt">&lt;button</span> <span class="na">secondary</span><span class="nt">&gt;</span>
         <span class="nt">&lt;ion-icon</span> <span class="na">name=</span><span class="s">"call"</span><span class="nt">&gt;&lt;/ion-icon&gt;</span>
         Call
+      <span class="nt">&lt;/button&gt;</span>
+    <span class="nt">&lt;/ion-item-options&gt;</span>
+    <span class="nt">&lt;ion-item-options</span> <span class="na">side=</span><span class="s">"right"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;button</span> <span class="na">primary</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;ion-icon</span> <span class="na">name=</span><span class="s">"mail"</span><span class="nt">&gt;&lt;/ion-icon&gt;</span>
+        Email
       <span class="nt">&lt;/button&gt;</span>
     <span class="nt">&lt;/ion-item-options&gt;</span>
   <span class="nt">&lt;/ion-item-sliding&gt;</span>
@@ -1764,24 +1838,28 @@ You can also add a placeholder so that users have a hint of what type of text th
 </a></p>
 
 <p>The Loading component is an overlay that prevents user interaction while indicating activity.
-By default, it shows a spinner based on the mode. It can also be passed any HTML content to
-display with the spinner. You can hide or change the spinner to any of our predefined
-spinners. The loading indicator is styled to display on top of other content even during
-navigation.</p>
+By default, it shows a spinner based on the mode. Dynamic content can be passed and displayed with the spinner. The spinner can be hidden or customized to use several predefined options. The loading indicator is presented on top of other content even during navigation.</p>
 
-<p>Check out the <a href="../api/components/loading/Loading">API docs</a> for more information.</p>
+<p><em>For more information, Check out the <a href="../api/components/loading/Loading">API docs</a>.</em></p>
 
 <h3 class="section-nav">Basic Usage</h3>
 <p><a target="_blank" class="component-doc-demo" href="https://github.com/driftyco/ionic-preview-app/tree/master/app/pages/loading/basic">
   Demo Source
 </a></p>
 
-<div class="language-typescript highlighter-rouge"><pre class="highlight"><code><span class="nx">presentLoading</span><span class="p">()</span> <span class="p">{</span>
-  <span class="kd">let</span> <span class="nx">loading</span> <span class="o">=</span> <span class="nx">Loading</span><span class="p">.</span><span class="nx">create</span><span class="p">({</span>
-    <span class="na">content</span><span class="p">:</span> <span class="s2">"Please wait..."</span><span class="p">,</span>
-    <span class="na">duration</span><span class="p">:</span> <span class="mi">3000</span>
-  <span class="p">});</span>
-  <span class="k">this</span><span class="p">.</span><span class="nx">nav</span><span class="p">.</span><span class="nx">present</span><span class="p">(</span><span class="nx">loading</span><span class="p">);</span>
+<div class="language-typescript highlighter-rouge"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">LoadingController</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'ionic-angular'</span><span class="p">;</span>
+
+<span class="k">export</span> <span class="kr">class</span> <span class="nx">MyPage</span> <span class="p">{</span>
+  <span class="kd">constructor</span><span class="p">(</span><span class="k">private</span> <span class="nx">loadingController</span><span class="err">:</span> <span class="nx">LoadingController</span><span class="p">){</span>
+  <span class="p">}</span>
+
+  <span class="nx">presentLoading</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nx">loader</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">loadingController</span><span class="p">.</span><span class="nx">create</span><span class="p">({</span>
+      <span class="na">content</span><span class="p">:</span> <span class="s2">"Please wait..."</span><span class="p">,</span>
+      <span class="na">duration</span><span class="p">:</span> <span class="mi">3000</span>
+    <span class="p">});</span>
+    <span class="nx">loader</span><span class="p">.</span><span class="nx">present</span><span class="p">();</span>
+  <span class="p">}</span>
 <span class="p">}</span>
 </code></pre>
 </div>
@@ -1792,90 +1870,34 @@ navigation.</p>
   Improve this Doc
 </a></p>
 
-<p><em>For more in depth information on Menus, see the <a href="../api/components/menu/Menu">Menu API reference</a>.</em></p>
+<p>Menu is a side-menu navigation that can be dragged out or toggled to show. The content of a menu will be hidden when the menu is closed.</p>
 
-<p>Menu is a side-menu navigation that can be dragged out or toggled to show. Menu supports two display styles currently: overlay, and reveal. Overlay is the tradtional Android drawer style, and Reveal is the traditional iOS style. By default, Menu will adjust to the correct style for the platform.</p>
-
-<p>Along with <a href="#tabs">Tabs</a>, Menus are a common way to navigate through an app if you have several “root” or “top-level” pages. For the basics of navigating through an Ionic app, see the <a href="#navigation">Navigation section</a>.</p>
-
-<p>For UX reasons, we first recommend using Tabs. However, for situations where using Tabs might not be desirable, for example if you have a large number of root pages (making a TabBar impractical), a menu might be a better solution.</p>
-
-<p>Menus also allow you to return to root pages at any point. This can be helpful if you have particularly deep navigation by allowing you to return to the top level of your app quickly.</p>
-
-<p>However, because Menus are not always and immediately visible on screen, they require more work for the user than Tabs. Make sure to weigh your priorities when designing the navigational structure of your app.</p>
-
-<p>To use a Menu add an <a href="../api/components/menu/Menu/"><code class="highlighter-rouge">&lt;ion-menu&gt;</code></a> to your markup next to your root <a href="../api/components/nav/Nav/"><code class="highlighter-rouge">&lt;ion-nav&gt;</code></a>.</p>
+<p><em>For more information, Check out the <a href="../api/components/menu/Menu">API docs</a>.</em></p>
 
 <h3 class="section-nav">Basic Usage</h3>
 <p><a target="_blank" class="component-doc-demo" href="https://github.com/driftyco/ionic-preview-app/tree/master/app/pages/menus/basic">
   Demo Source
 </a></p>
 
-<div class="language-typescript highlighter-rouge"><pre class="highlight"><code><span class="err">@</span><span class="nx">Component</span><span class="p">({</span>
-  <span class="na">template</span><span class="p">:</span> <span class="err">`</span>
-    <span class="o">&lt;</span><span class="nx">ion</span><span class="o">-</span><span class="nx">menu</span> <span class="p">[</span><span class="nx">content</span><span class="p">]</span><span class="o">=</span><span class="s2">"content"</span><span class="o">&gt;</span>
-      <span class="o">&lt;</span><span class="nx">ion</span><span class="o">-</span><span class="nx">toolbar</span><span class="o">&gt;</span>
-        <span class="o">&lt;</span><span class="nx">ion</span><span class="o">-</span><span class="nx">title</span><span class="o">&gt;</span><span class="nx">Pages</span><span class="o">&lt;</span><span class="sr">/ion-title</span><span class="err">&gt;
-</span>      <span class="o">&lt;</span><span class="sr">/ion-toolbar</span><span class="err">&gt;
-</span>      <span class="o">&lt;</span><span class="nx">ion</span><span class="o">-</span><span class="nx">content</span><span class="o">&gt;</span>
-        <span class="o">&lt;</span><span class="nx">ion</span><span class="o">-</span><span class="nx">list</span><span class="o">&gt;</span>
-          <span class="o">&lt;</span><span class="nx">button</span> <span class="nx">ion</span><span class="o">-</span><span class="nx">item</span> <span class="p">(</span><span class="nx">click</span><span class="p">)</span><span class="o">=</span><span class="s2">"openPage(loginPage)"</span><span class="o">&gt;</span>
-            <span class="nx">Login</span>
-          <span class="o">&lt;</span><span class="sr">/button</span><span class="err">&gt;
-</span>          <span class="o">&lt;</span><span class="nx">button</span> <span class="nx">ion</span><span class="o">-</span><span class="nx">item</span> <span class="p">(</span><span class="nx">click</span><span class="p">)</span><span class="o">=</span><span class="s2">"openPage(signupPage)"</span><span class="o">&gt;</span>
-            <span class="nx">Signup</span>
-          <span class="o">&lt;</span><span class="sr">/button</span><span class="err">&gt;
-</span>        <span class="o">&lt;</span><span class="sr">/ion-list</span><span class="err">&gt;
-</span>      <span class="o">&lt;</span><span class="sr">/ion-content</span><span class="err">&gt;
-</span>    <span class="o">&lt;</span><span class="sr">/ion-menu</span><span class="err">&gt;
-</span>
-    <span class="o">&lt;</span><span class="nx">ion</span><span class="o">-</span><span class="nx">nav</span> <span class="nx">id</span><span class="o">=</span><span class="s2">"nav"</span> <span class="err">#</span><span class="nx">content</span> <span class="p">[</span><span class="nx">root</span><span class="p">]</span><span class="o">=</span><span class="s2">"rootPage"</span><span class="o">&gt;&lt;</span><span class="sr">/ion-nav&gt;</span><span class="err">`
-</span><span class="p">})</span>
-<span class="kr">class</span> <span class="nx">MyApp</span> <span class="p">{}</span>
+<div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;ion-menu</span> <span class="err">[</span><span class="na">content</span><span class="err">]="</span><span class="na">content</span><span class="err">"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;ion-toolbar&gt;</span>
+    <span class="nt">&lt;ion-title&gt;</span>Pages<span class="nt">&lt;/ion-title&gt;</span>
+  <span class="nt">&lt;/ion-toolbar&gt;</span>
+  <span class="nt">&lt;ion-content&gt;</span>
+    <span class="nt">&lt;ion-list&gt;</span>
+      <span class="nt">&lt;button</span> <span class="na">ion-item</span> <span class="err">(</span><span class="na">click</span><span class="err">)="</span><span class="na">openPage</span><span class="err">(</span><span class="na">loginPage</span><span class="err">)"</span><span class="nt">&gt;</span>
+        Login
+      <span class="nt">&lt;/button&gt;</span>
+      <span class="nt">&lt;button</span> <span class="na">ion-item</span> <span class="err">(</span><span class="na">click</span><span class="err">)="</span><span class="na">openPage</span><span class="err">(</span><span class="na">signupPage</span><span class="err">)"</span><span class="nt">&gt;</span>
+        Signup
+      <span class="nt">&lt;/button&gt;</span>
+    <span class="nt">&lt;/ion-list&gt;</span>
+  <span class="nt">&lt;/ion-content&gt;</span>
+<span class="nt">&lt;/ion-menu&gt;</span>
+
+<span class="nt">&lt;ion-nav</span> <span class="na">id=</span><span class="s">"nav"</span> <span class="err">#</span><span class="na">content</span> <span class="err">[</span><span class="na">root</span><span class="err">]="</span><span class="na">rootPage</span><span class="err">"</span><span class="nt">&gt;&lt;/ion-nav&gt;</span>
 </code></pre>
 </div>
-
-<p>The <code class="highlighter-rouge">&lt;ion-menu&gt;</code>s bound <code class="highlighter-rouge">[content]</code> property gets a <a href="https://angular.io/docs/ts/latest/guide/user-input.html#local-variables">reference</a> to the <code class="highlighter-rouge">&lt;ion-nav&gt;</code> in order to listen for drag events on the main content so it knows when to open/close.</p>
-
-<p>Then in our root component we have two buttons with click handlers that navigate to a new root page:</p>
-
-<div class="language-typescript highlighter-rouge"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span><span class="nx">Component</span><span class="p">}</span> <span class="k">from</span> <span class="s1">'@angular/core'</span><span class="p">;</span>
-<span class="k">import</span> <span class="p">{</span><span class="nx">MenuController</span><span class="p">,</span> <span class="nx">ionicBootstrap</span><span class="p">}</span> <span class="k">from</span> <span class="s1">'ionic-angular'</span><span class="p">;</span>
-<span class="k">import</span> <span class="p">{</span><span class="nx">LoginPage</span><span class="p">}</span> <span class="k">from</span> <span class="s1">'login'</span><span class="p">;</span>
-<span class="k">import</span> <span class="p">{</span><span class="nx">SignupPage</span><span class="p">}</span> <span class="k">from</span> <span class="s1">'signup'</span><span class="p">;</span>
-
-<span class="err">@</span><span class="nx">Component</span><span class="p">({</span>
-<span class="p">...</span>
-<span class="p">})</span>
-<span class="kr">class</span> <span class="nx">MyApp</span> <span class="p">{</span>
-
-  <span class="k">private</span> <span class="nx">rootPage</span> <span class="o">=</span> <span class="nx">LoginPage</span><span class="p">;</span>
-  <span class="k">private</span> <span class="nx">loginPage</span> <span class="o">=</span> <span class="nx">LoginPage</span><span class="p">;</span>
-  <span class="k">private</span> <span class="nx">signupPage</span> <span class="o">=</span> <span class="nx">SignupPage</span><span class="p">;</span>
-
-  <span class="kd">constructor</span><span class="p">(</span>
-    <span class="k">private</span> <span class="nx">app</span><span class="err">:</span> <span class="nx">IonicApp</span><span class="p">,</span>
-    <span class="k">private</span> <span class="nx">menu</span><span class="err">:</span> <span class="nx">MenuController</span><span class="p">)</span> <span class="p">{}</span>
-
-  <span class="nx">openPage</span><span class="p">(</span><span class="nx">page</span><span class="p">)</span> <span class="p">{</span>
-    <span class="c1">// Reset the nav controller to have just this page</span>
-    <span class="c1">// we wouldn't want the back button to show in this scenario</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">rootPage</span> <span class="o">=</span> <span class="nx">page</span><span class="p">;</span>
-
-    <span class="c1">// close the menu when clicking a link from the menu</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">menu</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-
-<span class="nx">ionicBootstrap</span><span class="p">(</span><span class="nx">MyApp</span><span class="p">)</span>
-</code></pre>
-</div>
-
-<p>We inject the <a href="../api/components/menu/Menu/"><code class="highlighter-rouge">MenuController</code></a> provider so we can close the opened menu.  We then use the NavController’s <a href="../api/components/nav/NavController/#setRoot"><code class="highlighter-rouge">setRoot</code></a> function to clear the navigation stack and set the selected page as the new navigation root.</p>
-
-<p>Menus can be a little more complicated, but they allow for many different configuration options.  For example, the Google Maps app uses a drawer style Menu that exposes a list of items that open <a href="#modals">Modals</a> over the main map content area and toggle settings on and off.</p>
-
-<p>For more information on Menus, check out the <a href="../api/components/menu/Menu/">Menu API reference</a>.</p>
 
 <h2 id="modals" class="section-header">Modals</h2>
 
@@ -1885,53 +1907,27 @@ navigation.</p>
 
 <p>Modals slide in off screen to display a temporary UI, often used for login or signup pages, message composition, and option selection.</p>
 
+<p><em>For more information, Check out the <a href="../api/components/modal/ModalController">API docs</a>.</em></p>
+
 <h3 class="section-nav">Basic Usage</h3>
 <p><a target="_blank" class="component-doc-demo" href="https://github.com/driftyco/ionic-preview-app/tree/master/app/pages/modals/basic">
   Demo Source
 </a></p>
 
-<p>Next, we need to create the class that will control our modal. Let’s import <code class="highlighter-rouge">Modal</code>, <code class="highlighter-rouge">NavController</code>, <code class="highlighter-rouge">Page</code> and <code class="highlighter-rouge">ViewController</code>:</p>
+<div class="language-typescript highlighter-rouge"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">ModalController</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'ionic-angular'</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">ModalPage</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'./modal-page'</span><span class="p">;</span>
 
-<div class="language-typescript highlighter-rouge"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span><span class="nx">Component</span><span class="p">}</span> <span class="k">from</span> <span class="s1">'@angular/core'</span><span class="p">;</span>
-<span class="k">import</span> <span class="p">{</span><span class="nx">Modal</span><span class="p">,</span> <span class="nx">NavController</span><span class="p">,</span><span class="nx">ViewController</span><span class="p">}</span> <span class="k">from</span> <span class="s1">'ionic-angular'</span><span class="p">;</span>
-</code></pre>
-</div>
+<span class="k">export</span> <span class="kr">class</span> <span class="nx">MyPage</span> <span class="p">{</span>
+  <span class="kd">constructor</span> <span class="p">(</span> <span class="k">private</span> <span class="nx">modalController</span> <span class="err">:</span> <span class="nx">ModalController</span> <span class="p">){</span>
+  <span class="p">}</span>
 
-<p>Next, let’s create our modal and define add its template:</p>
-
-<div class="language-typescript highlighter-rouge"><pre class="highlight"><code><span class="err">@</span><span class="nx">Component</span><span class="p">({</span>
-  <span class="na">template</span><span class="p">:</span> <span class="err">`</span>
-  <span class="o">&lt;</span><span class="nx">ion</span><span class="o">-</span><span class="nx">content</span> <span class="nx">padding</span><span class="o">&gt;</span>
-    <span class="o">&lt;</span><span class="nx">h2</span><span class="o">&gt;</span><span class="nx">I</span><span class="err">'</span><span class="nx">m</span> <span class="nx">a</span> <span class="nx">modal</span><span class="o">!&lt;</span><span class="sr">/h2</span><span class="err">&gt;
-</span>    <span class="o">&lt;</span><span class="nx">button</span> <span class="p">(</span><span class="nx">click</span><span class="p">)</span><span class="o">=</span><span class="s2">"close()"</span><span class="o">&gt;</span><span class="nx">Close</span><span class="o">&lt;</span><span class="sr">/button</span><span class="err">&gt;
-</span>  <span class="o">&lt;</span><span class="sr">/ion-content&gt;</span><span class="err">`
-</span><span class="p">})</span>
-<span class="kr">class</span> <span class="nx">MyModal</span> <span class="p">{</span>
-  <span class="kd">constructor</span><span class="p">(</span>
-    <span class="k">private</span> <span class="nx">viewCtrl</span><span class="err">:</span> <span class="nx">ViewController</span><span class="p">)</span> <span class="p">{}</span>
-
-  <span class="nx">close</span><span class="p">()</span> <span class="p">{</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">viewCtrl</span><span class="p">.</span><span class="nx">dismiss</span><span class="p">();</span>
+  <span class="nx">presentModal</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nx">modal</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">modalController</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">ModalPage</span><span class="p">);</span>
+    <span class="nx">modal</span><span class="p">.</span><span class="nx">present</span><span class="p">();</span>
   <span class="p">}</span>
 <span class="p">}</span>
 </code></pre>
 </div>
-
-<p>Finally, let’s add the code that will open our Modal:</p>
-
-<div class="language-typescript highlighter-rouge"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span><span class="nx">Modal</span><span class="p">,</span> <span class="nx">NavController</span><span class="p">}</span> <span class="k">from</span> <span class="s1">'ionic-angular'</span>
-<span class="kr">class</span> <span class="nx">MyPage</span> <span class="p">{</span>
-  <span class="kd">constructor</span><span class="p">(</span><span class="k">private</span> <span class="nx">nav</span><span class="err">:</span> <span class="nx">NavController</span><span class="p">){}</span>
-
-  <span class="nx">showModal</span><span class="p">()</span> <span class="p">{</span>
-    <span class="kd">let</span> <span class="nx">modal</span> <span class="o">=</span> <span class="nx">Modal</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">MyModal</span><span class="p">);</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">nav</span><span class="p">.</span><span class="nx">present</span><span class="p">(</span><span class="nx">modal</span><span class="p">);</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-</code></pre>
-</div>
-
-<p>The <code class="highlighter-rouge">Modal.create()</code> function can also receive an object as the second argument that will be passed to the modal. See the <a href="/docs/v2/api/components/modal/Modal/">Modal API docs</a> for more information.</p>
 
 <h2 id="navigation" class="section-header">Navigation</h2>
 
@@ -2089,33 +2085,25 @@ The Popover is a view that floats above an app’s content. Popovers provide an 
   <li>Present a list of actions to perform inside one of your views</li>
 </ul>
 
+<p><em>For more information, Check out the <a href="../api/components/popover/PopoverController">API docs</a>.</em></p>
+
 <h3 class="no-para">Basic Usage</h3>
 <p><a target="_blank" class="component-doc-demo" href="https://github.com/driftyco/ionic-preview-app/tree/master/app/pages/popovers">
     Demo Source
 </a></p>
 
-<div class="language-html highlighter-rouge"><pre class="highlight"><code>@Component({
-  template: `This is a popover`
-})
+<div class="language-typescript highlighter-rouge"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">PopoverController</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'ionic-angular'</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">MyPopOverPage</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'./my-pop-over'</span><span class="p">;</span>
 
-export class MyPopover{}
+<span class="k">export</span> <span class="kr">class</span> <span class="nx">MyPage</span> <span class="p">{</span>
+  <span class="kd">constructor</span> <span class="p">(</span> <span class="k">private</span> <span class="nx">popoverController</span> <span class="err">:</span> <span class="nx">PopoverController</span> <span class="p">){</span>
+  <span class="p">}</span>
 
-@Component({
-  templateUrl: 'build/pages/home/home.html'
-})
-
-export class HomePage{
-  constructor(
-    private nav: NavController
-  ){}
-
-  showPopover(){
-    let popover = Popover.create(MyPopover)
-    this.nav.present(popover, {
-      ev: ev
-    })
-  }
-}
+  <span class="nx">presentPopover</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nx">popover</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">popoverController</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">MyPopOverPage</span><span class="p">);</span>
+    <span class="nx">popover</span><span class="p">.</span><span class="nx">present</span><span class="p">();</span>
+  <span class="p">}</span>
+<span class="p">}</span>
 </code></pre>
 </div>
 
@@ -2126,6 +2114,8 @@ export class HomePage{
 </a></p>
 
 <p>Like the <a href="#checkbox">checkbox</a>, a radio is an input component that holds a <em>boolean</em> value. Under the hood, radios are no different than HTML radio inputs. However, like other Ionic components, radios are styled differently on each platform. Unlike checkboxes, radio components form a group, where only one radio can be selected at a time. Use the <code class="highlighter-rouge">checked</code> attribute to set the default value, and the <code class="highlighter-rouge">disabled</code> attribute to disable the user from changing to that value.</p>
+
+<p><em>For more information, Check out the <a href="../api/components/radio/RadioButton">Radio Button API docs</a> and the <a href="../api/components/radio/RadioGroup">Radio Group API docs</a>.</em></p>
 
 <h3 class="section-nav">Basic Usage</h3>
 <p><a target="_blank" class="component-doc-demo" href="https://github.com/driftyco/ionic-preview-app/tree/master/app/pages/radios/basic">
@@ -2163,12 +2153,12 @@ export class HomePage{
 
 <p>A Range is a control that lets users select from a range of values by moving a slider knob along the slider bar or track.</p>
 
+<p><em>For more information, Check out the <a href="../api/components/range/Range">API docs</a>.</em></p>
+
 <h3 class="section-nav">Basic Usage</h3>
 <p><a target="_blank" class="component-doc-demo" href="https://github.com/driftyco/ionic-preview-app/tree/master/app/pages/ranges">
   Demo Source
 </a></p>
-
-<p>In the below example, data bindings are set up using <code class="highlighter-rouge">ngModel</code>.</p>
 
 <div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;ion-item&gt;</span>
   <span class="nt">&lt;ion-range</span> <span class="err">[(</span><span class="na">ngModel</span><span class="err">)]="</span><span class="na">brightness</span><span class="err">"</span><span class="nt">&gt;</span>
@@ -2179,37 +2169,6 @@ export class HomePage{
 </code></pre>
 </div>
 
-<p>A tooltip displaying the current value while moving the knob can be added with the property <code class="highlighter-rouge">pin</code>:</p>
-
-<div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;ion-item&gt;</span>
-  <span class="nt">&lt;ion-range</span> <span class="na">min=</span><span class="s">"-200"</span> <span class="na">max=</span><span class="s">"200"</span> <span class="na">pin=</span><span class="s">"true"</span> <span class="err">[(</span><span class="na">ngModel</span><span class="err">)]="</span><span class="na">contrast</span><span class="err">"</span> <span class="na">secondary</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;ion-icon</span> <span class="na">range-left</span> <span class="na">small</span> <span class="na">name=</span><span class="s">"contrast"</span><span class="nt">&gt;&lt;/ion-icon&gt;</span>
-    <span class="nt">&lt;ion-icon</span> <span class="na">range-right</span> <span class="na">name=</span><span class="s">"contrast"</span><span class="nt">&gt;&lt;/ion-icon&gt;</span>
-  <span class="nt">&lt;/ion-range&gt;</span>
-<span class="nt">&lt;/ion-item&gt;</span>
-</code></pre>
-</div>
-
-<p>To increment the value based on a certain number, add the <code class="highlighter-rouge">step</code> property:</p>
-
-<div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;ion-item&gt;</span>
-  <span class="nt">&lt;ion-range</span> <span class="na">min=</span><span class="s">"1000"</span> <span class="na">max=</span><span class="s">"2000"</span> <span class="na">step=</span><span class="s">"100"</span> <span class="na">snaps=</span><span class="s">"true"</span> <span class="err">[(</span><span class="na">ngModel</span><span class="err">)]="</span><span class="na">warmth</span><span class="err">"</span> <span class="na">danger</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;ion-icon</span> <span class="na">range-left</span> <span class="na">small</span> <span class="na">danger</span> <span class="na">name=</span><span class="s">"thermometer"</span><span class="nt">&gt;&lt;/ion-icon&gt;</span>
-    <span class="nt">&lt;ion-icon</span> <span class="na">range-right</span> <span class="na">danger</span> <span class="na">name=</span><span class="s">"thermometer"</span><span class="nt">&gt;&lt;/ion-icon&gt;</span>
-  <span class="nt">&lt;/ion-range&gt;</span>
-<span class="nt">&lt;/ion-item&gt;</span>
-</code></pre>
-</div>
-
-<p>To add two knobs to a range, add the <code class="highlighter-rouge">dualKnobs</code> property:</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>&lt;ion-range dualKnobs="true" pin="true" [(ngModel)]="structure" dark&gt;
-  &lt;ion-icon range-left small name="brush"&gt;&lt;/ion-icon&gt;
-  &lt;ion-icon range-right name="brush"&gt;&lt;/ion-icon&gt;
-&lt;/ion-range&gt;
-</code></pre>
-</div>
-
 <h2 id="searchbar" class="section-header">Searchbar</h2>
 
 <p><a target="_blank" class="improve-v2-docs" href="https://github.com/driftyco/ionic-site/edit/master/_includes/v2_fluid/component-docs/searchbar.html">
@@ -2217,6 +2176,8 @@ export class HomePage{
 </a></p>
 
 <p>A Searchbar binds to a model, and emits an input event when the model is changed.</p>
+
+<p><em>For more information, Check out the <a href="../api/components/searchbar/Searchbar">API docs</a>.</em></p>
 
 <h3 class="section-nav">Basic Usage</h3>
 <p><a target="_blank" class="component-doc-demo" href="https://github.com/driftyco/ionic-preview-app/tree/master/app/pages/searchbars">
@@ -2238,8 +2199,11 @@ export class HomePage{
   <span class="na">templateUrl</span><span class="p">:</span> <span class="s1">'search/template.html'</span><span class="p">,</span>
 <span class="p">})</span>
 <span class="kr">class</span> <span class="nx">SearchPage</span> <span class="p">{</span>
+
+  <span class="k">private</span> <span class="nx">searchQuery</span><span class="err">:</span> <span class="kr">string</span> <span class="o">=</span> <span class="s1">''</span><span class="p">;</span>
+  <span class="k">private</span> <span class="nx">items</span><span class="err">:</span> <span class="kr">string</span><span class="p">[];</span>
+
   <span class="kd">constructor</span><span class="p">()</span> <span class="p">{</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">searchQuery</span> <span class="o">=</span> <span class="s1">''</span><span class="p">;</span>
     <span class="k">this</span><span class="p">.</span><span class="nx">initializeItems</span><span class="p">();</span>
   <span class="p">}</span>
 
@@ -2251,25 +2215,23 @@ export class HomePage{
     <span class="p">];</span>
   <span class="p">}</span>
 
-  <span class="nx">getItems</span><span class="p">(</span><span class="nx">ev</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">getItems</span><span class="p">(</span><span class="nx">ev</span><span class="err">:</span> <span class="kr">any</span><span class="p">)</span> <span class="p">{</span>
     <span class="c1">// Reset items back to all of the items</span>
     <span class="k">this</span><span class="p">.</span><span class="nx">initializeItems</span><span class="p">();</span>
 
     <span class="c1">// set val to the value of the searchbar</span>
     <span class="kd">let</span> <span class="nx">val</span> <span class="o">=</span> <span class="nx">ev</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">value</span><span class="p">;</span>
 
-   <span class="c1">// if the value is an empty string don't filter the items</span>
-      <span class="k">if</span> <span class="p">(</span><span class="nx">val</span> <span class="o">&amp;&amp;</span> <span class="nx">val</span><span class="p">.</span><span class="nx">trim</span><span class="p">()</span> <span class="o">!=</span> <span class="s1">''</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">this</span><span class="p">.</span><span class="nx">items</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">items</span><span class="p">.</span><span class="nx">filter</span><span class="p">((</span><span class="nx">item</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
-          <span class="k">return</span> <span class="p">(</span><span class="nx">item</span><span class="p">.</span><span class="nx">toLowerCase</span><span class="p">().</span><span class="nx">indexOf</span><span class="p">(</span><span class="nx">val</span><span class="p">.</span><span class="nx">toLowerCase</span><span class="p">())</span> <span class="o">&gt;</span> <span class="o">-</span><span class="mi">1</span><span class="p">);</span>
-        <span class="p">})</span>
-      <span class="p">}</span>
+    <span class="c1">// if the value is an empty string don't filter the items</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">val</span> <span class="o">&amp;&amp;</span> <span class="nx">val</span><span class="p">.</span><span class="nx">trim</span><span class="p">()</span> <span class="o">!=</span> <span class="s1">''</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">items</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">items</span><span class="p">.</span><span class="nx">filter</span><span class="p">((</span><span class="nx">item</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="p">(</span><span class="nx">item</span><span class="p">.</span><span class="nx">toLowerCase</span><span class="p">().</span><span class="nx">indexOf</span><span class="p">(</span><span class="nx">val</span><span class="p">.</span><span class="nx">toLowerCase</span><span class="p">())</span> <span class="o">&gt;</span> <span class="o">-</span><span class="mi">1</span><span class="p">);</span>
+      <span class="p">})</span>
+    <span class="p">}</span>
   <span class="p">}</span>
 <span class="p">}</span>
 </code></pre>
 </div>
-
-<p>The Searchbar takes a number of configuration options on the <code class="highlighter-rouge">&lt;ion-searchbar&gt;</code> element, such as <code class="highlighter-rouge">cancelButtonText</code> and <code class="highlighter-rouge">hideCancelButton</code>. Check out the <a href="../api/components/searchbar/Searchbar/">Searchbar API reference</a> for more information on configuring a Searchbar.</p>
 
 <h2 class="section-header" id="segment">Segment</h2>
 
@@ -2278,6 +2240,8 @@ export class HomePage{
 </a></p>
 
 <p>Segment is a collection of buttons that are displayed in line. They can act as a filter, showing/hiding elements based on the segments value.</p>
+
+<p><em>For more information, Check out the <a href="../api/components/segment/Segment">API docs</a>.</em></p>
 
 <h3 class="section-nav">Basic Usage</h3>
 <p><a target="_blank" class="component-doc-demo" href="https://github.com/driftyco/ionic-preview-app/tree/master/app/pages/segments/basic">
@@ -2330,10 +2294,11 @@ export class HomePage{
   Demo Source
 </a></p>
 
-<p>The <code class="highlighter-rouge">ion-select</code> component is similar to an HTML <code class="highlighter-rouge">&lt;select&gt;</code> element, however, Ionic’s select component makes it easier for users to sort through and select the preferred option or options. When users tap the select component, a  dialog will appear with all of the options in a large, easy to select list for users.</p>
+<p>The <code class="highlighter-rouge">ion-select</code> component is similar to an HTML <code class="highlighter-rouge">&lt;select&gt;</code> element, however, Ionic’s select component makes it easier for users to sort through and select the preferred option. When users tap the select component, a dialog will appear with all of the options in a large, easy to select list.</p>
 
-<div class="language-html highlighter-rouge"><pre class="highlight"><code>
-<span class="nt">&lt;ion-list&gt;</span>
+<p><em>For more information, Check out the <a href="../api/components/select/Select">API docs</a>.</em></p>
+
+<div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;ion-list&gt;</span>
   <span class="nt">&lt;ion-item&gt;</span>
     <span class="nt">&lt;ion-label&gt;</span>Gaming<span class="nt">&lt;/ion-label&gt;</span>
     <span class="nt">&lt;ion-select</span> <span class="err">[(</span><span class="na">ngModel</span><span class="err">)]="</span><span class="na">gaming</span><span class="err">"</span><span class="nt">&gt;</span>
@@ -2350,7 +2315,7 @@ export class HomePage{
 </code></pre>
 </div>
 
-<p>You can make multiple selections with <code class="highlighter-rouge">&lt;ion-select&gt;</code> by adding <code class="highlighter-rouge">multiple="true"</code> to the element.</p>
+<p>multiple selections can be made with <code class="highlighter-rouge">&lt;ion-select&gt;</code> by adding <code class="highlighter-rouge">multiple="true"</code> to the component.</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>&lt;ion-list&gt;
   &lt;ion-item&gt;
@@ -2378,7 +2343,9 @@ export class HomePage{
   Improve this Doc
 </a></p>
 
-<p>Slides make it easy to create galleries, tutorials, and page-based layouts.</p>
+<p>Slides make it easy to create galleries, tutorials, and page-based layouts. Slides take a number of configuration options on the <code class="highlighter-rouge">&lt;ion-slides&gt;</code> component.</p>
+
+<p><em>For more information, Check out the <a href="../api/components/slides/Slides">Slides API docs</a> and the <a href="../api/components/slides/Slide">Slide API docs</a>.</em></p>
 
 <h3 class="section-nav">Basic Usage</h3>
 <p><a target="_blank" class="component-doc-demo" href="https://github.com/driftyco/ionic-preview-app/tree/master/app/pages/slides">
@@ -2403,21 +2370,15 @@ export class HomePage{
 </code></pre>
 </div>
 
-<p>Slides take a number of configuration options on the <code class="highlighter-rouge">&lt;ion-slides&gt;</code> element. Check out the <a href="../api/components/slides/Slides/">Slides API reference</a> for more information on configuring slides.</p>
-
 <h2 id="tabs" class="section-header">Tabs</h2>
 
 <p><a target="_blank" class="improve-v2-docs" href="https://github.com/driftyco/ionic-site/edit/master/_includes/v2_fluid/component-docs/tabs.html">
   Improve this Doc
 </a></p>
 
-<p><em>For more details on the Tabs component, see the <a href="../api/components/tabs/Tabs/">Tabs API reference</a>, and the <a href="../api/components/tabs/Tab/">Tab API reference</a> for information on configuring the individual Tab components it contains.</em></p>
+<p>Tabs powers a multi-tabbed interface with a Tab Bar and a set of views that can be tabbed through.</p>
 
-<p>Tabs powers a multi-tabbed interface with a Tab Bar and a set of “pages” that can be tabbed through.</p>
-
-<p>For iOS, tabs will appear at the bottom of the screen. For Android, tabs will be at the top of the screen, below the nav-bar. This follows each platform’s design specification, but can be configured with <a href="../api/config/Config/">Config</a>.</p>
-
-<p>Tabs are useful if you have a few “root” or “top-level” pages.  They are obvious to the user and quickly accessed, since they are always on the screen.  However if screen space is limited, or you have a large number of root pages, a <a href="#menus">Menu</a> may be a better option.</p>
+<p><em>For more information, Check out the <a href="../api/components/tabs/Tabs">Tabs API docs</a> and the <a href="../api/components/tabs/Tab">Tab API docs</a>.</em></p>
 
 <ul class="docs-content">
   <li class="docs-content-header">Contents</li>
@@ -2435,7 +2396,11 @@ export class HomePage{
 
 <p>To initialize Tabs, use <a href="../api/components/tabs/Tabs/"><code class="highlighter-rouge">&lt;ion-tabs&gt;</code></a>, with a child <a href="../api/components/tabs/Tab/"><code class="highlighter-rouge">&lt;ion-tab&gt;</code></a> for each tab:</p>
 
-<div class="language-typescript highlighter-rouge"><pre class="highlight"><code><span class="err">@</span><span class="nx">Component</span><span class="p">({</span>
+<div class="language-typescript highlighter-rouge"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">Component</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'@angular/core'</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">ionicBootstrap</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'ionic-angular'</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">Tab1</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'./tab1-page'</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">Tab2</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'./tab2-page'</span><span class="p">;</span>
+<span class="err">@</span><span class="nx">Component</span><span class="p">({</span>
   <span class="na">template</span><span class="p">:</span> <span class="err">`</span>
     <span class="o">&lt;</span><span class="nx">ion</span><span class="o">-</span><span class="nx">tabs</span><span class="o">&gt;</span>
       <span class="o">&lt;</span><span class="nx">ion</span><span class="o">-</span><span class="nx">tab</span> <span class="nx">tabIcon</span><span class="o">=</span><span class="s2">"heart"</span> <span class="p">[</span><span class="nx">root</span><span class="p">]</span><span class="o">=</span><span class="s2">"tab1"</span><span class="o">&gt;&lt;</span><span class="sr">/ion-tab</span><span class="err">&gt;
@@ -2443,18 +2408,25 @@ export class HomePage{
 </span>    <span class="o">&lt;</span><span class="sr">/ion-tabs&gt;</span><span class="err">`
 </span><span class="p">})</span>
 <span class="kr">class</span> <span class="nx">MyApp</span> <span class="p">{</span>
+
+  <span class="k">private</span> <span class="nx">tab1</span><span class="err">:</span> <span class="kr">any</span><span class="p">;</span>
+  <span class="k">private</span> <span class="nx">tab2</span><span class="err">:</span> <span class="kr">any</span><span class="p">;</span>
+
   <span class="kd">constructor</span><span class="p">()</span> <span class="p">{</span>
     <span class="k">this</span><span class="p">.</span><span class="nx">tab1</span> <span class="o">=</span> <span class="nx">Tab1</span><span class="p">;</span>
     <span class="k">this</span><span class="p">.</span><span class="nx">tab2</span> <span class="o">=</span> <span class="nx">Tab2</span><span class="p">;</span>
   <span class="p">}</span>
 <span class="p">}</span>
+
 <span class="nx">ionicBootstrap</span><span class="p">(</span><span class="nx">MyApp</span><span class="p">)</span>
 </code></pre>
 </div>
 
 <p>Individual tabs are just <code class="highlighter-rouge">@Components</code></p>
 
-<div class="language-typescript highlighter-rouge"><pre class="highlight"><code><span class="err">@</span><span class="nx">Component</span><span class="p">({</span>
+<div class="language-typescript highlighter-rouge"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">Component</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'@angular/core'</span><span class="p">;</span>
+
+<span class="err">@</span><span class="nx">Component</span><span class="p">({</span>
   <span class="na">template</span><span class="p">:</span> <span class="err">`</span>
   <span class="o">&lt;</span><span class="nx">ion</span><span class="o">-</span><span class="nx">header</span><span class="o">&gt;</span>
     <span class="o">&lt;</span><span class="nx">ion</span><span class="o">-</span><span class="nx">navbar</span><span class="o">&gt;</span>
@@ -2463,7 +2435,7 @@ export class HomePage{
 </span>  <span class="o">&lt;</span><span class="sr">/ion-header</span><span class="err">&gt;
 </span>  <span class="o">&lt;</span><span class="nx">ion</span><span class="o">-</span><span class="nx">content</span><span class="o">&gt;</span><span class="nx">Tab</span> <span class="mi">1</span><span class="o">&lt;</span><span class="sr">/ion-content&gt;</span><span class="err">`
 </span><span class="p">})</span>
-<span class="kr">class</span> <span class="nx">Tab1</span> <span class="p">{}</span>
+<span class="k">export</span> <span class="kr">class</span> <span class="nx">Tab1</span> <span class="p">{}</span>
 
 <span class="err">@</span><span class="nx">Component</span><span class="p">({</span>
   <span class="na">template</span><span class="p">:</span> <span class="err">`</span>
@@ -2474,13 +2446,16 @@ export class HomePage{
 </span>  <span class="o">&lt;</span><span class="sr">/ion-header</span><span class="err">&gt;
 </span>  <span class="o">&lt;</span><span class="nx">ion</span><span class="o">-</span><span class="nx">content</span><span class="o">&gt;</span><span class="nx">Tab</span> <span class="mi">2</span><span class="o">&lt;</span><span class="sr">/ion-content&gt;</span><span class="err">`
 </span><span class="p">})</span>
-<span class="kr">class</span> <span class="nx">Tab2</span> <span class="p">{}</span>
+<span class="k">export</span> <span class="kr">class</span> <span class="nx">Tab2</span> <span class="p">{}</span>
 </code></pre>
 </div>
 
 <p>Notice that each <code class="highlighter-rouge">&lt;ion-tab&gt;</code> binds to a <code class="highlighter-rouge">[root]</code> property, just like <a href="../api/components/nav/Nav/"><code class="highlighter-rouge">&lt;ion-nav&gt;</code></a> in the <a href="#navigation">Navigation</a> section above.  That is because each <code class="highlighter-rouge">&lt;ion-tab&gt;</code> is really just a navigation controller.  This means that each tab has its own history stack, and <a href="../api/components/nav/NavController/#injecting_nav_controller"><code class="highlighter-rouge">NavController instances injected</code></a> into children <code class="highlighter-rouge">@Components</code> of each tab will be unique to each tab:</p>
 
-<div class="language-typescript highlighter-rouge"><pre class="highlight"><code><span class="err">@</span><span class="nx">Component</span><span class="p">({</span>
+<div class="language-typescript highlighter-rouge"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">Component</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'@angular/core'</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">NavController</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'ionic-angular'</span><span class="p">;</span>
+
+<span class="err">@</span><span class="nx">Component</span><span class="p">({</span>
 <span class="p">...</span>
 <span class="p">})</span>
 <span class="kr">class</span> <span class="nx">Tab1</span> <span class="p">{</span>
@@ -2630,29 +2605,29 @@ export class HomePage{
   Improve this Doc
 </a></p>
 
-<p><em>For more details on the Toast component, see the <a href="../api/components/toast/Toast/">Toast API reference</a>.</em></p>
+<p>Toast is a subtle notification that appears on top of an app’s content. Typically, Toasts are displayed for a short duration of time than automatically dismiss.</p>
 
-<p>Toast is a simple component that allows you display a notification at the bottom of the screen. The toast appears on top of the app’s content, and can be dismissed by the app to resume user interaction with the app. It includes a backdrop, which can optionally be clicked to dismiss the toast.</p>
+<p><em>For more information, Check out the <a href="../api/components/toast/ToastController">API docs</a>.</em></p>
 
 <h3 class="section-nav">Basic Usage</h3>
 <p><a target="_blank" class="component-doc-demo" href="https://github.com/driftyco/ionic-preview-app/tree/master/app/pages/toast/basic">
   Demo Source
 </a></p>
 
-<div class="language-typescript highlighter-rouge"><pre class="highlight"><code>
-<span class="nx">presentToast</span><span class="p">()</span> <span class="p">{</span>
-  <span class="kd">let</span> <span class="nx">toast</span> <span class="o">=</span> <span class="nx">Toast</span><span class="p">.</span><span class="nx">create</span><span class="p">({</span>
-    <span class="na">message</span><span class="p">:</span> <span class="s1">'User was added successfully'</span><span class="p">,</span>
-    <span class="na">duration</span><span class="p">:</span> <span class="mi">3000</span>
-  <span class="p">});</span>
+<div class="language-typescript highlighter-rouge"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">ToastController</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'ionic-angular'</span><span class="p">;</span>
 
-  <span class="nx">toast</span><span class="p">.</span><span class="nx">onDismiss</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'Dismissed toast'</span><span class="p">);</span>
-  <span class="p">});</span>
-
-  <span class="k">this</span><span class="p">.</span><span class="nx">nav</span><span class="p">.</span><span class="nx">present</span><span class="p">(</span><span class="nx">toast</span><span class="p">);</span>
+<span class="k">export</span> <span class="kr">class</span> <span class="nx">MyPage</span> <span class="p">{</span>
+  <span class="kd">constructor</span> <span class="p">(</span> <span class="k">private</span> <span class="nx">toastController</span> <span class="err">:</span> <span class="nx">ToastController</span> <span class="p">){</span>
   <span class="p">}</span>
 
+  <span class="nx">presentToast</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nx">toast</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">toastController</span><span class="p">.</span><span class="nx">create</span><span class="p">({</span>
+      <span class="na">message</span><span class="p">:</span> <span class="s1">'User was added successfully'</span><span class="p">,</span>
+      <span class="na">duration</span><span class="p">:</span> <span class="mi">3000</span>
+    <span class="p">});</span>
+    <span class="nx">toast</span><span class="p">.</span><span class="nx">present</span><span class="p">();</span>
+  <span class="p">}</span>
+<span class="p">}</span>
 </code></pre>
 </div>
 
@@ -2661,7 +2636,9 @@ export class HomePage{
 <p><a target="_blank" class="improve-v2-docs" href="https://github.com/driftyco/ionic-site/edit/master/_includes/v2_fluid/component-docs/toggle.html">
   Improve this Doc</a></p>
 
-<p>A toggle is an input component that holds a <em>boolean</em> value. Like the <a href="#checkbox">checkbox</a>, toggles are often used to allow the user to switch a setting on or off. Attributes like <code class="highlighter-rouge">value</code>, <code class="highlighter-rouge">disabled</code>, and <code class="highlighter-rouge">checked</code> can be applied to the toggle to control its behavior. Check out the <a href="../api/components/toggle/Toggle/">Toggle API Reference</a> for more information.</p>
+<p>A toggle is an input component that holds a <em>boolean</em> value. Like the <a href="#checkbox">checkbox</a>, toggles are often used to allow the user to switch a setting on or off. Attributes like <code class="highlighter-rouge">value</code>, <code class="highlighter-rouge">disabled</code>, and <code class="highlighter-rouge">checked</code> can be applied to the toggle to control its behavior.</p>
+
+<p><em>For more information, Check out the <a href="../api/components/toggle/Toggle">API docs</a>.</em></p>
 
 <h3 class="no-para">Basic Usage</h3>
 <p><a target="_blank" class="component-doc-demo" href="https://github.com/driftyco/ionic-preview-app/tree/master/app/pages/toggles/basic">
@@ -2682,13 +2659,17 @@ export class HomePage{
 
 <p>A toolbar is a generic bar that can be used in an app as a header, sub-header, footer, or even sub-footer. Since <code class="highlighter-rouge">ion-toolbar</code> is based on flexbox, no matter how many toolbars you have in your page, they will be displayed correctly and <code class="highlighter-rouge">ion-content</code> will adjust accordingly.</p>
 
+<p>Note: Typically a <a href="../api/components/navbar/Navbar">NavBar</a> is used inside the <code class="highlighter-rouge">ion-header</code> when used in conjunction with navigation.</p>
+
+<p><em>For more information, Check out the <a href="../api/components/toolbar/Toolbar">API docs</a>.</em></p>
+
 <ul class="docs-content">
     <li class="docs-content-header">Contents</li>
     <li class="docs-content-item"><a href="#toolbar">Basic Usage</a></li>
+    <li class="docs-content-item"><a href="#toolbar-colors">Changing the Color</a></li>
     <li class="docs-content-item"><a href="#toolbar-buttons">Buttons in Toolbars</a></li>
     <li class="docs-content-item"><a href="#toolbar-segment">Segment in Toolbars</a></li>
     <li class="docs-content-item"><a href="#toolbar-searchbar">Searchbar in Toolbars</a></li>
-    <li class="docs-content-item"><a href="#toolbar-colors">Changing the Color</a></li>
   </ul>
 
 <h3 class="no-para">Basic Usage</h3>
@@ -2731,6 +2712,59 @@ export class HomePage{
   <span class="nt">&lt;p&gt;</span>There is a header above me!<span class="nt">&lt;/p&gt;</span>
 <span class="nt">&lt;/ion-content&gt;</span>
 
+</code></pre>
+</div>
+
+<h3 id="toolbar-colors" class="no-para">Changing the Color</h3>
+
+<p>You can change the toolbars color by changing the property on the element.</p>
+
+<div class="language-typescript highlighter-rouge"><pre class="highlight"><code>
+<span class="err">@</span><span class="nx">Component</span><span class="p">({</span>
+  <span class="na">template</span><span class="p">:</span> <span class="err">`</span>
+    <span class="o">&lt;</span><span class="nx">ion</span><span class="o">-</span><span class="nx">toolbar</span> <span class="nx">primary</span><span class="o">&gt;</span>
+      <span class="o">&lt;</span><span class="nx">ion</span><span class="o">-</span><span class="nx">title</span><span class="o">&gt;</span><span class="nx">Toolbar</span><span class="o">&lt;</span><span class="sr">/ion-title</span><span class="err">&gt;
+</span>    <span class="o">&lt;</span><span class="sr">/ion-toolbar</span><span class="err">&gt;
+</span>
+
+    <span class="o">&lt;</span><span class="nx">ion</span><span class="o">-</span><span class="nx">toolbar</span> <span class="nx">secondary</span><span class="o">&gt;</span>
+      <span class="o">&lt;</span><span class="nx">ion</span><span class="o">-</span><span class="nx">title</span><span class="o">&gt;</span><span class="nx">Toolbar</span><span class="o">&lt;</span><span class="sr">/ion-title</span><span class="err">&gt;
+</span>    <span class="o">&lt;</span><span class="sr">/ion-toolbar</span><span class="err">&gt;
+</span>
+    <span class="o">&lt;</span><span class="nx">ion</span><span class="o">-</span><span class="nx">toolbar</span> <span class="nx">danger</span><span class="o">&gt;</span>
+      <span class="o">&lt;</span><span class="nx">ion</span><span class="o">-</span><span class="nx">title</span><span class="o">&gt;</span><span class="nx">Toolbar</span><span class="o">&lt;</span><span class="sr">/ion-title</span><span class="err">&gt;
+</span>    <span class="o">&lt;</span><span class="sr">/ion-toolbar</span><span class="err">&gt;
+</span>
+
+    <span class="o">&lt;</span><span class="nx">ion</span><span class="o">-</span><span class="nx">toolbar</span> <span class="nx">dark</span><span class="o">&gt;</span>
+      <span class="o">&lt;</span><span class="nx">ion</span><span class="o">-</span><span class="nx">title</span><span class="o">&gt;</span><span class="nx">Toolbar</span><span class="o">&lt;</span><span class="sr">/ion-title</span><span class="err">&gt;
+</span>    <span class="o">&lt;</span><span class="sr">/ion-toolbar</span><span class="err">&gt;
+</span>  <span class="err">`</span>
+  <span class="p">})</span>
+
+</code></pre>
+</div>
+
+<p>You can also change the navbar’s color the same way. This will allow you to have a different color navbar per page in your app.</p>
+
+<div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;ion-header&gt;</span>
+  <span class="nt">&lt;ion-navbar</span> <span class="na">dark</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;ion-title&gt;</span>Dark<span class="nt">&lt;/ion-title&gt;</span>
+  <span class="nt">&lt;/ion-navbar&gt;</span>
+<span class="nt">&lt;/ion-header&gt;</span>
+
+
+<span class="nt">&lt;ion-header&gt;</span>
+  <span class="nt">&lt;ion-navbar</span> <span class="na">danger</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;ion-title&gt;</span>Danger<span class="nt">&lt;/ion-title&gt;</span>
+  <span class="nt">&lt;/ion-navbar&gt;</span>
+<span class="nt">&lt;/ion-header&gt;</span>
+
+<span class="nt">&lt;ion-header&gt;</span>
+  <span class="nt">&lt;ion-navbar</span> <span class="na">secondary</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;ion-title&gt;</span>Secondary<span class="nt">&lt;/ion-title&gt;</span>
+  <span class="nt">&lt;/ion-navbar&gt;</span>
+<span class="nt">&lt;/ion-header&gt;</span>
 </code></pre>
 </div>
 
@@ -2812,92 +2846,6 @@ export class HomePage{
     <span class="nt">&lt;/ion-item&gt;</span>
   <span class="nt">&lt;/ion-list&gt;</span>
 <span class="nt">&lt;/ion-content&gt;</span>
-</code></pre>
-</div>
-
-<div class="language-typescript highlighter-rouge"><pre class="highlight"><code><span class="err">@</span><span class="nx">Component</span><span class="p">({</span>
-  <span class="na">templateUrl</span><span class="p">:</span> <span class="s1">'search/template.html'</span><span class="p">,</span>
-<span class="p">})</span>
-<span class="kr">class</span> <span class="nx">SearchPage</span> <span class="p">{</span>
-  <span class="kd">constructor</span><span class="p">()</span> <span class="p">{</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">initializeItems</span><span class="p">();</span>
-  <span class="p">}</span>
-
-  <span class="nx">initializeItems</span><span class="p">()</span> <span class="p">{</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">items</span> <span class="o">=</span> <span class="p">[</span>
-      <span class="s1">'Angular 1.x'</span><span class="p">,</span>
-      <span class="s1">'Angular 2'</span><span class="p">,</span>
-      <span class="s1">'ReactJS'</span><span class="p">,</span>
-      <span class="s1">'EmberJS'</span><span class="p">,</span>
-      <span class="s1">'Meteor'</span><span class="p">,</span>
-      <span class="s1">'Typescript'</span><span class="p">,</span>
-      <span class="s1">'Dart'</span><span class="p">,</span>
-      <span class="s1">'CoffeeScript'</span>
-    <span class="p">];</span>
-  <span class="p">}</span>
-
-  <span class="nx">getItems</span><span class="p">(</span><span class="nx">ev</span><span class="p">)</span> <span class="p">{</span>
-    <span class="c1">// Reset items back to all of the items</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">initializeItems</span><span class="p">();</span>
-
-    <span class="c1">// set val to the value of the searchbar</span>
-    <span class="kd">var</span> <span class="nx">val</span> <span class="o">=</span> <span class="nx">ev</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">value</span><span class="p">;</span>
-
-    <span class="c1">// if the value is an empty string don't filter the items</span>
-    <span class="k">if</span> <span class="p">(</span><span class="nx">val</span> <span class="o">&amp;&amp;</span> <span class="nx">val</span><span class="p">.</span><span class="nx">trim</span><span class="p">()</span> <span class="o">!=</span> <span class="s1">''</span><span class="p">)</span> <span class="p">{</span>
-      <span class="k">this</span><span class="p">.</span><span class="nx">items</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">items</span><span class="p">.</span><span class="nx">filter</span><span class="p">((</span><span class="nx">item</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
-        <span class="k">return</span> <span class="p">(</span><span class="nx">item</span><span class="p">.</span><span class="nx">toLowerCase</span><span class="p">().</span><span class="nx">indexOf</span><span class="p">(</span><span class="nx">val</span><span class="p">.</span><span class="nx">toLowerCase</span><span class="p">())</span> <span class="o">&gt;</span> <span class="o">-</span><span class="mi">1</span><span class="p">);</span>
-      <span class="p">})</span>
-    <span class="p">}</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-</code></pre>
-</div>
-
-<h3 id="toolbar-colors" class="no-para">Changing the Color</h3>
-
-<p>You can change the toolbars color by changing the property on the element.</p>
-
-<div class="language-typescript highlighter-rouge"><pre class="highlight"><code>
-<span class="err">@</span><span class="nx">Component</span><span class="p">({</span>
-  <span class="na">template</span><span class="p">:</span> <span class="err">`</span>
-    <span class="o">&lt;</span><span class="nx">ion</span><span class="o">-</span><span class="nx">toolbar</span> <span class="nx">primary</span><span class="o">&gt;</span>
-      <span class="o">&lt;</span><span class="nx">ion</span><span class="o">-</span><span class="nx">title</span><span class="o">&gt;</span><span class="nx">Toolbar</span><span class="o">&lt;</span><span class="sr">/ion-title</span><span class="err">&gt;
-</span>    <span class="o">&lt;</span><span class="sr">/ion-toolbar</span><span class="err">&gt;
-</span>
-
-    <span class="o">&lt;</span><span class="nx">ion</span><span class="o">-</span><span class="nx">toolbar</span> <span class="nx">secondary</span><span class="o">&gt;</span>
-      <span class="o">&lt;</span><span class="nx">ion</span><span class="o">-</span><span class="nx">title</span><span class="o">&gt;</span><span class="nx">Toolbar</span><span class="o">&lt;</span><span class="sr">/ion-title</span><span class="err">&gt;
-</span>    <span class="o">&lt;</span><span class="sr">/ion-toolbar</span><span class="err">&gt;
-</span>
-    <span class="o">&lt;</span><span class="nx">ion</span><span class="o">-</span><span class="nx">toolbar</span> <span class="nx">danger</span><span class="o">&gt;</span>
-      <span class="o">&lt;</span><span class="nx">ion</span><span class="o">-</span><span class="nx">title</span><span class="o">&gt;</span><span class="nx">Toolbar</span><span class="o">&lt;</span><span class="sr">/ion-title</span><span class="err">&gt;
-</span>    <span class="o">&lt;</span><span class="sr">/ion-toolbar</span><span class="err">&gt;
-</span>
-
-    <span class="o">&lt;</span><span class="nx">ion</span><span class="o">-</span><span class="nx">toolbar</span> <span class="nx">dark</span><span class="o">&gt;</span>
-      <span class="o">&lt;</span><span class="nx">ion</span><span class="o">-</span><span class="nx">title</span><span class="o">&gt;</span><span class="nx">Toolbar</span><span class="o">&lt;</span><span class="sr">/ion-title</span><span class="err">&gt;
-</span>    <span class="o">&lt;</span><span class="sr">/ion-toolbar</span><span class="err">&gt;
-</span>  <span class="err">`</span>
-  <span class="p">})</span>
-
-</code></pre>
-</div>
-
-<p>You can also change the navbar’s color the same way. This will allow you to have a different color navbar per page in your app.</p>
-
-<div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;ion-navbar</span> <span class="err">*</span><span class="na">navbar</span> <span class="na">dark</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;ion-title&gt;</span>Dark<span class="nt">&lt;/ion-title&gt;</span>
-<span class="nt">&lt;/ion-navbar&gt;</span>
-
-
-<span class="nt">&lt;ion-navbar</span> <span class="err">*</span><span class="na">navbar</span> <span class="na">danger</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;ion-title&gt;</span>Danger<span class="nt">&lt;/ion-title&gt;</span>
-<span class="nt">&lt;/ion-navbar&gt;</span>
-
-<span class="nt">&lt;ion-navbar</span> <span class="err">*</span><span class="na">navbar</span> <span class="na">secondary</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;ion-title&gt;</span>Secondary<span class="nt">&lt;/ion-title&gt;</span>
-<span class="nt">&lt;/ion-navbar&gt;</span>
 </code></pre>
 </div>
 
