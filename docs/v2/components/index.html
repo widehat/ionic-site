@@ -2679,14 +2679,18 @@ The Popover is a view that floats above an app’s content. Popovers provide an 
 
 <p>To use a toolbar as a footer you can use <code class="highlighter-rouge">ion-footer</code> instead of <code class="highlighter-rouge">ion-toolbar</code>.</p>
 
-<div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;ion-toolbar&gt;</span>
-  <span class="nt">&lt;ion-title&gt;</span>Toolbar<span class="nt">&lt;/ion-title&gt;</span>
-<span class="nt">&lt;/ion-toolbar&gt;</span>
+<div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;ion-header&gt;</span>
+  <span class="nt">&lt;ion-toolbar&gt;</span>
+    <span class="nt">&lt;ion-title&gt;</span>Toolbar<span class="nt">&lt;/ion-title&gt;</span>
+  <span class="nt">&lt;/ion-toolbar&gt;</span>
+<span class="nt">&lt;/ion-header&gt;</span>
 
 <span class="nt">&lt;ion-content&gt;&lt;/ion-content&gt;</span>
 
 <span class="nt">&lt;ion-footer&gt;</span>
-  <span class="nt">&lt;ion-title&gt;</span>Footer<span class="nt">&lt;/ion-title&gt;</span>
+  <span class="nt">&lt;ion-footer&gt;</span>
+    <span class="nt">&lt;ion-title&gt;</span>Footer<span class="nt">&lt;/ion-title&gt;</span>
+  <span class="nt">&lt;/ion-footer&gt;</span>
 <span class="nt">&lt;/ion-footer&gt;</span>
 </code></pre>
 </div>
@@ -2695,18 +2699,20 @@ The Popover is a view that floats above an app’s content. Popovers provide an 
 
 <p>One of the best uses of the toolbar is as a header.</p>
 
-<div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;ion-toolbar</span> <span class="na">primary</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;ion-buttons</span> <span class="na">start</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;ion-icon</span> <span class="na">name=</span><span class="s">"content"</span><span class="nt">&gt;&lt;/ion-icon&gt;</span>
-  <span class="nt">&lt;/ion-buttons&gt;</span>
+<div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;ion-header&gt;</span>
+  <span class="nt">&lt;ion-toolbar</span> <span class="na">primary</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;ion-buttons</span> <span class="na">start</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;ion-icon</span> <span class="na">name=</span><span class="s">"content"</span><span class="nt">&gt;&lt;/ion-icon&gt;</span>
+    <span class="nt">&lt;/ion-buttons&gt;</span>
 
-  <span class="nt">&lt;ion-title&gt;</span>Header<span class="nt">&lt;/ion-title&gt;</span>
+    <span class="nt">&lt;ion-title&gt;</span>Header<span class="nt">&lt;/ion-title&gt;</span>
 
-  <span class="nt">&lt;ion-buttons</span> <span class="na">end</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;ion-icon</span> <span class="na">name=</span><span class="s">"search"</span><span class="nt">&gt;&lt;/ion-icon&gt;</span>
-  <span class="nt">&lt;/ion-buttons&gt;</span>
+    <span class="nt">&lt;ion-buttons</span> <span class="na">end</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;ion-icon</span> <span class="na">name=</span><span class="s">"search"</span><span class="nt">&gt;&lt;/ion-icon&gt;</span>
+    <span class="nt">&lt;/ion-buttons&gt;</span>
 
-<span class="nt">&lt;/ion-toolbar&gt;</span>
+  <span class="nt">&lt;/ion-toolbar&gt;</span>
+<span class="nt">&lt;/ion-header&gt;</span>
 
 <span class="nt">&lt;ion-content&gt;</span>
   <span class="nt">&lt;p&gt;</span>There is a header above me!<span class="nt">&lt;/p&gt;</span>
@@ -2774,31 +2780,35 @@ The Popover is a view that floats above an app’s content. Popovers provide an 
 
 <p>Buttons can be added to both header and footer toolbars. To add a button to a toolbar, we need to first add an <code class="highlighter-rouge">ion-buttons</code> component. This component wraps one or more buttons, and can be given the <code class="highlighter-rouge">start</code> or <code class="highlighter-rouge">end</code> attributes to control the placement of the buttons it contains:</p>
 
-<div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;ion-toolbar&gt;</span>
-  <span class="nt">&lt;ion-buttons</span> <span class="na">start</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;button</span> <span class="na">royal</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;ion-icon</span> <span class="na">name=</span><span class="s">"search"</span><span class="nt">&gt;&lt;/ion-icon&gt;</span>
-    <span class="nt">&lt;/button&gt;</span>
-  <span class="nt">&lt;/ion-buttons&gt;</span>
-  <span class="nt">&lt;ion-title&gt;</span>Send To...<span class="nt">&lt;/ion-title&gt;</span>
-  <span class="nt">&lt;ion-buttons</span> <span class="na">end</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;button</span> <span class="na">royal</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;ion-icon</span> <span class="na">name=</span><span class="s">"person-add"</span><span class="nt">&gt;&lt;/ion-icon&gt;</span>
-    <span class="nt">&lt;/button&gt;</span>
-  <span class="nt">&lt;/ion-buttons&gt;</span>
-<span class="nt">&lt;/ion-toolbar&gt;</span>
+<div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;ion-header&gt;</span>
+  <span class="nt">&lt;ion-toolbar&gt;</span>
+    <span class="nt">&lt;ion-buttons</span> <span class="na">start</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;button</span> <span class="na">royal</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;ion-icon</span> <span class="na">name=</span><span class="s">"search"</span><span class="nt">&gt;&lt;/ion-icon&gt;</span>
+      <span class="nt">&lt;/button&gt;</span>
+    <span class="nt">&lt;/ion-buttons&gt;</span>
+    <span class="nt">&lt;ion-title&gt;</span>Send To...<span class="nt">&lt;/ion-title&gt;</span>
+    <span class="nt">&lt;ion-buttons</span> <span class="na">end</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;button</span> <span class="na">royal</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;ion-icon</span> <span class="na">name=</span><span class="s">"person-add"</span><span class="nt">&gt;&lt;/ion-icon&gt;</span>
+      <span class="nt">&lt;/button&gt;</span>
+    <span class="nt">&lt;/ion-buttons&gt;</span>
+  <span class="nt">&lt;/ion-toolbar&gt;</span>
+<span class="nt">&lt;/ion-header&gt;</span>
 
 <span class="nt">&lt;ion-content&gt;&lt;/ion-content&gt;</span>
 
-<span class="nt">&lt;ion-toolbar</span> <span class="na">position=</span><span class="s">"bottom"</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;p&gt;</span>Ash, Misty, Brock<span class="nt">&lt;/p&gt;</span>
-  <span class="nt">&lt;ion-buttons</span> <span class="na">end</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;button</span> <span class="na">royal</span><span class="nt">&gt;</span>
-      Send
-      <span class="nt">&lt;ion-icon</span> <span class="na">name=</span><span class="s">"send"</span><span class="nt">&gt;&lt;/ion-icon&gt;</span>
-    <span class="nt">&lt;/button&gt;</span>
-  <span class="nt">&lt;/ion-buttons&gt;</span>
-<span class="nt">&lt;/ion-toolbar&gt;</span>
+<span class="nt">&lt;ion-footer&gt;</span>
+  <span class="nt">&lt;ion-toolbar&gt;</span>
+    <span class="nt">&lt;p&gt;</span>Ash, Misty, Brock<span class="nt">&lt;/p&gt;</span>
+    <span class="nt">&lt;ion-buttons</span> <span class="na">end</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;button</span> <span class="na">royal</span><span class="nt">&gt;</span>
+        Send
+        <span class="nt">&lt;ion-icon</span> <span class="na">name=</span><span class="s">"send"</span><span class="nt">&gt;&lt;/ion-icon&gt;</span>
+      <span class="nt">&lt;/button&gt;</span>
+    <span class="nt">&lt;/ion-buttons&gt;</span>
+  <span class="nt">&lt;/ion-toolbar&gt;</span>
+<span class="nt">&lt;/ion-footer&gt;</span>
 </code></pre>
 </div>
 
@@ -2808,26 +2818,28 @@ The Popover is a view that floats above an app’s content. Popovers provide an 
 
 <p><a href="#segment">Segments</a> are a great way to allow users to switch between different sets of data. Use the following markup to add a segment to a toolbar:</p>
 
-<div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;ion-toolbar&gt;</span>
-  <span class="nt">&lt;ion-buttons</span> <span class="na">start</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;button&gt;</span>
-      <span class="nt">&lt;ion-icon</span> <span class="na">name=</span><span class="s">"create"</span><span class="nt">&gt;&lt;/ion-icon&gt;</span>
-    <span class="nt">&lt;/button&gt;</span>
-  <span class="nt">&lt;/ion-buttons&gt;</span>
-  <span class="nt">&lt;ion-segment&gt;</span>
-    <span class="nt">&lt;ion-segment-button</span> <span class="na">value=</span><span class="s">"new"</span><span class="nt">&gt;</span>
-      New
-    <span class="nt">&lt;/ion-segment-button&gt;</span>
-    <span class="nt">&lt;ion-segment-button</span> <span class="na">value=</span><span class="s">"hot"</span><span class="nt">&gt;</span>
-      Hot
-    <span class="nt">&lt;/ion-segment-button&gt;</span>
-  <span class="nt">&lt;/ion-segment&gt;</span>
-  <span class="nt">&lt;ion-buttons</span> <span class="na">end</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;button&gt;</span>
-      <span class="nt">&lt;ion-icon</span> <span class="na">name=</span><span class="s">"more"</span><span class="nt">&gt;&lt;/ion-icon&gt;</span>
-    <span class="nt">&lt;/button&gt;</span>
-  <span class="nt">&lt;/ion-buttons&gt;</span>
-<span class="nt">&lt;/ion-toolbar&gt;</span>
+<div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;ion-header&gt;</span>
+  <span class="nt">&lt;ion-toolbar&gt;</span>
+    <span class="nt">&lt;ion-buttons</span> <span class="na">start</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;button&gt;</span>
+        <span class="nt">&lt;ion-icon</span> <span class="na">name=</span><span class="s">"create"</span><span class="nt">&gt;&lt;/ion-icon&gt;</span>
+      <span class="nt">&lt;/button&gt;</span>
+    <span class="nt">&lt;/ion-buttons&gt;</span>
+    <span class="nt">&lt;ion-segment&gt;</span>
+      <span class="nt">&lt;ion-segment-button</span> <span class="na">value=</span><span class="s">"new"</span><span class="nt">&gt;</span>
+        New
+      <span class="nt">&lt;/ion-segment-button&gt;</span>
+      <span class="nt">&lt;ion-segment-button</span> <span class="na">value=</span><span class="s">"hot"</span><span class="nt">&gt;</span>
+        Hot
+      <span class="nt">&lt;/ion-segment-button&gt;</span>
+    <span class="nt">&lt;/ion-segment&gt;</span>
+    <span class="nt">&lt;ion-buttons</span> <span class="na">end</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;button&gt;</span>
+        <span class="nt">&lt;ion-icon</span> <span class="na">name=</span><span class="s">"more"</span><span class="nt">&gt;&lt;/ion-icon&gt;</span>
+      <span class="nt">&lt;/button&gt;</span>
+    <span class="nt">&lt;/ion-buttons&gt;</span>
+  <span class="nt">&lt;/ion-toolbar&gt;</span>
+<span class="nt">&lt;/ion-header&gt;</span>
 </code></pre>
 </div>
 
@@ -2835,9 +2847,11 @@ The Popover is a view that floats above an app’s content. Popovers provide an 
 
 <p>Another common design paradigm is to include a searchbar inside your toolbar.</p>
 
-<div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;ion-toolbar</span> <span class="na">primary</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;ion-searchbar</span> <span class="err">(</span><span class="na">input</span><span class="err">)="</span><span class="na">getItems</span><span class="err">($</span><span class="na">event</span><span class="err">)"</span><span class="nt">&gt;&lt;/ion-searchbar&gt;</span>
-<span class="nt">&lt;/ion-toolbar&gt;</span>
+<div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;ion-header&gt;</span>
+  <span class="nt">&lt;ion-toolbar</span> <span class="na">primary</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;ion-searchbar</span> <span class="err">(</span><span class="na">input</span><span class="err">)="</span><span class="na">getItems</span><span class="err">($</span><span class="na">event</span><span class="err">)"</span><span class="nt">&gt;&lt;/ion-searchbar&gt;</span>
+  <span class="nt">&lt;/ion-toolbar&gt;</span>
+<span class="nt">&lt;/ion-header&gt;</span>
 
 <span class="nt">&lt;ion-content&gt;</span>
   <span class="nt">&lt;ion-list&gt;</span>
