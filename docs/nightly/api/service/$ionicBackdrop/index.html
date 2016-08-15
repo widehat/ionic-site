@@ -1004,9 +1004,11 @@ when it is done with the backdrop.</p>
 <p>For example, if <code class="highlighter-rouge">retain</code> is called three times, the backdrop will be shown until <code class="highlighter-rouge">release</code>
 is called three times.</p>
 
-<p><strong>Notes:</strong>
-- The backdrop service will broadcast ‘backdrop.shown’ and ‘backdrop.hidden’ events from the root scope,
-this is useful for alerting native components not in html.</p>
+<p><strong>Notes:</strong></p>
+<ul>
+  <li>The backdrop service will broadcast ‘backdrop.shown’ and ‘backdrop.hidden’ events from the root scope,
+this is useful for alerting native components not in html.</li>
+</ul>
 
 <h2 id="usage">Usage</h2>
 <div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">MyController</span><span class="p">(</span><span class="nx">$scope</span><span class="p">,</span> <span class="nx">$ionicBackdrop</span><span class="p">,</span> <span class="nx">$timeout</span><span class="p">,</span> <span class="nx">$rootScope</span><span class="p">)</span> <span class="p">{</span>

@@ -1046,26 +1046,26 @@
 <h2 id="actions">Actions</h2>
 
 <p><b>Go to slide</b>: 
-The slide index numbers start from 0, 1, 2 …. n.
-<code class="highlighter-rouge">javascript
-var gotoSlide = function(index) {
-  $scope.$broadcast('slideBox.setSlide', index);
-};
-</code></p>
+The slide index numbers start from 0, 1, 2 …. n.</p>
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">gotoSlide</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">index</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">$scope</span><span class="p">.</span><span class="nx">$broadcast</span><span class="p">(</span><span class="s1">'slideBox.setSlide'</span><span class="p">,</span> <span class="nx">index</span><span class="p">);</span>
+<span class="p">};</span>
+</code></pre>
+</div>
 
-<p><b>Previous slide</b>:
-<code class="highlighter-rouge">javascript
-var prevSlide = function() {
-  $scope.$broadcast('slideBox.prevSlide');
-};
-</code></p>
+<p><b>Previous slide</b>:</p>
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">prevSlide</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">$scope</span><span class="p">.</span><span class="nx">$broadcast</span><span class="p">(</span><span class="s1">'slideBox.prevSlide'</span><span class="p">);</span>
+<span class="p">};</span>
+</code></pre>
+</div>
 
-<p><b>Next slide</b>:
-<code class="highlighter-rouge">javascript
-var nextSlide = function() {
-  $scope.$broadcast('slideBox.nextSlide');
-};
-</code></p>
+<p><b>Next slide</b>:</p>
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">nextSlide</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">$scope</span><span class="p">.</span><span class="nx">$broadcast</span><span class="p">(</span><span class="s1">'slideBox.nextSlide'</span><span class="p">);</span>
+<span class="p">};</span>
+</code></pre>
+</div>
 
         </div>
 

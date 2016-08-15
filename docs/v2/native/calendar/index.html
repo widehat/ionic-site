@@ -359,6 +359,9 @@
 <li class="capitalize ">
   <a href="/docs/v2/native/webintent">WebIntent</a>
 </li>
+<li class="capitalize ">
+  <a href="/docs/v2/native/zip">Zip</a>
+</li>
 
 </ul>
 
@@ -429,11 +432,13 @@ Calendar.createCalendar(&#39;MyCalendar&#39;).then(
 </h3>
 
 <p>This function checks if we have permission to read/write from/to the calendar.
-The promise will resolve with <code class="highlighter-rouge">true</code> when:
-- You’re running on iOS, or
-- You’re targetting API level lower than 23, or
-- You’re using Android &lt; 6, or
-- You’ve already granted permission</p>
+The promise will resolve with <code class="highlighter-rouge">true</code> when:</p>
+<ul>
+  <li>You’re running on iOS, or</li>
+  <li>You’re targetting API level lower than 23, or</li>
+  <li>You’re using Android &lt; 6, or</li>
+  <li>You’ve already granted permission</li>
+</ul>
 
 <p>If this returns false, you should call <code class="highlighter-rouge">requestReadWritePermissions</code> function</p>
 
