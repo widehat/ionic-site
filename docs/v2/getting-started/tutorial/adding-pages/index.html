@@ -505,10 +505,11 @@
   <span class="na">templateUrl</span><span class="p">:</span> <span class="s1">'build/pages/list/list.html'</span>
 <span class="p">})</span>
 <span class="k">export</span> <span class="kr">class</span> <span class="nx">ListPage</span> <span class="p">{</span>
+  <span class="nl">selectedItem</span><span class="p">:</span> <span class="kr">any</span><span class="p">;</span>
+  <span class="nl">icons</span><span class="p">:</span> <span class="kr">string</span><span class="p">[];</span>
+  <span class="nl">items</span><span class="p">:</span> <span class="nb">Array</span><span class="o">&lt;</span><span class="p">{</span><span class="na">title</span><span class="p">:</span> <span class="kr">string</span><span class="p">,</span> <span class="na">note</span><span class="p">:</span> <span class="kr">string</span><span class="p">,</span> <span class="na">icon</span><span class="p">:</span> <span class="kr">string</span><span class="p">}</span><span class="o">&gt;</span><span class="p">;</span>
 
   <span class="kd">constructor</span><span class="p">(</span><span class="k">private</span> <span class="nx">navCtrl</span><span class="err">:</span> <span class="nx">NavController</span><span class="p">,</span> <span class="nx">navParams</span><span class="err">:</span> <span class="nx">NavParams</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">nav</span> <span class="o">=</span> <span class="nx">nav</span><span class="p">;</span>
-
     <span class="c1">// If we navigated to this page, we will have an item available as a nav param</span>
     <span class="k">this</span><span class="p">.</span><span class="nx">selectedItem</span> <span class="o">=</span> <span class="nx">navParams</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'item'</span><span class="p">);</span>
 
@@ -526,7 +527,7 @@
   <span class="p">}</span>
 
   <span class="nx">itemTapped</span><span class="p">(</span><span class="nx">event</span><span class="p">,</span> <span class="nx">item</span><span class="p">)</span> <span class="p">{</span>
-     <span class="k">this</span><span class="p">.</span><span class="nx">nav</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">ItemDetailsPage</span><span class="p">,</span> <span class="p">{</span>
+     <span class="k">this</span><span class="p">.</span><span class="nx">navCtrl</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">ItemDetailsPage</span><span class="p">,</span> <span class="p">{</span>
        <span class="na">item</span><span class="p">:</span> <span class="nx">item</span>
      <span class="p">});</span>
   <span class="p">}</span>
