@@ -416,15 +416,15 @@
 
 <span class="kr">class</span> <span class="nx">MyApp</span> <span class="p">{</span>
   <span class="p">...</span>
+  
+  <span class="c1">// make HelloIonicPage the root (or first) page</span>
+  <span class="nl">rootPage</span><span class="p">:</span> <span class="kr">any</span> <span class="o">=</span> <span class="nx">HelloIonicPage</span><span class="p">;</span>
 
     <span class="kd">constructor</span><span class="p">(</span>
       <span class="k">private</span> <span class="nx">platform</span><span class="err">:</span> <span class="nx">Platform</span><span class="p">,</span>
       <span class="k">private</span> <span class="nx">menu</span><span class="err">:</span> <span class="nx">MenuController</span>
     <span class="p">)</span> <span class="p">{</span>
     <span class="p">...</span>
-
-    <span class="c1">// make HelloIonicPage the root (or first) page</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">rootPage</span> <span class="o">=</span> <span class="nx">HelloIonicPage</span><span class="p">;</span>
   <span class="p">}</span>
 
   <span class="p">...</span>
@@ -433,7 +433,7 @@
 </code></pre>
 </div>
 
-<p>We see that <code class="highlighter-rouge">this.rootPage</code> is set to <code class="highlighter-rouge">HelloIonicPage</code>, so <code class="highlighter-rouge">HelloIonicPage</code> will be the first page loaded in the nav controller. Let’s take a look at it.</p>
+<p>We see that <code class="highlighter-rouge">rootPage</code> is set to <code class="highlighter-rouge">HelloIonicPage</code>, so <code class="highlighter-rouge">HelloIonicPage</code> will be the first page loaded in the nav controller. Let’s take a look at it.</p>
 
 <h3 id="creating-a-page">Creating a Page</h3>
 
