@@ -16,8 +16,8 @@
       <title>Ionic Native: Harness the power of Native APIs</title>
     
   </head>
-  <body id="docs-page-geolocation"
-        class="v2 docs page-geolocation"
+  <body id="docs-page-videoeditor"
+        class="v2 docs page-videoeditor"
         data-spy="scroll"
         data-offset="100"
         data-target="#components-index"
@@ -221,7 +221,7 @@
 <li class="capitalize ">
   <a href="/docs/v2/native/flashlight">Flashlight</a>
 </li>
-<li class="capitalize active">
+<li class="capitalize ">
   <a href="/docs/v2/native/geolocation">Geolocation</a>
 </li>
 <li class="capitalize ">
@@ -356,7 +356,7 @@
 <li class="capitalize ">
   <a href="/docs/v2/native/vibration">Vibration</a>
 </li>
-<li class="capitalize ">
+<li class="capitalize active">
   <a href="/docs/v2/native/videoeditor">VideoEditor</a>
 </li>
 <li class="capitalize ">
@@ -378,7 +378,7 @@
         <h1 class="api-title">
 
   
-  Geolocation
+  VideoEditor
   
 
   
@@ -387,51 +387,69 @@
 
 </h1>
 
-<p><a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/geolocation.ts#L92">
+<p><a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/video-editor.ts#L118">
   Improve this doc
 </a></p>
 
 <!-- decorators -->
 
-<pre><code>$ ionic plugin add cordova-plugin-geolocation</code></pre>
+<pre><code>$ ionic plugin add cordova-plugin-video-editor</code></pre>
 <p>Repo:
-  <a href="https://github.com/apache/cordova-plugin-geolocation">
-    https://github.com/apache/cordova-plugin-geolocation
+  <a href="https://github.com/jbavari/cordova-plugin-video-editor">
+    https://github.com/jbavari/cordova-plugin-video-editor
   </a>
 </p>
 
 <!-- description -->
 
-<p>This plugin provides information about the device&#39;s location, such as latitude and longitude. Common sources of location information include Global Positioning System (GPS) and location inferred from network signals such as IP address, RFID, WiFi and Bluetooth MAC addresses, and GSM/CDMA cell IDs.</p>
-<p> This API is based on the W3C Geolocation API Specification, and only executes on devices that don&#39;t already provide an implementation.</p>
+<p>Edit videos using native device APIs</p>
+
+<!-- @platforms tag -->
+<h2>Supported platforms</h2>
+
+<ul>
+  <li>Android</li>
+  
+  <li>iOS</li>
+  
+  <li>Windows Phone 8</li>
+  </ul>
+
+<!-- @platforms tag end -->
 
 <!-- @usage tag -->
 
 <h2>Usage</h2>
 
-<pre><code class="lang-typescript">import { Geolocation } from &#39;ionic-native&#39;;
+<pre><code>import {VideoEditor} from &#39;ionic-native&#39;;
 
-
-Geolocation.getCurrentPosition().then((resp) =&gt; {
- // resp.coords.latitude
- // resp.coords.longitude
+VideoEditor.transcodeVideo({
+  fileUri: &#39;/path/to/input.mov&#39;,
+  outputFileName: &#39;output.mp4&#39;,
+  outputFileType: VideoEditor.OutputFileType.MPEG4
 })
-
-let watch = Geolocation.watchPosition();
-watch.subscribe((data) =&gt; {
- // data.coords.latitude
- // data.coords.longitude
-})
+.then((fileUri: string) =&gt; console.log(&#39;video transcode success&#39;, fileUri))
+.catch((error: any) =&gt; console.log(&#39;video transcode error&#39;, error));
 </code></pre>
 
 <!-- @property tags -->
 <h2>Static Members</h2>
-<div id="getCurrentPosition"></div>
-<h3><code>getCurrentPosition(options)</code>
+<div id="OptimizeForNetworkUse"></div>
+<h3><code>OptimizeForNetworkUse()</code>
   
 </h3>
 
-<p>Get the device’s current position.</p>
+<div id="OutputFileType"></div>
+<h3><code>OutputFileType()</code>
+  
+</h3>
+
+<div id="transcodeVideo"></div>
+<h3><code>transcodeVideo(options)</code>
+  
+</h3>
+
+<p>Transcode a video</p>
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -451,10 +469,10 @@ watch.subscribe((data) =&gt; {
     </td>
     <td>
       
-<code>GeolocationOptions</code>
+<code>TranscodeOptions</code>
     </td>
     <td>
-      <p>The <a href="https://developer.mozilla.org/en-US/docs/Web/API/PositionOptions">geolocation options</a>.</p>
+      <p>Options</p>
 
       
     </td>
@@ -466,25 +484,20 @@ watch.subscribe((data) =&gt; {
 <div class="return-value">
   <p><i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
- Returns a Promise that resolves with the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Position">position</a> of the device, or rejects with an error.</p>
-
+<code>Promise&lt;string&gt;</code> Returns a promise that resolves to the path of the transcoded video</p>
 </div>
 
-<div id="watchPosition"></div>
-<h3><code>watchPosition(options)</code>
+<div id="trim"></div>
+<h3><code>trim(options)</code>
   
 </h3>
-<p>Watch the current device’s position.  Clear the watch by unsubscribing from
-Observable changes.</p>
 
-<div class="language-typescript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">subscription</span> <span class="o">=</span> <span class="nx">Geolocation</span><span class="p">.</span><span class="nx">watchPosition</span><span class="p">().</span><span class="nx">subscribe</span><span class="p">(</span><span class="nx">position</span> <span class="o">=&gt;</span> <span class="p">{</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">position</span><span class="p">.</span><span class="nx">coords</span><span class="p">.</span><span class="nx">longitude</span> <span class="o">+</span> <span class="s1">' '</span> <span class="o">+</span> <span class="nx">position</span><span class="p">.</span><span class="nx">coords</span><span class="p">.</span><span class="nx">latitude</span><span class="p">);</span>
-<span class="p">});</span>
+<p>
+<b>Platforms:</b>
+<code>iOS</code>&nbsp;
+</p>
 
-<span class="c1">// To stop notifications</span>
-<span class="nx">subscription</span><span class="p">.</span><span class="nx">unsubscribe</span><span class="p">();</span>
-</code></pre>
-</div>
+<p>Trim a video</p>
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -504,10 +517,10 @@ Observable changes.</p>
     </td>
     <td>
       
-<code>GeolocationOptions</code>
+<code>TrimOptions</code>
     </td>
     <td>
-      <p>The <a href="https://developer.mozilla.org/en-US/docs/Web/API/PositionOptions">geolocation options</a>.</p>
+      <p>Options</p>
 
       
     </td>
@@ -519,8 +532,93 @@ Observable changes.</p>
 <div class="return-value">
   <p><i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
- Returns an Observable that notifies with the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Position">position</a> of the device, or errors.</p>
+<code>Promise&lt;string&gt;</code> Returns a promise that resolves to the path of the trimmed video</p>
+</div>
 
+<div id="createThumbnail"></div>
+<h3><code>createThumbnail(options)</code>
+  
+</h3>
+
+<p>Create a JPEG thumbnail from a video</p>
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      options
+      
+      
+    </td>
+    <td>
+      
+<code>CreateThumbnailOptions</code>
+    </td>
+    <td>
+      <p>Options</p>
+
+      
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
+
+<div class="return-value">
+  <p><i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;string&gt;</code> Returns a promise that resolves to the path to the jpeg image on the device</p>
+</div>
+
+<div id="getVideoInfo"></div>
+<h3><code>getVideoInfo(options)</code>
+  
+</h3>
+
+<p>Get info on a video (width, height, orientation, duration, size, &amp; bitrate)</p>
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      options
+      
+      
+    </td>
+    <td>
+      
+<code>GetVideoInfoOptions</code>
+    </td>
+    <td>
+      <p>Options</p>
+
+      
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
+
+<div class="return-value">
+  <p><i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;VideoInfo&gt;</code> Returns a promise that resolves to an object containing info on the video</p>
 </div>
 
 <!-- methods on the class -->

@@ -357,6 +357,9 @@
   <a href="/docs/v2/native/vibration">Vibration</a>
 </li>
 <li class="capitalize ">
+  <a href="/docs/v2/native/videoeditor">VideoEditor</a>
+</li>
+<li class="capitalize ">
   <a href="/docs/v2/native/videoplayer">VideoPlayer</a>
 </li>
 <li class="capitalize ">
@@ -440,11 +443,41 @@ BarcodeScanner.scan().then((barcodeData) =&gt; {
 <!-- @property tags -->
 <h2>Static Members</h2>
 <div id="scan"></div>
-<h3><code>scan()</code>
+<h3><code>scan(options)</code>
   
 </h3>
 
 <p>Open the barcode scanner.</p>
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      options
+      
+      
+    </td>
+    <td>
+      
+<code>Object</code>
+    </td>
+    <td>
+      <p>Optional options to pass to the scanner</p>
+
+      
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
 
 <div class="return-value">
   <p><i class="icon ion-arrow-return-left"></i>
@@ -479,10 +512,11 @@ NOTE: not well supported on Android</p>
     </td>
     <td>
       
-
+<code>string</code>
     </td>
     <td>
-      
+      <p>Type of encoding</p>
+
       
     </td>
   </tr>
@@ -495,10 +529,11 @@ NOTE: not well supported on Android</p>
     </td>
     <td>
       
-
+<code>any</code>
     </td>
     <td>
-      
+      <p>Data to encode</p>
+
       
     </td>
   </tr>
