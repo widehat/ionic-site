@@ -409,10 +409,10 @@
 <p>You’ll want to install Xcode from Apple. You can either do this from the Mac App store or from Apple’s Developer portal. The Mac App store is the easiest approach. Once XCode is installed, you’ll have XCode, the iOS SDK, XCode command line tools, and all the build tools to output a native app.</p>
 
 <h3 id="java">Java</h3>
-<p>You’ll need to download Java from <a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html">their website</a>. The install puts Java in your <code class="highlighter-rouge">/Library/Java/JavaVirtualMachines/</code> folder, so navigate there and pick the version of Java you’ve installed. Copy this location (including the version number) as we’ll need it for later.</p>
+<p>You’ll need to download and install Java from <a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html">their website</a>.</p>
 
 <h3 id="android">Android</h3>
-<p>Download Android Studio and go through the installer and set up the IDE. It should print out a location for where the Android SDK gets installed; copy this down for future use.</p>
+<p>Download <a href="https://developer.android.com/studio/">Android Studio</a> and go through the installer and set up the IDE. It should print out a location for where the Android SDK gets installed; copy this down for future use.</p>
 
 <p>Next, inside the new <code class="highlighter-rouge">SDK</code> location, we’ll run <code class="highlighter-rouge">tools/android</code> to open the Android SDK Manager. We’ll want to install:</p>
 
@@ -428,7 +428,7 @@
 <h3 id="environment-variables">Environment Variables</h3>
 <p>Now that everything’s installed, we’ll need to set some environment variables for our command line. Open your terminal and enter the following:</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>touch .bash_profile
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>touch ~/.bash_profile
 </code></pre>
 </div>
 
@@ -438,8 +438,8 @@
 
 <p>If you’ve used the paths suggested, you should have something like this.</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>  <span class="c"># Create a JAVA_HOME Variable, use, the name of the JDK folder</span>
-  <span class="nb">export </span><span class="nv">JAVA_HOME</span><span class="o">=</span>/Library/Java/JavaVirtualMachines/<span class="o">{</span>replaceWithYourJavaVersion<span class="o">}</span>/Contents/Home
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>  <span class="c"># Create a JAVA_HOME variable, determined dynamically</span>
+  <span class="nb">export </span><span class="nv">JAVA_HOME</span><span class="o">=</span><span class="k">$(</span>/usr/libexec/java_home<span class="k">)</span>
   <span class="c"># Add that to the global PATH variable</span>
   <span class="nb">export </span><span class="nv">PATH</span><span class="o">=</span><span class="k">${</span><span class="nv">JAVA_HOME</span><span class="k">}</span>/bin:<span class="nv">$PATH</span>
   <span class="c"># Add the Android SDK to the PATH variable</span>
