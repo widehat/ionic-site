@@ -16,8 +16,8 @@
       <title>Ionic Native: Harness the power of Native APIs</title>
     
   </head>
-  <body id="docs-page-zip"
-        class="v2 docs page-zip"
+  <body id="docs-page-instagram"
+        class="v2 docs page-instagram"
         data-spy="scroll"
         data-offset="100"
         data-target="#components-index"
@@ -257,7 +257,7 @@
 <li class="capitalize ">
   <a href="/docs/v2/native/insomnia">Insomnia</a>
 </li>
-<li class="capitalize ">
+<li class="capitalize active">
   <a href="/docs/v2/native/instagram">Instagram</a>
 </li>
 <li class="capitalize ">
@@ -368,7 +368,7 @@
 <li class="capitalize ">
   <a href="/docs/v2/native/webintent">WebIntent</a>
 </li>
-<li class="capitalize active">
+<li class="capitalize ">
   <a href="/docs/v2/native/zip">Zip</a>
 </li>
 
@@ -381,7 +381,7 @@
         <h1 class="api-title">
 
   
-  Zip
+  Instagram
   
 
   
@@ -390,44 +390,56 @@
 
 </h1>
 
-<p><a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/zip.ts#L0">
+<p><a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/instagram.ts#L0">
   Improve this doc
 </a></p>
 
 <!-- decorators -->
 
-<pre><code>$ ionic plugin add cordova-plugin-zip</code></pre>
+<pre><code>$ ionic plugin add cordova-instagram-plugin</code></pre>
 <p>Repo:
-  <a href="https://github.com/MobileChromeApps/cordova-plugin-zip">
-    https://github.com/MobileChromeApps/cordova-plugin-zip
+  <a href="https://github.com/vstirbu/InstagramPlugin">
+    https://github.com/vstirbu/InstagramPlugin
   </a>
 </p>
 
 <!-- description -->
 
-<p>A Cordova plugin to unzip files in Android and iOS.</p>
+<p>Share a photo with the instagram app</p>
 
 <!-- @usage tag -->
 
 <h2>Usage</h2>
 
-<pre><code>import {Zip} from &#39;ionic-native&#39;;
+<pre><code>import {Instagram} from &#39;ionic-native&#39;;
 
-Zip.unzip(&#39;path/to/source.zip&#39;, &#39;path/to/dest&#39;, (progress) =&gt; console.log(&#39;Unzipping, &#39; + Math.round((progress.loaded / progress.total) * 100) + &#39;%&#39;))
- .then((result) =&gt; {
-   if(result === 0) console.log(&#39;SUCCESS&#39;);
-   if(result === -1) console.log(&#39;FAILED&#39;);
- });
+Instagram.share(&#39;data:image/png;uhduhf3hfif33&#39;, &#39;Caption&#39;)
+  .then(() =&gt; console.log(&#39;Shared!&#39;))
+  .catch((error: any) =&gt; console.error(error));
 </code></pre>
 
 <!-- @property tags -->
 <h2>Static Members</h2>
-<div id="unzip"></div>
-<h3><code>unzip(sourceZip,&nbsp;destUrl,&nbsp;onProgress)</code>
+<div id="isInstalled"></div>
+<h3><code>isInstalled()</code>
   
 </h3>
 
-<p>Extracts files from a ZIP archive</p>
+<p>Detect if the Instagram application is installed on the device.</p>
+
+<div class="return-value">
+  <p><i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;boolean|string&gt;</code> Returns a promise that returns a boolean value if installed, or the app version on android</p>
+</div>
+
+<div id="share"></div>
+<h3><code>share(canvasIdOrDataUrl,&nbsp;caption)</code>
+  
+</h3>
+
+<p>Share an image on Instagram
+Note: Instagram app stopped accepting pre-filled captions on both iOS and Android. As a work-around, the caption is copied to the clipboard. You have to inform your users to paste the caption.</p>
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -441,16 +453,16 @@ Zip.unzip(&#39;path/to/source.zip&#39;, &#39;path/to/dest&#39;, (progress) =&gt;
   
   <tr>
     <td>
-      sourceZip
+      canvasIdOrDataUrl
       
       
     </td>
     <td>
       
-<code>string</code>
+
     </td>
     <td>
-      <p>Source ZIP file</p>
+      <p>The canvas element id or the dataURL of the image to share</p>
 
       
     </td>
@@ -458,33 +470,16 @@ Zip.unzip(&#39;path/to/source.zip&#39;, &#39;path/to/dest&#39;, (progress) =&gt;
   
   <tr>
     <td>
-      destUrl
+      caption
       
       
     </td>
     <td>
       
-<code>string</code>
-    </td>
-    <td>
-      <p>Destination folder</p>
 
-      
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      onProgress
-      
-      
     </td>
     <td>
-      
-<code>Function</code>
-    </td>
-    <td>
-      <p>optional callback to be called on progress update</p>
+      <p>The caption of the image</p>
 
       
     </td>
@@ -496,7 +491,50 @@ Zip.unzip(&#39;path/to/source.zip&#39;, &#39;path/to/dest&#39;, (progress) =&gt;
 <div class="return-value">
   <p><i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise&lt;number&gt;</code> returns a promise that resolves with a number. 0 is success, -1 is error</p>
+<code>Promise&lt;any&gt;</code> Returns a promise that resolves if the image was shared</p>
+</div>
+
+<div id="shareAsset"></div>
+<h3><code>shareAsset(assetLocalIdentifier)</code>
+  
+</h3>
+
+<p>Share a library asset or video</p>
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      assetLocalIdentifier
+      
+      
+    </td>
+    <td>
+      
+
+    </td>
+    <td>
+      <p>A local fileURI</p>
+
+      
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
+
+<div class="return-value">
+  <p><i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> Returns a promise that resolves if the image was shared</p>
 </div>
 
 <!-- methods on the class -->
