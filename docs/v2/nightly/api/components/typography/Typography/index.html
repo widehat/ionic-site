@@ -13,11 +13,11 @@
 
 
     
-      <title>Input - Ionic API Documentation -  Ionic Framework</title>
+      <title>Typography - Ionic API Documentation -  Ionic Framework</title>
     
   </head>
-  <body id="docs-page-input"
-        class="v2 docs page-input"
+  <body id="docs-page-typography"
+        class="v2 docs page-typography"
         data-spy="scroll"
         data-offset="100"
         data-target="#components-index"
@@ -101,8 +101,6 @@
 </nav>
 
     <div class="docs-container"
-         
-           ng-controller="APIDemoCtrl"
          >
       <nav class="side-nav" id="side-nav">
         <form class="form-group search" role="search">
@@ -332,7 +330,7 @@
 <li class="capitalize ">
   <a href="/docs/v2/nightly/api/components/infinite-scroll/InfiniteScroll">InfiniteScroll</a>
 </li>
-<li class="capitalize active">
+<li class="capitalize ">
   <a href="/docs/v2/nightly/api/components/input/Input">Input</a>
 </li>
 <li class="capitalize ">
@@ -487,53 +485,12 @@
         
       </nav>
       
-      <aside id="platform-preview" class="platform-preview">
-        <div class="platform-toggle">
-          <a ng-class="{active: iosActive}"
-             ng-click="setPlatform('ios')">iOS</a>
-          <a ng-class="{active: androidActive}"
-             ng-click="setPlatform('android')">Android</a>
-          <a ng-class="{active: windowsActive}"
-             ng-click="setPlatform('windows')">Windows</a>
-        </div>
-        <div id="demo-device-ios"
-             ng-class="previewPlatform"
-             ng-show="iosActive">
-          <iframe id="demo-ios"
-                
-                  src="/docs/v2/demos/input/?production=true&ionicplatform=ios"
-                
-                  frameborder="0">
-          </iframe>
-        </div>
-        <div id="demo-device-android"
-             ng-class="previewPlatform"
-             ng-show="androidActive">
-          <iframe id="demo-android"
-                
-                  src="/docs/v2/demos/input/?production=true&ionicplatform=android"
-                
-                  frameborder="0">
-          </iframe>
-        </div>
-        <div id="demo-device-windows"
-             ng-class="previewPlatform"
-             ng-show="windowsActive">
-          <iframe id="demo-windows"
-                
-                  src="/docs/v2/demos/input/?production=true&ionicplatform=windows"
-                
-                  frameborder="0">
-          </iframe>
-        </div>
-      </aside>
-      
       <main>
         <h1 class="api-title">
-<a class="anchor" name="input" href="#input"></a>
+<a class="anchor" name="typography" href="#typography"></a>
 
-Input
-<h3><code>ion-input</code></h3>
+Typography
+<h3><code>h1[color], h2[color], h3[color], h4[color], h5[color], h6[color], a[color], p[color], span[color], b[color], i[color], strong[color], em[color], small[color], sub[color], sup[color]</code></h3>
 
 
 
@@ -542,110 +499,36 @@ Input
 
 </h1>
 
-<p><a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/input/input.ts#L13">
+<p><a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/typography/typography.ts#L0">
 Improve this doc
 </a></p>
 
-<p><code>ion-input</code> is meant for text type inputs only, such as <code>text</code>,
-<code>password</code>, <code>email</code>, <code>number</code>, <code>search</code>, <code>tel</code>, and <code>url</code>. Ionic
-still uses an actual <code>&lt;input type=&quot;text&quot;&gt;</code> HTML element within the
-component, however, with Ionic wrapping the native HTML input
-element it&#39;s able to better handle the user experience and
-interactivity.</p>
-<p>Similarily, <code>&lt;ion-textarea&gt;</code> should be used in place of <code>&lt;textarea&gt;</code>.</p>
-<p>An <code>ion-input</code> is <strong>not</strong> used for non-text type inputs, such as a
-<code>checkbox</code>, <code>radio</code>, <code>toggle</code>, <code>range</code>, <code>select</code>, etc.</p>
-
 <!-- @usage tag -->
-
-<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
-
-<pre><code class="lang-html">&lt;ion-list&gt;
-  &lt;ion-item&gt;
-    &lt;ion-label color=&quot;primary&quot;&gt;Inline Label&lt;/ion-label&gt;
-    &lt;ion-input placeholder=&quot;Text Input&quot;&gt;&lt;/ion-input&gt;
-  &lt;/ion-item&gt;
-
-  &lt;ion-item&gt;
-    &lt;ion-label color=&quot;primary&quot; fixed&gt;Fixed Label&lt;/ion-label&gt;
-    &lt;ion-input type=&quot;tel&quot; placeholder=&quot;Tel Input&quot;&gt;&lt;/ion-input&gt;
-  &lt;/ion-item&gt;
-
-  &lt;ion-item&gt;
-    &lt;ion-input type=&quot;number&quot; placeholder=&quot;Number Input with no label&quot;&gt;&lt;/ion-input&gt;
-  &lt;/ion-item&gt;
-
-  &lt;ion-item&gt;
-    &lt;ion-label color=&quot;primary&quot; stacked&gt;Stacked Label&lt;/ion-label&gt;
-    &lt;ion-input type=&quot;email&quot; placeholder=&quot;Email Input&quot;&gt;&lt;/ion-input&gt;
-  &lt;/ion-item&gt;
-
-  &lt;ion-item&gt;
-    &lt;ion-label color=&quot;primary&quot; stacked&gt;Stacked Label&lt;/ion-label&gt;
-    &lt;ion-input type=&quot;password&quot; placeholder=&quot;Password Input&quot;&gt;&lt;/ion-input&gt;
-  &lt;/ion-item&gt;
-
-  &lt;ion-item&gt;
-    &lt;ion-label color=&quot;primary&quot; floating&gt;Floating Label&lt;/ion-label&gt;
-    &lt;ion-input&gt;&lt;/ion-input&gt;
-  &lt;/ion-item&gt;
-
-  &lt;ion-item&gt;
-    &lt;ion-input placeholder=&quot;Clear Input&quot; clearInput&gt;&lt;/ion-input&gt;
-  &lt;/ion-item&gt;
-&lt;/ion-list&gt;
-</code></pre>
 
 <!-- @property tags -->
 
-<h2><a class="anchor" name="attributes" href="#attributes"></a>Attributes:</h2>
-<table class="table" style="margin:0;">
-<thead>
-<tr>
-<th>Attribute</th>
-
-
-
-
-
-
-
-
-
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-
-<tr>
-<td>
-type
-</td>
-
-
-
-<td>
-The HTML input type (text, password, email, number, search, tel, or url)
-</td>
-</tr>
-
-<tr>
-<td>
-clearInput
-</td>
-
-
-
-<td>
-A clear icon will appear in the input when there is a value. Clicking it clears the input.
-
-</td>
-</tr>
-
-</tbody>
-</table>
-
 <!-- instance methods on the class -->
+<!-- input methods on the class -->
+<h2><a class="anchor" name="input-properties" href="#input-properties"></a>Input Properties</h2>
+<table class="table param-table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Attr</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>color</td>
+      <td><code>string</code></td>
+      <td><p> The predefined color to use. For example: <code>&quot;primary&quot;</code>, <code>&quot;secondary&quot;</code>, <code>&quot;danger&quot;</code>.</p>
+</td>
+    </tr>
+    
+  </tbody>
+</table>
 
 <!-- related link -->
 <!-- end content block -->
