@@ -14,8 +14,8 @@
 
     
   </head>
-  <body id="docs-page-tutorial"
-        class="v2 docs page-tutorial"
+  <body id="docs-page-using_ng2_translate"
+        class="v2 docs page-using_ng2_translate"
         data-spy="scroll"
         data-offset="100"
         data-target="#components-index"
@@ -117,12 +117,9 @@
   </li>
 
   
-  <li class="
-             active">
+  <li class="">
     <a ng-click="showGettingStarted = !showGettingStarted">Getting Started</a>
     <ul ng-show="showGettingStarted"
-        
-          ng-init="showGettingStarted = true"
         >
       <li class="">
         <a href="/docs/v2/getting-started">Welcome</a>
@@ -130,7 +127,7 @@
       <li class="">
         <a href="/docs/v2/getting-started/installation">Installation</a>
       </li>
-      <li class="active">
+      <li class="">
         <a href="/docs/v2/getting-started/tutorial">Tutorial</a>
       </li>
       <li class="">
@@ -346,9 +343,11 @@
   </li>
 
   
-  <li class="">
+  <li class="active">
     <a href="/docs/v2/resources" >Resources</a>
     <ul ng-show="showResources"
+        
+          ng-init="showResources = true"
         >
       
       
@@ -384,7 +383,7 @@
       <li class="">
         <a href="/docs/v2/resources/platform-setup/windows-setup.html">Windows Setup</a>
       </li>
-      <li class="">
+      <li class="active">
         <a href="/docs/v2/resources/ng2-translate/">Using NG2-Translate</a>
       </li>
     </ul>
@@ -395,23 +394,49 @@
       </nav>
       
       <main>
-        <h1 id="using-platform-plugins">Using Platform Plugins</h1>
+        <h1 id="using-ng2-translate">Using NG2-Translate</h1>
 
-<p><a class="improve-v2-docs" href="https://github.com/driftyco/ionic-site/edit/ionic2/docs/v2/guide/adding-pages/index.md">
-Improve this doc
-</a></p>
+<h3 id="installing">Installing</h3>
 
-<p>Great Ionic apps don’t just live in a web view in an app, they embrace the entire native environment they run on. They take pictures, track location, integrate with bluetooth devices, and power Watch apps (among many other things!)</p>
+<p>For the latest version of Ionic 2, which runs on Angular 2 RC4, you have to install the release of NG2-Translate that is built for Angular 2 RC4. To install the correct version, you can run <code class="highlighter-rouge">npm install ng2-translate@2.2.2 --save --save-exact</code>.</p>
 
-<h2 id="ionic-platform">Ionic Platform</h2>
+<h3 id="bootstrapping">Bootstrapping</h3>
 
-<h2 id="cordova-plugins">Cordova Plugins</h2>
+<p>To use NG2-Translate, you must first import it and add it to your <code class="highlighter-rouge">ionicBootstrap</code>. Here’s an example of how to do this:</p>
 
-<h2 id="geolocation-plugin">Geolocation Plugin</h2>
+<div class="language-typescript highlighter-rouge"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">TranslateService</span><span class="p">,</span> <span class="nx">TranslateLoader</span><span class="p">,</span> <span class="nx">TranslateStaticLoader</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'ng2-translate/ng2-translate'</span><span class="p">;</span>
 
-<h2 id="push-notifications">Push Notifications</h2>
+<span class="nx">ionicBootstrap</span><span class="p">(</span><span class="nx">MyApp</span><span class="p">,</span> <span class="p">[</span>
+  <span class="p">{</span> 
+    <span class="na">provide</span><span class="p">:</span> <span class="nx">TranslateLoader</span><span class="p">,</span>
+    <span class="na">useFactory</span><span class="p">:</span> <span class="p">(</span><span class="na">http</span><span class="p">:</span> <span class="nx">Http</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="k">new</span> <span class="nx">TranslateStaticLoader</span><span class="p">(</span><span class="nx">http</span><span class="p">,</span> <span class="s1">'assets/i18n'</span><span class="p">,</span> <span class="s1">'.json'</span><span class="p">),</span>
+    <span class="na">deps</span><span class="p">:</span> <span class="p">[</span><span class="nx">Http</span><span class="p">]</span>
+  <span class="p">},</span>
+  <span class="nx">TranslateService</span>
+<span class="p">]);</span>
+</code></pre>
+</div>
 
-<p><a href="../building-forms/" class="btn btn-primary" role="button">Building Forms</a></p>
+<p>This loads the <code class="highlighter-rouge">TranslateService</code>, sets the default loader, and also bootstraps the Angular 2 http module, which NG2-Translate requires. Normally you would also have to import the Angular 2 http module too, but because Ionic 2 already provides it for you, there is no need to import and bootstrap it again. The most important part here is the <code class="highlighter-rouge">TranslateStaticLoader</code> constructor. The first argument is injecting the Angular 2 http module, which it uses to fetch each translation file. The second argument is the path to your translation assets, and the third argument is the type of file that your translation assets are in (usually json).</p>
+
+<h3 id="usage">Usage</h3>
+
+<p>Once you’ve followed the above steps, you can begin to use NG2-Translate in your Ionic 2 app, just like you would in an Angular 2 application. The best place to start in the NG2-Translate docs is <a href="https://github.com/ocombe/ng2-translate#3-define-the-translations">here</a>. It will show you how to put your translation keys and values in a json file for each language you would like to support:</p>
+
+<p>es.json</p>
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="err">“HELLO”:</span><span class="w"> </span><span class="err">“hola”</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
+
+<p>en.json</p>
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="w">  </span><span class="p">{</span><span class="w">
+      </span><span class="err">“HELLO”:</span><span class="w"> </span><span class="err">“hello”</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
+<p>…and how you can use the <code class="highlighter-rouge">TranslatePipe</code> and the <code class="highlighter-rouge">get</code> observable of the <code class="highlighter-rouge">TranslateService</code> to translate strings in your app!</p>
 
       </main>
     </div>
