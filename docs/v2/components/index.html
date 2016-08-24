@@ -1943,9 +1943,11 @@ By default, it shows a spinner based on the mode. Dynamic content can be passed 
 
 <p><em>For more in depth information on navigation, see the <a href="../api/components/nav/Nav">Nav API reference</a>.</em></p>
 
-<p>Navigation is how users move between different pages in your app. Ionic’s navigation follows standard native animation concepts, like <a href="https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/MobileHIG/Navigation.html">those in iOS</a>.</p>
+<p>Navigation is how users move between different pages in your app. Ionic’s navigation follows standard native navigation concepts, like <a href="https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/MobileHIG/Navigation.html">those in iOS</a>. In order to enable native-like navigation, we’ve built a few new navigation components that might feel different for developers used to traditional desktop browser navigation.</p>
 
-<p>Like native apps, URLs are not required for navigation.  Instead, pages are pushed and popped on and off a navigation controller’s page stack.  URLs can be used to link back to unique, important parts of your app (“deeplinking”) but don’t define navigation as your app runs.</p>
+<!--
+Like native apps, URLs are not required for navigation in Ionic.  Instead, pages are pushed and popped on and off a navigation controller's page stack.  URLs can be used to link back to unique, important parts of your app ("deeplinking") but don't define navigation as your app runs.
+-->
 
 <p>There are several ways to navigate throughout an Ionic app:</p>
 
@@ -1954,24 +1956,23 @@ By default, it shows a spinner based on the mode. Dynamic content can be passed 
   Demo Source
 </a></p>
 
-<p>The simplest way to navigate throughout your app is to create and initialize a new navigation controller, using <a href="../api/components/nav/Nav/"><code class="highlighter-rouge">&lt;ion-nav&gt;</code></a>:</p>
+<p>Navigation is handled through the <a href="../api/components/nav/Nav/"><code class="highlighter-rouge">&lt;ion-nav&gt;</code></a> component, which works as a simple stack that new pages are pushed onto and popped off of, corresponding to moving forward and backward in history.</p>
 
-<div class="language-typescript highlighter-rouge"><pre class="highlight"><code>  <span class="k">import</span> <span class="p">{</span><span class="nx">StartPage</span><span class="p">}</span> <span class="k">from</span> <span class="s1">'start'</span>
+<p>We start with a root page that loads the Nav component:</p>
 
-  <span class="err">@</span><span class="nx">Component</span><span class="p">({</span>
-    <span class="na">template</span><span class="p">:</span> <span class="s1">'&lt;ion-nav [root]="rootPage"&gt;&lt;/ion-nav&gt;'</span>
-  <span class="p">})</span>
-  <span class="kr">class</span> <span class="nx">MyApp</span> <span class="p">{</span>
-    <span class="c1">// First page to push onto the stack</span>
-    <span class="nx">rootPage</span> <span class="o">=</span> <span class="nx">StartPage</span><span class="p">;</span>
-    <span class="kd">constructor</span><span class="p">(){}</span>
-  <span class="p">}</span>
+<div class="language-typescript highlighter-rouge"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span><span class="nx">StartPage</span><span class="p">}</span> <span class="k">from</span> <span class="s1">'start'</span>
 
-  <span class="nx">ionicBootstrap</span><span class="p">(</span><span class="nx">MyApp</span><span class="p">)</span>
+<span class="err">@</span><span class="nx">Component</span><span class="p">({</span>
+  <span class="na">template</span><span class="p">:</span> <span class="s1">'&lt;ion-nav [root]="rootPage"&gt;&lt;/ion-nav&gt;'</span>
+<span class="p">})</span>
+<span class="kr">class</span> <span class="nx">MyApp</span> <span class="p">{</span>
+  <span class="c1">// First page to push onto the stack</span>
+  <span class="nx">rootPage</span> <span class="o">=</span> <span class="nx">StartPage</span><span class="p">;</span>
+<span class="p">}</span>
 </code></pre>
 </div>
 
-<p>You can access the navigation controller you create by injecting it into any of your Pages:</p>
+<p>Next, we can access the Navigation Controller in each page that is navigated to by injecting it into any of our Pages:</p>
 
 <div class="language-typescript highlighter-rouge"><pre class="highlight"><code><span class="err">@</span><span class="nx">Component</span><span class="p">({</span>
   <span class="na">template</span><span class="p">:</span> <span class="err">`</span>
@@ -1981,10 +1982,11 @@ By default, it shows a spinner based on the mode. Dynamic content can be passed 
 </span>    <span class="o">&lt;</span><span class="sr">/ion-navbar</span><span class="err">&gt;
 </span>  <span class="o">&lt;</span><span class="sr">/ion-header</span><span class="err">&gt;
 </span>
-    <span class="o">&lt;</span><span class="nx">ion</span><span class="o">-</span><span class="nx">content</span><span class="o">&gt;</span><span class="nx">Hello</span> <span class="nx">World</span><span class="o">&lt;</span><span class="sr">/ion-content&gt;</span><span class="err">`
+  <span class="o">&lt;</span><span class="nx">ion</span><span class="o">-</span><span class="nx">content</span><span class="o">&gt;</span><span class="nx">Hello</span> <span class="nx">World</span><span class="o">&lt;</span><span class="sr">/ion-content&gt;</span><span class="err">`
 </span><span class="p">})</span>
 <span class="k">export</span> <span class="kr">class</span> <span class="nx">StartPage</span> <span class="p">{</span>
-  <span class="kd">constructor</span><span class="p">(</span><span class="k">private</span> <span class="nx">nav</span><span class="err">:</span> <span class="nx">NavController</span><span class="p">){}</span>
+  <span class="kd">constructor</span><span class="p">(</span><span class="k">public</span> <span class="nx">navCtrl</span><span class="err">:</span> <span class="nx">NavController</span><span class="p">)</span> <span class="p">{</span>
+  <span class="p">}</span>
 <span class="p">}</span>
 </code></pre>
 </div>
@@ -1999,19 +2001,19 @@ By default, it shows a spinner based on the mode. Dynamic content can be passed 
 </span>    <span class="o">&lt;</span><span class="sr">/ion-navbar</span><span class="err">&gt;
 </span>  <span class="o">&lt;</span><span class="sr">/ion-header</span><span class="err">&gt;
 </span>
-    <span class="o">&lt;</span><span class="nx">ion</span><span class="o">-</span><span class="nx">content</span><span class="o">&gt;</span>
-      <span class="o">&lt;</span><span class="nx">button</span> <span class="p">(</span><span class="nx">click</span><span class="p">)</span><span class="o">=</span><span class="s2">"goToOtherPage()"</span><span class="o">&gt;</span>
-        <span class="nx">Go</span> <span class="nx">to</span> <span class="nx">OtherPage</span>
-      <span class="o">&lt;</span><span class="sr">/button</span><span class="err">&gt;
-</span>    <span class="o">&lt;</span><span class="sr">/ion-content&gt;</span><span class="err">`
+  <span class="o">&lt;</span><span class="nx">ion</span><span class="o">-</span><span class="nx">content</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="nx">button</span> <span class="p">(</span><span class="nx">click</span><span class="p">)</span><span class="o">=</span><span class="s2">"goToOtherPage()"</span><span class="o">&gt;</span>
+      <span class="nx">Go</span> <span class="nx">to</span> <span class="nx">OtherPage</span>
+    <span class="o">&lt;</span><span class="sr">/button</span><span class="err">&gt;
+</span>  <span class="o">&lt;</span><span class="sr">/ion-content&gt;</span><span class="err">`
 </span><span class="p">})</span>
 <span class="k">export</span> <span class="kr">class</span> <span class="nx">StartPage</span> <span class="p">{</span>
-  <span class="kd">constructor</span><span class="p">(</span><span class="k">private</span> <span class="nx">nav</span><span class="err">:</span> <span class="nx">NavController</span><span class="p">)</span> <span class="p">{}</span>
+  <span class="kd">constructor</span><span class="p">(</span><span class="k">public</span> <span class="nx">navCtrl</span><span class="err">:</span> <span class="nx">NavController</span><span class="p">)</span> <span class="p">{}</span>
 
-  <span class="nx">goToOtherPage</span><span class="p">(){</span>
+  <span class="nx">goToOtherPage</span><span class="p">()</span> <span class="p">{</span>
     <span class="c1">//push another page onto the history stack</span>
     <span class="c1">//causing the nav controller to animate the new page in</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">nav</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">OtherPage</span><span class="p">);</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">navCtrl</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">OtherPage</span><span class="p">);</span>
   <span class="p">}</span>
 <span class="p">}</span>
 
@@ -2023,29 +2025,29 @@ By default, it shows a spinner based on the mode. Dynamic content can be passed 
 </span>    <span class="o">&lt;</span><span class="sr">/ion-navbar</span><span class="err">&gt;
 </span>  <span class="o">&lt;</span><span class="sr">/ion-header</span><span class="err">&gt;
 </span>
-    <span class="o">&lt;</span><span class="nx">ion</span><span class="o">-</span><span class="nx">content</span><span class="o">&gt;</span><span class="nx">I</span><span class="err">'</span><span class="nx">m</span> <span class="nx">the</span> <span class="nx">other</span> <span class="nx">page</span><span class="o">!&lt;</span><span class="sr">/ion-content&gt;</span><span class="err">`
+  <span class="o">&lt;</span><span class="nx">ion</span><span class="o">-</span><span class="nx">content</span><span class="o">&gt;</span><span class="nx">I</span><span class="err">'</span><span class="nx">m</span> <span class="nx">the</span> <span class="nx">other</span> <span class="nx">page</span><span class="o">!&lt;</span><span class="sr">/ion-content&gt;</span><span class="err">`
 </span><span class="p">})</span>
 <span class="kr">class</span> <span class="nx">OtherPage</span> <span class="p">{}</span>
 </code></pre>
 </div>
 
-<p>If your page has an <a href="../api/components/navbar/NavBar/"><code class="highlighter-rouge">&lt;ion-navbar&gt;</code></a>, a back button will automatically be added to it if it is not a root page.</p>
+<p>If your page has an <a href="../api/components/navbar/NavBar/"><code class="highlighter-rouge">&lt;ion-navbar&gt;</code></a>, a back button will automatically be added to it if it is not a root page, and the title of the Nav Bar will be updated.</p>
 
 <p>Alternatively, if you want to go back, but don’t have a NavBar, you can pop the current page off the stack:</p>
 
 <div class="language-typescript highlighter-rouge"><pre class="highlight"><code><span class="err">@</span><span class="nx">Component</span><span class="p">({</span>
   <span class="na">template</span><span class="p">:</span> <span class="err">`</span>
-    <span class="o">&lt;</span><span class="nx">ion</span><span class="o">-</span><span class="nx">content</span><span class="o">&gt;</span>
-      <span class="o">&lt;</span><span class="nx">button</span> <span class="p">(</span><span class="nx">click</span><span class="p">)</span><span class="o">=</span><span class="s2">"goBack()"</span><span class="o">&gt;</span>
-        <span class="nx">There</span><span class="err">'</span><span class="nx">s</span> <span class="nx">no</span> <span class="nx">place</span> <span class="nx">like</span> <span class="nx">home</span>
-      <span class="o">&lt;</span><span class="sr">/button</span><span class="err">&gt;
-</span>    <span class="o">&lt;</span><span class="sr">/ion-content&gt;</span><span class="err">`
+  <span class="o">&lt;</span><span class="nx">ion</span><span class="o">-</span><span class="nx">content</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="nx">button</span> <span class="p">(</span><span class="nx">click</span><span class="p">)</span><span class="o">=</span><span class="s2">"goBack()"</span><span class="o">&gt;</span>
+      <span class="nx">There</span><span class="err">'</span><span class="nx">s</span> <span class="nx">no</span> <span class="nx">place</span> <span class="nx">like</span> <span class="nx">home</span>
+    <span class="o">&lt;</span><span class="sr">/button</span><span class="err">&gt;
+</span>  <span class="o">&lt;</span><span class="sr">/ion-content&gt;</span><span class="err">`
 </span><span class="p">})</span>
 <span class="kr">class</span> <span class="nx">OtherPage</span> <span class="p">{</span>
-  <span class="kd">constructor</span><span class="p">(</span><span class="k">private</span> <span class="nx">nav</span><span class="err">:</span> <span class="nx">NavController</span><span class="p">)</span> <span class="p">{}</span>
+  <span class="kd">constructor</span><span class="p">(</span><span class="k">public</span> <span class="nx">navCtrl</span><span class="err">:</span> <span class="nx">NavController</span><span class="p">)</span> <span class="p">{}</span>
 
   <span class="nx">goBack</span><span class="p">()</span> <span class="p">{</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">nav</span><span class="p">.</span><span class="nx">pop</span><span class="p">();</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">navCtrl</span><span class="p">.</span><span class="nx">pop</span><span class="p">();</span>
   <span class="p">}</span>
 <span class="p">}</span>
 </code></pre>
@@ -2053,12 +2055,41 @@ By default, it shows a spinner based on the mode. Dynamic content can be passed 
 
 <p>For more information on basic navigation, check out the <a href="../api/components/nav/Nav/">Nav API reference</a>.</p>
 
+<!--
+<h3 id="navigating_routing">Routing and DeepLinking</h3>
+
+Pushing and popping views is a simple operation that can be made more powerful with URLs for routing and deeplinking. We can identify pages with a URL we share to users that brings them back to the exact page they were viewing when they left (including setting the history state if we desire), and we can have our Nav Controller navigate to pages based on a URL segment.
+
+To enable linking directly to a page, we use the `@DeepLink` decorator, specifying a unique identifier for the page (the 'name') and a page segment that goes into the URL that maps to this page. This means we can have a long URL specifying a specific history state *or* a short one, but return to the app with this page at the top of the history stack:
+
+```typescript
+@Component({
+  template: `
+  <ion-header>
+    <ion-navbar>
+      <ion-title>Login</ion-title>
+    </ion-navbar>
+  </ion-header>
+
+  <ion-content>
+  </ion-content>`
+})
+@DeepLink({
+  name: 'login', // Unique identifer (no spaces) of this page for easy routing
+  segment: 'user/login' // (optional) Segment in the URL that links to this page. Defaults to the name
+})
+export class LoginPage {
+  constructor(public navCtrl: NavController) {}
+}
+```
+-->
+
 <h3 id="navigating_from_root">Navigating from the Root Component</h3>
 <p>What if you want to control navigation from your root app component? You can’t inject <code class="highlighter-rouge">NavController</code> because any components that are navigation controllers are <em>children</em> of the root component so they aren’t available to be injected.</p>
 
 <p>By adding a reference variable to the <code class="highlighter-rouge">ion-nav</code>, you can use <code class="highlighter-rouge">@ViewChild</code> to get an instance of the <code class="highlighter-rouge">Nav</code> component, which is a navigation controller (it extends <code class="highlighter-rouge">NavController</code>):</p>
 
-<div class="language-typescript highlighter-rouge"><pre class="highlight"><code><span class="err">@</span><span class="nx">App</span><span class="p">({</span>
+<div class="language-typescript highlighter-rouge"><pre class="highlight"><code><span class="err">@</span><span class="nx">Component</span><span class="p">({</span>
   <span class="na">template</span><span class="p">:</span> <span class="s1">'&lt;ion-nav #myNav [root]="rootPage"&gt;&lt;/ion-nav&gt;'</span>
 <span class="p">})</span>
 <span class="k">export</span> <span class="kr">class</span> <span class="nx">MyApp</span> <span class="p">{</span>
@@ -2066,17 +2097,19 @@ By default, it shows a spinner based on the mode. Dynamic content can be passed 
   <span class="nx">rootPage</span> <span class="o">=</span> <span class="nx">TabsPage</span><span class="p">;</span>
 
   <span class="c1">// Wait for the components in MyApp's template to be initialized</span>
-  <span class="c1">// In this case, we are waiting for the Nav with id="my-nav"</span>
+  <span class="c1">// In this case, we are waiting for the Nav identified by</span>
+  <span class="c1">// the template reference variable #myNav</span>
   <span class="nx">ngAfterViewInit</span><span class="p">()</span> <span class="p">{</span>
     <span class="c1">// Let's navigate from TabsPage to Page1</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">nav</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">Page1</span><span class="p">);</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">nav</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">LoginPage</span><span class="p">);</span>
   <span class="p">}</span>
 <span class="p">}</span>
 </code></pre>
 </div>
 
-<h3 id="advanced_navigation">Advanced Navigation</h3>
-<p>What if you have several “root” or “top-level” pages that don’t have a parent-child relationship, but rather are siblings? You have two options: <a href="#tabs">Tabs</a> and <a href="#menus">Menu</a>.</p>
+<h3 id="advanced_navigation">Tabbed Navigation</h3>
+
+<p>Navigation can be nested and used inside of complex components like Tabs. Unlike traditional routing systems, Ionic’s navigation makes it easy to navigate to a given Page from anywhere in the app without specifying a specific route to it. To use the App Store app on iOS as an example, we can easily navigate to the AppDetailPage that shows info about a specific app from any tab (try it yourself to see!). Take a look at the <a href="#tabs">Tabs</a> docs for more info on how to easily achieve this.</p>
 
 <h2 id="popovers" class="section-header">Popover</h2>
 
