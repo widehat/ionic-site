@@ -461,11 +461,11 @@
 <div class="language-typescript highlighter-rouge"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">ActionSheetController</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'ionic-angular'</span><span class="p">;</span>
 
 <span class="k">export</span> <span class="kr">class</span> <span class="nx">MyPage</span> <span class="p">{</span>
-  <span class="kd">constructor</span> <span class="p">(</span> <span class="k">private</span> <span class="nx">actionSheetController</span> <span class="err">:</span> <span class="nx">ActionSheetController</span> <span class="p">){</span>
+  <span class="kd">constructor</span><span class="p">(</span><span class="k">public</span> <span class="nx">actionSheetCtrl</span><span class="err">:</span> <span class="nx">ActionSheetController</span><span class="p">)</span> <span class="p">{</span>
   <span class="p">}</span>
 
   <span class="nx">presentActionSheet</span><span class="p">()</span> <span class="p">{</span>
-    <span class="kd">let</span> <span class="nx">actionSheet</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">actionSheetController</span><span class="p">.</span><span class="nx">create</span><span class="p">({</span>
+    <span class="kd">let</span> <span class="nx">actionSheet</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">actionSheetCtrl</span><span class="p">.</span><span class="nx">create</span><span class="p">({</span>
       <span class="na">title</span><span class="p">:</span> <span class="s1">'Modify your album'</span><span class="p">,</span>
       <span class="na">buttons</span><span class="p">:</span> <span class="p">[</span>
         <span class="p">{</span>
@@ -528,11 +528,11 @@
 <div class="language-typescript highlighter-rouge"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">AlertController</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'ionic-angular'</span><span class="p">;</span>
 
 <span class="k">export</span> <span class="kr">class</span> <span class="nx">MyPage</span> <span class="p">{</span>
-  <span class="kd">constructor</span><span class="p">(</span><span class="k">private</span> <span class="nx">alertController</span><span class="err">:</span> <span class="nx">AlertController</span><span class="p">){</span>
+  <span class="kd">constructor</span><span class="p">(</span><span class="k">public</span> <span class="nx">alertCtrl</span><span class="err">:</span> <span class="nx">AlertController</span><span class="p">)</span> <span class="p">{</span>
   <span class="p">}</span>
 
   <span class="nx">showAlert</span><span class="p">()</span> <span class="p">{</span>
-    <span class="kd">let</span> <span class="nx">alert</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">alertController</span><span class="p">.</span><span class="nx">create</span><span class="p">({</span>
+    <span class="kd">let</span> <span class="nx">alert</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">alertCtrl</span><span class="p">.</span><span class="nx">create</span><span class="p">({</span>
       <span class="na">title</span><span class="p">:</span> <span class="s1">'New Friend!'</span><span class="p">,</span>
       <span class="na">subTitle</span><span class="p">:</span> <span class="s1">'Your friend, Obi wan Kenobi, just accepted your friend request!'</span><span class="p">,</span>
       <span class="na">buttons</span><span class="p">:</span> <span class="p">[</span><span class="s1">'OK'</span><span class="p">]</span>
@@ -554,11 +554,11 @@
 <div class="highlighter-rouge"><pre class="highlight"><code>import { AlertController } from 'ionic-angular';
 
 export class MyPage {
-  constructor(private alertController: AlertController){
+  constructor(public alertCtrl: AlertController) {
   }
 
   showPrompt() {
-    let prompt = this.alertController.create({
+    let prompt = this.alertCtrl.create({
       title: 'Login',
       message: "Enter a name for this new album you're so keen on adding",
       inputs: [
@@ -599,11 +599,11 @@ export class MyPage {
 <div class="highlighter-rouge"><pre class="highlight"><code>import { AlertController } from 'ionic-angular';
 
 export class MyPage {
-  constructor(private alertController: AlertController){
+  constructor(public alertCtrl: AlertController) {
   }
 
   showConfirm() {
-    let confirm = this.alertController.create({
+    let confirm = this.alertCtrl.create({
       title: 'Use this lightsaber?',
       message: 'Do you agree to use this lightsaber to do good across the intergalactic galaxy?',
       buttons: [
@@ -638,11 +638,11 @@ export class MyPage {
 <div class="highlighter-rouge"><pre class="highlight"><code>import { AlertController } from 'ionic-angular';
 
 export class MyPage {
-  constructor(private alertController: AlertController){
+  constructor(public alertCtrl: AlertController) {
   }
 
   showRadio() {
-    let alert = this.alertController.create();
+    let alert = this.alertCtrl.create();
     alert.setTitle('Lightsaber color');
 
     alert.addInput({
@@ -677,11 +677,11 @@ export class MyPage {
 <div class="highlighter-rouge"><pre class="highlight"><code>import { AlertController } from 'ionic-angular';
 
 export class MyPage {
-  constructor(private alertController: AlertController){
+  constructor(public alertCtrl: AlertController) {
   }
 
   showCheckbox() {
-    let alert = this.alertController.create();
+    let alert = this.alertCtrl.create();
     alert.setTitle('Which planets have you visited?');
 
     alert.addInput({
@@ -1308,12 +1308,11 @@ export class MyPage {
   Demo Source
 </a></p>
 
-<div class="language-html highlighter-rouge"><pre class="highlight"><code>  <span class="nt">&lt;ion-card</span> <span class="err">(</span><span class="na">tap</span><span class="err">)="</span><span class="na">tapEvent</span><span class="err">($</span><span class="na">event</span><span class="err">)"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;ion-item&gt;</span>
-      Tapped:  times
-    <span class="nt">&lt;/ion-item&gt;</span>
-  <span class="nt">&lt;/ion-card&gt;</span>
-
+<div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;ion-card</span> <span class="err">(</span><span class="na">tap</span><span class="err">)="</span><span class="na">tapEvent</span><span class="err">($</span><span class="na">event</span><span class="err">)"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;ion-item&gt;</span>
+    Tapped:  times
+  <span class="nt">&lt;/ion-item&gt;</span>
+<span class="nt">&lt;/ion-card&gt;</span>
 </code></pre>
 </div>
 
@@ -1856,11 +1855,11 @@ By default, it shows a spinner based on the mode. Dynamic content can be passed 
 <div class="language-typescript highlighter-rouge"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">LoadingController</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'ionic-angular'</span><span class="p">;</span>
 
 <span class="k">export</span> <span class="kr">class</span> <span class="nx">MyPage</span> <span class="p">{</span>
-  <span class="kd">constructor</span><span class="p">(</span><span class="k">private</span> <span class="nx">loadingController</span><span class="err">:</span> <span class="nx">LoadingController</span><span class="p">){</span>
+  <span class="kd">constructor</span><span class="p">(</span><span class="k">public</span> <span class="nx">loadingCtrl</span><span class="err">:</span> <span class="nx">LoadingController</span><span class="p">)</span> <span class="p">{</span>
   <span class="p">}</span>
 
   <span class="nx">presentLoading</span><span class="p">()</span> <span class="p">{</span>
-    <span class="kd">let</span> <span class="nx">loader</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">loadingController</span><span class="p">.</span><span class="nx">create</span><span class="p">({</span>
+    <span class="kd">let</span> <span class="nx">loader</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">loadingCtrl</span><span class="p">.</span><span class="nx">create</span><span class="p">({</span>
       <span class="na">content</span><span class="p">:</span> <span class="s2">"Please wait..."</span><span class="p">,</span>
       <span class="na">duration</span><span class="p">:</span> <span class="mi">3000</span>
     <span class="p">});</span>
@@ -1877,6 +1876,8 @@ By default, it shows a spinner based on the mode. Dynamic content can be passed 
 </a></p>
 
 <p>Menu is a side-menu navigation that can be dragged out or toggled to show. The content of a menu will be hidden when the menu is closed.</p>
+
+<p>Menu adapts to the appropriate style based on the platform.</p>
 
 <p><em>For more information, Check out the <a href="../api/components/menu/Menu">API docs</a>.</em></p>
 
@@ -1924,11 +1925,11 @@ By default, it shows a spinner based on the mode. Dynamic content can be passed 
 <span class="k">import</span> <span class="p">{</span> <span class="nx">ModalPage</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'./modal-page'</span><span class="p">;</span>
 
 <span class="k">export</span> <span class="kr">class</span> <span class="nx">MyPage</span> <span class="p">{</span>
-  <span class="kd">constructor</span> <span class="p">(</span> <span class="k">private</span> <span class="nx">modalController</span> <span class="err">:</span> <span class="nx">ModalController</span> <span class="p">){</span>
+  <span class="kd">constructor</span><span class="p">(</span><span class="k">public</span> <span class="nx">modalCtrl</span><span class="err">:</span> <span class="nx">ModalController</span><span class="p">)</span> <span class="p">{</span>
   <span class="p">}</span>
 
   <span class="nx">presentModal</span><span class="p">()</span> <span class="p">{</span>
-    <span class="kd">let</span> <span class="nx">modal</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">modalController</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">ModalPage</span><span class="p">);</span>
+    <span class="kd">let</span> <span class="nx">modal</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">modalCtrl</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">ModalPage</span><span class="p">);</span>
     <span class="nx">modal</span><span class="p">.</span><span class="nx">present</span><span class="p">();</span>
   <span class="p">}</span>
 <span class="p">}</span>
@@ -2135,11 +2136,11 @@ The Popover is a view that floats above an app’s content. Popovers provide an 
 <span class="k">import</span> <span class="p">{</span> <span class="nx">MyPopOverPage</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'./my-pop-over'</span><span class="p">;</span>
 
 <span class="k">export</span> <span class="kr">class</span> <span class="nx">MyPage</span> <span class="p">{</span>
-  <span class="kd">constructor</span> <span class="p">(</span> <span class="k">private</span> <span class="nx">popoverController</span> <span class="err">:</span> <span class="nx">PopoverController</span> <span class="p">){</span>
+  <span class="kd">constructor</span><span class="p">(</span><span class="k">public</span> <span class="nx">popoverCtrl</span><span class="err">:</span> <span class="nx">PopoverController</span><span class="p">)</span> <span class="p">{</span>
   <span class="p">}</span>
 
   <span class="nx">presentPopover</span><span class="p">()</span> <span class="p">{</span>
-    <span class="kd">let</span> <span class="nx">popover</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">popoverController</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">MyPopOverPage</span><span class="p">);</span>
+    <span class="kd">let</span> <span class="nx">popover</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">popoverCtrl</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">MyPopOverPage</span><span class="p">);</span>
     <span class="nx">popover</span><span class="p">.</span><span class="nx">present</span><span class="p">();</span>
   <span class="p">}</span>
 <span class="p">}</span>
@@ -2239,8 +2240,8 @@ The Popover is a view that floats above an app’s content. Popovers provide an 
 <span class="p">})</span>
 <span class="kr">class</span> <span class="nx">SearchPage</span> <span class="p">{</span>
 
-  <span class="k">private</span> <span class="nx">searchQuery</span><span class="err">:</span> <span class="kr">string</span> <span class="o">=</span> <span class="s1">''</span><span class="p">;</span>
-  <span class="k">private</span> <span class="nx">items</span><span class="err">:</span> <span class="kr">string</span><span class="p">[];</span>
+  <span class="nl">searchQuery</span><span class="p">:</span> <span class="kr">string</span> <span class="o">=</span> <span class="s1">''</span><span class="p">;</span>
+  <span class="nl">items</span><span class="p">:</span> <span class="kr">string</span><span class="p">[];</span>
 
   <span class="kd">constructor</span><span class="p">()</span> <span class="p">{</span>
     <span class="k">this</span><span class="p">.</span><span class="nx">initializeItems</span><span class="p">();</span>
@@ -2448,16 +2449,14 @@ The Popover is a view that floats above an app’s content. Popovers provide an 
 </span><span class="p">})</span>
 <span class="kr">class</span> <span class="nx">MyApp</span> <span class="p">{</span>
 
-  <span class="k">private</span> <span class="nx">tab1</span><span class="err">:</span> <span class="kr">any</span><span class="p">;</span>
-  <span class="k">private</span> <span class="nx">tab2</span><span class="err">:</span> <span class="kr">any</span><span class="p">;</span>
+  <span class="nl">tab1</span><span class="p">:</span> <span class="kr">any</span><span class="p">;</span>
+  <span class="nl">tab2</span><span class="p">:</span> <span class="kr">any</span><span class="p">;</span>
 
   <span class="kd">constructor</span><span class="p">()</span> <span class="p">{</span>
     <span class="k">this</span><span class="p">.</span><span class="nx">tab1</span> <span class="o">=</span> <span class="nx">Tab1</span><span class="p">;</span>
     <span class="k">this</span><span class="p">.</span><span class="nx">tab2</span> <span class="o">=</span> <span class="nx">Tab2</span><span class="p">;</span>
   <span class="p">}</span>
 <span class="p">}</span>
-
-<span class="nx">ionicBootstrap</span><span class="p">(</span><span class="nx">MyApp</span><span class="p">)</span>
 </code></pre>
 </div>
 
@@ -2498,8 +2497,7 @@ The Popover is a view that floats above an app’s content. Popovers provide an 
 <span class="p">...</span>
 <span class="p">})</span>
 <span class="kr">class</span> <span class="nx">Tab1</span> <span class="p">{</span>
-  <span class="kd">constructor</span><span class="p">(</span>
-    <span class="k">private</span> <span class="nx">nav</span><span class="err">:</span> <span class="nx">NavController</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">constructor</span><span class="p">(</span><span class="k">public</span> <span class="nx">navCtrl</span><span class="err">:</span> <span class="nx">NavController</span><span class="p">)</span> <span class="p">{</span>
     <span class="c1">// Id is 1, nav refers to Tab1</span>
     <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">nav</span><span class="p">.</span><span class="nx">id</span><span class="p">)</span>
   <span class="p">}</span>
@@ -2509,7 +2507,7 @@ The Popover is a view that floats above an app’s content. Popovers provide an 
 <span class="p">...</span>
 <span class="p">})</span>
 <span class="kr">class</span> <span class="nx">Tab2</span> <span class="p">{</span>
-  <span class="kd">constructor</span><span class="p">(</span><span class="k">private</span> <span class="nx">nav</span><span class="err">:</span> <span class="nx">NavController</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">constructor</span><span class="p">(</span><span class="k">public</span> <span class="nx">navCtrl</span><span class="err">:</span> <span class="nx">NavController</span><span class="p">)</span> <span class="p">{</span>
     <span class="c1">// Id is 2, nav refers to Tab2</span>
     <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">nav</span><span class="p">.</span><span class="nx">id</span><span class="p">)</span>
   <span class="p">}</span>
@@ -2656,11 +2654,11 @@ The Popover is a view that floats above an app’s content. Popovers provide an 
 <div class="language-typescript highlighter-rouge"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">ToastController</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'ionic-angular'</span><span class="p">;</span>
 
 <span class="k">export</span> <span class="kr">class</span> <span class="nx">MyPage</span> <span class="p">{</span>
-  <span class="kd">constructor</span> <span class="p">(</span> <span class="k">private</span> <span class="nx">toastController</span> <span class="err">:</span> <span class="nx">ToastController</span> <span class="p">){</span>
+  <span class="kd">constructor</span><span class="p">(</span><span class="k">public</span> <span class="nx">toastCtrl</span><span class="err">:</span> <span class="nx">ToastController</span><span class="p">)</span> <span class="p">{</span>
   <span class="p">}</span>
 
   <span class="nx">presentToast</span><span class="p">()</span> <span class="p">{</span>
-    <span class="kd">let</span> <span class="nx">toast</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">toastController</span><span class="p">.</span><span class="nx">create</span><span class="p">({</span>
+    <span class="kd">let</span> <span class="nx">toast</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">toastCtrl</span><span class="p">.</span><span class="nx">create</span><span class="p">({</span>
       <span class="na">message</span><span class="p">:</span> <span class="s1">'User was added successfully'</span><span class="p">,</span>
       <span class="na">duration</span><span class="p">:</span> <span class="mi">3000</span>
     <span class="p">});</span>
