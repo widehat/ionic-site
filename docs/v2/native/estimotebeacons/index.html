@@ -16,8 +16,8 @@
       <title>Ionic Native: Harness the power of Native APIs</title>
     
   </head>
-  <body id="docs-page-native-storage"
-        class="v2 docs page-native-storage"
+  <body id="docs-page-estimotebeacons"
+        class="v2 docs page-estimotebeacons"
         data-spy="scroll"
         data-offset="100"
         data-target="#components-index"
@@ -212,7 +212,7 @@
 <li class="capitalize ">
   <a href="/docs/v2/native/email-composer">Email Composer</a>
 </li>
-<li class="capitalize ">
+<li class="capitalize active">
   <a href="/docs/v2/native/estimotebeacons">EstimoteBeacons</a>
 </li>
 <li class="capitalize ">
@@ -381,7 +381,7 @@
         <h1 class="api-title">
 
   
-  Native Storage
+  EstimoteBeacons
   
 
   
@@ -390,48 +390,204 @@
 
 </h1>
 
-<p><a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/nativestorage.ts#L0">
+<p><a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/estimote-beacons.ts#L1">
   Improve this doc
 </a></p>
 
 <!-- decorators -->
 
-<pre><code>$ ionic plugin add cordova-plugin-nativestorage</code></pre>
+<pre><code>$ ionic plugin add cordova-plugin-estimote</code></pre>
 <p>Repo:
-  <a href="https://github.com/TheCocoaProject/cordova-plugin-nativestorage">
-    https://github.com/TheCocoaProject/cordova-plugin-nativestorage
+  <a href="https://github.com/evothings/phonegap-estimotebeacons">
+    https://github.com/evothings/phonegap-estimotebeacons
   </a>
 </p>
 
 <!-- description -->
 
+<p>This plugin enables communication between a phone and Estimote Beacons peripherals.</p>
+
+<!-- @platforms tag -->
+<h2>Supported platforms</h2>
+
+<ul>
+  <li>iOS</li>
+  
+  <li>Android</li>
+  </ul>
+
+<!-- @platforms tag end -->
+
 <!-- @usage tag -->
-
-<h2>Usage</h2>
-
-<pre><code class="lang-typescript">import { NativeStorage } from &#39;ionic-native&#39;;
-
-NativeStorage.setItem(&#39;myitem&#39;, {property: &#39;value&#39;, anotherProperty: &#39;anotherValue&#39;})
-  .then(
-    () =&gt; console.log(&#39;Stored item!&#39;),
-    error =&gt; console.error(&#39;Error storing item&#39;, error)
-  );
-
-NativeStorage.getItem(&#39;myitem&#39;)
-  .then(
-    data =&gt; console.log(data),
-    error =&gt; console.error(error)
-  );
-</code></pre>
 
 <!-- @property tags -->
 <h2>Static Members</h2>
-<div id="setItem"></div>
-<h3><code>setItem(reference,&nbsp;value)</code>
+<div id="ProximityUnknown"></div>
+<h3><code>ProximityUnknown()</code>
+  
+</h3>
+<p>Proximity value</p>
+
+<div id="ProximityImmediate"></div>
+<h3><code>ProximityImmediate()</code>
+  
+</h3>
+<p>Proximity value</p>
+
+<div id="ProximityNear"></div>
+<h3><code>ProximityNear()</code>
+  
+</h3>
+<p>Proximity value</p>
+
+<div id="ProximityFar"></div>
+<h3><code>ProximityFar()</code>
+  
+</h3>
+<p>Proximity value</p>
+
+<div id="BeaconColorUnknown"></div>
+<h3><code>BeaconColorUnknown()</code>
+  
+</h3>
+<p>Beacon colour</p>
+
+<div id="BeaconColorMintCocktail"></div>
+<h3><code>BeaconColorMintCocktail()</code>
+  
+</h3>
+<p>Beacon colour</p>
+
+<div id="BeaconColorIcyMarshmallow"></div>
+<h3><code>BeaconColorIcyMarshmallow()</code>
+  
+</h3>
+<p>Beacon colour</p>
+
+<div id="BeaconColorBlueberryPie"></div>
+<h3><code>BeaconColorBlueberryPie()</code>
+  
+</h3>
+<p>Beacon colour</p>
+
+<div id="BeaconColorSweetBeetroot"></div>
+<h3><code>BeaconColorSweetBeetroot()</code>
+  
+</h3>
+<p>Beacon colour.</p>
+
+<div id="BeaconColorCandyFloss"></div>
+<h3><code>BeaconColorCandyFloss()</code>
+  
+</h3>
+<p>Beacon colour</p>
+
+<div id="BeaconColorLemonTart"></div>
+<h3><code>BeaconColorLemonTart()</code>
+  
+</h3>
+<p>Beacon colour</p>
+
+<div id="BeaconColorVanillaJello"></div>
+<h3><code>BeaconColorVanillaJello()</code>
+  
+</h3>
+<p>Beacon colour</p>
+
+<div id="BeaconColorLiquoriceSwirl"></div>
+<h3><code>BeaconColorLiquoriceSwirl()</code>
+  
+</h3>
+<p>Beacon colour</p>
+
+<div id="BeaconColorWhite"></div>
+<h3><code>BeaconColorWhite()</code>
+  
+</h3>
+<p>Beacon colour</p>
+
+<div id="BeaconColorTransparent"></div>
+<h3><code>BeaconColorTransparent()</code>
+  
+</h3>
+<p>Beacon colour</p>
+
+<div id="RegionStateUnknown"></div>
+<h3><code>RegionStateUnknown()</code>
+  
+</h3>
+<p>Region state</p>
+
+<div id="RegionStateOutside"></div>
+<h3><code>RegionStateOutside()</code>
+  
+</h3>
+<p>Region state</p>
+
+<div id="RegionStateInside"></div>
+<h3><code>RegionStateInside()</code>
+  
+</h3>
+<p>Region state</p>
+
+<div id="requestWhenInUseAuthorization"></div>
+<h3><code>requestWhenInUseAuthorization()</code>
   
 </h3>
 
-<p>Stores a value</p>
+<p>Ask the user for permission to use location services
+while the app is in the foreground.
+You need to call this function or requestAlwaysAuthorization
+on iOS 8+.
+Does nothing on other platforms.</p>
+
+<div class="return-value">
+  <p><i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+ Returns a Promise.</p>
+
+</div>
+
+<div id="requestAlwaysAuthorization"></div>
+<h3><code>requestAlwaysAuthorization()</code>
+  
+</h3>
+
+<p>Ask the user for permission to use location services
+whenever the app is running.
+You need to call this function or requestWhenInUseAuthorization
+on iOS 8+.
+Does nothing on other platforms.</p>
+
+<div class="return-value">
+  <p><i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+ Returns a Promise.</p>
+
+</div>
+
+<div id="authorizationStatus"></div>
+<h3><code>authorizationStatus()</code>
+  
+</h3>
+
+<p>Get the current location authorization status.
+Implemented on iOS 8+.
+Does nothing on other platforms.</p>
+
+<div class="return-value">
+  <p><i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+ Returns a Promise.</p>
+
+</div>
+
+<div id="startAdvertisingAsBeacon"></div>
+<h3><code>startAdvertisingAsBeacon(uuid,&nbsp;major,&nbsp;minor,&nbsp;regionId)</code>
+  
+</h3>
+
+<p>Start advertising as a beacon.</p>
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -445,32 +601,68 @@ NativeStorage.getItem(&#39;myitem&#39;)
   
   <tr>
     <td>
-      reference
+      uuid
       
       
     </td>
     <td>
       
+<code>string</code>
+    </td>
+    <td>
+      <p>UUID string the beacon should advertise (mandatory).</p>
 
-    </td>
-    <td>
-      
       
     </td>
   </tr>
   
   <tr>
     <td>
-      value
+      major
       
       
     </td>
     <td>
       
+<code>number</code>
+    </td>
+    <td>
+      <p>Major value to advertise (mandatory).</p>
 
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      minor
+      
+      
     </td>
     <td>
       
+<code>number</code>
+    </td>
+    <td>
+      <p>Minor value to advertise (mandatory).</p>
+
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      regionId
+      
+      
+    </td>
+    <td>
+      
+<code>string</code>
+    </td>
+    <td>
+      <p>Identifier of the region used to advertise (mandatory).</p>
+
       
     </td>
   </tr>
@@ -478,12 +670,33 @@ NativeStorage.getItem(&#39;myitem&#39;)
   </tbody>
 </table>
 
-<div id="getItem"></div>
-<h3><code>getItem(reference)</code>
+<div class="return-value">
+  <p><i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+ Returns a Promise.</p>
+
+</div>
+
+<div id="stopAdvertisingAsBeacon"></div>
+<h3><code>stopAdvertisingAsBeacon()</code>
   
 </h3>
 
-<p>Gets a stored item</p>
+<p>Stop advertising as a beacon.</p>
+
+<div class="return-value">
+  <p><i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+ Returns a Promise.</p>
+
+</div>
+
+<div id="enableAnalytics"></div>
+<h3><code>enableAnalytics(enable)</code>
+  
+</h3>
+
+<p>Enable analytics.</p>
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -497,16 +710,17 @@ NativeStorage.getItem(&#39;myitem&#39;)
   
   <tr>
     <td>
-      reference
+      enable
       
       
     </td>
     <td>
       
+<code>number</code>
+    </td>
+    <td>
+      <p>Boolean value to turn analytics on or off (mandatory).</p>
 
-    </td>
-    <td>
-      
       
     </td>
   </tr>
@@ -514,12 +728,47 @@ NativeStorage.getItem(&#39;myitem&#39;)
   </tbody>
 </table>
 
-<div id="remove"></div>
-<h3><code>remove(reference)</code>
+<div class="return-value">
+  <p><i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+ Returns a Promise.</p>
+
+</div>
+
+<div id="isAnalyticsEnabled"></div>
+<h3><code>isAnalyticsEnabled()</code>
   
 </h3>
 
-<p>Removes a single stored item</p>
+<p>Test if analytics is enabled.</p>
+
+<div class="return-value">
+  <p><i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+ Returns a Promise.</p>
+
+</div>
+
+<div id="isAuthorized"></div>
+<h3><code>isAuthorized()</code>
+  
+</h3>
+
+<p>Test if App ID and App Token is set.</p>
+
+<div class="return-value">
+  <p><i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+ Returns a Promise.</p>
+
+</div>
+
+<div id="setupAppIDAndAppToken"></div>
+<h3><code>setupAppIDAndAppToken(appID,&nbsp;appToken)</code>
+  
+</h3>
+
+<p>Set App ID and App Token.</p>
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -533,16 +782,34 @@ NativeStorage.getItem(&#39;myitem&#39;)
   
   <tr>
     <td>
-      reference
+      appID
       
       
     </td>
     <td>
       
+<code>string</code>
+    </td>
+    <td>
+      <p>The App ID (mandatory).</p>
 
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      appToken
+      
+      
     </td>
     <td>
       
+<code>string</code>
+    </td>
+    <td>
+      <p>The App Token (mandatory).</p>
+
       
     </td>
   </tr>
@@ -550,12 +817,356 @@ NativeStorage.getItem(&#39;myitem&#39;)
   </tbody>
 </table>
 
-<div id="clear"></div>
-<h3><code>clear()</code>
+<div class="return-value">
+  <p><i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+ Returns a Promise.</p>
+
+</div>
+
+<div id="startEstimoteBeaconDiscovery"></div>
+<h3><code>startEstimoteBeaconDiscovery()</code>
   
 </h3>
 
-<p>Removes all stored values.</p>
+<p>Start scanning for all nearby beacons using CoreBluetooth (no region object is used).
+Available on iOS.</p>
+
+<div class="return-value">
+  <p><i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+ Returns an Observable that notifies of each beacon discovered.</p>
+
+</div>
+
+<div id="stopEstimoteBeaconDiscovery"></div>
+<h3><code>stopEstimoteBeaconDiscovery()</code>
+  
+</h3>
+
+<p>Stop CoreBluetooth scan. Available on iOS.</p>
+
+<div class="return-value">
+  <p><i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+ returns a Promise.</p>
+
+</div>
+
+<div id="startRangingBeaconsInRegion"></div>
+<h3><code>startRangingBeaconsInRegion(region)</code>
+  
+</h3>
+
+<p>Start ranging beacons. Available on iOS and Android.</p>
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      region
+      
+      
+    </td>
+    <td>
+      
+<code>BeaconRegion</code>
+    </td>
+    <td>
+      <p>Dictionary with region properties (mandatory).</p>
+
+      
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
+
+<div class="return-value">
+  <p><i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+ Returns an Observable that notifies of each beacon discovered.</p>
+
+</div>
+
+<div id="stopRangingBeaconsInRegion"></div>
+<h3><code>stopRangingBeaconsInRegion(region)</code>
+  
+</h3>
+
+<p>Stop ranging beacons. Available on iOS and Android.</p>
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      region
+      
+      
+    </td>
+    <td>
+      
+<code>BeaconRegion</code>
+    </td>
+    <td>
+      <p>Dictionary with region properties (mandatory).</p>
+
+      
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
+
+<div class="return-value">
+  <p><i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+ returns a Promise.</p>
+
+</div>
+
+<div id="startRangingSecureBeaconsInRegion"></div>
+<h3><code>startRangingSecureBeaconsInRegion()</code>
+  
+</h3>
+
+<p>Start ranging secure beacons. Available on iOS.
+This function has the same parameters/behaviour as
+<a href="undefined"><code>startRangingBeaconsInRegion</code></a>.
+To use secure beacons set the App ID and App Token using
+<a href="undefined"><code>setupAppIDAndAppToken</code></a>.</p>
+
+<div id="stopRangingSecureBeaconsInRegion"></div>
+<h3><code>stopRangingSecureBeaconsInRegion()</code>
+  
+</h3>
+
+<p>Stop ranging secure beacons. Available on iOS.
+This function has the same parameters/behaviour as
+<a href="undefined"><code>stopRangingBeaconsInRegion</code></a>.</p>
+
+<div id="startMonitoringForRegion"></div>
+<h3><code>startMonitoringForRegion(region,&nbsp;notifyEntryStateOnDisplay)</code>
+  
+</h3>
+
+<p>Start monitoring beacons. Available on iOS and Android.</p>
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      region
+      
+      
+    </td>
+    <td>
+      
+<code>BeaconRegion</code>
+    </td>
+    <td>
+      <p>Dictionary with region properties (mandatory).</p>
+
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      notifyEntryStateOnDisplay
+      
+      
+    </td>
+    <td>
+      
+<code>boolean</code>
+    </td>
+    <td>
+      <p>Set to true to detect if you
+are inside a region when the user turns display on, see
+<a href="&lt;a">href="https://developer.apple.com/library/prerelease/ios/documentation/CoreLocation/Reference/CLBeaconRegion_class/index.html#//apple_ref/occ/instp/CLBeaconRegion/notifyEntryStateOnDisplay|iOS"&gt;https://developer.apple.com/library/prerelease/ios/documentation/CoreLocation/Reference/CLBeaconRegion_class/index.html#//apple_ref/occ/instp/CLBeaconRegion/notifyEntryStateOnDisplay|iOS</a> documentation&lt;/a&gt;
+for further details (optional, defaults to false, iOS only).</p>
+
+      
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
+
+<div class="return-value">
+  <p><i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+ Returns an Observable that notifies of each region state discovered.</p>
+
+</div>
+
+<div id="stopMonitoringForRegion"></div>
+<h3><code>stopMonitoringForRegion(region)</code>
+  
+</h3>
+
+<p>Stop monitoring beacons. Available on iOS and Android.</p>
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      region
+      
+      
+    </td>
+    <td>
+      
+<code>BeaconRegion</code>
+    </td>
+    <td>
+      <p>Dictionary with region properties (mandatory).</p>
+
+      
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
+
+<div class="return-value">
+  <p><i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+ returns a Promise.</p>
+
+</div>
+
+<div id="startSecureMonitoringForRegion"></div>
+<h3><code>startSecureMonitoringForRegion()</code>
+  
+</h3>
+
+<p>Start monitoring secure beacons. Available on iOS.
+This function has the same parameters/behaviour as
+EstimoteBeacons.startMonitoringForRegion.
+To use secure beacons set the App ID and App Token using
+<a href="undefined"><code>setupAppIDAndAppToken</code></a>.</p>
+
+<div id="stopSecureMonitoringForRegion"></div>
+<h3><code>stopSecureMonitoringForRegion()</code>
+  
+</h3>
+
+<p>Stop monitoring secure beacons. Available on iOS.
+This function has the same parameters/behaviour as
+<a href="undefined"><code>stopMonitoringForRegion</code></a>.</p>
+
+<div id="connectToBeacon"></div>
+<h3><code>connectToBeacon(beacon)</code>
+  
+</h3>
+
+<p>Connect to Estimote Beacon. Available on Android.</p>
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      beacon
+      
+      
+    </td>
+    <td>
+      
+<code>Beacon</code>
+    </td>
+    <td>
+      <p>Beacon to connect to.</p>
+
+      
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
+
+<div class="return-value">
+  <p><i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+ returns a Promise.</p>
+
+</div>
+
+<div id="disconnectConnectedBeacon"></div>
+<h3><code>disconnectConnectedBeacon()</code>
+  
+</h3>
+
+<p>Disconnect from connected Estimote Beacon. Available on Android.</p>
+
+<div class="return-value">
+  <p><i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+ returns a Promise.</p>
+
+</div>
+
+<div id="writeConnectedProximityUUID"></div>
+<h3><code>writeConnectedProximityUUID()</code>
+  
+</h3>
+
+<p>Write proximity UUID to connected Estimote Beacon. Available on Android.</p>
+
+<div id="writeConnectedMajor"></div>
+<h3><code>writeConnectedMajor()</code>
+  
+</h3>
+
+<p>Write major to connected Estimote Beacon. Available on Android.</p>
+
+<div id="writeConnectedMinor"></div>
+<h3><code>writeConnectedMinor()</code>
+  
+</h3>
+
+<p>Write minor to connected Estimote Beacon. Available on Android.</p>
 
 <!-- methods on the class -->
 
