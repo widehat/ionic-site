@@ -180,6 +180,15 @@
   <a href="/docs/v2/native/clipboard">Clipboard</a>
 </li>
 <li class="capitalize ">
+  <a href="/docs/v2/native/codepush
+codepush-plugin for cordova by microsoft that supports ios and android.
+
+for more info, please see https://github.com/ksachdeva/ionic2-code-push-example">CodePush
+CodePush plugin for Cordova by Microsoft that supports iOS and Android.
+
+For more info, please see https://github.com/ksachdeva/ionic2-code-push-example</a>
+</li>
+<li class="capitalize ">
   <a href="/docs/v2/native/contacts">Contacts</a>
 </li>
 <li class="capitalize ">
@@ -225,6 +234,9 @@
   <a href="/docs/v2/native/flashlight">Flashlight</a>
 </li>
 <li class="capitalize ">
+  <a href="/docs/v2/native/geofence">Geofence</a>
+</li>
+<li class="capitalize ">
   <a href="/docs/v2/native/geolocation">Geolocation</a>
 </li>
 <li class="capitalize ">
@@ -256,6 +268,9 @@
 </li>
 <li class="capitalize ">
   <a href="/docs/v2/native/inappbrowser">InAppBrowser</a>
+</li>
+<li class="capitalize ">
+  <a href="/docs/v2/native/inapppurchase">InAppPurchase</a>
 </li>
 <li class="capitalize ">
   <a href="/docs/v2/native/insomnia">Insomnia</a>
@@ -450,13 +465,11 @@ platform.ready().then(() =&gt; {
 
      }, (error) =&gt; {
        console.log(&#39;BackgroundGeolocation error&#39;);
-     }, {
-      //options
-    });
+     }, config);
 
     // Turn ON the background-geolocation system.  The user will be tracked whenever they suspend the app.
     BackgroundGeolocation.start();
-}
+})
 
 // If you wish to turn OFF background-tracking, call the #stop method.
 BackgroundGeolocation.stop();
@@ -465,18 +478,84 @@ BackgroundGeolocation.stop();
 <!-- @property tags -->
 <h2>Static Members</h2>
 <div id="configure"></div>
-<h3><code>configure()</code>
+<h3><code>configure(Success,&nbsp;Fail,&nbsp;An)</code>
   
 </h3>
 
-<p>Configure the plugin.
-Success callback will be called with one argument - Location object, which tries to mimic w3c Coordinates interface.
+<p>Configure the plugin.</p>
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      Success
+      
+      
+    </td>
+    <td>
+      
+<code>Function</code>
+    </td>
+    <td>
+      <p>callback will be called when background location is determined.</p>
+
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      Fail
+      
+      
+    </td>
+    <td>
+      
+<code>Function</code>
+    </td>
+    <td>
+      <p>callback to be executed every time a geolocation error occurs.</p>
+
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      An
+      
+      
+    </td>
+    <td>
+      
+<code>Object</code>
+    </td>
+    <td>
+      <p>object of type Config</p>
+
+      
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
+
+<div class="return-value">
+  <p><i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+ Location object, which tries to mimic w3c Coordinates interface.
 See http://dev.w3.org/geo/api/spec-source.html#coordinates_interface
 Callback to be executed every time a geolocation is recorded in the background.</p>
 
-<p>Fail callback to be executed every time a geolocation error occurs.</p>
-
-<p>Options a json object of type Config</p>
+</div>
 
 <div id="start"></div>
 <h3><code>start()</code>

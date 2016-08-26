@@ -180,6 +180,15 @@
   <a href="/docs/v2/native/clipboard">Clipboard</a>
 </li>
 <li class="capitalize ">
+  <a href="/docs/v2/native/codepush
+codepush-plugin for cordova by microsoft that supports ios and android.
+
+for more info, please see https://github.com/ksachdeva/ionic2-code-push-example">CodePush
+CodePush plugin for Cordova by Microsoft that supports iOS and Android.
+
+For more info, please see https://github.com/ksachdeva/ionic2-code-push-example</a>
+</li>
+<li class="capitalize ">
   <a href="/docs/v2/native/contacts">Contacts</a>
 </li>
 <li class="capitalize ">
@@ -225,6 +234,9 @@
   <a href="/docs/v2/native/flashlight">Flashlight</a>
 </li>
 <li class="capitalize ">
+  <a href="/docs/v2/native/geofence">Geofence</a>
+</li>
+<li class="capitalize ">
   <a href="/docs/v2/native/geolocation">Geolocation</a>
 </li>
 <li class="capitalize ">
@@ -256,6 +268,9 @@
 </li>
 <li class="capitalize ">
   <a href="/docs/v2/native/inappbrowser">InAppBrowser</a>
+</li>
+<li class="capitalize ">
+  <a href="/docs/v2/native/inapppurchase">InAppPurchase</a>
 </li>
 <li class="capitalize ">
   <a href="/docs/v2/native/insomnia">Insomnia</a>
@@ -412,10 +427,57 @@
 <h2>Usage</h2>
 
 <pre><code class="lang-typescript">import { Diagnostic } from &#39;ionic-native&#39;;
+
+let successCallback = (isAvailable) =&gt; { console.log(&#39;Is available? &#39; + isAvailable); };
+let errorCallback = (e) =&gt; console.error(e);
+
+Diagnostic.isCameraAvailable().then(successCallback).catch(errorCallback);
+
+Diagnostic.isBluetoothAvailable().then(successCallback, errorCallback);
+
+
+Diagnostic.getBluetoothState()
+  .then((state) =&gt; {
+    if(state == Diagnostic.bluetoothStates.POWERED_ON){
+      // do something
+    } else {
+      // do something else
+    }
+  }).catch(e =&gt; console.error(e));
 </code></pre>
 
 <!-- @property tags -->
 <h2>Static Members</h2>
+<div id="permission"></div>
+<h3><code>permission()</code>
+  
+</h3>
+
+<div id="permissionStatus"></div>
+<h3><code>permissionStatus()</code>
+  
+</h3>
+
+<div id="locationAuthorizationMode"></div>
+<h3><code>locationAuthorizationMode()</code>
+  
+</h3>
+
+<div id="permissionGroups"></div>
+<h3><code>permissionGroups()</code>
+  
+</h3>
+
+<div id="locationMode"></div>
+<h3><code>locationMode()</code>
+  
+</h3>
+
+<div id="bluetoothState"></div>
+<h3><code>bluetoothState()</code>
+  
+</h3>
+
 <div id="isLocationAvailable"></div>
 <h3><code>isLocationAvailable()</code>
   
@@ -447,15 +509,177 @@ application is authorized to use it.</p>
 <p>Checks if the device has Bluetooth capabilities and if so that Bluetooth is switched on (same on Android, iOS and Windows 10 Mobile)
 On Android this requires permission <uses-permission android:name="android.permission.BLUETOOTH"></uses-permission></p>
 
-<div id="requestLocationAuthorization"></div>
-<h3><code>requestLocationAuthorization()</code>
+<div id="switchToLocationSettings"></div>
+<h3><code>switchToLocationSettings()</code>
   
 </h3>
 
-<p>Returns the location authorization status for the application.
-Note for Android: this is intended for Android 6 / API 23 and above. Calling on Android 5 / API 22 and below will always return GRANTED status as permissions are already granted at installation time.</p>
+<p>
+<b>Platforms:</b>
+<code>Android</code>&nbsp;
 
-<p>mode - (iOS-only / optional) location authorization mode: “always” or “when_in_use”. If not specified, defaults to “when_in_use”.</p>
+<code>Windows 10</code>&nbsp;
+</p>
+
+<p>Displays the device location settings to allow user to enable location services/change location mode.</p>
+
+<div id="switchToMobileDataSettings"></div>
+<h3><code>switchToMobileDataSettings()</code>
+  
+</h3>
+
+<p>
+<b>Platforms:</b>
+<code>Android</code>&nbsp;
+
+<code>Windows 10</code>&nbsp;
+</p>
+
+<p>Displays mobile settings to allow user to enable mobile data.</p>
+
+<div id="switchToBluetoothSettings"></div>
+<h3><code>switchToBluetoothSettings()</code>
+  
+</h3>
+
+<p>
+<b>Platforms:</b>
+<code>Android</code>&nbsp;
+
+<code>Windows 10</code>&nbsp;
+</p>
+
+<p>Displays Bluetooth settings to allow user to enable Bluetooth.</p>
+
+<div id="switchToWifiSettings"></div>
+<h3><code>switchToWifiSettings()</code>
+  
+</h3>
+
+<p>
+<b>Platforms:</b>
+<code>Android</code>&nbsp;
+
+<code>Windows 10</code>&nbsp;
+</p>
+
+<p>Displays WiFi settings to allow user to enable WiFi.</p>
+
+<div id="isWifiEnabled"></div>
+<h3><code>isWifiEnabled()</code>
+  
+</h3>
+
+<p>
+<b>Platforms:</b>
+<code>Android</code>&nbsp;
+
+<code>Windows 10</code>&nbsp;
+</p>
+
+<p>Returns true if the WiFi setting is set to enabled, and is the same as <code class="highlighter-rouge">isWifiAvailable()</code></p>
+
+<div id="setWifiState"></div>
+<h3><code>setWifiState(state)</code>
+  
+</h3>
+
+<p>
+<b>Platforms:</b>
+<code>Android</code>&nbsp;
+
+<code>Windows 10</code>&nbsp;
+</p>
+
+<p>Enables/disables WiFi on the device.
+Requires <code class="highlighter-rouge">ACCESS_WIFI_STATE</code> and <code class="highlighter-rouge">CHANGE_WIFI_STATE</code> permissions on Android</p>
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      state
+      
+      
+    </td>
+    <td>
+      
+<code>boolean</code>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
+
+<div id="setBluetoothState"></div>
+<h3><code>setBluetoothState(state)</code>
+  
+</h3>
+
+<p>
+<b>Platforms:</b>
+<code>Android</code>&nbsp;
+
+<code>Windows 10</code>&nbsp;
+</p>
+
+<p>Enables/disables Bluetooth on the device.
+Requires <code class="highlighter-rouge">BLUETOOTH</code> and <code class="highlighter-rouge">BLUETOOTH_ADMIN</code> permissions on Android</p>
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      state
+      
+      
+    </td>
+    <td>
+      
+<code>boolean</code>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
+
+<div id="isLocationEnabled"></div>
+<h3><code>isLocationEnabled()</code>
+  
+</h3>
+
+<p>
+<b>Platforms:</b>
+<code>Android</code>&nbsp;
+
+<code>iOS</code>&nbsp;
+</p>
+
+<p>Returns true if the device setting for location is on. On Android this returns true if Location Mode is switched on. On iOS this returns true if Location Services is switched on.</p>
 
 <div id="isLocationAuthorized"></div>
 <h3><code>isLocationAuthorized()</code>
@@ -465,10 +689,48 @@ Note for Android: this is intended for Android 6 / API 23 and above. Calling on 
 <p>Checks if the application is authorized to use location.
 Note for Android: this is intended for Android 6 / API 23 and above. Calling on Android 5 / API 22 and below will always return GRANTED status as permissions are already granted at installation time.</p>
 
+<div id="getLocationAuthorizationStatus"></div>
+<h3><code>getLocationAuthorizationStatus()</code>
+  
+</h3>
+
+<p>
+<b>Platforms:</b>
+<code>Android</code>&nbsp;
+
+<code>iOS</code>&nbsp;
+</p>
+
+<p>Returns the location authorization status for the application.</p>
+
+<div id="requestLocationAuthorization"></div>
+<h3><code>requestLocationAuthorization()</code>
+  
+</h3>
+
+<p>
+<b>Platforms:</b>
+<code>Android</code>&nbsp;
+
+<code>iOS</code>&nbsp;
+</p>
+
+<p>Returns the location authorization status for the application.
+Note for Android: this is intended for Android 6 / API 23 and above. Calling on Android 5 / API 22 and below will always return GRANTED status as permissions are already granted at installation time.</p>
+
+<p>mode - (iOS-only / optional) location authorization mode: “always” or “when_in_use”. If not specified, defaults to “when_in_use”.</p>
+
 <div id="isCameraPresent"></div>
 <h3><code>isCameraPresent()</code>
   
 </h3>
+
+<p>
+<b>Platforms:</b>
+<code>Android</code>&nbsp;
+
+<code>iOS</code>&nbsp;
+</p>
 
 <p>Checks if camera hardware is present on device.</p>
 
@@ -477,13 +739,340 @@ Note for Android: this is intended for Android 6 / API 23 and above. Calling on 
   
 </h3>
 
+<p>
+<b>Platforms:</b>
+<code>Android</code>&nbsp;
+
+<code>iOS</code>&nbsp;
+</p>
+
 <p>Checks if the application is authorized to use the camera.
 Note for Android: this is intended for Android 6 / API 23 and above. Calling on Android 5 / API 22 and below will always return TRUE as permissions are already granted at installation time.</p>
+
+<div id="getCameraAuthorizationStatus"></div>
+<h3><code>getCameraAuthorizationStatus()</code>
+  
+</h3>
+
+<p>
+<b>Platforms:</b>
+<code>Android</code>&nbsp;
+
+<code>iOS</code>&nbsp;
+</p>
+
+<p>Returns the camera authorization status for the application.</p>
+
+<div id="requestCameraAuthorization"></div>
+<h3><code>requestCameraAuthorization()</code>
+  
+</h3>
+
+<p>
+<b>Platforms:</b>
+<code>Android</code>&nbsp;
+
+<code>iOS</code>&nbsp;
+</p>
+
+<p>Requests camera authorization for the application.</p>
+
+<div id="isMicrophoneAuthorized"></div>
+<h3><code>isMicrophoneAuthorized()</code>
+  
+</h3>
+
+<p>
+<b>Platforms:</b>
+<code>Android</code>&nbsp;
+
+<code>iOS</code>&nbsp;
+</p>
+
+<p>Checks if the application is authorized to use the microphone.</p>
+
+<div id="getMicrophoneAuthorizationStatus"></div>
+<h3><code>getMicrophoneAuthorizationStatus()</code>
+  
+</h3>
+
+<p>
+<b>Platforms:</b>
+<code>Android</code>&nbsp;
+
+<code>iOS</code>&nbsp;
+</p>
+
+<p>Returns the microphone authorization status for the application.</p>
+
+<div id="requestMicrophoneAuthorization"></div>
+<h3><code>requestMicrophoneAuthorization()</code>
+  
+</h3>
+
+<p>
+<b>Platforms:</b>
+<code>Android</code>&nbsp;
+
+<code>iOS</code>&nbsp;
+</p>
+
+<p>Requests microphone authorization for the application.</p>
+
+<div id="isContactsAuthorized"></div>
+<h3><code>isContactsAuthorized()</code>
+  
+</h3>
+
+<p>
+<b>Platforms:</b>
+<code>Android</code>&nbsp;
+
+<code>iOS</code>&nbsp;
+</p>
+
+<p>Checks if the application is authorized to use contacts (address book).</p>
+
+<div id="getContactsAuthroizationStatus"></div>
+<h3><code>getContactsAuthroizationStatus()</code>
+  
+</h3>
+
+<p>
+<b>Platforms:</b>
+<code>Android</code>&nbsp;
+
+<code>iOS</code>&nbsp;
+</p>
+
+<p>Returns the contacts authorization status for the application.</p>
+
+<div id="requestContactsAuthorization"></div>
+<h3><code>requestContactsAuthorization()</code>
+  
+</h3>
+
+<p>
+<b>Platforms:</b>
+<code>Android</code>&nbsp;
+
+<code>iOS</code>&nbsp;
+</p>
+
+<p>Requests contacts authorization for the application.</p>
+
+<div id="isCalendarAuthorized"></div>
+<h3><code>isCalendarAuthorized()</code>
+  
+</h3>
+
+<p>
+<b>Platforms:</b>
+<code>Android</code>&nbsp;
+
+<code>iOS</code>&nbsp;
+</p>
+
+<p>Checks if the application is authorized to use the calendar.</p>
+
+<p>Notes for Android:</p>
+<ul>
+  <li>This is intended for Android 6 / API 23 and above. Calling on Android 5 / API 22 and below will always return TRUE as permissions are already granted at installation time.</li>
+</ul>
+
+<p>Notes for iOS:</p>
+<ul>
+  <li>This relates to Calendar Events (not Calendar Reminders)</li>
+</ul>
+
+<div id="getCalendarAuthorizationStatus"></div>
+<h3><code>getCalendarAuthorizationStatus()</code>
+  
+</h3>
+
+<p>
+<b>Platforms:</b>
+<code>Android</code>&nbsp;
+
+<code>iOS</code>&nbsp;
+</p>
+
+<p>Returns the calendar authorization status for the application.</p>
+
+<p>Notes for Android:</p>
+<ul>
+  <li>This is intended for Android 6 / API 23 and above. Calling on Android 5 / API 22 and below will always return <code class="highlighter-rouge">GRANTED</code> status as permissions are already granted at installation time.</li>
+</ul>
+
+<p>Notes for iOS:</p>
+<ul>
+  <li>This relates to Calendar Events (not Calendar Reminders)</li>
+</ul>
+
+<div id="requestCalendarAuthorization"></div>
+<h3><code>requestCalendarAuthorization()</code>
+  
+</h3>
+
+<p>
+<b>Platforms:</b>
+<code>Android</code>&nbsp;
+
+<code>iOS</code>&nbsp;
+</p>
+
+<p>Requests calendar authorization for the application.</p>
+
+<p>Notes for iOS:</p>
+<ul>
+  <li>Should only be called if authorization status is NOT_DETERMINED. Calling it when in any other state will have no effect and just return the current authorization status.</li>
+  <li>This relates to Calendar Events (not Calendar Reminders)</li>
+</ul>
+
+<p>Notes for Android:</p>
+<ul>
+  <li>This is intended for Android 6 / API 23 and above. Calling on Android 5 / API 22 and below will have no effect as the permissions are already granted at installation time.</li>
+  <li>This requests permission for <code class="highlighter-rouge">READ_CALENDAR</code> run-time permission</li>
+  <li>Required permissions must be added to <code class="highlighter-rouge">AndroidManifest.xml</code> as appropriate - see Android permissions: <code class="highlighter-rouge">READ_CALENDAR</code>, <code class="highlighter-rouge">WRITE_CALENDAR</code></li>
+</ul>
+
+<div id="switchToSettings"></div>
+<h3><code>switchToSettings()</code>
+  
+</h3>
+
+<p>
+<b>Platforms:</b>
+<code>Android</code>&nbsp;
+
+<code>iOS</code>&nbsp;
+</p>
+
+<p>Opens settings page for this app.
+On Android, this opens the “App Info” page in the Settings app.
+On iOS, this opens the app settings page in the Settings app. This works only on iOS 8+ - iOS 7 and below will invoke the errorCallback.</p>
+
+<div id="getBluetoothState"></div>
+<h3><code>getBluetoothState()</code>
+  
+</h3>
+
+<p>
+<b>Platforms:</b>
+<code>Android</code>&nbsp;
+
+<code>iOS</code>&nbsp;
+</p>
+
+<p>Returns the state of Bluetooth on the device.</p>
+
+<div id="registerBluetoothStateChangeHandler"></div>
+<h3><code>registerBluetoothStateChangeHandler(handler)</code>
+  
+</h3>
+
+<p>
+<b>Platforms:</b>
+<code>Android</code>&nbsp;
+
+<code>iOS</code>&nbsp;
+</p>
+
+<p>Registers a function to be called when a change in Bluetooth state occurs.</p>
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      handler
+      
+      
+    </td>
+    <td>
+      
+
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
+
+<div id="registerLocationStateChangeHandler"></div>
+<h3><code>registerLocationStateChangeHandler(handler)</code>
+  
+</h3>
+
+<p>
+<b>Platforms:</b>
+<code>Android</code>&nbsp;
+
+<code>iOS</code>&nbsp;
+</p>
+
+<p>Registers a function to be called when a change in Location state occurs.</p>
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      handler
+      
+      
+    </td>
+    <td>
+      
+
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
+
+<div id="isGpsLocationAvailable"></div>
+<h3><code>isGpsLocationAvailable()</code>
+  
+</h3>
+
+<p>
+<b>Platforms:</b>
+<code>Android</code>&nbsp;
+</p>
+
+<p>Checks if high-accuracy locations are available to the app from GPS hardware. Returns true if Location mode is enabled and is set to “Device only” or “High accuracy” AND if the app is authorised to use location.</p>
 
 <div id="isGpsLocationEnabled"></div>
 <h3><code>isGpsLocationEnabled()</code>
   
 </h3>
+
+<p>
+<b>Platforms:</b>
+<code>Android</code>&nbsp;
+</p>
 
 <p>Checks if location mode is set to return high-accuracy locations from GPS hardware.
   Returns true if Location mode is enabled and is set to either:</p>
@@ -492,10 +1081,27 @@ Note for Android: this is intended for Android 6 / API 23 and above. Calling on 
   <li>High accuracy = GPS hardware, network triangulation and Wifi network IDs (high and low accuracy)</li>
 </ul>
 
+<div id="isNetworkLocationAvailable"></div>
+<h3><code>isNetworkLocationAvailable()</code>
+  
+</h3>
+
+<p>
+<b>Platforms:</b>
+<code>Android</code>&nbsp;
+</p>
+
+<p>Checks if low-accuracy locations are available to the app from network triangulation/WiFi access points. Returns true if Location mode is enabled and is set to “Battery saving” or “High accuracy” AND if the app is authorised to use location.</p>
+
 <div id="isNetworkLocationEnabled"></div>
 <h3><code>isNetworkLocationEnabled()</code>
   
 </h3>
+
+<p>
+<b>Platforms:</b>
+<code>Android</code>&nbsp;
+</p>
 
 <p>Checks if location mode is set to return low-accuracy locations from network triangulation/WiFi access points.
 Returns true if Location mode is enabled and is set to either:</p>
@@ -504,23 +1110,367 @@ Returns true if Location mode is enabled and is set to either:</p>
   <li>High accuracy = GPS hardware, network triangulation and Wifi network IDs (high and low accuracy)</li>
 </ul>
 
+<div id="getLocationMode"></div>
+<h3><code>getLocationMode()</code>
+  
+</h3>
+
+<p>
+<b>Platforms:</b>
+<code>Android</code>&nbsp;
+</p>
+
+<p>Returns the current location mode setting for the device.</p>
+
+<div id="getPermissionAuthorizationStatus"></div>
+<h3><code>getPermissionAuthorizationStatus(permission)</code>
+  
+</h3>
+
+<p>
+<b>Platforms:</b>
+<code>Android</code>&nbsp;
+</p>
+
+<p>Returns the current authorisation status for a given permission.
+Note: this is intended for Android 6 / API 23 and above. Calling on Android 5 / API 22 and below will always return GRANTED status as permissions are already granted at installation time.</p>
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      permission
+      
+      
+    </td>
+    <td>
+      
+
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
+
+<div id="getPermissionsAuthorizationStatus"></div>
+<h3><code>getPermissionsAuthorizationStatus(permissions)</code>
+  
+</h3>
+
+<p>
+<b>Platforms:</b>
+<code>Android</code>&nbsp;
+</p>
+
+<p>Returns the current authorisation status for multiple permissions.
+Note: this is intended for Android 6 / API 23 and above. Calling on Android 5 / API 22 and below will always return GRANTED status as permissions are already granted at installation time.</p>
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      permissions
+      
+      
+    </td>
+    <td>
+      
+
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
+
+<div id="requestRuntimePermission"></div>
+<h3><code>requestRuntimePermission(permission)</code>
+  
+</h3>
+
+<p>
+<b>Platforms:</b>
+<code>Android</code>&nbsp;
+</p>
+
+<p>Requests app to be granted authorisation for a runtime permission.
+Note: this is intended for Android 6 / API 23 and above. Calling on Android 5 / API 22 and below will have no effect as the permissions are already granted at installation time.</p>
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      permission
+      
+      
+    </td>
+    <td>
+      
+
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
+
+<div id="requestRuntimePermissions"></div>
+<h3><code>requestRuntimePermissions(permissions)</code>
+  
+</h3>
+
+<p>
+<b>Platforms:</b>
+<code>Android</code>&nbsp;
+</p>
+
+<p>Requests app to be granted authorisation for multiple runtime permissions.
+Note: this is intended for Android 6 / API 23 and above. Calling on Android 5 / API 22 and below will always return GRANTED status as permissions are already granted at installation time.</p>
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      permissions
+      
+      
+    </td>
+    <td>
+      
+
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
+
+<div id="isBluetoothEnabled"></div>
+<h3><code>isBluetoothEnabled()</code>
+  
+</h3>
+
+<p>
+<b>Platforms:</b>
+<code>Android</code>&nbsp;
+</p>
+
+<p>Checks if the device setting for Bluetooth is switched on.
+This requires <code class="highlighter-rouge">BLUETOOTH</code> permission on Android</p>
+
+<div id="hasBluetoothSupport"></div>
+<h3><code>hasBluetoothSupport()</code>
+  
+</h3>
+
+<p>
+<b>Platforms:</b>
+<code>Android</code>&nbsp;
+</p>
+
+<p>Checks if the device has Bluetooth capabilities.</p>
+
+<div id="hasBluetoothLESupport"></div>
+<h3><code>hasBluetoothLESupport()</code>
+  
+</h3>
+
+<p>
+<b>Platforms:</b>
+<code>Android</code>&nbsp;
+</p>
+
+<p>Checks if the device has Bluetooth Low Energy (LE) capabilities.</p>
+
+<div id="hasBluetoothLEPeripheralSupport"></div>
+<h3><code>hasBluetoothLEPeripheralSupport()</code>
+  
+</h3>
+
+<p>
+<b>Platforms:</b>
+<code>Android</code>&nbsp;
+</p>
+
+<p>Checks if the device supports Bluetooth Low Energy (LE) Peripheral mode.</p>
+
+<div id="isCameraRollAuthorized"></div>
+<h3><code>isCameraRollAuthorized()</code>
+  
+</h3>
+
+<p>
+<b>Platforms:</b>
+<code>iOS</code>&nbsp;
+</p>
+
+<p>Checks if the application is authorized to use the Camera Roll in Photos app.</p>
+
+<div id="getCameraRollAuthorizationStatus"></div>
+<h3><code>getCameraRollAuthorizationStatus()</code>
+  
+</h3>
+
+<p>
+<b>Platforms:</b>
+<code>iOS</code>&nbsp;
+</p>
+
+<p>Returns the authorization status for the application to use the Camera Roll in Photos app.</p>
+
+<div id="requestCameraRollAuthorization"></div>
+<h3><code>requestCameraRollAuthorization()</code>
+  
+</h3>
+
+<p>
+<b>Platforms:</b>
+<code>iOS</code>&nbsp;
+</p>
+
+<p>Requests camera roll authorization for the application. Should only be called if authorization status is NOT_REQUESTED. Calling it when in any other state will have no effect.</p>
+
 <div id="isRemoteNotificationsEnabled"></div>
 <h3><code>isRemoteNotificationsEnabled()</code>
   
 </h3>
 
-<p>Checks if remote (push) notifications are enabled.
-On iOS 8+, returns true if app is registered for remote notifications AND “Allow Notifications” switch is ON AND alert style is not set to “None” (i.e. “Banners” or “Alerts”).
-On iOS &lt;=7, returns true if app is registered for remote notifications AND alert style is not set to “None” (i.e. “Banners” or “Alerts”) - same as isRegisteredForRemoteNotifications().</p>
+<p>
+<b>Platforms:</b>
+<code>iOS</code>&nbsp;
+</p>
+
+<p>Checks if remote (push) notifications are enabled.</p>
 
 <div id="isRegisteredForRemoteNotifications"></div>
 <h3><code>isRegisteredForRemoteNotifications()</code>
   
 </h3>
 
-<p>Indicates if the app is registered for remote (push) notifications on the device.
-On iOS 8+, returns true if the app is registered for remote notifications and received its device token, or false if registration has not occurred, has failed, or has been denied by the user. Note that user preferences for notifications in the Settings app will not affect this.
-On iOS &lt;=7, returns true if app is registered for remote notifications AND alert style is not set to “None” (i.e. “Banners” or “Alerts”) - same as isRemoteNotificationsEnabled().</p>
+<p>
+<b>Platforms:</b>
+<code>iOS</code>&nbsp;
+</p>
+
+<p>Indicates if the app is registered for remote (push) notifications on the device.</p>
+
+<div id="getRemoteNotificationTypes"></div>
+<h3><code>getRemoteNotificationTypes()</code>
+  
+</h3>
+
+<p>
+<b>Platforms:</b>
+<code>iOS</code>&nbsp;
+</p>
+
+<p>Indicates the current setting of notification types for the app in the Settings app.
+Note: on iOS 8+, if “Allow Notifications” switch is OFF, all types will be returned as disabled.</p>
+
+<div id="isRemindersAuthorized"></div>
+<h3><code>isRemindersAuthorized()</code>
+  
+</h3>
+
+<p>
+<b>Platforms:</b>
+<code>iOS</code>&nbsp;
+</p>
+
+<p>Checks if the application is authorized to use reminders.</p>
+
+<div id="getRemindersAuthorizationStatus"></div>
+<h3><code>getRemindersAuthorizationStatus()</code>
+  
+</h3>
+
+<p>
+<b>Platforms:</b>
+<code>iOS</code>&nbsp;
+</p>
+
+<p>Returns the reminders authorization status for the application.</p>
+
+<div id="requestRemindersAuthorization"></div>
+<h3><code>requestRemindersAuthorization()</code>
+  
+</h3>
+
+<p>
+<b>Platforms:</b>
+<code>iOS</code>&nbsp;
+</p>
+
+<p>Requests reminders authorization for the application.</p>
+
+<div id="isBackgroundRefreshAuthorized"></div>
+<h3><code>isBackgroundRefreshAuthorized()</code>
+  
+</h3>
+
+<p>
+<b>Platforms:</b>
+<code>iOS</code>&nbsp;
+</p>
+
+<p>Checks if the application is authorized for background refresh.</p>
+
+<div id="getBackgroundRefreshStatus"></div>
+<h3><code>getBackgroundRefreshStatus()</code>
+  
+</h3>
+
+<p>
+<b>Platforms:</b>
+<code>iOS</code>&nbsp;
+</p>
+
+<p>Returns the background refresh authorization status for the application.</p>
 
 <!-- methods on the class -->
 
