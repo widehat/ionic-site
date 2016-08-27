@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Ionic makes it incredibly easy to build beautiful and interactive mobile apps using HTML5 and AngularJS.">
+<meta name="keywords" content="html5,javascript,mobile,drifty,ionic,hybrid,phonegap,cordova,native,ios,android,angularjs">
+<meta name="author" content="Drifty">
+<meta property="og:image" content="http://ionicframework.com/img/ionic-logo-blog.png"/>
+
+<link href="/css/v2.css?10" rel="stylesheet">
+
+
+
+    
+      <title>Ionic Native: Harness the power of Native APIs</title>
+    
+  </head>
+  <body id="docs-page-paypal"
+        class="v2 docs page-paypal"
+        data-spy="scroll"
+        data-offset="100"
+        data-target="#components-index"
+        ng-app="IonicDocs">
+    <nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button"
+              class="navbar-toggle collapsed"
+              id="collapse-toggle"
+              aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <i class="ion-md-more"></i>
+      </button>
+      <button type="button"
+              class="sidebar-toggle collapsed"
+              id="sidebar-toggle">
+        <span class="sr-only">Toggle sidebar</span>
+        <i class="ion-md-menu"></i>
+        <i class="ion-md-close"></i>
+      </button>
+      <a class="navbar-brand" href="/docs/v2">
+        <img src="/img/ionic-docs-logo-sm.png" id="ionic-docs-logo" />
+      </a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="navbar-collapse">
+      
+      <form class="navbar-form navbar-left"
+            role="search"
+            data-searchpos="header">
+        <div class="form-group">
+          <input type="text"
+                 class="form-control search-input"
+                 placeholder="Search"
+                 data-searchpos="header"
+                 ng-model="searchTerm">
+        </div>
+      </form>
+      
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="/docs/v2/getting-started/installation/">Getting Started</a></li>
+        <li class="active"><a href="/docs/v2/">Docs</a></li>
+        <li><a href="http://blog.ionic.io/?utm_source=framework&utm_medium=navbar&utm_campaign=blog%20CTA">Blog</a></li>
+        <li class="hide-sm"><a href="https://forum.ionicframework.com/?utm_source=framework&utm_medium=navbar&utm_campaign=forum%20CTA">Forum</a></li>
+        <li><a target="_blank" href="http://ionic.io/enterprise?utm_source=framework&utm_medium=navbar&utm_campaign=enterprise%20CTA">Enterprise</a></li>
+        <li class="dropdown">
+          <a href="#"
+             class="dropdown-toggle"
+             data-toggle="dropdown"
+             role="button"
+             aria-haspopup="true"
+             aria-expanded="false">
+            More <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu">
+            <li><a target="_blank" href="http://ionic.io/?utm_source=framework&utm_medium=navbar&utm_campaign=platform%20CTA">
+              Ionic Cloud</a></li>
+            <li><a target="_blank" href="http://showcase.ionicframework.com/">
+              Showcase</a></li>
+            <li><a target="_blank" href="http://jobs.ionic.io/">
+              Job Board</a></li>
+            <li><a target="_blank" href="http://market.ionic.io/">
+              Market</a></li>
+            <li><a target="_blank" href="http://ionicworldwide.herokuapp.com/">
+              Ionic Worldwide</a></li>
+            <li><a target="_blank" href="http://play.ionic.io/">
+              Playground</a></li>
+            <li><a target="_blank" href="http://creator.ionic.io/">
+              Creator</a></li>
+            <li><a target="_blank" href="http://shop.ionic.io/">Shop</a></li>
+            <li><a target="_blank" href="https://ionic.io/trusted-partners">
+              Trusted Partners</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+    <div class="docs-container"
+         >
+      <nav class="side-nav" id="side-nav">
+        <form class="form-group search" role="search">
+          <input type="text"
+                 class="form-control search-input"
+                 placeholder="Search"
+                 data-searchpos="sidebar"
+                 ng-model="searchTerm">
+        </form>
+        
+          <ul ng-controller="DocsNavCtrl" class="native-docs">
+  <li class="back-to-main">
+    <a href="/docs/v2">Back to Main Docs</a>
+  </li>
+  
+<li class="capitalize ">
+  <a href="/docs/v2/native/3dtouch">3DTouch</a>
+</li>
+<li class="capitalize ">
+  <a href="/docs/v2/native/action-sheet">Action Sheet</a>
+</li>
+<li class="capitalize ">
+  <a href="/docs/v2/native/admob">AdMob</a>
+</li>
+<li class="capitalize ">
+  <a href="/docs/v2/native/android-fingerprint auth">Android Fingerprint Auth</a>
+</li>
+<li class="capitalize ">
+  <a href="/docs/v2/native/app-availability">App Availability</a>
+</li>
+<li class="capitalize ">
+  <a href="/docs/v2/native/app-rate">App Rate</a>
+</li>
+<li class="capitalize ">
+  <a href="/docs/v2/native/app-version">App Version</a>
+</li>
+<li class="capitalize ">
+  <a href="/docs/v2/native/background-mode">Background Mode</a>
+</li>
+<li class="capitalize ">
+  <a href="/docs/v2/native/backgroundgeolocation">BackgroundGeolocation</a>
+</li>
+<li class="capitalize ">
+  <a href="/docs/v2/native/badge">Badge</a>
+</li>
+<li class="capitalize ">
+  <a href="/docs/v2/native/barcode-scanner">Barcode Scanner</a>
+</li>
+<li class="capitalize ">
+  <a href="/docs/v2/native/base64-to gallery">Base64 To Gallery</a>
+</li>
+<li class="capitalize ">
+  <a href="/docs/v2/native/battery-status">Battery Status</a>
+</li>
+<li class="capitalize ">
+  <a href="/docs/v2/native/ble">BLE</a>
+</li>
+<li class="capitalize ">
+  <a href="/docs/v2/native/bluetooth-serial">Bluetooth Serial</a>
+</li>
+<li class="capitalize ">
+  <a href="/docs/v2/native/brightness">Brightness</a>
+</li>
+<li class="capitalize ">
+  <a href="/docs/v2/native/calendar">Calendar</a>
+</li>
+<li class="capitalize ">
+  <a href="/docs/v2/native/callnumber">CallNumber</a>
+</li>
+<li class="capitalize ">
+  <a href="/docs/v2/native/camera">Camera</a>
+</li>
+<li class="capitalize ">
+  <a href="/docs/v2/native/camerapreview">CameraPreview</a>
+</li>
+<li class="capitalize ">
+  <a href="/docs/v2/native/cardio">CardIO</a>
+</li>
+<li class="capitalize ">
+  <a href="/docs/v2/native/clipboard">Clipboard</a>
+</li>
+<li class="capitalize ">
+  <a href="/docs/v2/native/codepush">CodePush</a>
+</li>
+<li class="capitalize ">
+  <a href="/docs/v2/native/contacts">Contacts</a>
+</li>
+<li class="capitalize ">
+  <a href="/docs/v2/native/crop">Crop</a>
+</li>
+<li class="capitalize ">
+  <a href="/docs/v2/native/date-picker">Date Picker</a>
+</li>
+<li class="capitalize ">
+  <a href="/docs/v2/native/db-meter">DB Meter</a>
+</li>
+<li class="capitalize ">
+  <a href="/docs/v2/native/device">Device</a>
+</li>
+<li class="capitalize ">
+  <a href="/docs/v2/native/device-motion">Device Motion</a>
+</li>
+<li class="capitalize ">
+  <a href="/docs/v2/native/device-orientation">Device Orientation</a>
+</li>
+<li class="capitalize ">
+  <a href="/docs/v2/native/deviceaccounts">DeviceAccounts</a>
+</li>
+<li class="capitalize ">
+  <a href="/docs/v2/native/diagnostic">Diagnostic</a>
+</li>
+<li class="capitalize ">
+  <a href="/docs/v2/native/dialogs">Dialogs</a>
+</li>
+<li class="capitalize ">
+  <a href="/docs/v2/native/email-composer">Email Composer</a>
+</li>
+<li class="capitalize ">
+  <a href="/docs/v2/native/estimotebeacons">EstimoteBeacons</a>
+</li>
+<li class="capitalize ">
+  <a href="/docs/v2/native/facebook">Facebook</a>
+</li>
+<li class="capitalize ">
+  <a href="/docs/v2/native/file">File</a>
+</li>
+<li class="capitalize ">
+  <a href="/docs/v2/native/flashlight">Flashlight</a>
+</li>
+<li class="capitalize ">
+  <a href="/docs/v2/native/geofence">Geofence</a>
+</li>
+<li class="capitalize ">
+  <a href="/docs/v2/native/geolocation">Geolocation</a>
+</li>
+<li class="capitalize ">
+  <a href="/docs/v2/native/globalization">Globalization</a>
+</li>
+<li class="capitalize ">
+  <a href="/docs/v2/native/google-analytics">Google Analytics</a>
+</li>
+<li class="capitalize ">
+  <a href="/docs/v2/native/google-maps">Google Maps</a>
+</li>
+<li class="capitalize ">
+  <a href="/docs/v2/native/google-plus">Google Plus</a>
+</li>
+<li class="capitalize ">
+  <a href="/docs/v2/native/hotspot">Hotspot</a>
+</li>
+<li class="capitalize ">
+  <a href="/docs/v2/native/httpd">Httpd</a>
+</li>
+<li class="capitalize ">
+  <a href="/docs/v2/native/ibeacon">IBeacon</a>
+</li>
+<li class="capitalize ">
+  <a href="/docs/v2/native/image-picker">Image Picker</a>
+</li>
+<li class="capitalize ">
+  <a href="/docs/v2/native/imageresizer">ImageResizer</a>
+</li>
+<li class="capitalize ">
+  <a href="/docs/v2/native/inappbrowser">InAppBrowser</a>
+</li>
+<li class="capitalize ">
+  <a href="/docs/v2/native/inapppurchase">InAppPurchase</a>
+</li>
+<li class="capitalize ">
+  <a href="/docs/v2/native/insomnia">Insomnia</a>
+</li>
+<li class="capitalize ">
+  <a href="/docs/v2/native/instagram">Instagram</a>
+</li>
+<li class="capitalize ">
+  <a href="/docs/v2/native/ionic-deeplinks">Ionic Deeplinks</a>
+</li>
+<li class="capitalize ">
+  <a href="/docs/v2/native/keyboard">Keyboard</a>
+</li>
+<li class="capitalize ">
+  <a href="/docs/v2/native/launch-navigator">Launch Navigator</a>
+</li>
+<li class="capitalize ">
+  <a href="/docs/v2/native/local-notifications">Local Notifications</a>
+</li>
+<li class="capitalize ">
+  <a href="/docs/v2/native/market">Market</a>
+</li>
+<li class="capitalize ">
+  <a href="/docs/v2/native/media-capture">Media Capture</a>
+</li>
+<li class="capitalize ">
+  <a href="/docs/v2/native/mediaplugin">MediaPlugin</a>
+</li>
+<li class="capitalize ">
+  <a href="/docs/v2/native/mixpanel">Mixpanel</a>
+</li>
+<li class="capitalize ">
+  <a href="/docs/v2/native/mixpanelpeople">MixpanelPeople</a>
+</li>
+<li class="capitalize ">
+  <a href="/docs/v2/native/nativeaudio">NativeAudio</a>
+</li>
+<li class="capitalize ">
+  <a href="/docs/v2/native/nativepagetransitions">NativePageTransitions</a>
+</li>
+<li class="capitalize ">
+  <a href="/docs/v2/native/nativestorage">NativeStorage</a>
+</li>
+<li class="capitalize ">
+  <a href="/docs/v2/native/ndef">Ndef</a>
+</li>
+<li class="capitalize ">
+  <a href="/docs/v2/native/network">Network</a>
+</li>
+<li class="capitalize ">
+  <a href="/docs/v2/native/nfc">NFC</a>
+</li>
+<li class="capitalize ">
+  <a href="/docs/v2/native/onesignal">OneSignal</a>
+</li>
+<li class="capitalize active">
+  <a href="/docs/v2/native/paypal">PayPal</a>
+</li>
+<li class="capitalize ">
+  <a href="/docs/v2/native/paypalconfiguration">PayPalConfiguration</a>
+</li>
+<li class="capitalize ">
+  <a href="/docs/v2/native/paypalpayment">PayPalPayment</a>
+</li>
+<li class="capitalize ">
+  <a href="/docs/v2/native/paypalshippingaddress">PayPalShippingAddress</a>
+</li>
+<li class="capitalize ">
+  <a href="/docs/v2/native/photo-viewer">Photo Viewer</a>
+</li>
+<li class="capitalize ">
+  <a href="/docs/v2/native/pin-dialog">Pin Dialog</a>
+</li>
+<li class="capitalize ">
+  <a href="/docs/v2/native/powermanagement">PowerManagement</a>
+</li>
+<li class="capitalize ">
+  <a href="/docs/v2/native/printer">Printer</a>
+</li>
+<li class="capitalize ">
+  <a href="/docs/v2/native/push">Push</a>
+</li>
+<li class="capitalize ">
+  <a href="/docs/v2/native/safariviewcontroller">SafariViewController</a>
+</li>
+<li class="capitalize ">
+  <a href="/docs/v2/native/screen-orientation">Screen Orientation</a>
+</li>
+<li class="capitalize ">
+  <a href="/docs/v2/native/screenshot">Screenshot</a>
+</li>
+<li class="capitalize ">
+  <a href="/docs/v2/native/secure-storage">Secure Storage</a>
+</li>
+<li class="capitalize ">
+  <a href="/docs/v2/native/shake">Shake</a>
+</li>
+<li class="capitalize ">
+  <a href="/docs/v2/native/sim">Sim</a>
+</li>
+<li class="capitalize ">
+  <a href="/docs/v2/native/sms">SMS</a>
+</li>
+<li class="capitalize ">
+  <a href="/docs/v2/native/social-sharing">Social Sharing</a>
+</li>
+<li class="capitalize ">
+  <a href="/docs/v2/native/spinner-dialog">Spinner Dialog</a>
+</li>
+<li class="capitalize ">
+  <a href="/docs/v2/native/splashscreen">Splashscreen</a>
+</li>
+<li class="capitalize ">
+  <a href="/docs/v2/native/sqlite">SQLite</a>
+</li>
+<li class="capitalize ">
+  <a href="/docs/v2/native/status-bar">Status Bar</a>
+</li>
+<li class="capitalize ">
+  <a href="/docs/v2/native/streamingmedia">StreamingMedia</a>
+</li>
+<li class="capitalize ">
+  <a href="/docs/v2/native/toast">Toast</a>
+</li>
+<li class="capitalize ">
+  <a href="/docs/v2/native/touchid">TouchID</a>
+</li>
+<li class="capitalize ">
+  <a href="/docs/v2/native/transfer">Transfer</a>
+</li>
+<li class="capitalize ">
+  <a href="/docs/v2/native/tts">TTS</a>
+</li>
+<li class="capitalize ">
+  <a href="/docs/v2/native/twitter-connect">Twitter Connect</a>
+</li>
+<li class="capitalize ">
+  <a href="/docs/v2/native/vibration">Vibration</a>
+</li>
+<li class="capitalize ">
+  <a href="/docs/v2/native/videoeditor">VideoEditor</a>
+</li>
+<li class="capitalize ">
+  <a href="/docs/v2/native/videoplayer">VideoPlayer</a>
+</li>
+<li class="capitalize ">
+  <a href="/docs/v2/native/webintent">WebIntent</a>
+</li>
+<li class="capitalize ">
+  <a href="/docs/v2/native/zip">Zip</a>
+</li>
+
+</ul>
+
+        
+      </nav>
+      
+      <main>
+        <h1 class="api-title">
+
+  
+  PayPal
+  
+
+  
+
+  
+
+</h1>
+
+<p><a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/pay-pal.ts#L0">
+  Improve this doc
+</a></p>
+
+<!-- decorators -->
+
+<pre><code>$ ionic plugin add com.paypal.cordova.mobilesdk</code></pre>
+<p>Repo:
+  <a href="https://github.com/paypal/PayPal-Cordova-Plugin">
+    https://github.com/paypal/PayPal-Cordova-Plugin
+  </a>
+</p>
+
+<!-- description -->
+
+<p>PayPal plugin for Cordova/Ionic Applications</p>
+
+<!-- @usage tag -->
+
+<h2>Usage</h2>
+
+<pre><code>import {PayPal} from &#39;ionic-native&#39;;
+
+PayPal.init({
+     &quot;PayPalEnvironmentProduction&quot;: &quot;YOUR_PRODUCTION_CLIENT_ID&quot;,
+       &quot;PayPalEnvironmentSandbox&quot;: &quot;YOUR_SANDBOX_CLIENT_ID&quot;
+       })
+  .then(onSuccess)
+  .catch(onError);
+</code></pre>
+
+<!-- @property tags -->
+<h2>Static Members</h2>
+<div id="init"></div>
+<h3><code>init(environment:,&nbsp;configuration:)</code>
+  
+</h3>
+
+<p>You must preconnect to PayPal to prepare the device for processing payments.
+This improves the user experience, by making the presentation of the
+UI faster. The preconnect is valid for a limited time, so
+the recommended time to preconnect is on page load.</p>
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      environment:
+      
+      
+    </td>
+    <td>
+      
+<code>String</code>
+    </td>
+    <td>
+      <p>available options are &quot;PayPalEnvironmentNoNetwork&quot;, &quot;PayPalEnvironmentProduction&quot; and &quot;PayPalEnvironmentSandbox&quot;</p>
+
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      configuration:
+      
+      
+    </td>
+    <td>
+      
+<code>PayPalConfiguration</code>
+    </td>
+    <td>
+      <p>For Future Payments merchantName, merchantPrivacyPolicyURL and merchantUserAgreementURL must be set be set</p>
+
+      
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
+
+<div id="version"></div>
+<h3><code>version()</code>
+  
+</h3>
+
+<p>Retreive the version of PayPal iOS SDK Library.</p>
+
+<div id="renderSinglePaymentUI"></div>
+<h3><code>renderSinglePaymentUI(payment:)</code>
+  
+</h3>
+
+<p>Start PayPal UI to collect payment from the user.
+See https://developer.paypal.com/webapps/developer/docs/integration/mobile/ios-integration-guide/
+for more documentation of the params.</p>
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      payment:
+      
+      
+    </td>
+    <td>
+      
+<code>PayPalPayment</code>
+    </td>
+    <td>
+      <p>PayPalPayment object</p>
+
+      
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
+
+<div id="clientMetadataID"></div>
+<h3><code>clientMetadataID()</code>
+  
+</h3>
+
+<p>Once a user has consented to future payments, when the user subsequently initiates a PayPal payment
+from their device to be completed by your server, PayPal uses a Correlation ID to verify that the
+payment is originating from a valid, user-consented device+application.
+This helps reduce fraud and decrease declines.
+This method MUST be called prior to initiating a pre-consented payment (a “future payment”) from a mobile device.
+Pass the result to your server, to include in the payment request sent to PayPal.
+Do not otherwise cache or store this value.</p>
+
+<div id="renderFuturePaymentUI"></div>
+<h3><code>renderFuturePaymentUI()</code>
+  
+</h3>
+
+<p>Please Read Docs on Future Payments at https://github.com/paypal/PayPal-iOS-SDK#future-payments</p>
+
+<div id="renderProfileSharingUI"></div>
+<h3><code>renderProfileSharingUI(scopes:)</code>
+  
+</h3>
+
+<p>Please Read Docs on Profile Sharing at https://github.com/paypal/PayPal-iOS-SDK#profile-sharing</p>
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      scopes:
+      
+      
+    </td>
+    <td>
+      
+<code>Array&lt;string&gt;</code>
+    </td>
+    <td>
+      <p>scopes Set of requested scope-values. Accepted scopes are: openid, profile, address, email, phone, futurepayments and paypalattributes
+See <a href="https://developer.paypal.com/docs/integration/direct/identity/attributes/">https://developer.paypal.com/docs/integration/direct/identity/attributes/</a> for more details</p>
+
+      
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
+
+<!-- methods on the class -->
+
+<!-- related link -->
+<!-- end content block -->
+
+<!-- end body block -->
+
+
+      </main>
+    </div>
+    
+    <div id="search-results">
+      <div id="results-api">
+        <h3>API</h3>
+        <ul></ul>
+      </div>
+      <div id="results-native">
+        <h3>Native</h3>
+        <ul></ul>
+      </div>
+      <div id="results-other">
+        <h3>General</h3>
+        <ul></ul>
+      </div>
+    </div>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular-animate.min.js"></script>
+<script src="/js/ionic-docs.js?6"></script>
+
+
+  </body>
+</html>
