@@ -177,9 +177,6 @@
   <a href="/docs/v2/native/camerapreview">CameraPreview</a>
 </li>
 <li class="capitalize ">
-  <a href="/docs/v2/native/canvascamera">CanvasCamera</a>
-</li>
-<li class="capitalize ">
   <a href="/docs/v2/native/cardio">CardIO</a>
 </li>
 <li class="capitalize ">
@@ -579,6 +576,12 @@ SocialSharing.shareViaEmail(&#39;Body&#39;, &#39;Subject&#39;, &#39;recipient@ex
   </tbody>
 </table>
 
+<div class="return-value">
+  <p><i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise</code></p>
+</div>
+
 <div id="shareWithOptions"></div>
 <h3><code>shareWithOptions(options)</code>
   
@@ -623,8 +626,14 @@ SocialSharing.shareViaEmail(&#39;Body&#39;, &#39;Subject&#39;, &#39;recipient@ex
   </tbody>
 </table>
 
+<div class="return-value">
+  <p><i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise</code></p>
+</div>
+
 <div id="canShareVia"></div>
-<h3><code>canShareVia(appName)</code>
+<h3><code>canShareVia(appName,&nbsp;message,&nbsp;subject,&nbsp;image,&nbsp;url)</code>
   
 </h3>
 
@@ -655,7 +664,7 @@ SocialSharing.shareViaEmail(&#39;Body&#39;, &#39;Subject&#39;, &#39;recipient@ex
     </td>
     <td>
       
-
+<code>string</code>
     </td>
     <td>
       <p>App name or package name. Examples: instagram or com.apple.social.facebook</p>
@@ -664,8 +673,78 @@ SocialSharing.shareViaEmail(&#39;Body&#39;, &#39;Subject&#39;, &#39;recipient@ex
     </td>
   </tr>
   
+  <tr>
+    <td>
+      message
+      
+      
+    </td>
+    <td>
+      
+<code>string</code>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      subject
+      
+      
+    </td>
+    <td>
+      
+<code>string</code>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      image
+      
+      
+    </td>
+    <td>
+      
+<code>string</code>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      url
+      
+      
+    </td>
+    <td>
+      
+<code>string</code>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+  
   </tbody>
 </table>
+
+<div class="return-value">
+  <p><i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise</code></p>
+</div>
 
 <div id="shareViaTwitter"></div>
 <h3><code>shareViaTwitter(message,&nbsp;image,&nbsp;url)</code>
@@ -699,7 +778,7 @@ SocialSharing.shareViaEmail(&#39;Body&#39;, &#39;Subject&#39;, &#39;recipient@ex
     </td>
     <td>
       
-
+<code>string</code>
     </td>
     <td>
       
@@ -715,7 +794,7 @@ SocialSharing.shareViaEmail(&#39;Body&#39;, &#39;Subject&#39;, &#39;recipient@ex
     </td>
     <td>
       
-
+<code>string</code>
     </td>
     <td>
       
@@ -731,7 +810,7 @@ SocialSharing.shareViaEmail(&#39;Body&#39;, &#39;Subject&#39;, &#39;recipient@ex
     </td>
     <td>
       
-
+<code>string</code>
     </td>
     <td>
       
@@ -741,6 +820,12 @@ SocialSharing.shareViaEmail(&#39;Body&#39;, &#39;Subject&#39;, &#39;recipient@ex
   
   </tbody>
 </table>
+
+<div class="return-value">
+  <p><i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise</code></p>
+</div>
 
 <div id="shareViaFacebook"></div>
 <h3><code>shareViaFacebook(message,&nbsp;image,&nbsp;url)</code>
@@ -816,6 +901,12 @@ SocialSharing.shareViaEmail(&#39;Body&#39;, &#39;Subject&#39;, &#39;recipient@ex
   
   </tbody>
 </table>
+
+<div class="return-value">
+  <p><i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise</code></p>
+</div>
 
 <div id="shareViaFacebookWithPasteMessageHint"></div>
 <h3><code>shareViaFacebookWithPasteMessageHint(message,&nbsp;image,&nbsp;url,&nbsp;pasteMessageHint)</code>
@@ -908,6 +999,12 @@ SocialSharing.shareViaEmail(&#39;Body&#39;, &#39;Subject&#39;, &#39;recipient@ex
   </tbody>
 </table>
 
+<div class="return-value">
+  <p><i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise</code></p>
+</div>
+
 <div id="shareViaInstagram"></div>
 <h3><code>shareViaInstagram(message,&nbsp;image)</code>
   
@@ -966,6 +1063,12 @@ SocialSharing.shareViaEmail(&#39;Body&#39;, &#39;Subject&#39;, &#39;recipient@ex
   
   </tbody>
 </table>
+
+<div class="return-value">
+  <p><i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise</code></p>
+</div>
 
 <div id="shareViaWhatsApp"></div>
 <h3><code>shareViaWhatsApp(message,&nbsp;image,&nbsp;url)</code>
@@ -1041,6 +1144,12 @@ SocialSharing.shareViaEmail(&#39;Body&#39;, &#39;Subject&#39;, &#39;recipient@ex
   
   </tbody>
 </table>
+
+<div class="return-value">
+  <p><i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise</code></p>
+</div>
 
 <div id="shareViaWhatsAppToReceiver"></div>
 <h3><code>shareViaWhatsAppToReceiver(receiver,&nbsp;message,&nbsp;image,&nbsp;url)</code>
@@ -1137,6 +1246,12 @@ SocialSharing.shareViaEmail(&#39;Body&#39;, &#39;Subject&#39;, &#39;recipient@ex
   </tbody>
 </table>
 
+<div class="return-value">
+  <p><i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise</code></p>
+</div>
+
 <div id="shareViaSMS"></div>
 <h3><code>shareViaSMS(messge,&nbsp;phoneNumber)</code>
   
@@ -1198,6 +1313,12 @@ SocialSharing.shareViaEmail(&#39;Body&#39;, &#39;Subject&#39;, &#39;recipient@ex
   </tbody>
 </table>
 
+<div class="return-value">
+  <p><i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise</code></p>
+</div>
+
 <div id="canShareViaEmail"></div>
 <h3><code>canShareViaEmail()</code>
   
@@ -1211,6 +1332,12 @@ SocialSharing.shareViaEmail(&#39;Body&#39;, &#39;Subject&#39;, &#39;recipient@ex
 </p>
 
 <p>Checks if you can share via email</p>
+
+<div class="return-value">
+  <p><i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise</code></p>
+</div>
 
 <div id="shareViaEmail"></div>
 <h3><code>shareViaEmail(message,&nbsp;subject,&nbsp;to,&nbsp;cc,&nbsp;bcc,&nbsp;files)</code>
@@ -1295,7 +1422,8 @@ SocialSharing.shareViaEmail(&#39;Body&#39;, &#39;Subject&#39;, &#39;recipient@ex
 <code>string[]</code>
     </td>
     <td>
-      
+      <p>Optional</p>
+
       
     </td>
   </tr>
@@ -1311,7 +1439,8 @@ SocialSharing.shareViaEmail(&#39;Body&#39;, &#39;Subject&#39;, &#39;recipient@ex
 <code>string[]</code>
     </td>
     <td>
-      
+      <p>Optional</p>
+
       
     </td>
   </tr>
@@ -1327,7 +1456,7 @@ SocialSharing.shareViaEmail(&#39;Body&#39;, &#39;Subject&#39;, &#39;recipient@ex
 <code>string</code>|<code>Array.&lt;string&gt;</code>
     </td>
     <td>
-      <p>URL or local path to file(s) to attach</p>
+      <p>Optional URL or local path to file(s) to attach</p>
 
       
     </td>
@@ -1335,6 +1464,126 @@ SocialSharing.shareViaEmail(&#39;Body&#39;, &#39;Subject&#39;, &#39;recipient@ex
   
   </tbody>
 </table>
+
+<div class="return-value">
+  <p><i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise</code></p>
+</div>
+
+<div id="shareVia"></div>
+<h3><code>shareVia(appName,&nbsp;message,&nbsp;subject,&nbsp;image,&nbsp;url)</code>
+  
+</h3>
+
+<p>
+<b>Platforms:</b>
+<code>iOS</code>&nbsp;
+
+<code>Android</code>&nbsp;
+</p>
+
+<p>Share via AppName</p>
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      appName
+      
+      
+    </td>
+    <td>
+      
+<code>string</code>
+    </td>
+    <td>
+      <p>App name or package name. Examples: instagram or com.apple.social.facebook</p>
+
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      message
+      
+      
+    </td>
+    <td>
+      
+<code>string</code>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      subject
+      
+      
+    </td>
+    <td>
+      
+<code>string</code>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      image
+      
+      
+    </td>
+    <td>
+      
+<code>string</code>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      url
+      
+      
+    </td>
+    <td>
+      
+<code>string</code>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
+
+<div class="return-value">
+  <p><i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise</code></p>
+</div>
 
 <!-- methods on the class -->
 

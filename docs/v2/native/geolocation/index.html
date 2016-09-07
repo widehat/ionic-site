@@ -177,9 +177,6 @@
   <a href="/docs/v2/native/camerapreview">CameraPreview</a>
 </li>
 <li class="capitalize ">
-  <a href="/docs/v2/native/canvascamera">CanvasCamera</a>
-</li>
-<li class="capitalize ">
   <a href="/docs/v2/native/cardio">CardIO</a>
 </li>
 <li class="capitalize ">
@@ -438,7 +435,7 @@
 
 </h1>
 
-<p><a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/geolocation.ts#L92">
+<p><a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/geolocation.ts#L104">
   Improve this doc
 </a></p>
 
@@ -528,7 +525,9 @@ watch.subscribe((data) =&gt; {
 <p>Watch the current device’s position.  Clear the watch by unsubscribing from
 Observable changes.</p>
 
-<div class="language-typescript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">subscription</span> <span class="o">=</span> <span class="nx">Geolocation</span><span class="p">.</span><span class="nx">watchPosition</span><span class="p">().</span><span class="nx">subscribe</span><span class="p">(</span><span class="nx">position</span> <span class="o">=&gt;</span> <span class="p">{</span>
+<div class="language-typescript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">subscription</span> <span class="o">=</span> <span class="nx">Geolocation</span><span class="p">.</span><span class="nx">watchPosition</span><span class="p">()</span>
+                              <span class="p">.</span><span class="nx">filter</span><span class="p">((</span><span class="nx">p</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">p</span><span class="p">.</span><span class="nx">code</span> <span class="o">===</span> <span class="kc">undefined</span><span class="p">)</span> <span class="c1">//Filter Out Errors</span>
+                              <span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="nx">position</span> <span class="o">=&gt;</span> <span class="p">{</span>
   <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">position</span><span class="p">.</span><span class="nx">coords</span><span class="p">.</span><span class="nx">longitude</span> <span class="o">+</span> <span class="s1">' '</span> <span class="o">+</span> <span class="nx">position</span><span class="p">.</span><span class="nx">coords</span><span class="p">.</span><span class="nx">latitude</span><span class="p">);</span>
 <span class="p">});</span>
 
