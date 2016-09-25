@@ -16,8 +16,8 @@
       <title>Ionic Native: Harness the power of Native APIs</title>
     
   </head>
-  <body id="docs-page-onesignal"
-        class="v2 docs page-onesignal"
+  <body id="docs-page-isdebug"
+        class="v2 docs page-isdebug"
         data-spy="scroll"
         data-offset="100"
         data-target="#components-index"
@@ -284,7 +284,7 @@
 <li class="capitalize ">
   <a href="/docs/v2/native/ionic-deeplinks">Ionic Deeplinks</a>
 </li>
-<li class="capitalize ">
+<li class="capitalize active">
   <a href="/docs/v2/native/isdebug">IsDebug</a>
 </li>
 <li class="capitalize ">
@@ -326,7 +326,7 @@
 <li class="capitalize ">
   <a href="/docs/v2/native/nfc">NFC</a>
 </li>
-<li class="capitalize active">
+<li class="capitalize ">
   <a href="/docs/v2/native/onesignal">OneSignal</a>
 </li>
 <li class="capitalize ">
@@ -429,7 +429,7 @@
         <h1 class="api-title">
 
   
-  OneSignal
+  IsDebug
   
 
   
@@ -438,589 +438,49 @@
 
 </h1>
 
-<p><a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/onesignal.ts#L1">
+<p><a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/is-debug.ts#L0">
   Improve this doc
 </a></p>
 
 <!-- decorators -->
 
-<pre><code>$ ionic plugin add onesignal-cordova-plugin</code></pre>
+<pre><code>$ ionic plugin add cordova-plugin-is-debug</code></pre>
 <p>Repo:
-  <a href="https://github.com/OneSignal/OneSignal-Cordova-SDK">
-    https://github.com/OneSignal/OneSignal-Cordova-SDK
+  <a href="https://github.com/mattlewis92/cordova-plugin-is-debug">
+    https://github.com/mattlewis92/cordova-plugin-is-debug
   </a>
 </p>
 
 <!-- description -->
 
-<p>The OneSignal plugin is an client implementation for using the <a href="https://onesignal.com/">OneSignal</a> Service.
-OneSignal is a simple implementation for delivering push notifications.</p>
-<p>Requires Cordova plugin: <code>onesignal-cordova-plugin</code>. For more info, please see the <a href="https://documentation.onesignal.com/docs/phonegap-sdk-installation">OneSignal Cordova Docs</a>.</p>
+<p>Detect if the app is running in debug mode or not.
+Debug mode is when the app is built and installed locally via xcode / eclipse / the cordova cli etc, compared to release mode when the app was downloaded from the app / play store via an end user.</p>
 
 <!-- @usage tag -->
 
 <h2>Usage</h2>
 
-<pre><code class="lang-typescript">import { OneSignal } from &#39;ionic-native&#39;;
+<pre><code>import {IsDebug} from &#39;ionic-native&#39;;
 
-OneSignal.init(&#39;b2f7f966-d8cc-11e4-bed1-df8f05be55ba&#39;,
-                       {googleProjectNumber: &#39;703322744261&#39;})
- .subscribe(jsonData =&gt; {
-   console.log(&#39;didReceiveRemoteNotificationCallBack: &#39; + JSON.stringify(jsonData));
- });
-
-OneSignal.enableInAppAlertNotification(true);
+IsDebug.getIsDebug()
+  .then((isDebug: boolean) =&gt; console.log(&#39;Is debug:&#39;, isDebug))
+  .catch((error: any) =&gt; console.error(error));
 </code></pre>
 
 <!-- @property tags -->
 <h2>Static Members</h2>
-<div id="init"></div>
-<h3><code>init(Your,&nbsp;The)</code>
+<div id="getIsDebug"></div>
+<h3><code>getIsDebug()</code>
   
 </h3>
 
-<p>Only required method you need to call to setup OneSignal to receive push notifications. Call this from the <code class="highlighter-rouge">deviceready</code> event.</p>
-
-<table class="table param-table" style="margin:0;">
-  <thead>
-  <tr>
-    <th>Param</th>
-    <th>Type</th>
-    <th>Details</th>
-  </tr>
-  </thead>
-  <tbody>
-  
-  <tr>
-    <td>
-      Your
-      
-      
-    </td>
-    <td>
-      
-<code>appId</code>
-    </td>
-    <td>
-      <p>AppId from your OneSignal app</p>
-
-      
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      The
-      
-      
-    </td>
-    <td>
-      
-<code>options</code>
-    </td>
-    <td>
-      <p>Google Project Number (which you can get from the Google Developer Potal) and the autoRegister option.</p>
-
-      
-    </td>
-  </tr>
-  
-  </tbody>
-</table>
+<p>Determine if an app was installed via xcode / eclipse / the ionic CLI etc</p>
 
 <div class="return-value">
   <p><i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Observable</code> when a notification is received. Handle your notification action here.</p>
+<code>Promise&lt;boolean&gt;</code> Returns a promise that resolves with true if the app was installed via xcode / eclipse / the ionic CLI etc. It will resolve to false if the app was downloaded from the app / play store by the end user.</p>
 </div>
-
-<div id="registerForPushNotifications"></div>
-<h3><code>registerForPushNotifications()</code>
-  
-</h3>
-
-<p>Call this when you would like to prompt an iOS user to accept push notifications with the default system prompt.
-Only use if you passed false to autoRegister when calling init.</p>
-
-<div id="sendTag"></div>
-<h3><code>sendTag(Key,&nbsp;Value)</code>
-  
-</h3>
-
-<p>Tag a user based on an app event of your choosing so later you can create segments on <a href="https://onesignal.com/">onesignal.com</a> to target these users.
-Recommend using sendTags over sendTag if you need to set more than one tag on a user at a time.</p>
-
-<table class="table param-table" style="margin:0;">
-  <thead>
-  <tr>
-    <th>Param</th>
-    <th>Type</th>
-    <th>Details</th>
-  </tr>
-  </thead>
-  <tbody>
-  
-  <tr>
-    <td>
-      Key
-      
-      
-    </td>
-    <td>
-      
-<code>key</code>
-    </td>
-    <td>
-      <p>of your choosing to create or update.</p>
-
-      
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      Value
-      
-      
-    </td>
-    <td>
-      
-<code>value</code>
-    </td>
-    <td>
-      <p>to set on the key. NOTE: Passing in a blank String deletes the key, you can also call deleteTag.</p>
-
-      
-    </td>
-  </tr>
-  
-  </tbody>
-</table>
-
-<div id="sendTags"></div>
-<h3><code>sendTags(Pass)</code>
-  
-</h3>
-
-<p>Tag a user based on an app event of your choosing so later you can create segments on <a href="https://onesignal.com/">onesignal.com</a> to target these users.
-Recommend using sendTags over sendTag if you need to set more than one tag on a user at a time.</p>
-
-<table class="table param-table" style="margin:0;">
-  <thead>
-  <tr>
-    <th>Param</th>
-    <th>Type</th>
-    <th>Details</th>
-  </tr>
-  </thead>
-  <tbody>
-  
-  <tr>
-    <td>
-      Pass
-      
-      
-    </td>
-    <td>
-      
-<code>json</code>
-    </td>
-    <td>
-      <p>a json object with key/value pairs like: {key: &quot;value&quot;, key2: &quot;value2&quot;}</p>
-
-      
-    </td>
-  </tr>
-  
-  </tbody>
-</table>
-
-<div id="getTags"></div>
-<h3><code>getTags()</code>
-  
-</h3>
-
-<p>Retrieve a list of tags that have been set on the user from the OneSignal server.</p>
-
-<div class="return-value">
-  <p><i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise</code> Returns a Promise that resolves when tags are recieved.</p>
-</div>
-
-<div id="deleteTag"></div>
-<h3><code>deleteTag(Key)</code>
-  
-</h3>
-
-<p>Deletes a tag that was previously set on a user with <code class="highlighter-rouge">sendTag</code> or <code class="highlighter-rouge">sendTags</code>. Use <code class="highlighter-rouge">deleteTags</code> if you need to delete more than one.</p>
-
-<table class="table param-table" style="margin:0;">
-  <thead>
-  <tr>
-    <th>Param</th>
-    <th>Type</th>
-    <th>Details</th>
-  </tr>
-  </thead>
-  <tbody>
-  
-  <tr>
-    <td>
-      Key
-      
-      
-    </td>
-    <td>
-      
-<code>key</code>
-    </td>
-    <td>
-      <p>to remove.</p>
-
-      
-    </td>
-  </tr>
-  
-  </tbody>
-</table>
-
-<div id="deleteTags"></div>
-<h3><code>deleteTags(Keys)</code>
-  
-</h3>
-
-<p>Deletes tags that were previously set on a user with <code class="highlighter-rouge">sendTag</code> or <code class="highlighter-rouge">sendTags</code>.</p>
-
-<table class="table param-table" style="margin:0;">
-  <thead>
-  <tr>
-    <th>Param</th>
-    <th>Type</th>
-    <th>Details</th>
-  </tr>
-  </thead>
-  <tbody>
-  
-  <tr>
-    <td>
-      Keys
-      
-      
-    </td>
-    <td>
-      
-<code>keys</code>
-    </td>
-    <td>
-      <p>to remove.</p>
-
-      
-    </td>
-  </tr>
-  
-  </tbody>
-</table>
-
-<div id="getIds"></div>
-<h3><code>getIds()</code>
-  
-</h3>
-
-<p>Lets you retrieve the OneSignal user id and device token.
-Your handler is called after the device is successfully registered with OneSignal.</p>
-
-<div class="return-value">
-  <p><i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise</code> Returns a Promise that reolves if the device was successfully registered.
-It returns a JSON with <code class="highlighter-rouge">userId</code>and <code class="highlighter-rouge">pushToken</code>.</p>
-</div>
-
-<div id="enableVibrate"></div>
-<h3><code>enableVibrate(false)</code>
-  
-</h3>
-
-<p>Warning:
-Only applies to Android and Amazon. You can call this from your UI from a button press for example to give your user’s options for your notifications.</p>
-
-<p>By default OneSignal always vibrates the device when a notification is displayed unless the device is in a total silent mode.
-Passing false means that the device will only vibrate lightly when the device is in it’s vibrate only mode.</p>
-
-<table class="table param-table" style="margin:0;">
-  <thead>
-  <tr>
-    <th>Param</th>
-    <th>Type</th>
-    <th>Details</th>
-  </tr>
-  </thead>
-  <tbody>
-  
-  <tr>
-    <td>
-      false
-      
-      
-    </td>
-    <td>
-      
-<code>enable</code>
-    </td>
-    <td>
-      <p>to disable vibrate, true to re-enable it.</p>
-
-      
-    </td>
-  </tr>
-  
-  </tbody>
-</table>
-
-<div id="enableSound"></div>
-<h3><code>enableSound(false)</code>
-  
-</h3>
-
-<p>Warning:
-Only applies to Android and Amazon. You can call this from your UI from a button press for example to give your user’s options for your notifications.</p>
-
-<p>By default OneSignal plays the system’s default notification sound when the device’s notification system volume is turned on.
-Passing false means that the device will only vibrate unless the device is set to a total silent mode.</p>
-
-<table class="table param-table" style="margin:0;">
-  <thead>
-  <tr>
-    <th>Param</th>
-    <th>Type</th>
-    <th>Details</th>
-  </tr>
-  </thead>
-  <tbody>
-  
-  <tr>
-    <td>
-      false
-      
-      
-    </td>
-    <td>
-      
-<code>enable</code>
-    </td>
-    <td>
-      <p>to disable sound, true to re-enable it.</p>
-
-      
-    </td>
-  </tr>
-  
-  </tbody>
-</table>
-
-<div id="enableNotificationsWhenActive"></div>
-<h3><code>enableNotificationsWhenActive(enable)</code>
-  
-</h3>
-
-<p>Warning:
-Only applies to Android and Amazon devices.</p>
-
-<p>By default this is false and notifications will not be shown when the user is in your app, instead the notificationOpenedCallback is fired.
-If set to true notifications will always show in the notification area and notificationOpenedCallback will not fire until the user taps on the notification.</p>
-
-<table class="table param-table" style="margin:0;">
-  <thead>
-  <tr>
-    <th>Param</th>
-    <th>Type</th>
-    <th>Details</th>
-  </tr>
-  </thead>
-  <tbody>
-  
-  <tr>
-    <td>
-      enable
-      
-      
-    </td>
-    <td>
-      
-<code>enable</code>
-    </td>
-    <td>
-      
-      
-    </td>
-  </tr>
-  
-  </tbody>
-</table>
-
-<div id="enableInAppAlertNotification"></div>
-<h3><code>enableInAppAlertNotification(enable)</code>
-  
-</h3>
-
-<p>By default this is false and notifications will not be shown when the user is in your app, instead the notificationOpenedCallback is fired.
-If set to true notifications will be shown as native alert boxes if a notification is received when the user is in your app.
-The notificationOpenedCallback is then fired after the alert box is closed.</p>
-
-<table class="table param-table" style="margin:0;">
-  <thead>
-  <tr>
-    <th>Param</th>
-    <th>Type</th>
-    <th>Details</th>
-  </tr>
-  </thead>
-  <tbody>
-  
-  <tr>
-    <td>
-      enable
-      
-      
-    </td>
-    <td>
-      
-<code>enable</code>
-    </td>
-    <td>
-      
-      
-    </td>
-  </tr>
-  
-  </tbody>
-</table>
-
-<div id="setSubscription"></div>
-<h3><code>setSubscription(enable)</code>
-  
-</h3>
-
-<p>You can call this method with false to opt users out of receiving all notifications through OneSignal.
-You can pass true later to opt users back into notifications.</p>
-
-<table class="table param-table" style="margin:0;">
-  <thead>
-  <tr>
-    <th>Param</th>
-    <th>Type</th>
-    <th>Details</th>
-  </tr>
-  </thead>
-  <tbody>
-  
-  <tr>
-    <td>
-      enable
-      
-      
-    </td>
-    <td>
-      
-<code>enable</code>
-    </td>
-    <td>
-      
-      
-    </td>
-  </tr>
-  
-  </tbody>
-</table>
-
-<div id="postNotification"></div>
-<h3><code>postNotification(Parameters)</code>
-  
-</h3>
-
-<table class="table param-table" style="margin:0;">
-  <thead>
-  <tr>
-    <th>Param</th>
-    <th>Type</th>
-    <th>Details</th>
-  </tr>
-  </thead>
-  <tbody>
-  
-  <tr>
-    <td>
-      Parameters
-      
-      
-    </td>
-    <td>
-      
-<code>notificationObj</code>
-    </td>
-    <td>
-      <p>see POST <a href="https://documentation.onesignal.com/v2.0/docs/notifications-create-notification">documentation</a></p>
-
-      
-    </td>
-  </tr>
-  
-  </tbody>
-</table>
-
-<div class="return-value">
-  <p><i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise</code> Returns a Promise that resolves if the notification was send successfully.</p>
-</div>
-
-<div id="promptLocation"></div>
-<h3><code>promptLocation()</code>
-  
-</h3>
-
-<p>Prompts the user for location permission to allow geotagging based on the “Location radius” filter on the OneSignal dashboard.</p>
-
-<div id="setLogLevel"></div>
-<h3><code>setLogLevel(contains)</code>
-  
-</h3>
-
-<p>Enable logging to help debug if you run into an issue setting up OneSignal.
-The logging levels are as follows: 0 = None, 1= Fatal, 2 = Errors, 3 = Warnings, 4 = Info, 5 = Debug, 6 = Verbose</p>
-
-<p>The higher the value the more information is shown.</p>
-
-<table class="table param-table" style="margin:0;">
-  <thead>
-  <tr>
-    <th>Param</th>
-    <th>Type</th>
-    <th>Details</th>
-  </tr>
-  </thead>
-  <tbody>
-  
-  <tr>
-    <td>
-      contains
-      
-      
-    </td>
-    <td>
-      
-<code>loglevel</code>
-    </td>
-    <td>
-      <p>two properties: logLevel (for console logging) and visualLevel (for dialog messages)</p>
-
-      
-    </td>
-  </tr>
-  
-  </tbody>
-</table>
 
 <!-- methods on the class -->
 
