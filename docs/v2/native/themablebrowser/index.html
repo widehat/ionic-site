@@ -16,8 +16,8 @@
       <title>Ionic Native: Harness the power of Native APIs</title>
     
   </head>
-  <body id="docs-page-android-fingerprint-auth"
-        class="v2 docs page-android-fingerprint-auth"
+  <body id="docs-page-themablebrowser"
+        class="v2 docs page-themablebrowser"
         data-spy="scroll"
         data-offset="100"
         data-target="#components-index"
@@ -125,7 +125,7 @@
 <li class="capitalize ">
   <a href="/docs/v2/native/admob">AdMob</a>
 </li>
-<li class="capitalize active">
+<li class="capitalize ">
   <a href="/docs/v2/native/android-fingerprint auth">Android Fingerprint Auth</a>
 </li>
 <li class="capitalize ">
@@ -389,7 +389,7 @@
 <li class="capitalize ">
   <a href="/docs/v2/native/texttospeech">TextToSpeech</a>
 </li>
-<li class="capitalize ">
+<li class="capitalize active">
   <a href="/docs/v2/native/themablebrowser">ThemableBrowser</a>
 </li>
 <li class="capitalize ">
@@ -432,7 +432,7 @@
         <h1 class="api-title">
 
   
-  Android Fingerprint Auth
+  ThemableBrowser
   
 
   
@@ -441,59 +441,141 @@
 
 </h1>
 
-<p><a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/android-fingerprint-auth.ts#L0">
+<p><a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/themable-browser.ts#L3">
   Improve this doc
 </a></p>
 
 <!-- decorators -->
 
-<pre><code>$ ionic plugin add cordova-plugin-android-fingerprint-auth</code></pre>
+<pre><code>$ ionic plugin add cordova-plugin-themeablebrowser</code></pre>
 <p>Repo:
-  <a href="https://github.com/mjwheatley/cordova-plugin-android-fingerprint-auth">
-    https://github.com/mjwheatley/cordova-plugin-android-fingerprint-auth
+  <a href="https://github.com/initialxy/cordova-plugin-themeablebrowser">
+    https://github.com/initialxy/cordova-plugin-themeablebrowser
   </a>
 </p>
 
 <!-- description -->
 
-<p>This plugin will open a native dialog fragment prompting the user to authenticate using their fingerprint. If the device has a secure lockscreen (pattern, PIN, or password), the user may opt to authenticate using that method as a backup.</p>
+<p>In-app browser that allows styling.</p>
 
 <!-- @usage tag -->
 
 <h2>Usage</h2>
 
-<pre><code class="lang-typescript">import { AndroidFingerprintAuth } from &#39;ionic-native&#39;;
+<pre><code>import { ThemableBrowser } from &#39;ionic-native&#39;;
 
-AndroidFingerprintAuth.isAvailable()
-  .then((result)=&gt; {
-    if(result.isAvailable){
-      // it is available
+// can add options from the original InAppBrowser in a JavaScript object form (not string)
+// This options object also takes additional parameters introduced by the ThemableBrowser plugin
+// This example only shows the additional parameters for ThemableBrowser
+// Note that that `image` and `imagePressed` values refer to resources that are stored in your app
+let options = {
+ statusbar: {
+         color: &#39;#ffffffff&#39;
+     },
+     toolbar: {
+         height: 44,
+         color: &#39;#f0f0f0ff&#39;
+     },
+     title: {
+         color: &#39;#003264ff&#39;,
+         showPageTitle: true
+     },
+     backButton: {
+         image: &#39;back&#39;,
+         imagePressed: &#39;back_pressed&#39;,
+         align: &#39;left&#39;,
+         event: &#39;backPressed&#39;
+     },
+     forwardButton: {
+         image: &#39;forward&#39;,
+         imagePressed: &#39;forward_pressed&#39;,
+         align: &#39;left&#39;,
+         event: &#39;forwardPressed&#39;
+     },
+     closeButton: {
+         image: &#39;close&#39;,
+         imagePressed: &#39;close_pressed&#39;,
+         align: &#39;left&#39;,
+         event: &#39;closePressed&#39;
+     },
+     customButtons: [
+         {
+             image: &#39;share&#39;,
+             imagePressed: &#39;share_pressed&#39;,
+             align: &#39;right&#39;,
+             event: &#39;sharePressed&#39;
+         }
+     ],
+     menu: {
+         image: &#39;menu&#39;,
+         imagePressed: &#39;menu_pressed&#39;,
+         title: &#39;Test&#39;,
+         cancel: &#39;Cancel&#39;,
+         align: &#39;right&#39;,
+         items: [
+             {
+                 event: &#39;helloPressed&#39;,
+                 label: &#39;Hello World!&#39;
+             },
+             {
+                 event: &#39;testPressed&#39;,
+                 label: &#39;Test!&#39;
+             }
+         ]
+     },
+     backButtonCanClose: true
+};
 
-      AndroidFingerprintAuth.show({ clientId: &quot;myAppName&quot;, clientSecret: &quot;so_encrypted_much_secure_very_secret&quot; })
-        .then(result =&gt; {
-           if(result.withFingerprint) {
-             console.log(&#39;Successfully authenticated with fingerprint!&#39;);
-           } else if(result.withPassword) {
-             console.log(&#39;Successfully authenticated with backup password!&#39;);
-           } else console.log(&#39;Didn\&#39;t authenticate!&#39;);
-        })
-        .catch(error =&gt; console.error(error));
-
-    } else {
-      // fingerprint auth isn&#39;t available
-    }
-  })
-  .catch(error =&gt; console.error(error));
+let browser = new ThemeableBrowser(&#39;https://ionic.io&#39;, &#39;_blank&#39;, options);
 </code></pre>
+<p>We suggest that you refer to the plugin&#39;s repository for additional information on usage that may not be covered here.</p>
 
 <!-- @property tags -->
-<h2>Static Members</h2>
+
+<!-- methods on the class -->
+
+<h2>Instance Members</h2>
+
 <div id="show"></div>
-<h3><code>show(params)</code>
+
+<h3>
+  <code>show()</code>
   
+
 </h3>
 
-<p>Opens a native dialog fragment to use the device hardware fingerprint scanner to authenticate against fingerprints registered for the device.</p>
+<p>Displays an browser window that was opened hidden. Calling this has no effect
+if the browser was already visible.</p>
+
+<div id="close"></div>
+
+<h3>
+  <code>close()</code>
+  
+
+</h3>
+
+<p>Closes the browser window.</p>
+
+<div id="reload"></div>
+
+<h3>
+  <code>reload()</code>
+  
+
+</h3>
+
+<p>Reloads the current page</p>
+
+<div id="executeScript"></div>
+
+<h3>
+  <code>executeScript(script)</code>
+  
+
+</h3>
+
+<p>Injects JavaScript code into the browser window.</p>
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -507,16 +589,17 @@ AndroidFingerprintAuth.isAvailable()
   
   <tr>
     <td>
-      params
+      script
       
       
     </td>
     <td>
       
-<code>any</code>
+
     </td>
     <td>
-      
+      <p>Details of the script to run, specifying either a file or code key.</p>
+
       
     </td>
   </tr>
@@ -524,14 +607,92 @@ AndroidFingerprintAuth.isAvailable()
   </tbody>
 </table>
 
-<div id="isAvailable"></div>
-<h3><code>isAvailable()</code>
+<div id="insertCss"></div>
+
+<h3>
+  <code>insertCss(css)</code>
   
+
 </h3>
 
-<p>Check if service is available</p>
+<p>Injects CSS into the browser window.</p>
 
-<!-- methods on the class -->
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      css
+      
+      
+    </td>
+    <td>
+      
+
+    </td>
+    <td>
+      <p>Details of the script to run, specifying either a file or code key.</p>
+
+      
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
+
+<div id="on"></div>
+
+<h3>
+  <code>on(event)</code>
+  
+
+</h3>
+
+<p>A method that allows you to listen to events happening in the browser.
+Available events are: <code class="highlighter-rouge">ThemableBrowserError</code>, <code class="highlighter-rouge">ThemableBrowserWarning</code>, <code class="highlighter-rouge">critical</code>, <code class="highlighter-rouge">loadfail</code>, <code class="highlighter-rouge">unexpected</code>, <code class="highlighter-rouge">undefined</code></p>
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      event
+      
+      
+    </td>
+    <td>
+      
+
+    </td>
+    <td>
+      <p>Event name</p>
+
+      
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
+
+<div class="return-value">
+  <p><i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Observable&lt;any&gt;</code> Returns back an observable that will listen to the event on subscribe, and will stop listening to the event on unsubscribe.</p>
+</div>
 
 <!-- related link -->
 <!-- end content block -->
