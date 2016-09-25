@@ -16,8 +16,8 @@
       <title>Ionic Native: Harness the power of Native APIs</title>
     
   </head>
-  <body id="docs-page-streamingmedia"
-        class="v2 docs page-streamingmedia"
+  <body id="docs-page-locationaccuracy"
+        class="v2 docs page-locationaccuracy"
         data-spy="scroll"
         data-offset="100"
         data-target="#components-index"
@@ -296,7 +296,7 @@
 <li class="capitalize ">
   <a href="/docs/v2/native/local-notifications">Local Notifications</a>
 </li>
-<li class="capitalize ">
+<li class="capitalize active">
   <a href="/docs/v2/native/locationaccuracy">LocationAccuracy</a>
 </li>
 <li class="capitalize ">
@@ -386,7 +386,7 @@
 <li class="capitalize ">
   <a href="/docs/v2/native/status-bar">Status Bar</a>
 </li>
-<li class="capitalize active">
+<li class="capitalize ">
   <a href="/docs/v2/native/streamingmedia">StreamingMedia</a>
 </li>
 <li class="capitalize ">
@@ -435,7 +435,7 @@
         <h1 class="api-title">
 
   
-  StreamingMedia
+  LocationAccuracy
   
 
   
@@ -444,189 +444,147 @@
 
 </h1>
 
-<p><a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/streaming-media.ts#L0">
+<p><a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/location-accuracy.ts#L0">
   Improve this doc
 </a></p>
 
 <!-- decorators -->
 
-<pre><code>$ ionic plugin add cordova-plugin-streaming-media</code></pre>
+<pre><code>$ ionic plugin add cordova-plugin-request-location-accuracy</code></pre>
 <p>Repo:
-  <a href="https://github.com/nchutchind/cordova-plugin-streaming-media">
-    https://github.com/nchutchind/cordova-plugin-streaming-media
+  <a href="https://github.com/dpa99c/cordova-plugin-request-location-accuracy">
+    https://github.com/dpa99c/cordova-plugin-request-location-accuracy
   </a>
 </p>
 
 <!-- description -->
 
-<p>This plugin allows you to stream audio and video in a fullscreen, native player on iOS and Android.</p>
-
-<!-- @platforms tag -->
-<h2>Supported platforms</h2>
-
-<ul>
-  <li>Android</li>
-  
-  <li>iOS</li>
-  </ul>
-
-<!-- @platforms tag end -->
+<p>This Cordova/Phonegap plugin for Android and iOS to request enabling/changing of Location Services by triggering a native dialog from within the app, avoiding the need for the user to leave your app to change location settings manually.</p>
 
 <!-- @usage tag -->
 
 <h2>Usage</h2>
 
-<pre><code>import {StreamingMedia, StreamingVideoOptions} from &#39;ionic-native&#39;;
+<pre><code>import { LocationAccuracy } from &#39;ionic-native&#39;;
 
-let options: StreamingVideoOptions = {
-  successCallback: () =&gt; { console.log(&#39;Video played&#39;) },
-  errorCallback: (e) =&gt; { console.log(&#39;Error streaming&#39;) },
-  orientation: &#39;landscape&#39;
-};
+LocationAccuracy.canRequest().then((canRequest: boolean) =&gt; {
 
-StreamingMedia.(&#39;https://path/to/video/stream&#39;, options);
+  if(canRequest) {
+    // the accuracy option will be ignored by iOS
+    LocationAccuracy.request(LocaitonAccuracy.REQUEST_PRIORITY_HIGH_ACCURACY).then(
+      () =&gt; console.log(&#39;Request successful&#39;),
+      error =&gt; console.log(&#39;Error requesting location permissions&#39;, error)
+    );
+  }
+
+});
 </code></pre>
 
 <!-- @property tags -->
 <h2>Static Members</h2>
-<div id="playVideo"></div>
-<h3><code>playVideo(videoUrl,&nbsp;options)</code>
+<div id="canRequest"></div>
+<h3><code>canRequest()</code>
   
 </h3>
 
-<p>Streams a video</p>
+<p>Indicates if you can request accurate location</p>
 
-<table class="table param-table" style="margin:0;">
-  <thead>
-  <tr>
-    <th>Param</th>
-    <th>Type</th>
-    <th>Details</th>
-  </tr>
-  </thead>
-  <tbody>
-  
-  <tr>
-    <td>
-      videoUrl
-      
-      
-    </td>
-    <td>
-      
-<code>string</code>
-    </td>
-    <td>
-      <p>The URL of the video</p>
+<div class="return-value">
+  <p><i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;boolean&gt;</code> Returns a promise that resovles with a boolean that indicates if you can request accurate location</p>
+</div>
 
-      
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      options
-      
-      
-    </td>
-    <td>
-      
-<code>StreamingVideoOptions</code>
-    </td>
-    <td>
-      <p>Options</p>
-
-      
-    </td>
-  </tr>
-  
-  </tbody>
-</table>
-
-<div id="playAudio"></div>
-<h3><code>playAudio(audioUrl,&nbsp;options)</code>
+<div id="isRequesting"></div>
+<h3><code>isRequesting()</code>
   
 </h3>
 
-<p>Streams an audio</p>
+<p>Indicates if a request is currently in progress</p>
 
-<table class="table param-table" style="margin:0;">
-  <thead>
-  <tr>
-    <th>Param</th>
-    <th>Type</th>
-    <th>Details</th>
-  </tr>
-  </thead>
-  <tbody>
-  
-  <tr>
-    <td>
-      audioUrl
-      
-      
-    </td>
-    <td>
-      
-<code>string</code>
-    </td>
-    <td>
-      <p>The URL of the audio stream</p>
+<div class="return-value">
+  <p><i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;boolean&gt;</code> Returns a promise that resolves with a boolean that indicates if a request is currently in progress</p>
+</div>
 
-      
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      options
-      
-      
-    </td>
-    <td>
-      
-<code>StreamingAudioOptions</code>
-    </td>
-    <td>
-      <p>Options</p>
-
-      
-    </td>
-  </tr>
-  
-  </tbody>
-</table>
-
-<div id="stopAudio"></div>
-<h3><code>stopAudio()</code>
+<div id="request"></div>
+<h3><code>request()</code>
   
 </h3>
 
-<p>Stops streaming audio</p>
+<p>Requests accurate location</p>
 
-<div id="pauseAudio"></div>
-<h3><code>pauseAudio()</code>
+<div class="return-value">
+  <p><i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> Returns a promise that resolves on success and rejects if an error occurred</p>
+</div>
+
+<div id="REQUEST_PRIORITY_NO_POWER"></div>
+<h3><code>REQUEST_PRIORITY_NO_POWER()</code>
   
 </h3>
 
-<p>
-<b>Platforms:</b>
-<code>iOS</code>&nbsp;
-</p>
-
-<p>Pauses streaming audio</p>
-
-<div id="resumeAudio"></div>
-<h3><code>resumeAudio()</code>
+<div id="REQUEST_PRIORITY_LOW_POWER"></div>
+<h3><code>REQUEST_PRIORITY_LOW_POWER()</code>
   
 </h3>
 
-<p>
-<b>Platforms:</b>
-<code>iOS</code>&nbsp;
-</p>
+<div id="REQUEST_PRIORITY_BALANCED_POWER_ACCURACY"></div>
+<h3><code>REQUEST_PRIORITY_BALANCED_POWER_ACCURACY()</code>
+  
+</h3>
 
-<p>Resumes streaming audio</p>
+<div id="REQUEST_PRIORITY_HIGH_ACCURACY"></div>
+<h3><code>REQUEST_PRIORITY_HIGH_ACCURACY()</code>
+  
+</h3>
+
+<div id="SUCCESS_SETTINGS_SATISFIED"></div>
+<h3><code>SUCCESS_SETTINGS_SATISFIED()</code>
+  
+</h3>
+
+<div id="SUCCESS_USER_AGREED"></div>
+<h3><code>SUCCESS_USER_AGREED()</code>
+  
+</h3>
+
+<div id="ERROR_ALREADY_REQUESTING"></div>
+<h3><code>ERROR_ALREADY_REQUESTING()</code>
+  
+</h3>
+
+<div id="ERROR_INVALID_ACTION"></div>
+<h3><code>ERROR_INVALID_ACTION()</code>
+  
+</h3>
+
+<div id="ERROR_INVALID_ACCURACY"></div>
+<h3><code>ERROR_INVALID_ACCURACY()</code>
+  
+</h3>
+
+<div id="ERROR_EXCEPTION"></div>
+<h3><code>ERROR_EXCEPTION()</code>
+  
+</h3>
+
+<div id="ERROR_CANNOT_CHANGE_ACCURACY"></div>
+<h3><code>ERROR_CANNOT_CHANGE_ACCURACY()</code>
+  
+</h3>
+
+<div id="ERROR_USER_DISAGREED"></div>
+<h3><code>ERROR_USER_DISAGREED()</code>
+  
+</h3>
+
+<div id="ERROR_GOOGLE_API_CONNECTION_FAILED"></div>
+<h3><code>ERROR_GOOGLE_API_CONNECTION_FAILED()</code>
+  
+</h3>
 
 <!-- methods on the class -->
 
