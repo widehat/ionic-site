@@ -2752,7 +2752,7 @@ The Popover is a view that floats above an app’s content. Popovers provide an 
 <p>One of the best uses of the toolbar is as a header.</p>
 
 <div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;ion-header&gt;</span>
-  <span class="nt">&lt;ion-toolbar</span> <span class="na">primary</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;ion-toolbar</span> <span class="na">color=</span><span class="s">"primary"</span><span class="nt">&gt;</span>
     <span class="nt">&lt;ion-buttons</span> <span class="na">start</span><span class="nt">&gt;</span>
       <span class="nt">&lt;ion-icon</span> <span class="na">name=</span><span class="s">"content"</span><span class="nt">&gt;&lt;/ion-icon&gt;</span>
     <span class="nt">&lt;/ion-buttons&gt;</span>
@@ -2780,21 +2780,21 @@ The Popover is a view that floats above an app’s content. Popovers provide an 
 <div class="language-typescript highlighter-rouge"><pre class="highlight"><code>
 <span class="err">@</span><span class="nx">Component</span><span class="p">({</span>
   <span class="na">template</span><span class="p">:</span> <span class="err">`</span>
-    <span class="o">&lt;</span><span class="nx">ion</span><span class="o">-</span><span class="nx">toolbar</span> <span class="nx">primary</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="nx">ion</span><span class="o">-</span><span class="nx">toolbar</span> <span class="nx">color</span><span class="o">=</span><span class="s2">"primary"</span><span class="o">&gt;</span>
       <span class="o">&lt;</span><span class="nx">ion</span><span class="o">-</span><span class="nx">title</span><span class="o">&gt;</span><span class="nx">Toolbar</span><span class="o">&lt;</span><span class="sr">/ion-title</span><span class="err">&gt;
 </span>    <span class="o">&lt;</span><span class="sr">/ion-toolbar</span><span class="err">&gt;
 </span>
 
-    <span class="o">&lt;</span><span class="nx">ion</span><span class="o">-</span><span class="nx">toolbar</span> <span class="nx">secondary</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="nx">ion</span><span class="o">-</span><span class="nx">toolbar</span> <span class="nx">color</span><span class="o">=</span><span class="s2">"secondary"</span><span class="o">&gt;</span>
       <span class="o">&lt;</span><span class="nx">ion</span><span class="o">-</span><span class="nx">title</span><span class="o">&gt;</span><span class="nx">Toolbar</span><span class="o">&lt;</span><span class="sr">/ion-title</span><span class="err">&gt;
 </span>    <span class="o">&lt;</span><span class="sr">/ion-toolbar</span><span class="err">&gt;
 </span>
-    <span class="o">&lt;</span><span class="nx">ion</span><span class="o">-</span><span class="nx">toolbar</span> <span class="nx">danger</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="nx">ion</span><span class="o">-</span><span class="nx">toolbar</span> <span class="nx">color</span><span class="o">=</span><span class="s2">"danger"</span><span class="o">&gt;</span>
       <span class="o">&lt;</span><span class="nx">ion</span><span class="o">-</span><span class="nx">title</span><span class="o">&gt;</span><span class="nx">Toolbar</span><span class="o">&lt;</span><span class="sr">/ion-title</span><span class="err">&gt;
 </span>    <span class="o">&lt;</span><span class="sr">/ion-toolbar</span><span class="err">&gt;
 </span>
 
-    <span class="o">&lt;</span><span class="nx">ion</span><span class="o">-</span><span class="nx">toolbar</span> <span class="nx">dark</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="nx">ion</span><span class="o">-</span><span class="nx">toolbar</span> <span class="nx">color</span><span class="o">=</span><span class="s2">"dark"</span><span class="o">&gt;</span>
       <span class="o">&lt;</span><span class="nx">ion</span><span class="o">-</span><span class="nx">title</span><span class="o">&gt;</span><span class="nx">Toolbar</span><span class="o">&lt;</span><span class="sr">/ion-title</span><span class="err">&gt;
 </span>    <span class="o">&lt;</span><span class="sr">/ion-toolbar</span><span class="err">&gt;
 </span>  <span class="err">`</span>
@@ -2806,20 +2806,20 @@ The Popover is a view that floats above an app’s content. Popovers provide an 
 <p>You can also change the navbar’s color the same way. This will allow you to have a different color navbar per page in your app.</p>
 
 <div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;ion-header&gt;</span>
-  <span class="nt">&lt;ion-navbar</span> <span class="na">dark</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;ion-navbar</span> <span class="na">color=</span><span class="s">"dark"</span><span class="nt">&gt;</span>
     <span class="nt">&lt;ion-title&gt;</span>Dark<span class="nt">&lt;/ion-title&gt;</span>
   <span class="nt">&lt;/ion-navbar&gt;</span>
 <span class="nt">&lt;/ion-header&gt;</span>
 
 
 <span class="nt">&lt;ion-header&gt;</span>
-  <span class="nt">&lt;ion-navbar</span> <span class="na">danger</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;ion-navbar</span> <span class="na">color=</span><span class="s">"danger"</span><span class="nt">&gt;</span>
     <span class="nt">&lt;ion-title&gt;</span>Danger<span class="nt">&lt;/ion-title&gt;</span>
   <span class="nt">&lt;/ion-navbar&gt;</span>
 <span class="nt">&lt;/ion-header&gt;</span>
 
 <span class="nt">&lt;ion-header&gt;</span>
-  <span class="nt">&lt;ion-navbar</span> <span class="na">secondary</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;ion-navbar</span> <span class="na">color=</span><span class="s">"secondary"</span><span class="nt">&gt;</span>
     <span class="nt">&lt;ion-title&gt;</span>Secondary<span class="nt">&lt;/ion-title&gt;</span>
   <span class="nt">&lt;/ion-navbar&gt;</span>
 <span class="nt">&lt;/ion-header&gt;</span>
@@ -2835,13 +2835,13 @@ The Popover is a view that floats above an app’s content. Popovers provide an 
 <div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;ion-header&gt;</span>
   <span class="nt">&lt;ion-toolbar&gt;</span>
     <span class="nt">&lt;ion-buttons</span> <span class="na">start</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;button</span> <span class="na">royal</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;button</span> <span class="na">color=</span><span class="s">"royal"</span><span class="nt">&gt;</span>
         <span class="nt">&lt;ion-icon</span> <span class="na">name=</span><span class="s">"search"</span><span class="nt">&gt;&lt;/ion-icon&gt;</span>
       <span class="nt">&lt;/button&gt;</span>
     <span class="nt">&lt;/ion-buttons&gt;</span>
     <span class="nt">&lt;ion-title&gt;</span>Send To...<span class="nt">&lt;/ion-title&gt;</span>
     <span class="nt">&lt;ion-buttons</span> <span class="na">end</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;button</span> <span class="na">royal</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;button</span> <span class="na">color=</span><span class="s">"royal"</span><span class="nt">&gt;</span>
         <span class="nt">&lt;ion-icon</span> <span class="na">name=</span><span class="s">"person-add"</span><span class="nt">&gt;&lt;/ion-icon&gt;</span>
       <span class="nt">&lt;/button&gt;</span>
     <span class="nt">&lt;/ion-buttons&gt;</span>
@@ -2854,7 +2854,7 @@ The Popover is a view that floats above an app’s content. Popovers provide an 
   <span class="nt">&lt;ion-toolbar&gt;</span>
     <span class="nt">&lt;p&gt;</span>Ash, Misty, Brock<span class="nt">&lt;/p&gt;</span>
     <span class="nt">&lt;ion-buttons</span> <span class="na">end</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;button</span> <span class="na">royal</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;button</span> <span class="na">color=</span><span class="s">"royal"</span><span class="nt">&gt;</span>
         Send
         <span class="nt">&lt;ion-icon</span> <span class="na">name=</span><span class="s">"send"</span><span class="nt">&gt;&lt;/ion-icon&gt;</span>
       <span class="nt">&lt;/button&gt;</span>
@@ -2900,7 +2900,7 @@ The Popover is a view that floats above an app’s content. Popovers provide an 
 <p>Another common design paradigm is to include a searchbar inside your toolbar.</p>
 
 <div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;ion-header&gt;</span>
-  <span class="nt">&lt;ion-toolbar</span> <span class="na">primary</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;ion-toolbar</span> <span class="na">color=</span><span class="s">"primary"</span><span class="nt">&gt;</span>
     <span class="nt">&lt;ion-searchbar</span> <span class="err">(</span><span class="na">input</span><span class="err">)="</span><span class="na">getItems</span><span class="err">($</span><span class="na">event</span><span class="err">)"</span><span class="nt">&gt;&lt;/ion-searchbar&gt;</span>
   <span class="nt">&lt;/ion-toolbar&gt;</span>
 <span class="nt">&lt;/ion-header&gt;</span>
