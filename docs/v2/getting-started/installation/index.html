@@ -397,15 +397,13 @@
 
 <p><a class="improve-v2-docs" href="https://github.com/driftyco/ionic-site/edit/master/docs/v2/getting-started/installation/index.md">Improve this doc</a></p>
 
-<p>Like Ionic 1, Ionic 2 apps can be quickly created from the Ionic CLI or GUI tool or built and tested right in the browser.</p>
+<p>Ionic 2 apps are created and developed primarily through the Ionic command like utility (the “CLI”).</p>
 
-<p>To install the Ionic SDK and create Ionic 2 projects, you’ll need to install the latest beta release:</p>
+<p>To create Ionic 2 projects, you’ll need to install the latest version of the CLI. Before you do that, you’ll need a recent version of Node.js. <a href="https://nodejs.org/en/">Download the installer</a> for Node.js 6 or greater and then proceed to install the Ionic CLI:</p>
 
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>npm install -g ionic
 </code></pre>
 </div>
-
-<p>Make sure you have NodeJS installed. Download the installer <a href="https://nodejs.org/dist/latest-v5.x/">here</a> or use your favorite package manager. It’s best to get the 6x version of Node which comes with NPM 3. This offers the best in stability and speed for building.</p>
 
 <blockquote>
   <p>Unfamiliar with NPM? Learn more about it and what packages we use <a href="/docs/v2/resources/using-npm/">here</a></p>
@@ -415,25 +413,26 @@
   <p>In case you get an <strong>EACCES</strong> error, it means node doesn’t have write permissions to the global packages folder. Follow the instructions <a href="https://docs.npmjs.com/getting-started/fixing-npm-permissions">here</a> to set the correct folder permissions.</p>
 </blockquote>
 
-<p>Worried about your V1 Ionic projects? Don’t worry! The V2 CLI has all the functionality to work with both V1 projects and V2 projects.</p>
-
 <p>Once that’s done, create your first Ionic app:</p>
 
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>ionic start cutePuppyPics --v2
 </code></pre>
 </div>
 
-<p>To run your app, <code class="highlighter-rouge">cd</code> into the directory that was created and then run the <code class="highlighter-rouge">ionic serve</code> command:</p>
+<blockquote>
+  <p>The CLI works for Ionic 2 and 1 apps, so if you’d like to use v1, omit –v2</p>
+</blockquote>
+
+<p>To run your app, <code class="highlighter-rouge">cd</code> into the directory that was created and then run the <code class="highlighter-rouge">ionic serve</code> command to test your app right in the browser!</p>
 
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span><span class="nb">cd </span>cutePuppyPics
 <span class="gp">$ </span>ionic serve
 </code></pre>
 </div>
+
 <blockquote>
   <p>Having issues with your app building? Make sure your package.json matches <a href="https://github.com/driftyco/ionic2-app-base/blob/master/package.json">our app base</a></p>
 </blockquote>
-
-<p>You can play with it right in the browser!</p>
 
 <h3 id="building-to-a-devicebuilding-to-a-device"><a href="#building-to-a-device">Building to a Device</a></h3>
 <p>After you have Ionic installed, you can build your app to a physical device. If you don’t have a physical device on hand, you can still build to a device emulator. Check out the <a href="../../resources/developer-tips/#using-ios-simulator">iOS simulator</a> docs if you are on a Mac, or the <a href="../../resources/developer-tips/#using-genymotion-android">Genymotion</a> docs if you are looking to emulate an Android device. You will also need <a href="../../resources/what-is/#cordova">Cordova</a> to run your app on a native device. To install Cordova, run:</p>
