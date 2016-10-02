@@ -16,8 +16,8 @@
       <title>Ionic Native: Harness the power of Native APIs</title>
     
   </head>
-  <body id="docs-page-googlemapsmarker"
-        class="v2 docs page-googlemapsmarker"
+  <body id="docs-page-stepcounter"
+        class="v2 docs page-stepcounter"
         data-spy="scroll"
         data-offset="100"
         data-target="#components-index"
@@ -386,7 +386,7 @@
 <li class="capitalize ">
   <a href="/docs/v2/native/status-bar">Status Bar</a>
 </li>
-<li class="capitalize ">
+<li class="capitalize active">
   <a href="/docs/v2/native/stepcounter">Stepcounter</a>
 </li>
 <li class="capitalize ">
@@ -438,7 +438,7 @@
         <h1 class="api-title">
 
   
-  GoogleMapsMarker
+  Stepcounter
   
 
   
@@ -447,226 +447,160 @@
 
 </h1>
 
-<p><a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/-native/src/plugins/googlemaps.ts#L397">
+<p><a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/stepcounter.ts#L0">
   Improve this doc
 </a></p>
 
 <!-- decorators -->
+
+<pre><code>$ ionic plugin add https://github.com/texh/cordova-plugin-stepcounter</code></pre>
+<p>Repo:
+  <a href="https://github.com/texh/cordova-plugin-stepcounter">
+    https://github.com/texh/cordova-plugin-stepcounter
+  </a>
+</p>
+
+<!-- description -->
+
+<p>Cordova plugin for using device&#39;s stepcounter on Android (API &gt; 19)</p>
+<p>Use to</p>
+<ul>
+<li>start and stop stepcounter service</li>
+<li>read device&#39;s stepcounter data</li>
+</ul>
+
+<!-- @platforms tag -->
+<h2>Supported platforms</h2>
+
+<ul>
+  <li>Android</li>
+  </ul>
+
+<!-- @platforms tag end -->
+
 <!-- @usage tag -->
 
+<h2>Usage</h2>
+
+<pre><code>import { Stepcounter } from &#39;ionic-native&#39;;
+
+let startingOffset = 0;
+Stepcounter.start(startingOffset).then(onSuccess =&gt; console.log(&#39;stepcounter-start success&#39;, onSuccess), onFailure =&gt; console.log(&#39;stepcounter-start error&#39;, onFailure));
+
+Stepcounter.getHistory().then(historyObj =&gt; console.log(&#39;stepcounter-history success&#39;, historyObj), onFailure =&gt; console.log(&#39;stepcounter-history error&#39;, onFailure));
+</code></pre>
+
 <!-- @property tags -->
+<h2>Static Members</h2>
+<div id="start"></div>
+<h3><code>start(startingOffset)</code>
+  
+</h3>
+
+<p>Start the step counter</p>
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      startingOffset
+      
+      
+    </td>
+    <td>
+      
+<code>number</code>
+    </td>
+    <td>
+      <p>will be added to the total steps counted in this session</p>
+
+      
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
+
+<div class="return-value">
+  <p><i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise</code> Returns a Promise that resolves on success or rejects on failure</p>
+</div>
+
+<div id="stop"></div>
+<h3><code>stop()</code>
+  
+</h3>
+
+<p>Stop the step counter</p>
+
+<div class="return-value">
+  <p><i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise</code> Returns a Promise that resolves on success with the amount of steps since the start command has been called, or rejects on failure</p>
+</div>
+
+<div id="getTodayStepCount"></div>
+<h3><code>getTodayStepCount()</code>
+  
+</h3>
+
+<p>Get the amount of steps for today (or -1 if it no data given)</p>
+
+<div class="return-value">
+  <p><i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise</code> Returns a Promise that resolves on success with the amount of steps today, or rejects on failure</p>
+</div>
+
+<div id="getStepCount"></div>
+<h3><code>getStepCount()</code>
+  
+</h3>
+
+<p>Get the amount of steps since the start command has been called</p>
+
+<div class="return-value">
+  <p><i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise</code> Returns a Promise that resolves on success with the amount of steps since the start command has been called, or rejects on failure</p>
+</div>
+
+<div id="deviceCanCountSteps"></div>
+<h3><code>deviceCanCountSteps()</code>
+  
+</h3>
+
+<p>Returns true/false if Android device is running &gt;API level 19 &amp;&amp; has the step counter API available</p>
+
+<div class="return-value">
+  <p><i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise</code> Returns a Promise that resolves on success, or rejects on failure</p>
+</div>
+
+<div id="getHistory"></div>
+<h3><code>getHistory()</code>
+  
+</h3>
+
+<p>Get the step history (JavaScript object)</p>
+
+<div class="return-value">
+  <p><i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise</code> Returns a Promise that resolves on success, or rejects on failure</p>
+</div>
 
 <!-- methods on the class -->
-
-<h2>Instance Methods</h2>
-
-<div id="addEventListener"></div>
-
-<h3>
-  <code>addEventListener()</code>
-
-
-</h3>
-
-<div id="isVisible"></div>
-
-<h3>
-  <code>isVisible()</code>
-
-
-</h3>
-
-<div id="setVisible"></div>
-
-<h3>
-  <code>setVisible()</code>
-
-
-</h3>
-
-<div id="getHashCode"></div>
-
-<h3>
-  <code>getHashCode()</code>
-
-
-</h3>
-
-<div id="remove"></div>
-
-<h3>
-  <code>remove()</code>
-
-
-</h3>
-
-<div id="setOpacity"></div>
-
-<h3>
-  <code>setOpacity()</code>
-
-
-</h3>
-
-<div id="getOpacity"></div>
-
-<h3>
-  <code>getOpacity()</code>
-
-
-</h3>
-
-<div id="setZIndex"></div>
-
-<h3>
-  <code>setZIndex()</code>
-
-
-</h3>
-
-<div id="setIconAnchor"></div>
-
-<h3>
-  <code>setIconAnchor()</code>
-
-
-</h3>
-
-<div id="setInfoWindowAnchor"></div>
-
-<h3>
-  <code>setInfoWindowAnchor()</code>
-
-
-</h3>
-
-<div id="setDraggable"></div>
-
-<h3>
-  <code>setDraggable()</code>
-
-
-</h3>
-
-<div id="isDraggable"></div>
-
-<h3>
-  <code>isDraggable()</code>
-
-
-</h3>
-
-<div id="setFlat"></div>
-
-<h3>
-  <code>setFlat()</code>
-
-
-</h3>
-
-<div id="setIcon"></div>
-
-<h3>
-  <code>setIcon()</code>
-
-
-</h3>
-
-<div id="setTitle"></div>
-
-<h3>
-  <code>setTitle()</code>
-
-
-</h3>
-
-<div id="getTitle"></div>
-
-<h3>
-  <code>getTitle()</code>
-
-
-</h3>
-
-<div id="setSnippet"></div>
-
-<h3>
-  <code>setSnippet()</code>
-
-
-</h3>
-
-<div id="getSnippet"></div>
-
-<h3>
-  <code>getSnippet()</code>
-
-
-</h3>
-
-<div id="setRotation"></div>
-
-<h3>
-  <code>setRotation()</code>
-
-
-</h3>
-
-<div id="getRotation"></div>
-
-<h3>
-  <code>getRotation()</code>
-
-
-</h3>
-
-<div id="showInfoWindow"></div>
-
-<h3>
-  <code>showInfoWindow()</code>
-
-
-</h3>
-
-<div id="hideInfoWindow"></div>
-
-<h3>
-  <code>hideInfoWindow()</code>
-
-
-</h3>
-
-<div id="setPosition"></div>
-
-<h3>
-  <code>setPosition()</code>
-
-
-</h3>
-
-<div id="getPosition"></div>
-
-<h3>
-  <code>getPosition()</code>
-
-
-</h3>
-
-<div id="getMap"></div>
-
-<h3>
-  <code>getMap()</code>
-
-
-</h3>
-
-<div id="setAnimation"></div>
-
-<h3>
-  <code>setAnimation()</code>
-
-
-</h3>
 
 <!-- related link -->
 <!-- end content block -->
