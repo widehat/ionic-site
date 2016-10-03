@@ -397,20 +397,19 @@
 
 <p><a class="improve-v2-docs" href="https://github.com/driftyco/ionic-site/edit/master/docs/v2/getting-started/installation/index.md">Improve this doc</a></p>
 
-<p>Ionic 2 apps are created and developed primarily through the Ionic command like utility (the “CLI”).</p>
+<p>Ionic 2 apps are created and developed primarily through the Ionic command line utility (the “CLI”), and use Cordova to build and deploy as a native app. This means we need to install a few utilities to get developing.</p>
 
-<p>To create Ionic 2 projects, you’ll need to install the latest version of the CLI. Before you do that, you’ll need a recent version of Node.js. <a href="https://nodejs.org/en/">Download the installer</a> for Node.js 6 or greater and then proceed to install the Ionic CLI:</p>
+<h3 id="ionic-cli-and-cordova">Ionic CLI and Cordova</h3>
+
+<p>To create Ionic 2 projects, you’ll need to install the latest version of the CLI and Cordova. Before you do that, you’ll need a recent version of Node.js. <a href="https://nodejs.org/en/">Download the installer</a> for Node.js 6 or greater and then proceed to install the Ionic CLI and Cordova for native app development:</p>
 
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>npm install -g ionic
+<span class="gp">$ </span>npm install -g cordova
 </code></pre>
 </div>
 
 <blockquote>
-  <p>Unfamiliar with NPM? Learn more about it and what packages we use <a href="/docs/v2/resources/using-npm/">here</a></p>
-</blockquote>
-
-<blockquote>
-  <p>In case you get an <strong>EACCES</strong> error, it means node doesn’t have write permissions to the global packages folder. Follow the instructions <a href="https://docs.npmjs.com/getting-started/fixing-npm-permissions">here</a> to set the correct folder permissions.</p>
+  <p>You may need to add “sudo” in front of these commands to install the utilities globally</p>
 </blockquote>
 
 <p>Once that’s done, create your first Ionic app:</p>
@@ -419,56 +418,45 @@
 </code></pre>
 </div>
 
-<blockquote>
-  <p>The CLI works for Ionic 2 and 1 apps, so if you’d like to use v1, omit –v2</p>
-</blockquote>
-
-<p>To run your app, <code class="highlighter-rouge">cd</code> into the directory that was created and then run the <code class="highlighter-rouge">ionic serve</code> command to test your app right in the browser!</p>
+<p>Omit –v2 if you’d like to use Ionic 1. To run your app, <code class="highlighter-rouge">cd</code> into the directory that was created and then run the <code class="highlighter-rouge">ionic serve</code> command to test your app right in the browser!</p>
 
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span><span class="nb">cd </span>cutePuppyPics
 <span class="gp">$ </span>ionic serve
 </code></pre>
 </div>
 
-<blockquote>
-  <p>Having issues with your app building? Make sure your package.json matches <a href="https://github.com/driftyco/ionic2-app-base/blob/master/package.json">our app base</a></p>
-</blockquote>
+<!--
+### [Basic Ionic workflow](#basic-workflow)
 
-<h3 id="deploying-to-a-devicebuilding-to-a-device"><a href="#building-to-a-device">Deploying to a Device</a></h3>
+There is a basic workflow for building and testing Ionic apps:
 
-<p>After you have Ionic installed, you can deploy your app to a physical device or simulator/emulator.. Check out the <a href="../../resources/developer-tips/#using-ios-simulator">iOS simulator</a> docs if you are on a Mac, or the <a href="../../resources/developer-tips/#using-genymotion-android">Genymotion</a> docs if you are looking to emulate an Android device. You will also need <a href="../../resources/what-is/#cordova">Cordova</a> to run your app on a native device. To install Cordova, run:</p>
+First, we build the app code that is primarily written in TypeScript/JavaScript with our HTML templates and Sass files for styling. To do this, we
+can either build our app code manually each time it changes with `npm run build`, or we can "watch" for changes and rebuild automatically with `npm run watch`.
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>npm install -g cordova
-</code></pre>
-</div>
+Once our app code is built and ready to be deployed and tested, we bundle that code with Cordova into a device project for X Code and/or Android Studio. We use the command `ionic build [android,ios]` to tell Cordova to package our app code into a device project and do a full build. For those that prefer to do the build from the platform-specific IDE like X Code or Android Studio, it's faster to run `ionic prepare [android,ios]` which copies all the files needed to do the build, but doesn't actually do the full build.
 
-<p>Once you have Cordova installed and a device or emulator ready to go, you can move on and begin building your app!</p>
+Third, we tell Cordova to run the actual device app code on a device, simulator/emulator, or in the browser as a Progressive Web App. We do this by running `ionic run` to run on-device, or `ionic emulate` to run in a simulator or emulator.
 
-<h3 id="building-for-iosbuilding-for-ios"><a href="#building-for-ios">Building for iOS</a></h3>
-<p>To build for iOS, we need to add the iOS platform module to Cordova:</p>
+### [Browser testing](#browser-testing)
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>ionic platform add ios</code></pre></figure>
+As a bonus, since Ionic is built on standard web technologies, we can develop and test much of our app directly in the web browser as long as we aren't relying on native plugins for functionality, or if we are building a Progressive Web App.
 
-<p>Next, you’ll need to install <a href="../../resources/what-is/#xcode">Xcode</a>. Xcode allows you to build compile to a target device running iOS.</p>
+To do this, run `ionic serve` which will start a local web server and launch your browser of choice. This is great for rapid app development and testing.
 
-<p>From there, you should be able to run the iOS emulator using the following command:</p>
+We also have a fun side-by-side development tool called Lab that you can run with `ionic serve --lab`. This runs your app with iOS styles and Android styles side-by-side. It's a great way to see what your app will look like on all platforms while you develop and test!
+-->
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>ionic emulate ios
-</code></pre>
-</div>
+<h3 id="platform-guidesplatform-guides"><a href="#platform-guides">Platform Guides</a></h3>
 
-<h3 id="building-for-androidbuilding-for-android"><a href="#building-for-android">Building for Android</a></h3>
-<p>To build for Android, you’ll need to add the Android platform module to Cordova:</p>
+<p>For those building native apps for iOS and Android (most of you!), each platform has certain features and installation requirements before you can get the most out of your Ionic and Cordova development.</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>ionic platform add android
-</code></pre>
-</div>
+<p>For iOS developers, take a look at the <a href="https://cordova.apache.org/docs/en/latest/guide/platforms/ios/">Cordova iOS Platform Guide</a> and follow the instructions to install or upgrade X Code, and possibly register for a developer account to start building apps for iOS.</p>
 
-<p>Next, you’ll need to install the <a href="../../resources/what-is/#android-sdk">Android SDK</a>. The Android SDK allows you to build compile to a target device running Android. Although the Android SDK comes with a stock emulator, <a href="../../resources/what-is/#genymotion">Genymotion</a> is recommended, since it’s much faster. Once installed, start an Android image and run:</p>
+<p>For Android developers, take a look at the <a href="https://cordova.apache.org/docs/en/latest/guide/platforms/android/">Cordova Android Platform Guide</a> and follow the instructions to install the SDK and/or Android Studio to start building apps for Android.</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>ionic run android
-</code></pre>
-</div>
+<h3 id="whats-nextwhats-next"><a href="#whats-next">What’s next?</a></h3>
+
+<p>99% of Ionic app development follows the basic workflow of building our app code,</p>
 
       </main>
     </div>
