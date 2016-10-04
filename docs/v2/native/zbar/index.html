@@ -16,8 +16,8 @@
       <title>Ionic Native: Harness the power of Native APIs</title>
     
   </head>
-  <body id="docs-page-network"
-        class="v2 docs page-network"
+  <body id="docs-page-zbar"
+        class="v2 docs page-zbar"
         data-spy="scroll"
         data-offset="100"
         data-target="#components-index"
@@ -323,7 +323,7 @@
 <li class="capitalize ">
   <a href="/docs/v2/native/nativestorage">NativeStorage</a>
 </li>
-<li class="capitalize active">
+<li class="capitalize ">
   <a href="/docs/v2/native/network">Network</a>
 </li>
 <li class="capitalize ">
@@ -425,7 +425,7 @@
 <li class="capitalize ">
   <a href="/docs/v2/native/youtubevideoplayer">YoutubeVideoPlayer</a>
 </li>
-<li class="capitalize ">
+<li class="capitalize active">
   <a href="/docs/v2/native/zbar">ZBar</a>
 </li>
 <li class="capitalize ">
@@ -440,7 +440,7 @@
       <main>
         <h1 class="api-title">
   
-  Network
+  ZBar
   
 
   
@@ -449,28 +449,29 @@
 
 </h1>
 
-<p><a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/network.ts#L4">
+<p><a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/z-bar.ts#L0">
   Improve this doc
 </a></p>
 
 <!-- decorators -->
 
-<pre><code>$ ionic plugin add cordova-plugin-network-information</code></pre>
+<pre><code>$ ionic plugin add cordova-plugin-cszbar</code></pre>
 <p>Repo:
-  <a href="https://github.com/apache/cordova-plugin-network-information">
-    https://github.com/apache/cordova-plugin-network-information
+  <a href="https://github.com/tjwoon/csZBar">
+    https://github.com/tjwoon/csZBar
   </a>
 </p>
 
 <!-- description -->
 
-<p>Requires Cordova plugin: cordova-plugin-network-information. For more info, please see the <a href="https://github.com/apache/cordova-plugin-network-information">Network plugin docs</a>.</p>
+<p>The ZBar Scanner Plugin allows you to scan 2d barcodes.</p>
+<p>Requires Cordova plugin: <code>cordova-plugin-cszbar</code>. For more info, please see the <a href="https://github.com/tjwoon/csZBar">zBar plugin docs</a>.</p>
 
 <!-- @platforms tag -->
 <h2>Supported platforms</h2>
 
 <ul>
-  <li>Amazon Fire OS</li><li>iOS</li><li>Android</li><li>BlackBerry 10</li><li>Windows Phone 7</li><li>Windows Phone 8</li><li>Windows</li><li>Firefox OS</li><li>Browser</li>
+  <li>Android</li><li>iOS</li>
 </ul>
 
 <!-- @platforms tag end -->
@@ -479,75 +480,116 @@
 
 <h2>Usage</h2>
 
-<pre><code class="lang-typescript">import { Network } from &#39;ionic-native&#39;;
+<pre><code>import { ZBar } from &#39;ionic-native&#39;;
 
-// watch network for a disconnect
-let disconnectSubscription = Network.onDisconnect().subscribe(() =&gt; {
-  console.log(&#39;network was disconnected :-(&#39;);
-});
+let zBarOptions = {
+      flash: &quot;off&quot;,
+      drawSight: false
+    };
 
-// stop disconnect watch
-disconnectSubscription.unsubscribe();
-
-
-// watch network for a connection
-let connectSubscription = Network.onConnect().subscribe(() =&gt; {
-  console.log(&#39;network connected!&#39;); 
-  // We just got a connection but we need to wait briefly
-   // before we determine the connection type.  Might need to wait 
-  // prior to doing any api requests as well.
-  setTimeout(() =&gt; {
-    if (Network.connection === &#39;wifi&#39;) {
-      console.log(&#39;we got a wifi connection, woohoo!&#39;);
-    }
-  }, 3000);
-});
-
-// stop connect watch
-connectSubscription.unsubscribe();
+ZBar.scan(zBarOptions)
+   .then(result =&gt; {
+      console.log(result); // Scanned code
+   })
+   .catch(error =&gt; {
+      console.log(error); // Error message
+   });
 </code></pre>
 
 <!-- @property tags -->
 
 <h2>Static Members</h2>
 
-<div id="connection"></div>
-<h3><code>connection()</code>
+<div id="scan"></div>
+<h3><code>scan(options)</code>
   
 </h3>
 
-<p>Return the network connection type</p>
+<p>Open the scanner</p>
 
-<div id="onDisconnect"></div>
-<h3><code>onDisconnect()</code>
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
   
-</h3>
+  <tr>
+    <td>
+      options
+      
+      
+    </td>
+    <td>
+      
+<code>ZBarOptions</code>
+    </td>
+    <td>
+      <p>Scan options</p>
 
-<p>Get notified when the device goes offline</p>
+      
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
 
 <div class="return-value">
   <p><i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Observable&lt;any&gt;</code> Returns an observable.</p>
-</div>
+ Returns a Promise that resolves with the scanned string, or rejects with an error.</p>
 
-<div id="onConnect"></div>
-<h3><code>onConnect()</code>
-  
-</h3>
-
-<p>Get notified when the device goes online</p>
-
-<div class="return-value">
-  <p><i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Observable&lt;any&gt;</code> Returns an observable.</p>
 </div>
 
 <!-- methods on the class -->
 
 <h2><a class="anchor" name="advanced" href="#advanced"></a>Advanced</h2>
-<p>The <code>connection</code> property will return one of the following connection types: <code>unknown</code>, <code>ethernet</code>, <code>wifi</code>, <code>2g</code>, <code>3g</code>, <code>4g</code>, <code>cellular</code>, <code>none</code></p>
+<p>zBar options</p>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Type</th>
+<th>Values</th>
+<th>Defaults</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>text_title</td>
+<td><code>string?</code></td>
+<td></td>
+<td><code>&quot;Scan QR Code&quot;</code> (Android only)</td>
+</tr>
+<tr>
+<td>text_instructions</td>
+<td><code>string?</code></td>
+<td></td>
+<td><code>&quot;Please point your camera at the QR code.&quot;</code> (Android only)</td>
+</tr>
+<tr>
+<td>camera</td>
+<td><code>string?</code></td>
+<td><code>&quot;front&quot;</code>, <code>&quot;back&quot;</code>,</td>
+<td><code>&quot;back&quot;</code></td>
+</tr>
+<tr>
+<td>flash</td>
+<td><code>string?</code></td>
+<td><code>&quot;on&quot;</code>, <code>&quot;off&quot;</code>, <code>&quot;auto&quot;</code></td>
+<td><code>&quot;auto&quot;</code></td>
+</tr>
+<tr>
+<td>drawSight</td>
+<td><code>boolean?</code></td>
+<td><code>true</code>, <code>false</code></td>
+<td><code>true</code> (Draws red line in center of scanner)</td>
+</tr>
+</tbody>
+</table>
 
 <!-- other classes -->
 
