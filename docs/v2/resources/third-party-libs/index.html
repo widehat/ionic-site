@@ -13,11 +13,11 @@
 
 
     
-      <title>Concepts</title>
+      <title>Ionic 2 Resources | Third Party Libraries</title>
     
   </head>
-  <body id="docs-page-concepts"
-        class="v2 docs page-concepts"
+  <body id="docs-page-third-party-libs"
+        class="v2 docs page-third-party-libs"
         data-spy="scroll"
         data-offset="100"
         data-target="#components-index"
@@ -119,12 +119,9 @@
   </li>
 
   
-  <li class="
-             active">
+  <li class="">
     <a ng-click="showGettingStarted = !showGettingStarted">Getting Started</a>
     <ul ng-show="showGettingStarted"
-        
-          ng-init="showGettingStarted = true"
         >
       <li class="">
         <a href="/docs/v2/getting-started">Welcome</a>
@@ -138,7 +135,7 @@
       <li class="">
         <a href="/docs/v2/getting-started/migration">Migration</a>
       </li>
-      <li class="active">
+      <li class="">
         <a href="/docs/v2/getting&#45;started/concepts">Concepts</a>
       </li>
       
@@ -346,9 +343,11 @@
   </li>
 
   
-  <li class="">
+  <li class="active">
     <a href="/docs/v2/resources" >Resources</a>
     <ul ng-show="showResources"
+        
+          ng-init="showResources = true"
         >
       
       
@@ -378,7 +377,7 @@
       <li class="">
         <a href="/docs/v2/resources/progressive-web-apps/">Progressive Web Apps</a>
       </li>
-      <li class="">
+      <li class="active">
         <a href="/docs/v2/resources/third-party-libs">Third Party Libs</a>
       </li>
       <li class="">
@@ -398,50 +397,121 @@
       </nav>
       
       <main>
-        <h1 id="core-concepts">Core Concepts</h1>
+        <h1 id="third-party-libraries-in-ionic-apps">Third Party libraries in Ionic Apps</h1>
 
-<p><a class="improve-v2-docs" href="https://github.com/driftyco/ionic-site/edit/master/docs/v2/getting-started/concepts/index.md">Improve this doc</a></p>
+<p>Ionic Framework provides a comprehensive solution to take an app from idea to production. However, There are some use cases that are outside of the scope of Ionic. For these use cases, Ionic apps can fall back on the rich ecosystem of libraries published on <a href="https://www.npmjs.com">Node Package Manager</a>, better known as NPM. NPM is a command line tool to managing an application’s dependencies.</p>
 
-<p>If you’re completely new to Ionic and/or hybrid mobile app development, it can be helpful to get a high-level understanding of the core philosophy, concepts, and tools behind Ionic. The information below can help you familiarize yourself with what Ionic is and how it works.</p>
+<p>This article makes the assumption that you’re moderately familiar with NPM and how to use it. If you’re not, please review the <a href="https://docs.npmjs.com/">NPM documentation</a> before proceeding.</p>
 
-<h3 id="the-ionic-show--ionic-2">The Ionic Show / Ionic 2</h3>
-<p><a href="http://www.youtube.com/watch?v=u6BFxtv_L-8"><img src="http://img.youtube.com/vi/u6BFxtv_L-8/0.jpg" alt="Ionic 2" /></a></p>
+<h2 id="installing-third-party-libraries">Installing third party libraries</h2>
 
-<h3 id="what-is-ionic-framework">What is Ionic Framework?</h3>
+<p>To install a third party library into an Ionic application, open a command line terminal and navigate to the application’s directory. From there, execute the following command:</p>
 
-<p>Ionic Framework is an open source SDK that enables developers to build performant, high-quality mobile apps using familiar web technologies (HTML, CSS, and JavaScript).</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>npm install theLibraryName --save
+</code></pre>
+</div>
 
-<p>Ionic is focused mainly on the look and feel, or the UI interaction, of an app. This means that it’s not a replacement for PhoneGap or your favorite JavaScript framework. Instead, Ionic fits in well with these projects, in order to simplify one big part of your app development process: the front-end. Check out <a href="http://blog.ionic.io/where-does-the-ionic-framework-fit-in/">“Where does the Ionic Framework fit in?”</a> to get a good understanding of Ionic’s core philosophy and goals.</p>
+<p>For example, here’s how the popular library Lodash would be installed:</p>
 
-<p><strong>Ionic currently requires AngularJS in order to work at its full potential.</strong> While you can still use the CSS portion of the framework, you’ll miss out on powerful UI interactions, gestures, animations, and other things. In the future, Ionic plans to become more agnostic in order to support a broader variety of JavaScript frameworks.</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>npm install lodash --save
+</code></pre>
+</div>
 
-<h3 id="how-is-ionic-licensed">How is Ionic Licensed?</h3>
+<p>The <code class="highlighter-rouge">npm install</code> command will download a copy of the library from NPM, and save it in the application’s <code class="highlighter-rouge">node_modules</code> directory. It will also add an entry to the application’s <code class="highlighter-rouge">package.json</code> dependency list.</p>
 
-<p>Ionic is completely free and open source, released under the permissive <a href="http://opensource.org/licenses/MIT">MIT</a> license, which means you can use Ionic in personal or commercial projects for free. For example, MIT is the same license used by such popular projects as jQuery and Ruby on Rails.</p>
+<p>If Ionic used pure javascript, the step above would be sufficient for installing the third party library. Since Ionic utilizes <a href="https://www.typescriptlang.org/">Typescript</a> instead of pure javascript, there is an additional step to the process.</p>
 
-<p>This website and documentation content (found in the <a href="https://github.com/driftyco/ionic-site">ionic-site</a> repo) is licensed under the Apache 2 license.</p>
+<p>Typescript introduces a concept of optional <a href="https://en.wikipedia.org/wiki/Type_system#STATIC">static types</a>. To install a third party library, that means we must also install or create a <code class="highlighter-rouge">type definition</code> for the library. Fortunately, Microsoft has created a very large ecosystem for acquiring and downloading community maintained <code class="highlighter-rouge">type definition</code> files. The best part is it uses <code class="highlighter-rouge">npm</code> too, so there isn’t a new tool to install or learn.</p>
 
-<h3 id="what-is-the-ionic-cli">What is the Ionic CLI?</h3>
+<p>To install a <code class="highlighter-rouge">type definition</code> file, enter the following command:</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>npm install @types/theLibraryName --save
+</code></pre>
+</div>
 
-<p>The <a href="../../resources/what-is/#cli">CLI</a>, or command line interface, is a tool that provides a number of helpful commands to Ionic developers. In addition to installing and updating Ionic, the CLI comes with a built-in development server, build and debugging tools, and much more. If you are using the <a href="http://ionic.io/">Ionic Cloud</a>, the CLI can be used to export code and even interact with your account programmatically.</p>
+<p>If this command looks and feels very similar to how a library is installed, that’s because it is. We’re executing almost the exact same command, except we’re telling NPM to look into the <code class="highlighter-rouge">@types</code> namespace for the type definition files.</p>
 
-<h3 id="what-are-components">What are components?</h3>
+<p>For example, here’s how the popular library lodash’s <code class="highlighter-rouge">type definition</code> file would be installed</p>
 
-<p>Components in Ionic are reusable UI elements that serve as the building blocks for your mobile app. Components are made up of HTML, CSS, and sometimes JavaScript. Every Ionic component adapts to the platform on which your app is running. We call this <strong>Platform Continuity</strong> and go more in depth on how it works in Theming.</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>npm install @types/lodash --save
+</code></pre>
+</div>
 
-<h3 id="what-is-theming">What is theming?</h3>
+<p>9 times out of 10, NPM does all of the heavy lifting so we can focus on our app. The <code class="highlighter-rouge">@types</code> ecosystem is mature and typically kept up to date. It is open source and if there is an error in a <code class="highlighter-rouge">type definition</code> file, it can be corrected via <a href="http://definitelytyped.org/">DefinitelyTyped</a>.</p>
 
-<p>Themes are sets of styles that get applied to an app. Ionic uses a light theme by default, but it also comes with a dark theme. In addition to theming, Ionic’s <strong>Platform Continuity</strong> enables components to have platform-specific styles. This means the app’s styles will change based on the platform (iOS, Android, etc.) on which it’s being run, offering your users an experience with which they’re familiar.</p>
+<p>In the rare case that an <code class="highlighter-rouge">@types/theLibraryName</code> doesn’t exist, that means that no one has created and shared a <code class="highlighter-rouge">type definition</code> for the library yet. In this case, there are two options to proceed. The simple option is to create a short-hand type definition. A more complicated and time consuming option is to create a create a complete type definition, but that is outside of the scope of this article.</p>
 
-<h3 id="how-does-navigation-work">How does navigation work?</h3>
+<h3 id="creating-a-short-hand-type-definition">Creating a Short-hand Type Definition</h3>
+<p>This is the simple approach. In the application’s <code class="highlighter-rouge">src</code> directory, create a new file called <code class="highlighter-rouge">declarations.d.ts</code>. The file extension must be <code class="highlighter-rouge">.d.ts</code> in order to be considered a <code class="highlighter-rouge">type definition</code> file.</p>
 
-<p>Navigation works like a stack — <strong>push</strong> a page to the stack to navigate to it, and <strong>pop</strong> to go back. Modals and alerts can also be displayed by pushing them onto the navigation stack.</p>
+<p>Inside of the file, create an entry for the library that looks like this:</p>
 
-<h3 id="who-is-behind-ionic">Who is behind Ionic?</h3>
+<div class="highlighter-rouge"><pre class="highlight"><code>declare module ‘theLibraryName’
+</code></pre>
+</div>
 
-<p>Ionic was originally built by <a href="https://twitter.com/benjsperry">@benjsperry</a>, <a href="https://twitter.com/adamdbradley">@adamdbradley</a>, and <a href="https://twitter.com/maxlynch">@maxlynch</a>. After releasing an alpha version of Ionic in November 2013, we released a 1.0 beta in March 2014 and a 1.0 final in May 2015.</p>
+<p>This is our first short-hand type definition. All this does is tell the Typescript compiler that the module is found, and it is an object of <code class="highlighter-rouge">any</code> type. This will allow the library to be used freely without the Typescript compiler giving errors.</p>
 
-<p>Now, Ionic has a massive international community of developers and contributors propelling its growth and adoption. Companies small and large are using Ionic to build better apps, faster. In 2015 Ionic developers reportedly created over 1.3M apps with Ionic, a number that continues to grow each day.</p>
+<p>Here’s how the <code class="highlighter-rouge">declarations.d.ts</code> file would look if I created a short-hand type definition for the popular library <code class="highlighter-rouge">lodash</code>.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>declare module ‘lodash’
+</code></pre>
+</div>
+
+<p>Multiple short-hand type definitions can be included in the <code class="highlighter-rouge">declarations.d.ts</code> file. It is considered a best practice to keep all of these type definitions in one file when creating them.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>declare module ‘theLibraryName’
+declare module ‘anotherLibraryName’
+declare module ‘someOtherLibraryName’
+</code></pre>
+</div>
+
+<h2 id="using-third-party-libraries">Using third party libraries</h2>
+
+<p>After installing the third party library and its type definition, it must be <code class="highlighter-rouge">imported</code> into the application to be used.</p>
+
+<p>Open the <code class="highlighter-rouge">.ts</code> file where the library is needed. At the top of the file, add an import statement for the library.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>import { myFunction } from ‘theLibraryName’;
+</code></pre>
+</div>
+
+<p>This pattern is called the <code class="highlighter-rouge">named exports</code> approach. This is considered the best practice for using third party libraries. It only imports the portion of the library that is needed - <code class="highlighter-rouge">myFunction</code> in the case above. This pattern is used very frequently in Ionic apps to import Ionic and Angular functionality.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>import { Component } from ‘@angular/core’;
+import { NavController } from ‘ionic-angular’
+</code></pre>
+</div>
+
+<p><code class="highlighter-rouge">Component</code> is one small piece of <code class="highlighter-rouge">@angular/core</code>, and <code class="highlighter-rouge">NavController</code> is one small piece of <code class="highlighter-rouge">ionic-angular</code>. By following this pattern, Ionic apps will include the minimum amount of code needed from the library, resulting in a smaller and faster application.</p>
+
+<p>There are some cases where importing a specific portion of a library is not possible. Typically, this is the case with older libraries written for the <a href="https://nodejs.org/en/">Node.js</a> javascript runtime. This sort of library is typically called a <a href="https://nodejs.org/docs/latest/api/modules.html">Common JS module</a>.</p>
+
+<p>In that case, the library can be used but must be imported using the <code class="highlighter-rouge">default</code> export approach.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>import myLib from ‘theLibraryName’
+</code></pre>
+</div>
+
+<p>The default export maps one-to-one with a CommonJS <code class="highlighter-rouge">module.exports</code> attribute, meaning <code class="highlighter-rouge">myLib</code> has access to all properties, functions, etc that are exposed.</p>
+
+<p>To call <code class="highlighter-rouge">myFunction</code> to follow our example above, the code would look like this:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>import myLib from ‘theLibraryName’
+myLib.myFunction()
+</code></pre>
+</div>
+
+<p>Here’s an example of calling the <code class="highlighter-rouge">capitalize</code> method in the popular <code class="highlighter-rouge">lodash</code> library.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>import lodash from ‘lodash’;
+lodash.capitalize(‘myStringToCapitalize’);
+</code></pre>
+</div>
+
+<p>From our experience, the best practice is to always try to import libraries using the <code class="highlighter-rouge">named export</code> approach, and only switching to the <code class="highlighter-rouge">default export</code> approach if there is an error when building and bundling the Ionic app.</p>
+
+<h2 id="troubleshooting">Troubleshooting</h2>
+<p>With most third party libraries, everything “just works” out of the box. In some rare cases, some libraries may require modifications to the build configuration to properly build them. See this link for more information about <a href="LINK_NEEDED">configuring the build</a> process to resolve any issues that may arise.</p>
 
       </main>
     </div>

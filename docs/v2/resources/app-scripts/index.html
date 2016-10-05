@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Ionic makes it incredibly easy to build beautiful and interactive mobile apps using HTML5 and AngularJS.">
+<meta name="keywords" content="html5,javascript,mobile,drifty,ionic,hybrid,phonegap,cordova,native,ios,android,angularjs">
+<meta name="author" content="Drifty">
+<meta property="og:image" content="http://ionicframework.com/img/ionic-logo-blog.png"/>
+
+<link href="/css/v2.css?10" rel="stylesheet">
+
+
+
+    
+      <title>Ionic 2 Resources | App Scripts</title>
+    
+  </head>
+  <body id="docs-page-app-scripts"
+        class="v2 docs page-app-scripts"
+        data-spy="scroll"
+        data-offset="100"
+        data-target="#components-index"
+        ng-app="IonicDocs">
+    <nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button"
+              class="navbar-toggle collapsed"
+              id="collapse-toggle"
+              aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <i class="ion-md-more"></i>
+      </button>
+      <button type="button"
+              class="sidebar-toggle collapsed"
+              id="sidebar-toggle">
+        <span class="sr-only">Toggle sidebar</span>
+        <i class="ion-md-menu"></i>
+        <i class="ion-md-close"></i>
+      </button>
+      <a class="navbar-brand" href="/docs/v2">
+        <img src="/img/ionic-docs-logo-sm.png" id="ionic-docs-logo" />
+      </a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="navbar-collapse">
+      
+      <form class="navbar-form navbar-left"
+            role="search"
+            data-searchpos="header">
+        <div class="form-group">
+          <input type="text"
+                 class="form-control search-input"
+                 placeholder="Search"
+                 data-searchpos="header"
+                 ng-model="searchTerm">
+        </div>
+      </form>
+      
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="/docs/v2/getting-started/installation/">Getting Started</a></li>
+        <li class="active"><a href="/docs/v2/">Docs</a></li>
+        <li><a href="http://blog.ionic.io/?utm_source=framework&utm_medium=navbar&utm_campaign=blog%20CTA">Blog</a></li>
+        <li class="hide-sm"><a href="https://forum.ionicframework.com/?utm_source=framework&utm_medium=navbar&utm_campaign=forum%20CTA">Forum</a></li>
+        <li><a target="_blank" href="http://ionic.io/enterprise?utm_source=framework&utm_medium=navbar&utm_campaign=enterprise%20CTA">Enterprise</a></li>
+        <li class="dropdown">
+          <a href="#"
+             class="dropdown-toggle"
+             data-toggle="dropdown"
+             role="button"
+             aria-haspopup="true"
+             aria-expanded="false">
+            More <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu">
+            <li><a target="_blank" href="http://ionic.io/?utm_source=framework&utm_medium=navbar&utm_campaign=platform%20CTA">
+              Ionic Cloud</a></li>
+            <li><a target="_blank" href="http://showcase.ionicframework.com/">
+              Showcase</a></li>
+            <li><a target="_blank" href="http://jobs.ionic.io/">
+              Job Board</a></li>
+            <li><a target="_blank" href="http://market.ionic.io/">
+              Market</a></li>
+            <li><a target="_blank" href="http://ionicworldwide.herokuapp.com/">
+              Ionic Worldwide</a></li>
+            <li><a target="_blank" href="http://play.ionic.io/">
+              Playground</a></li>
+            <li><a target="_blank" href="http://creator.ionic.io/">
+              Creator</a></li>
+            <li><a target="_blank" href="http://shop.ionic.io/">Shop</a></li>
+            <li><a target="_blank" href="https://ionic.io/trusted-partners">
+              Trusted Partners</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+    <div class="docs-container"
+         >
+      <nav class="side-nav" id="side-nav">
+        <form class="form-group search" role="search">
+          <input type="text"
+                 class="form-control search-input"
+                 placeholder="Search"
+                 data-searchpos="sidebar"
+                 ng-model="searchTerm">
+        </form>
+        
+          <ul ng-controller="DocsNavCtrl">
+
+  
+  <li class="">
+    <a href="/docs/v2/">Home</a>
+  </li>
+
+  
+  <li class="">
+    <a ng-click="showGettingStarted = !showGettingStarted">Getting Started</a>
+    <ul ng-show="showGettingStarted"
+        >
+      <li class="">
+        <a href="/docs/v2/getting-started">Welcome</a>
+      </li>
+      <li class="">
+        <a href="/docs/v2/getting-started/installation">Installation</a>
+      </li>
+      <li class="">
+        <a href="/docs/v2/getting-started/tutorial">Tutorial</a>
+      </li>
+      <li class="">
+        <a href="/docs/v2/getting-started/migration">Migration</a>
+      </li>
+      <li class="">
+        <a href="/docs/v2/getting&#45;started/concepts">Concepts</a>
+      </li>
+      
+    </ul>
+  </li>
+
+  
+
+ 
+  <li id="components-index"
+      class="">
+    <a ng-click="showComponents = !showComponents">Components</a>
+    <ul class="nav"
+        ng-show="showComponents"
+       >
+      <li><a href="/docs/v2/components/#overview">Overview</a></li>
+      <li><a href="/docs/v2/components/#action-sheets">Action Sheets</a></li>
+
+      <li id="components-alerts"><a href="/docs/v2/components/#alert">Alerts</a></li>
+        <ul class="nav">
+          <li class="nav-item-hidden"><a href="/docs/v2/components/#alert-confirm"></a></li>
+          <li class="nav-item-hidden"><a href="/docs/v2/components/#alert-prompt"></a></li>
+          <li class="nav-item-hidden"><a href="/docs/v2/components/#alert-radio"></a></li>
+          <li class="nav-item-hidden"><a href="/docs/v2/components/#alert-checkbox"></a></li>
+        </ul>
+
+      <li><a href="/docs/v2/components/#badges">Badges</a></li>
+
+      <li id="components-buttons"><a href="/docs/v2/components/#buttons">Buttons</a></li>
+        <ul class="nav">
+          <li class="nav-item-hidden"><a href="/docs/v2/components/#outline-buttons"></a></li>
+          <li class="nav-item-hidden"><a href="/docs/v2/components/#clear-buttons"></a></li>
+          <li class="nav-item-hidden"><a href="/docs/v2/components/#round-buttons"></a></li>
+          <li class="nav-item-hidden"><a href="/docs/v2/components/#block-buttons"></a></li>
+          <li class="nav-item-hidden"><a href="/docs/v2/components/#full-buttons"></a></li>
+          <li class="nav-item-hidden"><a href="/docs/v2/components/#button-sizes"></a></li>
+          <li class="nav-item-hidden"><a href="/docs/v2/components/#icon-buttons"></a></li>
+          <li class="nav-item-hidden"><a href="/docs/v2/components/#buttons-in-components"></a></li>
+        </ul>
+
+      <li id="components-cards"><a href="/docs/v2/components/#cards">Cards</a></li>
+        <ul class="nav">
+          <li class="nav-item-hidden"><a href="/docs/v2/components/#card-header"></a></li>
+          <li class="nav-item-hidden"><a href="/docs/v2/components/#card-list"></a></li>
+          <li class="nav-item-hidden"><a href="/docs/v2/components/#card-image"></a></li>
+          <li class="nav-item-hidden"><a href="/docs/v2/components/#card-background"></a></li>
+          <li class="nav-item-hidden"><a href="/docs/v2/components/#advanced-cards"></a></li>
+          <li class="nav-item-hidden"><a href="/docs/v2/components/#card-advanced-social"></a></li>
+          <li class="nav-item-hidden"><a href="/docs/v2/components/#card-advanced-map"></a></li>
+          <li class="nav-item-hidden"><a href="/docs/v2/components/#card-advanced-weather"></a></li>
+        </ul>
+
+      <li><a href="/docs/v2/components/#checkbox">Checkbox</a></li>
+
+      <li><a href="/docs/v2/components/#datetime">DateTime</a></li>
+
+      <li><a href="/docs/v2/components/#fabs">FABs</a></li>
+
+      <li><a href="/docs/v2/components/#gestures">Gestures</a></li>
+
+      <li><a href="/docs/v2/components/#grid">Grid</a></li>
+      <li><a href="/docs/v2/components/#icons">Icons</a></li>
+
+      <li id="components-forms"><a href="/docs/v2/components/#inputs">Inputs</a></li>
+        <ul class="nav">
+          <li class="nav-item-hidden"><a href="/docs/v2/components/#fixed-inline-labels"></a></li>
+          <li class="nav-item-hidden"><a href="/docs/v2/components/#floating-labels"></a></li>
+          <li class="nav-item-hidden"><a href="/docs/v2/components/#inline-labels"></a></li>
+          <li class="nav-item-hidden"><a href="/docs/v2/components/#inset-labels"></a></li>
+          <li class="nav-item-hidden"><a href="/docs/v2/components/#placeholder-labels"></a></li>
+          <li class="nav-item-hidden"><a href="/docs/v2/components/#stacked-labels"></a></li>
+        </ul>
+
+      <li id="components-lists"><a href="/docs/v2/components/#lists">Lists</a></li>
+        <ul class="nav">
+          <li class="nav-item-hidden"><a href="/docs/v2/components/#list-lines"></a></li>
+          <li class="nav-item-hidden"><a href="/docs/v2/components/#list-no-lines"></a></li>
+          <li class="nav-item-hidden"><a href="/docs/v2/components/#inset-list"></a></li>
+          <li class="nav-item-hidden"><a href="/docs/v2/components/#list-dividers"></a></li>
+          <li class="nav-item-hidden"><a href="/docs/v2/components/#list-headers"></a></li>
+          <li class="nav-item-hidden"><a href="/docs/v2/components/#icon-list"></a></li>
+          <li class="nav-item-hidden"><a href="/docs/v2/components/#avatar-list"></a></li>
+          <li class="nav-item-hidden"><a href="/docs/v2/components/#thumbnail-list"></a></li>
+          <li class="nav-item-hidden"><a href="/docs/v2/components/#sliding-list"></a></li>
+          <li class="nav-item-hidden"><a href="/docs/v2/components/#multiline-list"></a></li>
+        </ul>
+
+
+      <li><a href="/docs/v2/components/#loading">Loading</a></li>
+      <li><a href="/docs/v2/components/#menus">Menus</a></li>
+      <li><a href="/docs/v2/components/#modals">Modals</a></li>
+      <li><a href="/docs/v2/components/#navigation">Navigation</a></li>
+      <li><a href="/docs/v2/components/#popovers">Popover</a></li>
+      <li><a href="/docs/v2/components/#radio">Radio</a></li>
+      <li><a href="/docs/v2/components/#range">Range</a></li>
+      <li><a href="/docs/v2/components/#searchbar">Searchbar</a></li>
+      <li><a href="/docs/v2/components/#segment">Segment</a></li>
+      <li><a href="/docs/v2/components/#select">Select</a></li>
+      <li><a href="/docs/v2/components/#slides">Slides</a></li>
+
+      <li id="components-tabs"><a href="/docs/v2/components/#tabs">Tabs</a></li>
+        <ul class="nav">
+          <li class="nav-item-hidden"><a href="/docs/v2/components/#tabs-icon"></a></li>
+          <li class="nav-item-hidden"><a href="/docs/v2/components/#tabs-icon-text"></a></li>
+          <li class="nav-item-hidden"><a href="/docs/v2/components/#tabs-badges"></a></li>
+        </ul>
+
+      <li><a href="/docs/v2/components/#toast">Toast</a></li>
+      <li><a href="/docs/v2/components/#toggle">Toggle</a></li>
+
+      <li id="components-toolbar"><a href="/docs/v2/components/#toolbar">Toolbar</a></li>
+        <ul class="nav">
+          <li class="nav-item-hidden"><a href="/docs/v2/components/#toolbar-buttons"></a></li>
+          <li class="nav-item-hidden"><a href="/docs/v2/components/#toolbar-segment"></a></li>
+          <li class="nav-item-hidden"><a href="/docs/v2/components/#toolbar-searchbar"></a></li>
+          <li class="nav-item-hidden"><a href="/docs/v2/components/#toolbar-colors"></a></li>
+        </ul>
+
+    </ul>
+  </li>
+
+  
+   <li>
+     <a href="/docs/v2/native/">Native</a>
+   </li>
+
+  
+  <li class="">
+    <a ng-click="showTheming = !showTheming">Theming</a>
+    <ul ng-show="showTheming"
+        >
+      <li class="">
+        <a href="/docs/v2/theming/">Intro</a>
+      </li>
+      <li class="">
+        <a href="/docs/v2/theming/theming-your-app/">Theming your App</a>
+      </li>
+      <li class="">
+        <a href="/docs/v2/theming/sass-variables/">Sass Variables</a>
+      </li>
+      <li class="">
+        <a href="/docs/v2/theming/css-utilities/">Utilities Attributes</a>
+      </li>
+      <li class="">
+        <a href="/docs/v2/theming/platform-specific-styles/">
+          Platform Styles
+        </a>
+      </li>
+      <li class="">
+        <a href="/docs/v2/theming/overriding-ionic-variables/">
+          Overriding Ionic Variables
+        </a>
+      </li>
+    </ul>
+  </li>
+
+  
+  <li class="">
+    <a href="/docs/v2/ionicons/">Ionicons</a>
+  </li>
+
+  
+  <li class="">
+    <a ng-click="showCli = !showCli">CLI</a>
+    <ul ng-show="showCli"
+        >
+      <li class="">
+        <a href="/docs/v2/cli/">Intro</a>
+      </li>
+      <li class="">
+        <a href="/docs/v2/cli/build">build</a>
+      </li>
+      <li class="">
+        <a href="/docs/v2/cli/emulate">emulate</a>
+      </li>
+      <li class="">
+        <a href="/docs/v2/cli/generate">generate</a>
+      </li>
+      <li class="">
+        <a href="/docs/v2/cli/info">info</a>
+      </li>
+      <li class="">
+        <a href="/docs/v2/cli/platform">platform</a>
+      </li>
+      <li class="">
+        <a href="/docs/v2/cli/run">run</a>
+      </li>
+      <li class="">
+        <a href="/docs/v2/cli/serve">serve</a>
+      </li>
+      <li class="">
+        <a href="/docs/v2/cli/start">start</a>
+      </li>
+    </ul>
+  </li>
+
+  
+  <li class="">
+    <a href="/docs/v2/faq/">FAQ</a>
+  </li>
+
+  
+  <li>
+    <a href="/docs/v2/api">API</a>
+  </li>
+
+  
+  <li class="active">
+    <a href="/docs/v2/resources" >Resources</a>
+    <ul ng-show="showResources"
+        
+          ng-init="showResources = true"
+        >
+      
+      
+      
+
+      <li class="active">
+        <a href="/docs/v2/resources/app-scripts">App Scripts</a>
+      </li>
+      <li class="">
+        <a href="/docs/v2/resources/books-and-courses/">Books and Online Courses</a>
+      </li>
+      <li class="">
+        <a href="/docs/v2/resources/developer-tips/">Developer Tips</a>
+      </li>
+      <li class="">
+        <a href="/docs/v2/resources/editors_and_ides/">Editors and IDEs</a>
+      </li>
+      <li class="">
+        <a href="/docs/v2/resources/forms/">Ionic 2 and Forms</a>
+      </li>
+      <li class="">
+        <a href="/docs/v2/resources/what-is/">Glossary</a>
+      </li>
+      <li class="">
+        <a href="/docs/v2/resources/platform-setup/mac-setup.html">Mac OS Setup</a>
+      </li>
+      <li class="">
+        <a href="/docs/v2/resources/progressive-web-apps/">Progressive Web Apps</a>
+      </li>
+      <li class="">
+        <a href="/docs/v2/resources/third-party-libs">Third Party Libs</a>
+      </li>
+      <li class="">
+        <a href="/docs/v2/resources/using-npm/">Using NPM</a>
+      </li>
+      <li class="">
+        <a href="/docs/v2/resources/typescript/">Why TypeScript</a>
+      </li>
+      <li class="">
+        <a href="/docs/v2/resources/platform-setup/windows-setup.html">Windows Setup</a>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+        
+      </nav>
+      
+      <main>
+        <h1 id="app-scripts">App Scripts</h1>
+
+<h2 id="what-is-it">What is it?</h2>
+<p>Ionic apps utilize <code class="highlighter-rouge">Typescript</code> and <code class="highlighter-rouge">Sass</code> code. This code needs to be converted into web browser friendly code. A build process is required to achieve this.  <code class="highlighter-rouge">@ionic/app-scripts</code> are a set of configurable scripts provided to make it easy to create a simple or a highly customized build process.</p>
+
+<h2 id="how-does-it-work">How does it work?</h2>
+<p>Ionic app’s are developed typically using the <code class="highlighter-rouge">ionic serve</code> and <code class="highlighter-rouge">ionic run</code> commands. Both of these commands need to compile the application’s code and combine it into one bundled file.</p>
+
+<p>When <code class="highlighter-rouge">ionic serve</code> or <code class="highlighter-rouge">ionic run</code> are invoked, it ultimately calls an <a href="https://docs.npmjs.com/misc/scripts">NPM script</a>. These npm scripts call the <code class="highlighter-rouge">@ionic/app-scripts</code> library to execute the build process.</p>
+
+<h3 id="why-app-scripts">Why App Scripts?</h3>
+<p>Most application’s share a similar build process. Rather than have each user create their own build process from scratch for their app, we thought that time would be better spent building out their Ionic app and leaving the details to us. This is our interpretation of what most users need from a build process.</p>
+
+<h3 id="what-about-gulp">What About Gulp?</h3>
+<p>Historically Ionic apps have used <a href="http://gulpjs.com/">gulp</a> as tool to facilitate the build process. Over the years, <code class="highlighter-rouge">gulp</code> has seen less and less development, and has started to accumulate deprecation warnings. By taking advantage of standard and dependency free <code class="highlighter-rouge">NPM scripts</code>, we are reducing dependencies and simplifying the development experience.</p>
+
+<p>Note: Developers are free to still use <code class="highlighter-rouge">gulp</code> if they choose to do so. We think <code class="highlighter-rouge">NPM scripts</code> are a better approach, but there is nothing in place restricting the use of <code class="highlighter-rouge">gulp</code> if that is the preferred method.</p>
+
+<h2 id="what-scripts-are-provided">What Scripts are Provided?</h2>
+
+<p><code class="highlighter-rouge">@ionic/app-scripts</code> provides the following scripts:</p>
+
+<p><a href="https://github.com/driftyco/ionic-app-scripts/blob/master/src/build.ts">build</a> - <code class="highlighter-rouge">build</code> calls a set of <code class="highlighter-rouge">@ionic/app-scripts</code> to compile the <code class="highlighter-rouge">Typescript</code> source, compile <code class="highlighter-rouge">sass</code>, create a bundle <code class="highlighter-rouge">javascript</code> file, etc.</p>
+
+<p><a href="https://github.com/driftyco/ionic-app-scripts/blob/master/src/bundle.ts">bundle</a> - <code class="highlighter-rouge">bundle</code> uses <a href="http://rollupjs.org/?version=0.36.1">Rollup.js</a> to produce a single, high performance <code class="highlighter-rouge">javascript</code> file from the many smaller <code class="highlighter-rouge">javascript</code> files.</p>
+
+<p><a href="https://github.com/driftyco/ionic-app-scripts/blob/master/src/clean.ts">clean</a> - <code class="highlighter-rouge">clean</code> deletes any of the files generated by the <code class="highlighter-rouge">build</code> process. Basically, it deletes the <code class="highlighter-rouge">www</code> directory.</p>
+
+<p><a href="https://github.com/driftyco/ionic-app-scripts/blob/master/src/cleancss.ts">cleancss</a> - <code class="highlighter-rouge">cleancss</code> uses <a href="https://github.com/jakubpawlowicz/clean-css">CleanCSS</a> to minify <code class="highlighter-rouge">css</code> to it’s smallest, fastest form.</p>
+
+<p><a href="https://github.com/driftyco/ionic-app-scripts/blob/master/src/closure.ts">closure</a> - <code class="highlighter-rouge">closure</code> uses <a href="https://developers.google.com/closure/compiler/">Google’s Closure Compiler</a> to minify <code class="highlighter-rouge">javascript</code> to it’s smallest, fastest form.</p>
+
+<p><a href="https://github.com/driftyco/ionic-app-scripts/blob/master/src/copy.ts">copy</a> - <code class="highlighter-rouge">copy</code> copies files where they need to go to end up in the built <code class="highlighter-rouge">www</code> directory.</p>
+
+<p><a href="https://github.com/driftyco/ionic-app-scripts/blob/master/src/lint.ts">lint</a> - <code class="highlighter-rouge">lint</code> runs <a href="https://palantir.github.io/tslint/">TSLint</a> against the <code class="highlighter-rouge">Typescript</code> source code. Requires a <code class="highlighter-rouge">tslint.json</code> file at the project root.</p>
+
+<p><a href="https://github.com/driftyco/ionic-app-scripts/blob/master/src/minify.ts">minify</a> - <code class="highlighter-rouge">minify</code> calls the minification tasks for <code class="highlighter-rouge">javascript</code> and <code class="highlighter-rouge">css</code>.</p>
+
+<p><a href="https://github.com/driftyco/ionic-app-scripts/blob/master/src/ngc.ts">ngc</a> - <code class="highlighter-rouge">ngc</code> calls the <a href="https://angular.io/docs/ts/latest/cookbook/aot-compiler.html">Angular Ahead-of-time compiler</a> to create extremely fast apps.</p>
+
+<p><a href="https://github.com/driftyco/ionic-app-scripts/blob/master/src/sass.ts">sass</a> - <code class="highlighter-rouge">sass</code> walks the application’s directory tree to find <code class="highlighter-rouge">scss</code> files and assemble them into one <code class="highlighter-rouge">css</code> file.</p>
+
+<p><a href="https://github.com/driftyco/ionic-app-scripts/blob/master/src/template.ts">template</a> - <code class="highlighter-rouge">template</code> is used to convert Angular templates into <code class="highlighter-rouge">inline-templates</code> for faster loading and faster applications during the development process.</p>
+
+<p><a href="https://github.com/driftyco/ionic-app-scripts/blob/master/src/transpile.ts">transpile</a> - <code class="highlighter-rouge">transpile</code> converts <code class="highlighter-rouge">Typescript</code> code into <code class="highlighter-rouge">javascript</code> code.</p>
+
+<p><a href="https://github.com/driftyco/ionic-app-scripts/blob/master/src/tsc.ts">tsc</a> - <code class="highlighter-rouge">tsc</code> calls the the <code class="highlighter-rouge">Typescript</code> compiler.</p>
+
+<p><a href="https://github.com/driftyco/ionic-app-scripts/blob/master/src/uglifyjs.ts">uglifyjs</a> - <code class="highlighter-rouge">uglifyjs</code> is used to minify <code class="highlighter-rouge">javascript</code> to it’s smallest and fastest form.</p>
+
+<p><a href="https://github.com/driftyco/ionic-app-scripts/blob/master/src/watch.ts">watch</a> - <code class="highlighter-rouge">watch</code> creates a smaller, faster <code class="highlighter-rouge">build</code> process to be used during application development.</p>
+
+<h2 id="providing-custom-build-configuration">Providing Custom Build Configuration</h2>
+
+<p>The default configured provided by <code class="highlighter-rouge">@ionic/app-scripts</code> covers many of the scenarios required by developers. However, if a developer wants to customize and configure the way the build process is run, they can do so.</p>
+
+<p>The easiest way to configure <code class="highlighter-rouge">@ionic/app-scripts</code> is to take advantage of the <a href="https://docs.npmjs.com/misc/config#per-package-config-settings">config</a> option in the <code class="highlighter-rouge">package.json</code> file.</p>
+
+<p>To get started, add a <code class="highlighter-rouge">config</code> entry to the <code class="highlighter-rouge">package.json</code> file. From there, developers can provide their own configuration file for things like <code class="highlighter-rouge">minification</code> (closure compiler, uglify2), and <code class="highlighter-rouge">bundling</code> (rollup).</p>
+
+<p>See an example of specifying a custom configuration file below:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>  "config": {
+    ...
+    "ionic_rollup": "./config/rollup.config.js",
+    "ionic_cleancss": "./config/cleancss.config.js",
+    ...
+  },
+</code></pre>
+</div>
+
+<p>In the above example, custom configurations for <code class="highlighter-rouge">rollup</code> and <code class="highlighter-rouge">cleancss</code> are provided by a path to a config file.</p>
+
+<p>The following <code class="highlighter-rouge">config</code> values are used to map to a task’s config file.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Config File</th>
+      <th>NPM Config Property</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>CleanCss</td>
+      <td><code class="highlighter-rouge">ionic_cleancss</code></td>
+    </tr>
+    <tr>
+      <td>Closure Compiler</td>
+      <td><code class="highlighter-rouge">ionic_closure</code></td>
+    </tr>
+    <tr>
+      <td>Copy</td>
+      <td><code class="highlighter-rouge">ionic_copy</code></td>
+    </tr>
+    <tr>
+      <td>NGC</td>
+      <td><code class="highlighter-rouge">ionic_ngc</code></td>
+    </tr>
+    <tr>
+      <td>Rollup</td>
+      <td><code class="highlighter-rouge">ionic_rollup</code></td>
+    </tr>
+    <tr>
+      <td>Sass</td>
+      <td><code class="highlighter-rouge">ionic_sass</code></td>
+    </tr>
+    <tr>
+      <td>TSLint</td>
+      <td><code class="highlighter-rouge">ionic_tslint</code></td>
+    </tr>
+    <tr>
+      <td>UglifyJS</td>
+      <td><code class="highlighter-rouge">ionic_uglifyjs</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>The <a href="https://github.com/driftyco/ionic-app-scripts/tree/master/config">default configurations</a> are great examples to learn about customization options.</p>
+
+<p>Note: <a href="https://github.com/driftyco/ionic-app-scripts#command-line-flags">Command line flags</a> can also be used to provide custom configuration.</p>
+
+<h3 id="custom-project-structure">Custom Project Structure</h3>
+<p>In most cases, the default project structure provided by Ionic works great! However, if a developer chooses to modify the structure to suit their use case, they are welcome to do so.</p>
+
+<p>Using the same concepts outlined above for providing configuration using the <code class="highlighter-rouge">package.json</code> <code class="highlighter-rouge">config</code> option, developers can specify their own custom project structure.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Config Values</th>
+      <th>NPM Config Property</th>
+      <th>Defaults</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>root directory</td>
+      <td><code class="highlighter-rouge">ionic_root_dir</code></td>
+      <td><code class="highlighter-rouge">process.cwd()</code></td>
+    </tr>
+    <tr>
+      <td>tmp directory</td>
+      <td><code class="highlighter-rouge">ionic_tmp_dir</code></td>
+      <td><code class="highlighter-rouge">.tmp</code></td>
+    </tr>
+    <tr>
+      <td>src directory</td>
+      <td><code class="highlighter-rouge">ionic_src_dir</code></td>
+      <td><code class="highlighter-rouge">src</code></td>
+    </tr>
+    <tr>
+      <td>www directory</td>
+      <td><code class="highlighter-rouge">ionic_www_dir</code></td>
+      <td><code class="highlighter-rouge">www</code></td>
+    </tr>
+    <tr>
+      <td>build directory</td>
+      <td><code class="highlighter-rouge">ionic_build_dir</code></td>
+      <td><code class="highlighter-rouge">build</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="ionic-environment-variable">Ionic Environment Variable</h3>
+
+<p>An environment variable, <code class="highlighter-rouge">IONIC_ENV</code> is available in the build process to help determining whether a build is a <code class="highlighter-rouge">development</code> build, or a <code class="highlighter-rouge">production</code> build. The environment variable can be accessed like this:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>if (process.env.IONIC_ENV === ‘prod’) {
+  console.log(‘it’s a production build);
+} else {
+  console.log(‘it’s a development build’);
+}
+</code></pre>
+</div>
+
+<h2 id="task-details">Task Details</h2>
+
+<h3 id="bundle">Bundle</h3>
+
+<p>Ionic uses a tool called <a href="http://rollupjs.org/?version=0.36.1">Rollup</a> to combine multiple <code class="highlighter-rouge">javascript</code> files into one combined file. This process is often called bundling code for deployment.</p>
+
+<h4 id="third-party-modules-export-errors">Third Party Modules Export Errors</h4>
+<p>When using third party libraries in your code, sometimes Rollup needs additional information about the structure of the library code. Most of the time everything “Just Works”. In rare cases, libraries get too clever in how they’re <code class="highlighter-rouge">exporting</code> data, so we need to to tell Rollup what is being exported. This process is called providing a <a href="https://github.com/rollup/rollup-plugin-commonjs#custom-named-exports">namedExport</a>.</p>
+
+<p>If you have an error message that looks something like this, continue on.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>bundle failed:  Module myApp/node_modules/js-extend/extend.js does not export extend (imported by myApp/node_modules/pouchdb/lib/index-browser.es.js)
+</code></pre>
+</div>
+
+<p>The best way to do this is to follow the steps above to create a custom rollup config file, and then copy and paste the file content from <code class="highlighter-rouge">node_modules/@ionic/app-scripts/config/rollup.config.js</code> into the new <code class="highlighter-rouge">rollup.config.js</code> file.</p>
+
+<p>Once the new file is created, a few changes are needed. For starters, the first line needs to be updated to reflect the new location of the config file.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>var ngTemplate = require('../dist/plugins/ng-template').ngTemplate;
+...
+</code></pre>
+</div>
+
+<p>Should be updated to</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>var ngTemplate = require(‘../node_modules/@ionic/app-scripts/dist/plugins/ng-template’).ngTemplate;
+</code></pre>
+</div>
+<p>Now that the config file is in good shape, let’s fix the error from above. In this example, we tried to install the super cool library <a href="https://pouchdb.com/">pouchdb</a>. In our error message, we can see that <code class="highlighter-rouge">pouchdb</code>’s <code class="highlighter-rouge">lib/index-browser.es.js</code> file is trying to import <code class="highlighter-rouge">extend</code> from the library <code class="highlighter-rouge">js-extend</code>, resulting in an error.</p>
+
+<p>This error basically says that Rollup does not think that <code class="highlighter-rouge">js-extend</code> exports anything called <code class="highlighter-rouge">extend</code>. The solution to the problem is we need to tell Rollup that <code class="highlighter-rouge">js-extend</code> does in fact export <code class="highlighter-rouge">extend</code>.</p>
+
+<p>Here is the default set of Rollup plugins</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>
+plugins: [
+
+
+
+
+   ngTemplate(),
+
+
+   builtins(),
+
+
+   commonjs(),
+
+
+   nodeResolve({
+
+
+     module: true,
+
+
+     jsnext: true,
+
+
+     main: true,
+
+
+     browser: true,
+
+
+     extensions: ['.js']
+
+
+   }),
+
+
+   globals(),
+
+
+   json()
+
+
+ ]
+
+</code></pre>
+</div>
+
+<p>In the Rollup config, we want to look for the <code class="highlighter-rouge">commonjs</code> plugin, and add an entry to the <code class="highlighter-rouge">namedExports</code> field.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>…
+commonjs({
+  namedExports: {
+    // pouchdb
+    'node_modules/js-extend/extend.js': ['extend']
+}),
+...,
+</code></pre>
+</div>
+
+<p>Let’s break down the <code class="highlighter-rouge">namedExport</code> further.</p>
+
+<p>Our original error message looked like this</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>bundle failed:  Module myApp/node_modules/js-extend/extend.js does not export extend (imported by myApp/node_modules/pouchdb/lib/index-browser.es.js)
+</code></pre>
+</div>
+
+<p>The error message has a reference to <code class="highlighter-rouge">myApp/node_modules/js-extend/extend.js</code>. It also has a reference to an export called <code class="highlighter-rouge">extend</code>.</p>
+
+<p>In the <code class="highlighter-rouge">namedExport</code> entry, we can leave off <code class="highlighter-rouge">myApp</code>, but include the rest of the path as the entry’s key. The entry’s value is then an array of strings, in this case a lone entry of <code class="highlighter-rouge">extend</code>.</p>
+
+<p>Providing the <code class="highlighter-rouge">namedExports</code> will resolve any third party library issues the vast majority of time.</p>
+
+<h4 id="strict-mode">Strict Mode</h4>
+<p>Ionic Apps (and any app that utilizes modern javascript) are written in something called <code class="highlighter-rouge">strict mode</code> by default. Most of the time, developers don’t need to be concerned with this. If a third party library is written without <code class="highlighter-rouge">strict mode</code> support, disabling <code class="highlighter-rouge">strict mode</code> in the Rollup config can be done. One popular library that requires <code class="highlighter-rouge">strictMode</code> to be <code class="highlighter-rouge">false</code> is <a href="https://firebase.google.com/">Firebase</a>.</p>
+
+<h4 id="script-tag-include">Script Tag Include</h4>
+<p>If all else fails and a library simply cannot be bundled, it can always be included in an app via an HTML <code class="highlighter-rouge">&lt;script&gt;</code> tag. This is how libraries were managed for the past twenty years, and it still works very well.</p>
+
+<p>To access the library from an Ionic <code class="highlighter-rouge">Page</code> or <code class="highlighter-rouge">Component</code>, make a <code class="highlighter-rouge">declare</code> statement and create a variable. See an example below with jQuery.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>declare const jQuery:any;
+</code></pre>
+</div>
+
+<p>When <code class="highlighter-rouge">jQuery</code> is included in a web browser, it can be accessed from <code class="highlighter-rouge">window.jQuery</code>. In the above example, we’re mapping <code class="highlighter-rouge">jQuery</code> to the <code class="highlighter-rouge">window.jQuery</code> object. From here, <code class="highlighter-rouge">jQuery</code> can be used through the <code class="highlighter-rouge">Typescript</code> code without issue.</p>
+
+<h3 id="remaining-tasks">Remaining Tasks</h3>
+<p>We’re busy creating documentation for the remaining tasks and will fill it in in the coming weeks.</p>
+
+      </main>
+    </div>
+    
+    <div id="search-results">
+      <div id="results-api">
+        <h3>API</h3>
+        <ul></ul>
+      </div>
+      <div id="results-native">
+        <h3>Native</h3>
+        <ul></ul>
+      </div>
+      <div id="results-other">
+        <h3>General</h3>
+        <ul></ul>
+      </div>
+    </div>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular-animate.min.js"></script>
+<script src="/js/ionic-docs.js?6"></script>
+
+
+  </body>
+</html>
