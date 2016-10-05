@@ -397,12 +397,10 @@
       </nav>
       
       <main>
-        <h1 id="app-scripts">App Scripts</h1>
+        <p>Ionic apps utilize TypeScript and Sass code. This code needs to be converted into web browser friendly code. A build process is required to achieve this.
+<code class="highlighter-rouge">@ionic/app-scripts</code> are a set of configurable scripts provided to make it easy to create a simple or a highly customized build process.</p>
 
-<h2 id="what-is-it">What is it?</h2>
-<p>Ionic apps utilize <code class="highlighter-rouge">Typescript</code> and <code class="highlighter-rouge">Sass</code> code. This code needs to be converted into web browser friendly code. A build process is required to achieve this.  <code class="highlighter-rouge">@ionic/app-scripts</code> are a set of configurable scripts provided to make it easy to create a simple or a highly customized build process.</p>
-
-<h2 id="how-does-it-work">How does it work?</h2>
+<h3 id="how-does-it-work">How does it work?</h3>
 <p>Ionic app’s are developed typically using the <code class="highlighter-rouge">ionic serve</code> and <code class="highlighter-rouge">ionic run</code> commands. Both of these commands need to compile the application’s code and combine it into one bundled file.</p>
 
 <p>When <code class="highlighter-rouge">ionic serve</code> or <code class="highlighter-rouge">ionic run</code> are invoked, it ultimately calls an <a href="https://docs.npmjs.com/misc/scripts">NPM script</a>. These npm scripts call the <code class="highlighter-rouge">@ionic/app-scripts</code> library to execute the build process.</p>
@@ -411,45 +409,63 @@
 <p>Most application’s share a similar build process. Rather than have each user create their own build process from scratch for their app, we thought that time would be better spent building out their Ionic app and leaving the details to us. This is our interpretation of what most users need from a build process.</p>
 
 <h3 id="what-about-gulp">What About Gulp?</h3>
-<p>Historically Ionic apps have used <a href="http://gulpjs.com/">gulp</a> as tool to facilitate the build process. Over the years, <code class="highlighter-rouge">gulp</code> has seen less and less development, and has started to accumulate deprecation warnings. By taking advantage of standard and dependency free <code class="highlighter-rouge">NPM scripts</code>, we are reducing dependencies and simplifying the development experience.</p>
+<p>Historically Ionic apps have used <a href="http://gulpjs.com/">gulp</a> as tool to facilitate the build process. Over the years, <code class="highlighter-rouge">gulp</code> has seen less and less development, and has started to accumulate deprecation warnings. By taking advantage of standard and dependency free NPM scripts, we are reducing dependencies and simplifying the development experience.</p>
 
-<p>Note: Developers are free to still use <code class="highlighter-rouge">gulp</code> if they choose to do so. We think <code class="highlighter-rouge">NPM scripts</code> are a better approach, but there is nothing in place restricting the use of <code class="highlighter-rouge">gulp</code> if that is the preferred method.</p>
+<p>Note: Developers are free to still use gulp if they choose to do so. We think NPM scripts are a better approach, but there is nothing in place restricting the use of gulp if that is the preferred method.</p>
 
-<h2 id="what-scripts-are-provided">What Scripts are Provided?</h2>
+<h3 id="what-scripts-are-provided">What Scripts are Provided?</h3>
 
 <p><code class="highlighter-rouge">@ionic/app-scripts</code> provides the following scripts:</p>
 
-<p><a href="https://github.com/driftyco/ionic-app-scripts/blob/master/src/build.ts">build</a> - <code class="highlighter-rouge">build</code> calls a set of <code class="highlighter-rouge">@ionic/app-scripts</code> to compile the <code class="highlighter-rouge">Typescript</code> source, compile <code class="highlighter-rouge">sass</code>, create a bundle <code class="highlighter-rouge">javascript</code> file, etc.</p>
+<ul>
+  <li>
+    <p><a href="https://github.com/driftyco/ionic-app-scripts/blob/master/src/build.ts">build</a> : <code class="highlighter-rouge">build</code> calls a set of <code class="highlighter-rouge">@ionic/app-scripts</code> to compile the <code class="highlighter-rouge">Typescript</code> source, compile <code class="highlighter-rouge">sass</code>, create a bundle <code class="highlighter-rouge">javascript</code> file, etc.</p>
+  </li>
+  <li>
+    <p><a href="https://github.com/driftyco/ionic-app-scripts/blob/master/src/bundle.ts">bundle</a> : <code class="highlighter-rouge">bundle</code> uses <a href="http://rollupjs.org/?version=0.36.1">Rollup.js</a> to produce a single, high performance <code class="highlighter-rouge">javascript</code> file from the many smaller <code class="highlighter-rouge">javascript</code> files.</p>
+  </li>
+  <li>
+    <p><a href="https://github.com/driftyco/ionic-app-scripts/blob/master/src/clean.ts">clean</a> : <code class="highlighter-rouge">clean</code> deletes any of the files generated by the <code class="highlighter-rouge">build</code> process. Basically, it deletes the <code class="highlighter-rouge">www</code> directory.</p>
+  </li>
+  <li>
+    <p><a href="https://github.com/driftyco/ionic-app-scripts/blob/master/src/cleancss.ts">cleancss</a> : <code class="highlighter-rouge">cleancss</code> uses <a href="https://github.com/jakubpawlowicz/clean-css">CleanCSS</a> to minify <code class="highlighter-rouge">css</code> to it’s smallest, fastest form.</p>
+  </li>
+  <li>
+    <p><a href="https://github.com/driftyco/ionic-app-scripts/blob/master/src/closure.ts">closure</a> : <code class="highlighter-rouge">closure</code> uses <a href="https://developers.google.com/closure/compiler/">Google’s Closure Compiler</a> to minify <code class="highlighter-rouge">javascript</code> to it’s smallest, fastest form.</p>
+  </li>
+  <li>
+    <p><a href="https://github.com/driftyco/ionic-app-scripts/blob/master/src/copy.ts">copy</a> : <code class="highlighter-rouge">copy</code> copies files where they need to go to end up in the built <code class="highlighter-rouge">www</code> directory.</p>
+  </li>
+  <li>
+    <p><a href="https://github.com/driftyco/ionic-app-scripts/blob/master/src/lint.ts">lint</a> : <code class="highlighter-rouge">lint</code> runs <a href="https://palantir.github.io/tslint/">TSLint</a> against the <code class="highlighter-rouge">Typescript</code> source code. Requires a <code class="highlighter-rouge">tslint.json</code> file at the project root.</p>
+  </li>
+  <li>
+    <p><a href="https://github.com/driftyco/ionic-app-scripts/blob/master/src/minify.ts">minify</a> : <code class="highlighter-rouge">minify</code> calls the minification tasks for <code class="highlighter-rouge">javascript</code> and <code class="highlighter-rouge">css</code>.</p>
+  </li>
+  <li>
+    <p><a href="https://github.com/driftyco/ionic-app-scripts/blob/master/src/ngc.ts">ngc</a> : <code class="highlighter-rouge">ngc</code> calls the <a href="https://angular.io/docs/ts/latest/cookbook/aot-compiler.html">Angular Ahead-of-time compiler</a> to create extremely fast apps.</p>
+  </li>
+  <li>
+    <p><a href="https://github.com/driftyco/ionic-app-scripts/blob/master/src/sass.ts">sass</a> : <code class="highlighter-rouge">sass</code> walks the application’s directory tree to find <code class="highlighter-rouge">scss</code> files and assemble them into one <code class="highlighter-rouge">css</code> file.</p>
+  </li>
+  <li>
+    <p><a href="https://github.com/driftyco/ionic-app-scripts/blob/master/src/template.ts">template</a> : <code class="highlighter-rouge">template</code> is used to convert Angular templates into <code class="highlighter-rouge">inline-templates</code> for faster loading and faster applications during the development process.</p>
+  </li>
+  <li>
+    <p><a href="https://github.com/driftyco/ionic-app-scripts/blob/master/src/transpile.ts">transpile</a> : <code class="highlighter-rouge">transpile</code> converts <code class="highlighter-rouge">Typescript</code> code into <code class="highlighter-rouge">javascript</code> code.</p>
+  </li>
+  <li>
+    <p><a href="https://github.com/driftyco/ionic-app-scripts/blob/master/src/tsc.ts">tsc</a> : <code class="highlighter-rouge">tsc</code> calls the <code class="highlighter-rouge">Typescript</code> compiler.</p>
+  </li>
+  <li>
+    <p><a href="https://github.com/driftyco/ionic-app-scripts/blob/master/src/uglifyjs.ts">uglifyjs</a> : <code class="highlighter-rouge">uglifyjs</code> is used to minify <code class="highlighter-rouge">javascript</code> to it’s smallest and fastest form.</p>
+  </li>
+  <li>
+    <p><a href="https://github.com/driftyco/ionic-app-scripts/blob/master/src/watch.ts">watch</a> : <code class="highlighter-rouge">watch</code> creates a smaller, faster <code class="highlighter-rouge">build</code> process to be used during application development.</p>
+  </li>
+</ul>
 
-<p><a href="https://github.com/driftyco/ionic-app-scripts/blob/master/src/bundle.ts">bundle</a> - <code class="highlighter-rouge">bundle</code> uses <a href="http://rollupjs.org/?version=0.36.1">Rollup.js</a> to produce a single, high performance <code class="highlighter-rouge">javascript</code> file from the many smaller <code class="highlighter-rouge">javascript</code> files.</p>
-
-<p><a href="https://github.com/driftyco/ionic-app-scripts/blob/master/src/clean.ts">clean</a> - <code class="highlighter-rouge">clean</code> deletes any of the files generated by the <code class="highlighter-rouge">build</code> process. Basically, it deletes the <code class="highlighter-rouge">www</code> directory.</p>
-
-<p><a href="https://github.com/driftyco/ionic-app-scripts/blob/master/src/cleancss.ts">cleancss</a> - <code class="highlighter-rouge">cleancss</code> uses <a href="https://github.com/jakubpawlowicz/clean-css">CleanCSS</a> to minify <code class="highlighter-rouge">css</code> to it’s smallest, fastest form.</p>
-
-<p><a href="https://github.com/driftyco/ionic-app-scripts/blob/master/src/closure.ts">closure</a> - <code class="highlighter-rouge">closure</code> uses <a href="https://developers.google.com/closure/compiler/">Google’s Closure Compiler</a> to minify <code class="highlighter-rouge">javascript</code> to it’s smallest, fastest form.</p>
-
-<p><a href="https://github.com/driftyco/ionic-app-scripts/blob/master/src/copy.ts">copy</a> - <code class="highlighter-rouge">copy</code> copies files where they need to go to end up in the built <code class="highlighter-rouge">www</code> directory.</p>
-
-<p><a href="https://github.com/driftyco/ionic-app-scripts/blob/master/src/lint.ts">lint</a> - <code class="highlighter-rouge">lint</code> runs <a href="https://palantir.github.io/tslint/">TSLint</a> against the <code class="highlighter-rouge">Typescript</code> source code. Requires a <code class="highlighter-rouge">tslint.json</code> file at the project root.</p>
-
-<p><a href="https://github.com/driftyco/ionic-app-scripts/blob/master/src/minify.ts">minify</a> - <code class="highlighter-rouge">minify</code> calls the minification tasks for <code class="highlighter-rouge">javascript</code> and <code class="highlighter-rouge">css</code>.</p>
-
-<p><a href="https://github.com/driftyco/ionic-app-scripts/blob/master/src/ngc.ts">ngc</a> - <code class="highlighter-rouge">ngc</code> calls the <a href="https://angular.io/docs/ts/latest/cookbook/aot-compiler.html">Angular Ahead-of-time compiler</a> to create extremely fast apps.</p>
-
-<p><a href="https://github.com/driftyco/ionic-app-scripts/blob/master/src/sass.ts">sass</a> - <code class="highlighter-rouge">sass</code> walks the application’s directory tree to find <code class="highlighter-rouge">scss</code> files and assemble them into one <code class="highlighter-rouge">css</code> file.</p>
-
-<p><a href="https://github.com/driftyco/ionic-app-scripts/blob/master/src/template.ts">template</a> - <code class="highlighter-rouge">template</code> is used to convert Angular templates into <code class="highlighter-rouge">inline-templates</code> for faster loading and faster applications during the development process.</p>
-
-<p><a href="https://github.com/driftyco/ionic-app-scripts/blob/master/src/transpile.ts">transpile</a> - <code class="highlighter-rouge">transpile</code> converts <code class="highlighter-rouge">Typescript</code> code into <code class="highlighter-rouge">javascript</code> code.</p>
-
-<p><a href="https://github.com/driftyco/ionic-app-scripts/blob/master/src/tsc.ts">tsc</a> - <code class="highlighter-rouge">tsc</code> calls the the <code class="highlighter-rouge">Typescript</code> compiler.</p>
-
-<p><a href="https://github.com/driftyco/ionic-app-scripts/blob/master/src/uglifyjs.ts">uglifyjs</a> - <code class="highlighter-rouge">uglifyjs</code> is used to minify <code class="highlighter-rouge">javascript</code> to it’s smallest and fastest form.</p>
-
-<p><a href="https://github.com/driftyco/ionic-app-scripts/blob/master/src/watch.ts">watch</a> - <code class="highlighter-rouge">watch</code> creates a smaller, faster <code class="highlighter-rouge">build</code> process to be used during application development.</p>
-
-<h2 id="providing-custom-build-configuration">Providing Custom Build Configuration</h2>
+<h3 id="providing-custom-build-configuration">Providing Custom Build Configuration</h3>
 
 <p>The default configured provided by <code class="highlighter-rouge">@ionic/app-scripts</code> covers many of the scenarios required by developers. However, if a developer wants to customize and configure the way the build process is run, they can do so.</p>
 
@@ -459,13 +475,13 @@
 
 <p>See an example of specifying a custom configuration file below:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>  "config": {
-    ...
-    "ionic_rollup": "./config/rollup.config.js",
-    "ionic_cleancss": "./config/cleancss.config.js",
-    ...
-  },
-</code></pre>
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="w">  </span><span class="s2">"config"</span><span class="err">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="err">...</span><span class="w">
+    </span><span class="nt">"ionic_rollup"</span><span class="p">:</span><span class="w"> </span><span class="s2">"./config/rollup.config.js"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ionic_cleancss"</span><span class="p">:</span><span class="w"> </span><span class="s2">"./config/cleancss.config.js"</span><span class="p">,</span><span class="w">
+    </span><span class="err">...</span><span class="w">
+  </span><span class="err">},</span><span class="w">
+</span></code></pre>
 </div>
 
 <p>In the above example, custom configurations for <code class="highlighter-rouge">rollup</code> and <code class="highlighter-rouge">cleancss</code> are provided by a path to a config file.</p>
@@ -565,15 +581,15 @@
 
 <p>An environment variable, <code class="highlighter-rouge">IONIC_ENV</code> is available in the build process to help determining whether a build is a <code class="highlighter-rouge">development</code> build, or a <code class="highlighter-rouge">production</code> build. The environment variable can be accessed like this:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>if (process.env.IONIC_ENV === ‘prod’) {
-  console.log(‘it’s a production build);
-} else {
-  console.log(‘it’s a development build’);
-}
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="k">if</span> <span class="p">(</span><span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">IONIC_ENV</span> <span class="o">===</span> <span class="err">‘</span><span class="nx">prod</span><span class="err">’</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="err">‘</span><span class="nx">it</span><span class="err">’</span><span class="nx">s</span> <span class="nx">a</span> <span class="nx">production</span> <span class="nx">build</span><span class="p">);</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="err">‘</span><span class="nx">it</span><span class="err">’</span><span class="nx">s</span> <span class="nx">a</span> <span class="nx">development</span> <span class="nx">build</span><span class="err">’</span><span class="p">);</span>
+<span class="p">}</span>
 </code></pre>
 </div>
 
-<h2 id="task-details">Task Details</h2>
+<h3 id="task-details">Task Details</h3>
 
 <h3 id="bundle">Bundle</h3>
 
@@ -590,12 +606,10 @@
 
 <p>The best way to do this is to follow the steps above to create a custom rollup config file. To get started with that, open the project’s <code class="highlighter-rouge">package.json</code> file. If it doesn’t already exist, create a node at the root level for <code class="highlighter-rouge">config</code>, and then add a key for <code class="highlighter-rouge">ionic_rollup</code> as follows</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>...
-"config": {
-  "ionic_rollup": "./scripts/rollup.config.js"
-}
-...
-</code></pre>
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="s2">"config"</span><span class="err">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+  </span><span class="nt">"ionic_rollup"</span><span class="p">:</span><span class="w"> </span><span class="s2">"./scripts/rollup.config.js"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 </div>
 
 <p>The custom rollup config file will live in a <code class="highlighter-rouge">scripts</code> folder at the root of the Ionic app. The file will be called <code class="highlighter-rouge">rollup.config.js</code> in this example.</p>
@@ -608,29 +622,25 @@
 
 <p>Here is the default set of Rollup plugins</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>…
-plugins: [
-  builtins(),
-  commonjs(),
-  nodeResolve({
-      ...
-  }),
-  globals(),
-  json()
-]
-...
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">plugins</span><span class="err">:</span> <span class="p">[</span>
+  <span class="nx">builtins</span><span class="p">(),</span>
+  <span class="nx">commonjs</span><span class="p">(),</span>
+  <span class="nx">nodeResolve</span><span class="p">({</span>
+      <span class="p">...</span>
+  <span class="p">}),</span>
+  <span class="nx">globals</span><span class="p">(),</span>
+  <span class="nx">json</span><span class="p">()</span>
+<span class="p">]</span>
 </code></pre>
 </div>
 
 <p>In the Rollup config, we want to look for the <code class="highlighter-rouge">commonjs</code> plugin, and add an entry to the <code class="highlighter-rouge">namedExports</code> field.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>…
-commonjs({
-  namedExports: {
-    // pouchdb
-    'node_modules/js-extend/extend.js': ['extend']
-}),
-...,
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">commonjs</span><span class="p">({</span>
+  <span class="na">namedExports</span><span class="p">:</span> <span class="p">{</span>
+    <span class="c1">// pouchdb</span>
+    <span class="s1">'node_modules/js-extend/extend.js'</span><span class="p">:</span> <span class="p">[</span><span class="s1">'extend'</span><span class="p">]</span>
+<span class="p">}),</span>
 </code></pre>
 </div>
 
@@ -662,8 +672,6 @@ commonjs({
 
 <p>When <code class="highlighter-rouge">jQuery</code> is included in a web browser, it can be accessed from <code class="highlighter-rouge">window.jQuery</code>. In the above example, we’re mapping <code class="highlighter-rouge">jQuery</code> to the <code class="highlighter-rouge">window.jQuery</code> object. From here, <code class="highlighter-rouge">jQuery</code> can be used through the <code class="highlighter-rouge">Typescript</code> code without issue.</p>
 
-<h3 id="remaining-tasks">Remaining Tasks</h3>
-<p>We’re busy creating documentation for the remaining tasks and will fill it in in the coming weeks.</p>
 
       </main>
     </div>
