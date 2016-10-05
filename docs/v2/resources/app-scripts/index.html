@@ -588,69 +588,37 @@
 </code></pre>
 </div>
 
-<p>The best way to do this is to follow the steps above to create a custom rollup config file, and then copy and paste the file content from <code class="highlighter-rouge">node_modules/@ionic/app-scripts/config/rollup.config.js</code> into the new <code class="highlighter-rouge">rollup.config.js</code> file.</p>
+<p>The best way to do this is to follow the steps above to create a custom rollup config file. To get started with that, open the project’s <code class="highlighter-rouge">package.json</code> file. If it doesn’t already exist, create a node at the root level for <code class="highlighter-rouge">config</code>, and then add a key for <code class="highlighter-rouge">ionic_rollup</code> as follows</p>
 
-<p>Once the new file is created, a few changes are needed. For starters, the first line needs to be updated to reflect the new location of the config file.</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>var ngTemplate = require('../dist/plugins/ng-template').ngTemplate;
+<div class="highlighter-rouge"><pre class="highlight"><code>...
+"config": {
+  "ionic_rollup": "./scripts/rollup.config.js"
+}
 ...
 </code></pre>
 </div>
 
-<p>Should be updated to</p>
+<p>The custom rollup config file will live in a <code class="highlighter-rouge">scripts</code> folder at the root of the Ionic app. The file will be called <code class="highlighter-rouge">rollup.config.js</code> in this example.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>var ngTemplate = require(‘../node_modules/@ionic/app-scripts/dist/plugins/ng-template’).ngTemplate;
-</code></pre>
-</div>
+<p>The easiest way to fill out the Rollup config is to start with the existing Rollup config. Open <code class="highlighter-rouge">node_modules/@ionic/app-scripts/config/rollup.config.js</code> and copy and paste the file content into <code class="highlighter-rouge">scripts/rollup.config.js</code>.</p>
+
 <p>Now that the config file is in good shape, let’s fix the error from above. In this example, we tried to install the super cool library <a href="https://pouchdb.com/">pouchdb</a>. In our error message, we can see that <code class="highlighter-rouge">pouchdb</code>’s <code class="highlighter-rouge">lib/index-browser.es.js</code> file is trying to import <code class="highlighter-rouge">extend</code> from the library <code class="highlighter-rouge">js-extend</code>, resulting in an error.</p>
 
 <p>This error basically says that Rollup does not think that <code class="highlighter-rouge">js-extend</code> exports anything called <code class="highlighter-rouge">extend</code>. The solution to the problem is we need to tell Rollup that <code class="highlighter-rouge">js-extend</code> does in fact export <code class="highlighter-rouge">extend</code>.</p>
 
 <p>Here is the default set of Rollup plugins</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>…
 plugins: [
-
-
-
-
-   ngTemplate(),
-
-
-   builtins(),
-
-
-   commonjs(),
-
-
-   nodeResolve({
-
-
-     module: true,
-
-
-     jsnext: true,
-
-
-     main: true,
-
-
-     browser: true,
-
-
-     extensions: ['.js']
-
-
-   }),
-
-
-   globals(),
-
-
-   json()
-
-
- ]
-
+  builtins(),
+  commonjs(),
+  nodeResolve({
+      ...
+  }),
+  globals(),
+  json()
+]
+...
 </code></pre>
 </div>
 

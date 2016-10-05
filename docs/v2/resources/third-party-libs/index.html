@@ -445,7 +445,7 @@
 
 <p>Inside of the file, create an entry for the library that looks like this:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>declare module ‘theLibraryName’
+<div class="highlighter-rouge"><pre class="highlight"><code>declare module 'theLibraryName'
 </code></pre>
 </div>
 
@@ -453,15 +453,15 @@
 
 <p>Here’s how the <code class="highlighter-rouge">declarations.d.ts</code> file would look if I created a short-hand type definition for the popular library <code class="highlighter-rouge">lodash</code>.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>declare module ‘lodash’
+<div class="highlighter-rouge"><pre class="highlight"><code>declare module 'lodash'
 </code></pre>
 </div>
 
 <p>Multiple short-hand type definitions can be included in the <code class="highlighter-rouge">declarations.d.ts</code> file. It is considered a best practice to keep all of these type definitions in one file when creating them.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>declare module ‘theLibraryName’
-declare module ‘anotherLibraryName’
-declare module ‘someOtherLibraryName’
+<div class="highlighter-rouge"><pre class="highlight"><code>declare module 'theLibraryName'
+declare module 'anotherLibraryName'
+declare module 'someOtherLibraryName'
 </code></pre>
 </div>
 
@@ -471,14 +471,14 @@ declare module ‘someOtherLibraryName’
 
 <p>Open the <code class="highlighter-rouge">.ts</code> file where the library is needed. At the top of the file, add an import statement for the library.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>import { myFunction } from ‘theLibraryName’;
+<div class="highlighter-rouge"><pre class="highlight"><code>import { myFunction } from 'theLibraryName';
 </code></pre>
 </div>
 
 <p>This pattern is called the <code class="highlighter-rouge">named exports</code> approach. This is considered the best practice for using third party libraries. It only imports the portion of the library that is needed - <code class="highlighter-rouge">myFunction</code> in the case above. This pattern is used very frequently in Ionic apps to import Ionic and Angular functionality.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>import { Component } from ‘@angular/core’;
-import { NavController } from ‘ionic-angular’
+<div class="highlighter-rouge"><pre class="highlight"><code>import { Component } from '@angular/core';
+import { NavController } from 'ionic-angular';
 </code></pre>
 </div>
 
@@ -488,7 +488,7 @@ import { NavController } from ‘ionic-angular’
 
 <p>In that case, the library can be used but must be imported using the <code class="highlighter-rouge">default</code> export approach.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>import myLib from ‘theLibraryName’
+<div class="highlighter-rouge"><pre class="highlight"><code>import myLib from 'theLibraryName'
 </code></pre>
 </div>
 
@@ -496,15 +496,15 @@ import { NavController } from ‘ionic-angular’
 
 <p>To call <code class="highlighter-rouge">myFunction</code> to follow our example above, the code would look like this:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>import myLib from ‘theLibraryName’
+<div class="highlighter-rouge"><pre class="highlight"><code>import myLib from 'theLibraryName'
 myLib.myFunction()
 </code></pre>
 </div>
 
 <p>Here’s an example of calling the <code class="highlighter-rouge">capitalize</code> method in the popular <code class="highlighter-rouge">lodash</code> library.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>import lodash from ‘lodash’;
-lodash.capitalize(‘myStringToCapitalize’);
+<div class="highlighter-rouge"><pre class="highlight"><code>import lodash from 'lodash';
+lodash.capitalize('myStringToCapitalize');
 </code></pre>
 </div>
 
