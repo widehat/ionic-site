@@ -955,7 +955,7 @@ Available on iOS.</p>
     </td>
     <td>
       
-<code>BeaconRegion</code>
+<code>EstimoteBeaconRegion</code>
     </td>
     <td>
       <p>Dictionary with region properties (mandatory).</p>
@@ -999,7 +999,7 @@ Available on iOS.</p>
     </td>
     <td>
       
-<code>BeaconRegion</code>
+<code>EstimoteBeaconRegion</code>
     </td>
     <td>
       <p>Dictionary with region properties (mandatory).</p>
@@ -1063,7 +1063,7 @@ This function has the same parameters/behaviour as
     </td>
     <td>
       
-<code>BeaconRegion</code>
+<code>EstimoteBeaconRegion</code>
     </td>
     <td>
       <p>Dictionary with region properties (mandatory).</p>
@@ -1127,7 +1127,7 @@ for further details (optional, defaults to false, iOS only).</p>
     </td>
     <td>
       
-<code>BeaconRegion</code>
+<code>EstimoteBeaconRegion</code>
     </td>
     <td>
       <p>Dictionary with region properties (mandatory).</p>
@@ -1147,7 +1147,7 @@ for further details (optional, defaults to false, iOS only).</p>
 </div>
 
 <div id="startSecureMonitoringForRegion"></div>
-<h3><code>startSecureMonitoringForRegion()</code>
+<h3><code>startSecureMonitoringForRegion(region,&nbsp;notifyEntryStateOnDisplay)</code>
   
 </h3>
 
@@ -1157,14 +1157,90 @@ EstimoteBeacons.startMonitoringForRegion.
 To use secure beacons set the App ID and App Token using
 <a href="undefined"><code>setupAppIDAndAppToken</code></a>.</p>
 
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      region
+      
+      
+    </td>
+    <td>
+      
+<code>EstimoteBeaconRegion</code>
+    </td>
+    <td>
+      <p>Region</p>
+
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      notifyEntryStateOnDisplay
+      
+      
+    </td>
+    <td>
+      
+<code>boolean</code>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
+
 <div id="stopSecureMonitoringForRegion"></div>
-<h3><code>stopSecureMonitoringForRegion()</code>
+<h3><code>stopSecureMonitoringForRegion(region)</code>
   
 </h3>
 
 <p>Stop monitoring secure beacons. Available on iOS.
 This function has the same parameters/behaviour as
 <a href="undefined"><code>stopMonitoringForRegion</code></a>.</p>
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      region
+      
+      
+    </td>
+    <td>
+      
+<code>EstimoteBeaconRegion</code>
+    </td>
+    <td>
+      <p>Region</p>
+
+      
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
 
 <div id="connectToBeacon"></div>
 <h3><code>connectToBeacon(beacon)</code>
