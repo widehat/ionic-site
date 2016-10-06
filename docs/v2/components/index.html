@@ -1257,7 +1257,7 @@ export class MyPage {
 
 <div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;ion-item&gt;</span>
   <span class="nt">&lt;ion-label&gt;</span>Daenerys Targaryen<span class="nt">&lt;/ion-label&gt;</span>
-  <span class="nt">&lt;ion-checkbox</span> <span class="na">dark</span> <span class="na">checked=</span><span class="s">"true"</span><span class="nt">&gt;&lt;/ion-checkbox&gt;</span>
+  <span class="nt">&lt;ion-checkbox</span> <span class="na">color=</span><span class="s">"dark"</span> <span class="na">checked=</span><span class="s">"true"</span><span class="nt">&gt;&lt;/ion-checkbox&gt;</span>
 <span class="nt">&lt;/ion-item&gt;</span>
 
 <span class="nt">&lt;ion-item&gt;</span>
@@ -1303,13 +1303,27 @@ export class MyPage {
 </a></p>
 
 <div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;ion-content&gt;</span>
- <span class="c">&lt;!-- Real floating action button, fixed. It will not scroll with the content --&gt;</span>
- <span class="nt">&lt;ion-fab&gt;</span>
-   <span class="nt">&lt;button</span> <span class="na">ion-fab</span><span class="nt">&gt;</span>Button<span class="nt">&lt;/button&gt;</span>
- <span class="nt">&lt;/ion-fab&gt;</span>
+  <span class="c">&lt;!-- Real floating action button, fixed. It will not scroll with the content --&gt;</span>
+  <span class="nt">&lt;ion-fab</span> <span class="na">top</span> <span class="na">right</span> <span class="na">edge</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;button</span> <span class="na">ion-fab</span> <span class="na">mini</span><span class="nt">&gt;&lt;ion-icon</span> <span class="na">name=</span><span class="s">"add"</span><span class="nt">&gt;&lt;/ion-icon&gt;&lt;/button&gt;</span>
+    <span class="nt">&lt;ion-fab-list&gt;</span>
+      <span class="nt">&lt;button</span> <span class="na">ion-fab</span><span class="nt">&gt;&lt;ion-icon</span> <span class="na">name=</span><span class="s">"logo-facebook"</span><span class="nt">&gt;&lt;/ion-icon&gt;&lt;/button&gt;</span>
+      <span class="nt">&lt;button</span> <span class="na">ion-fab</span><span class="nt">&gt;&lt;ion-icon</span> <span class="na">name=</span><span class="s">"logo-twitter"</span><span class="nt">&gt;&lt;/ion-icon&gt;&lt;/button&gt;</span>
+      <span class="nt">&lt;button</span> <span class="na">ion-fab</span><span class="nt">&gt;&lt;ion-icon</span> <span class="na">name=</span><span class="s">"logo-vimeo"</span><span class="nt">&gt;&lt;/ion-icon&gt;&lt;/button&gt;</span>
+      <span class="nt">&lt;button</span> <span class="na">ion-fab</span><span class="nt">&gt;&lt;ion-icon</span> <span class="na">name=</span><span class="s">"logo-googleplus"</span><span class="nt">&gt;&lt;/ion-icon&gt;&lt;/button&gt;</span>
+    <span class="nt">&lt;/ion-fab-list&gt;</span>
+  <span class="nt">&lt;/ion-fab&gt;</span>
 
- <span class="c">&lt;!-- Button shaped as a circle that just like a normal button scrolls with the content --&gt;</span>
- <span class="nt">&lt;button</span> <span class="na">ion-fab</span><span class="nt">&gt;</span>Button<span class="nt">&lt;/button&gt;</span>
+  <span class="nt">&lt;ion-fab</span> <span class="na">right</span> <span class="na">bottom</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;button</span> <span class="na">ion-fab</span> <span class="na">color=</span><span class="s">"light"</span><span class="nt">&gt;&lt;ion-icon</span> <span class="na">name=</span><span class="s">"arrow-dropleft"</span><span class="nt">&gt;&lt;/ion-icon&gt;&lt;/button&gt;</span>
+    <span class="nt">&lt;ion-fab-list</span> <span class="na">side=</span><span class="s">"left"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;button</span> <span class="na">ion-fab</span><span class="nt">&gt;&lt;ion-icon</span> <span class="na">name=</span><span class="s">"logo-facebook"</span><span class="nt">&gt;&lt;/ion-icon&gt;&lt;/button&gt;</span>
+      <span class="nt">&lt;button</span> <span class="na">ion-fab</span><span class="nt">&gt;&lt;ion-icon</span> <span class="na">name=</span><span class="s">"logo-twitter"</span><span class="nt">&gt;&lt;/ion-icon&gt;&lt;/button&gt;</span>
+      <span class="nt">&lt;button</span> <span class="na">ion-fab</span><span class="nt">&gt;&lt;ion-icon</span> <span class="na">name=</span><span class="s">"logo-vimeo"</span><span class="nt">&gt;&lt;/ion-icon&gt;&lt;/button&gt;</span>
+      <span class="nt">&lt;button</span> <span class="na">ion-fab</span><span class="nt">&gt;&lt;ion-icon</span> <span class="na">name=</span><span class="s">"logo-googleplus"</span><span class="nt">&gt;&lt;/ion-icon&gt;&lt;/button&gt;</span>
+    <span class="nt">&lt;/ion-fab-list&gt;</span>
+  <span class="nt">&lt;/ion-fab&gt;</span>
+
 <span class="nt">&lt;/ion-content&gt;</span>
 </code></pre>
 </div>
