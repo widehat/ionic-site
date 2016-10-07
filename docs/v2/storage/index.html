@@ -13,11 +13,11 @@
 
 
     
-      <title>Ionic 2 Resources | OSX Platform Setup</title>
+      <title>Ionic Framework | Storage</title>
     
   </head>
-  <body id="docs-page-mac_setup"
-        class="v2 docs page-mac_setup"
+  <body id="docs-page-storage"
+        class="v2 docs page-storage"
         data-spy="scroll"
         data-offset="100"
         data-target="#components-index"
@@ -269,7 +269,7 @@
    </li>
 
    
-    <li class="">
+    <li class="top-level active">
       <a href="/docs/v2/storage/">Storage</a>
     </li>
 
@@ -350,11 +350,9 @@
 
 
   
-  <li class="active">
+  <li class="">
     <a href="/docs/v2/resources" >Resources</a>
     <ul ng-show="showResources"
-        
-          ng-init="showResources = true"
         >
       
       
@@ -378,7 +376,7 @@
       <li class="">
         <a href="/docs/v2/resources/what-is/">Glossary</a>
       </li>
-      <li class="active">
+      <li class="">
         <a href="/docs/v2/resources/platform-setup/mac-setup.html">Mac OS Setup</a>
       </li>
       <li class="">
@@ -404,73 +402,271 @@
       </nav>
       
       <main>
-        <h2 id="osx">OSX</h2>
+        <h1 class="api-title">
+<a class="anchor" name="storage" href="#storage"></a>
 
-<h3 id="common-tools">Common Tools</h3>
+Storage
 
-<p>For the most part, Node and NPM are going to be used extensively for Ionic and Cordova. You can use the installer from <a href="https://nodejs.org">the Node website</a> or various package managers.</p>
 
-<ul>
-  <li><a href="https://github.com/tj/n">n</a></li>
-  <li><a href="https://github.com/creationix/nvm">nvm</a></li>
-  <li><a href="http://brew.sh">homebrew</a></li>
-</ul>
 
-<p>Once installed, you should have access to both <code class="highlighter-rouge">node</code> and <code class="highlighter-rouge">npm</code> from your command line.</p>
 
-<h3 id="ios">iOS</h3>
-<p>You’ll want to install Xcode from Apple. You can either do this from the Mac App store or from Apple’s Developer portal. The Mac App store is the easiest approach. Once XCode is installed, you’ll have XCode, the iOS SDK, XCode command line tools, and all the build tools to output a native app.</p>
+</h1>
 
-<h3 id="java">Java</h3>
-<p>You’ll need to download and install Java from <a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html">their website</a>.</p>
+<p><a class="improve-docs" href="http://github.com/driftyco/ionic/edit/master/src/storage.ts#L4">
+Improve this doc
+</a></p>
 
-<h3 id="android">Android</h3>
-<p>Download <a href="https://developer.android.com/studio/">Android Studio</a> and go through the installer and set up the IDE. It should print out a location for where the Android SDK gets installed; copy this down for future use.</p>
+<p>Storage is an easy way to store key/value pairs and JSON objects.
+Storage uses a variety of storage engines underneath, picking the best one available
+depending on the platform.</p>
+<p>When running in a native app context, Storage will prioritize using SQLite, as it&#39;s one of
+the most stable and widely used file-based databases, and avoids some of the
+pitfalls of things like localstorage and IndexedDB, such as the OS deciding to clear out such
+data in low disk-space situations.</p>
+<p>When running in the web or as a Progressive Web App, Storage will attempt to use
+IndexedDB, WebSQL, and localstorage, in that order.</p>
 
-<p>Next, inside the new <code class="highlighter-rouge">SDK</code> location, we’ll run <code class="highlighter-rouge">tools/android</code> to open the Android SDK Manager. We’ll want to install:</p>
+<!-- @usage tag -->
 
-<ul>
-  <li>Android Platform SDK for your targeted version of Android</li>
-  <li>Android Platform-Tools</li>
-  <li>Android SDK build-tools version 19.1.0 or higher</li>
-  <li>Android Support Repository (found under “Extras”)</li>
-</ul>
+<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 
-<p>Accept the license and let the packages install.</p>
-
-<h3 id="environment-variables">Environment Variables</h3>
-<p>Now that everything’s installed, we’ll need to set some environment variables for our command line. Open your terminal and enter the following:</p>
-
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>touch ~/.bash_profile
+<p>First, install the package (comes by default for Ionic 2 apps &gt;= RC.0)</p>
+<pre><code class="lang-bash">npm install --save @ionic/storage
 </code></pre>
+<p>Next, add it to the providers list in your <code>NgModule</code> declaration (for example, in <code>src/app.module.ts</code>):</p>
+<pre><code class="lang-typescript">import { Storage } from &#39;@ionic/storage&#39;;
+
+@NgModule({
+  declarations: [
+    // ...
+  ],
+  imports: [
+    IonicModule.forRoot(MyApp)
+  ],
+  bootstrap: [IonicApp],
+  entryComponents: [
+    // ...
+  ],
+  providers: [
+    Storage
+  ]
+})
+export class AppModule {}
+</code></pre>
+<p>Finally, inject it into any of your components or pages:</p>
+<pre><code class="lang-typescript">import { Storage } from &#39;@ionic/storage&#39;;
+
+export class MyApp {
+  constructor(storage: Storage) {
+     storage.set(&#39;name&#39;, &#39;Max&#39;);
+     storage.get(&#39;name&#39;).then((val) =&gt; {
+       console.log(&#39;Your name is&#39;, val);
+     })
+  }
+}
+</code></pre>
+
+<!-- @property tags -->
+
+<!-- instance methods on the class -->
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
+<div id="get"></div>
+<h3><a class="anchor" name="get" href="#get"></a><code>get()</code>
+  
+</h3>
+<p>Get the value assocated with the given key.</p>
+
+<div class="return-value">
+<i class="ion-md-return-right"></i>
+<b>Returns:</b> 
+   <p>Promise that resolves with the value</p>
+
+
 </div>
 
-<p>Then open that file in your favorite editor.</p>
+<div id="set"></div>
+<h3><a class="anchor" name="set" href="#set"></a><code>set(key,&nbsp;value)</code>
+  
+</h3>
+<p>Set the value for the given key.</p>
+<table class="table param-table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        key
+        
+        
+      </td>
+      <td>
+        
+  
+      </td>
+      <td>
+        <p>the key to identify this value</p>
 
-<p>From here, we’ll need to add a few lines. These are the reference to Java and the Android SDK location we copied down earlier.</p>
+        
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        value
+        
+        
+      </td>
+      <td>
+        
+  
+      </td>
+      <td>
+        <p>the value for this key</p>
 
-<p>If you’ve used the paths suggested, you should have something like this.</p>
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>  <span class="c"># Create a JAVA_HOME variable, determined dynamically</span>
-  <span class="nb">export </span><span class="nv">JAVA_HOME</span><span class="o">=</span><span class="k">$(</span>/usr/libexec/java_home<span class="k">)</span>
-  <span class="c"># Add that to the global PATH variable</span>
-  <span class="nb">export </span><span class="nv">PATH</span><span class="o">=</span><span class="k">${</span><span class="nv">JAVA_HOME</span><span class="k">}</span>/bin:<span class="nv">$PATH</span>
-  <span class="c"># Add the Android SDK to the PATH variable</span>
-  <span class="nb">export </span><span class="nv">PATH</span><span class="o">=</span><span class="k">${</span><span class="nv">PATH</span><span class="k">}</span>:~/Library/Android/sdk/tools:~/Library/Android/sdk/platform-tools
-</code></pre>
+<div class="return-value">
+<i class="ion-md-return-right"></i>
+<b>Returns:</b> 
+   <p>Promise that resolves when the value is set</p>
+
+
 </div>
 
-<p>From here, we can quit the terminal and then start it back up again. If there are no errors, you should be able to run</p>
+<div id="remove"></div>
+<h3><a class="anchor" name="remove" href="#remove"></a><code>remove(key)</code>
+  
+</h3>
+<p>Remove any value associated with this key.</p>
+<table class="table param-table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        key
+        
+        
+      </td>
+      <td>
+        
+  
+      </td>
+      <td>
+        <p>the key to identify this value</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="c"># check java version</span>
-java -version
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
 
-<span class="c"># start android SDK manager</span>
-android
-</code></pre>
+<div class="return-value">
+<i class="ion-md-return-right"></i>
+<b>Returns:</b> 
+   <p>Promise that resolves when the value is removed</p>
+
+
 </div>
 
-<p>Now, you should be able to create and build an Android project from the command line.</p>
+<div id="clear"></div>
+<h3><a class="anchor" name="clear" href="#clear"></a><code>clear()</code>
+  
+</h3>
+<p>Clear the entire key value store. WARNING: HOT!</p>
+
+<div class="return-value">
+<i class="ion-md-return-right"></i>
+<b>Returns:</b> 
+   <p>Promise that resolves when the kv store is cleared</p>
+
+
+</div>
+
+<div id="length"></div>
+<h3><a class="anchor" name="length" href="#length"></a><code>length()</code>
+  
+</h3>
+
+<div class="return-value">
+<i class="ion-md-return-right"></i>
+<b>Returns:</b> 
+   <p>the number of keys stored.</p>
+
+
+</div>
+
+<div id="keys"></div>
+<h3><a class="anchor" name="keys" href="#keys"></a><code>keys()</code>
+  
+</h3>
+
+<div class="return-value">
+<i class="ion-md-return-right"></i>
+<b>Returns:</b> 
+   <p>the keys in the store.</p>
+
+
+</div>
+
+<div id="forEach"></div>
+<h3><a class="anchor" name="forEach" href="#forEach"></a><code>forEach(iteratorCallback)</code>
+  
+</h3>
+<p>Iterate through each key,value pair.</p>
+<table class="table param-table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        iteratorCallback
+        
+        
+      </td>
+      <td>
+        
+  
+      </td>
+      <td>
+        <p>a callback of the form (value, key, iterationNumber)</p>
+
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+<!-- related link -->
+<!-- end content block -->
+
+<!-- end body block -->
+
 
       </main>
     </div>
