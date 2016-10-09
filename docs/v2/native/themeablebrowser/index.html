@@ -16,8 +16,8 @@
       <title>Ionic Native: Harness the power of Native APIs</title>
     
   </head>
-  <body id="docs-page-clipboard"
-        class="v2 docs page-clipboard"
+  <body id="docs-page-themeablebrowser"
+        class="v2 docs page-themeablebrowser"
         data-spy="scroll"
         data-offset="100"
         data-target="#components-index"
@@ -179,7 +179,7 @@
 <li class="capitalize ">
   <a href="/docs/v2/native/cardio">CardIO</a>
 </li>
-<li class="capitalize active">
+<li class="capitalize ">
   <a href="/docs/v2/native/clipboard">Clipboard</a>
 </li>
 <li class="capitalize ">
@@ -395,7 +395,7 @@
 <li class="capitalize ">
   <a href="/docs/v2/native/texttospeech">TextToSpeech</a>
 </li>
-<li class="capitalize ">
+<li class="capitalize active">
   <a href="/docs/v2/native/themeablebrowser">ThemeableBrowser</a>
 </li>
 <li class="capitalize ">
@@ -440,7 +440,7 @@
       <main>
         <h1 class="api-title">
   
-  Clipboard
+  ThemeableBrowser
   
 
   
@@ -449,65 +449,132 @@
 
 </h1>
 
-<p><a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/clipboard.ts#L0">
+<p><a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/themeable-browser.ts#L59">
   Improve this doc
 </a></p>
 
 <!-- decorators -->
 
-<pre><code>$ ionic plugin add https://github.com/VersoSolutions/CordovaClipboard.git</code></pre>
+<pre><code>$ ionic plugin add cordova-plugin-themeablebrowser</code></pre>
 <p>Repo:
-  <a href="https://github.com/VersoSolutions/CordovaClipboard">
-    https://github.com/VersoSolutions/CordovaClipboard
+  <a href="https://github.com/initialxy/cordova-plugin-themeablebrowser">
+    https://github.com/initialxy/cordova-plugin-themeablebrowser
   </a>
 </p>
 
 <!-- description -->
 
-<p>Clipboard management plugin for Cordova that supports iOS, Android, and Windows Phone 8.</p>
-<p>Requires Cordova plugin: <a href="https://github.com/VersoSolutions/CordovaClipboard">https://github.com/VersoSolutions/CordovaClipboard</a>
-For more info, please see the <a href="https://github.com/VersoSolutions/CordovaClipboard.git">Clipboard plugin docs</a>.</p>
-
-<!-- @platforms tag -->
-<h2>Supported platforms</h2>
-
-<ul>
-  <li>Amazon Fire OS</li><li>iOS</li><li>Android</li><li>BlackBerry 10</li><li>Windows Phone 7</li><li>Windows Phone 8</li><li>Windows</li><li>Firefox OS</li><li>Browser</li>
-</ul>
-
-<!-- @platforms tag end -->
+<p>In-app browser that allows styling.</p>
 
 <!-- @usage tag -->
 
 <h2>Usage</h2>
 
-<pre><code class="lang-typescript">import { Clipboard } from &#39;ionic-native&#39;;
+<pre><code>import { ThemeableBrowser } from &#39;ionic-native&#39;;
 
+// can add options from the original InAppBrowser in a JavaScript object form (not string)
+// This options object also takes additional parameters introduced by the ThemeableBrowser plugin
+// This example only shows the additional parameters for ThemeableBrowser
+// Note that that `image` and `imagePressed` values refer to resources that are stored in your app
+let options = {
+     statusbar: {
+         color: &#39;#ffffffff&#39;
+     },
+     toolbar: {
+         height: 44,
+         color: &#39;#f0f0f0ff&#39;
+     },
+     title: {
+         color: &#39;#003264ff&#39;,
+         showPageTitle: true
+     },
+     backButton: {
+         image: &#39;back&#39;,
+         imagePressed: &#39;back_pressed&#39;,
+         align: &#39;left&#39;,
+         event: &#39;backPressed&#39;
+     },
+     forwardButton: {
+         image: &#39;forward&#39;,
+         imagePressed: &#39;forward_pressed&#39;,
+         align: &#39;left&#39;,
+         event: &#39;forwardPressed&#39;
+     },
+     closeButton: {
+         image: &#39;close&#39;,
+         imagePressed: &#39;close_pressed&#39;,
+         align: &#39;left&#39;,
+         event: &#39;closePressed&#39;
+     },
+     customButtons: [
+         {
+             image: &#39;share&#39;,
+             imagePressed: &#39;share_pressed&#39;,
+             align: &#39;right&#39;,
+             event: &#39;sharePressed&#39;
+         }
+     ],
+     menu: {
+         image: &#39;menu&#39;,
+         imagePressed: &#39;menu_pressed&#39;,
+         title: &#39;Test&#39;,
+         cancel: &#39;Cancel&#39;,
+         align: &#39;right&#39;,
+         items: [
+             {
+                 event: &#39;helloPressed&#39;,
+                 label: &#39;Hello World!&#39;
+             },
+             {
+                 event: &#39;testPressed&#39;,
+                 label: &#39;Test!&#39;
+             }
+         ]
+     },
+     backButtonCanClose: true
+};
 
-Clipboard.copy(&#39;Hello world&#39;);
-
-Clipboard.paste().then(
-   (resolve: string) =&gt; {
-    alert(resolve);
-    },
-    (reject: string) =&gt; {
-    alert(&#39;Error: &#39; + reject);
-    }
-    );
-);
+let browser = new ThemeableBrowser(&#39;https://ionic.io&#39;, &#39;_blank&#39;, options);
 </code></pre>
+<p>We suggest that you refer to the plugin&#39;s repository for additional information on usage that may not be covered here.</p>
 
 <!-- @property tags -->
 
-<h2>Static Members</h2>
+<!-- methods on the class -->
 
-<div id="copy"></div>
-<h3><code>copy(text)</code>
+<h2>Instance Members</h2>
+<div id="show"></div>
+<h3>
+  <code>show()</code>
   
+
 </h3>
+<p>Displays an browser window that was opened hidden. Calling this has no effect
+if the browser was already visible.</p>
 
-<p>Copies the given text</p>
+<div id="close"></div>
+<h3>
+  <code>close()</code>
+  
 
+</h3>
+<p>Closes the browser window.</p>
+
+<div id="reload"></div>
+<h3>
+  <code>reload()</code>
+  
+
+</h3>
+<p>Reloads the current page</p>
+
+<div id="executeScript"></div>
+<h3>
+  <code>executeScript(script)</code>
+  
+
+</h3>
+<p>Injects JavaScript code into the browser window.</p>
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -520,16 +587,91 @@ Clipboard.paste().then(
   
   <tr>
     <td>
-      text
+      script
       
       
     </td>
     <td>
       
-<code>string</code>
+
     </td>
     <td>
-      <p>Text that gets copied on the system clipboard</p>
+      <p>Details of the script to run, specifying either a file or code key.</p>
+
+      
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
+
+<div id="insertCss"></div>
+<h3>
+  <code>insertCss(css)</code>
+  
+
+</h3>
+<p>Injects CSS into the browser window.</p>
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      css
+      
+      
+    </td>
+    <td>
+      
+
+    </td>
+    <td>
+      <p>Details of the script to run, specifying either a file or code key.</p>
+
+      
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
+
+<div id="on"></div>
+<h3>
+  <code>on(event)</code>
+  
+
+</h3>
+<p>A method that allows you to listen to events happening in the browser.
+Available events are: <code class="highlighter-rouge">ThemeableBrowserError</code>, <code class="highlighter-rouge">ThemeableBrowserWarning</code>, <code class="highlighter-rouge">critical</code>, <code class="highlighter-rouge">loadfail</code>, <code class="highlighter-rouge">unexpected</code>, <code class="highlighter-rouge">undefined</code></p>
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      event
+      
+      
+    </td>
+    <td>
+      
+
+    </td>
+    <td>
+      <p>Event name</p>
 
       
     </td>
@@ -541,23 +683,8 @@ Clipboard.paste().then(
 <div class="return-value">
   <p><i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise&lt;T&gt;</code> Returns a promise after the text has been copied</p>
+<code>Observable&lt;any&gt;</code> Returns back an observable that will listen to the event on subscribe, and will stop listening to the event on unsubscribe.</p>
 </div>
-
-<div id="paste"></div>
-<h3><code>paste()</code>
-  
-</h3>
-
-<p>Pastes the text stored in clipboard</p>
-
-<div class="return-value">
-  <p><i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;T&gt;</code> Returns a promise after the text has been pasted</p>
-</div>
-
-<!-- methods on the class -->
 
 <!-- other classes -->
 
