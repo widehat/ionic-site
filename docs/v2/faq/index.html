@@ -790,7 +790,7 @@ No MyComp to inject        +------+------+
 
 <h3 id="no-provider-for-controlcontainer-ngcontrolname---controlcontainer">No provider for ControlContainer! (NgControlName -&gt; ControlContainer)</h3>
 
-<p>This error is a more specific version of the <code class="highlighter-rouge">No provider</code> error above.  It happens when you use a form control like <a href="https://angular.io/docs/js/latest/api/core/NgControlName-class.html">NgControlName</a> without specifying a parent <a href="https://angular.io/docs/js/latest/api/core/NgForm-class.html">NgForm</a> or <a href="https://angular.io/docs/js/latest/api/core/NgFormModel-class.html">NgFormModel</a>.  In most cases, this can be resolved by making sure your form control is within an actual form element.  NgForm uses <code class="highlighter-rouge">form</code> as a selector so this will instantiate a new NgForm:</p>
+<p>This error is a more specific version of the <code class="highlighter-rouge">No provider</code> error above.  It happens when you use a form control like NgControlName without specifying a parent <a href="https://angular.io/docs/ts/latest/api/forms/index/NgForm-directive.html">NgForm</a> or NgFormModel.  In most cases, this can be resolved by making sure your form control is within an actual form element.  NgForm uses <code class="highlighter-rouge">form</code> as a selector so this will instantiate a new NgForm:</p>
 
 <div class="language-ts highlighter-rouge"><pre class="highlight"><code><span class="err">@</span><span class="nx">Component</span><span class="p">({</span>
   <span class="na">template</span><span class="p">:</span>
@@ -800,7 +800,6 @@ No MyComp to inject        +------+------+
 <span class="p">})</span>
 </code></pre>
 </div>
-
 
       </main>
     </div>
