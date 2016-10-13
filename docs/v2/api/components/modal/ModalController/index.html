@@ -127,13 +127,7 @@
   <option
    value="/docs/v2/api/"
    selected>
-    2.0.0-rc.1 (latest)
-  </option>
-
-  <option
-   value="/docs/v2/2.0.0-rc.0/api/"
-   >
-    2.0.0-rc.0 
+    2.0.0-rc.0 (latest)
   </option>
 
   <option
@@ -200,9 +194,6 @@
   <a href="/docs/v2/api/components/datetime/DateTime">DateTime</a>
 </li>
 <li class="capitalize ">
-  <a href="/docs/v2/api/navigation/DeepLinker">DeepLinker</a>
-</li>
-<li class="capitalize ">
   <a href="/docs/v2/api/util/Events">Events</a>
 </li>
 <li class="capitalize ">
@@ -216,9 +207,6 @@
 </li>
 <li class="capitalize ">
   <a href="/docs/v2/api/components/toolbar/Footer">Footer</a>
-</li>
-<li class="capitalize ">
-  <a href="/docs/v2/api/util/Haptic">Haptic</a>
 </li>
 <li class="capitalize ">
   <a href="/docs/v2/api/components/toolbar/Header">Header</a>
@@ -434,7 +422,7 @@ ModalController
 
 </h1>
 
-<p><a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/modal/modal.ts#L46">
+<p><a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/modal/modal.ts#L53">
 Improve this doc
 </a></p>
 
@@ -450,8 +438,7 @@ works.</p>
 After the modal has been presented, from within the component instance The
 modal can later be closed or &quot;dismissed&quot; by using the ViewController&#39;s
 <code>dismiss</code> method. Additionally, you can dismiss any overlay by using <code>pop</code>
-on the root nav controller. Modals are not reusable. When a modal is dismissed
-it is destroyed.</p>
+on the root nav controller.</p>
 <p>Data can be passed to a new modal through <code>Modal.create()</code> as the second
 argument. The data can then be accessed from the opened page by injecting
 <code>NavParams</code>. Note that the page, which opened as a modal, has no special

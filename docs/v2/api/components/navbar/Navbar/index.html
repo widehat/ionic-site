@@ -127,13 +127,7 @@
   <option
    value="/docs/v2/api/"
    selected>
-    2.0.0-rc.1 (latest)
-  </option>
-
-  <option
-   value="/docs/v2/2.0.0-rc.0/api/"
-   >
-    2.0.0-rc.0 
+    2.0.0-rc.0 (latest)
   </option>
 
   <option
@@ -200,9 +194,6 @@
   <a href="/docs/v2/api/components/datetime/DateTime">DateTime</a>
 </li>
 <li class="capitalize ">
-  <a href="/docs/v2/api/navigation/DeepLinker">DeepLinker</a>
-</li>
-<li class="capitalize ">
   <a href="/docs/v2/api/util/Events">Events</a>
 </li>
 <li class="capitalize ">
@@ -216,9 +207,6 @@
 </li>
 <li class="capitalize ">
   <a href="/docs/v2/api/components/toolbar/Footer">Footer</a>
-</li>
-<li class="capitalize ">
-  <a href="/docs/v2/api/util/Haptic">Haptic</a>
 </li>
 <li class="capitalize ">
   <a href="/docs/v2/api/components/toolbar/Header">Header</a>
@@ -444,7 +432,7 @@ Improve this doc
 button. A navbar can contain a <code>ion-title</code>, any number of buttons,
 a segment, or a searchbar. Navbars must be placed within an
 <code>&lt;ion-header&gt;</code> in order for them to be placed above the content.
-It&#39;s important to note that navbar&#39;s are part of the dynamic navigation
+It&#39;s important to note that navbar&#39;s are part of the dynamica navigation
 stack. If you need a static toolbar, use ion-toolbar.</p>
 
 <!-- @usage tag -->
@@ -454,7 +442,7 @@ stack. If you need a static toolbar, use ion-toolbar.</p>
 <pre><code class="lang-html">&lt;ion-header&gt;
 
   &lt;ion-navbar&gt;
-    &lt;button ion-button icon-only menuToggle&gt;
+    &lt;button ion-button menuToggle&gt;
       &lt;ion-icon name=&quot;menu&quot;&gt;&lt;/ion-icon&gt;
     &lt;/button&gt;
 
@@ -463,7 +451,7 @@ stack. If you need a static toolbar, use ion-toolbar.</p>
     &lt;/ion-title&gt;
 
     &lt;ion-buttons end&gt;
-      &lt;button ion-button icon-only (click)=&quot;openModal()&quot;&gt;
+      &lt;button ion-button (click)=&quot;openModal()&quot;&gt;
         &lt;ion-icon name=&quot;options&quot;&gt;&lt;/ion-icon&gt;
       &lt;/button&gt;
     &lt;/ion-buttons&gt;
