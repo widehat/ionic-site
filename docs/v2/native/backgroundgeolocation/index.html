@@ -488,7 +488,7 @@ more detail, please see <a href="https://github.com/mauron85/cordova-plugin-back
 
 // When device is ready :
 platform.ready().then(() =&gt; {
-    // IMPORTANT: BackgroundGeolocation must be called within app.ts and or before Geolocation. Otherwise the platform will not ask you for background tracking permission. 
+    // IMPORTANT: BackgroundGeolocation must be called within app.ts and or before Geolocation. Otherwise the platform will not ask you for background tracking permission.
 
     // BackgroundGeolocation is highly configurable. See platform specific configuration options
     let config = {
@@ -563,7 +563,7 @@ The lower the number, the more power devoted to GeoLocation resulting in higher 
  FOREGROUND: 1 </p>
 
 <div id="configure"></div>
-<h3><code>configure(Success,&nbsp;Fail,&nbsp;An)</code>
+<h3><code>configure(callback,&nbsp;errorCallback,&nbsp;options)</code>
   
 </h3>
 
@@ -581,7 +581,7 @@ The lower the number, the more power devoted to GeoLocation resulting in higher 
   
   <tr>
     <td>
-      Success
+      callback
       
       
     </td>
@@ -598,7 +598,7 @@ The lower the number, the more power devoted to GeoLocation resulting in higher 
   
   <tr>
     <td>
-      Fail
+      errorCallback
       
       
     </td>
@@ -615,16 +615,16 @@ The lower the number, the more power devoted to GeoLocation resulting in higher 
   
   <tr>
     <td>
-      An
+      options
       
       
     </td>
     <td>
       
-<code>Object</code>
+<code>Config</code>
     </td>
     <td>
-      <p>object of type Config</p>
+      <p>An object of type Config</p>
 
       
     </td>
