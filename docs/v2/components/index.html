@@ -1735,13 +1735,11 @@ export class MyPage {
 <p>To divide groups of items, use <code class="highlighter-rouge">&lt;ion-item-group&gt;</code> instead of <code class="highlighter-rouge">&lt;ion-list&gt;</code>. Use <code class="highlighter-rouge">&lt;ion-item-divider&gt;</code> components to divide the group in to multiple sections:</p>
 
 <div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;ion-content&gt;</span>
-    <span class="nt">&lt;ion-item-group&gt;</span>
-
-      <span class="nt">&lt;ion-item-divider</span> <span class="na">light</span><span class="nt">&gt;</span>A<span class="nt">&lt;/ion-item-divider&gt;</span>
-      <span class="nt">&lt;ion-item&gt;</span>Angola<span class="nt">&lt;/ion-item&gt;</span>
-      <span class="nt">&lt;ion-item&gt;</span>Argentina<span class="nt">&lt;/ion-item&gt;</span>
-
-    <span class="nt">&lt;/ion-item-group&gt;</span>
+  <span class="nt">&lt;ion-item-group&gt;</span>
+    <span class="nt">&lt;ion-item-divider</span> <span class="na">light</span><span class="nt">&gt;</span>A<span class="nt">&lt;/ion-item-divider&gt;</span>
+    <span class="nt">&lt;ion-item&gt;</span>Angola<span class="nt">&lt;/ion-item&gt;</span>
+    <span class="nt">&lt;ion-item&gt;</span>Argentina<span class="nt">&lt;/ion-item&gt;</span>
+  <span class="nt">&lt;/ion-item-group&gt;</span>
 <span class="nt">&lt;/ion-content&gt;</span>
 </code></pre>
 </div>
@@ -1838,17 +1836,17 @@ export class MyPage {
       <span class="nt">&lt;h2&gt;</span>Slimer<span class="nt">&lt;/h2&gt;</span>
     <span class="nt">&lt;/ion-item&gt;</span>
     <span class="nt">&lt;ion-item-options</span> <span class="na">side=</span><span class="s">"left"</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;button</span> <span class="na">primary</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;button</span> <span class="na">ion-button</span> <span class="na">color=</span><span class="s">"primary"</span><span class="nt">&gt;</span>
         <span class="nt">&lt;ion-icon</span> <span class="na">name=</span><span class="s">"text"</span><span class="nt">&gt;&lt;/ion-icon&gt;</span>
         Text
       <span class="nt">&lt;/button&gt;</span>
-      <span class="nt">&lt;button</span> <span class="na">secondary</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;button</span> <span class="na">ion-button</span> <span class="na">color=</span><span class="s">"secondary"</span><span class="nt">&gt;</span>
         <span class="nt">&lt;ion-icon</span> <span class="na">name=</span><span class="s">"call"</span><span class="nt">&gt;&lt;/ion-icon&gt;</span>
         Call
       <span class="nt">&lt;/button&gt;</span>
     <span class="nt">&lt;/ion-item-options&gt;</span>
     <span class="nt">&lt;ion-item-options</span> <span class="na">side=</span><span class="s">"right"</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;button</span> <span class="na">primary</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;button</span> <span class="na">ion-button</span> <span class="na">color=</span><span class="s">"primary"</span><span class="nt">&gt;</span>
         <span class="nt">&lt;ion-icon</span> <span class="na">name=</span><span class="s">"mail"</span><span class="nt">&gt;&lt;/ion-icon&gt;</span>
         Email
       <span class="nt">&lt;/button&gt;</span>
