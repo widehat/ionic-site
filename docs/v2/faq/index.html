@@ -478,7 +478,7 @@ moment-timezone dt     http://momentjs.com/timezone/                    1       
 <p>There are a few things you can check. Make sure:</p>
 
 <ul>
-  <li>You include it in the <code class="highlighter-rouge">directives</code> array of the <code class="highlighter-rouge">@Component</code> you want to use it in.</li>
+  <li>You include it in the <code class="highlighter-rouge">directives</code> array of the <code class="highlighter-rouge">@Component</code> you want to use it in (only if your ionic-angular version is below RC0).</li>
   <li>Your selector doesn’t have any misspellings.</li>
   <li>You’re using the selector correctly as an attribute, element or class.</li>
   <li>Your selector has the <a href="http://learnangular2.com/components/">proper syntax</a>:
@@ -510,7 +510,7 @@ moment-timezone dt     http://momentjs.com/timezone/                    1       
   <span class="c1">// and if you were attaching by class the template would be:</span>
   <span class="c1">// template: `&lt;div class="my-dir"&gt;Hello World&lt;/div&gt;`</span>
 
-  <span class="na">directives</span><span class="p">:</span> <span class="p">[</span><span class="nx">MyDir</span><span class="p">]</span> <span class="c1">// &lt;-- Don't forget me!</span>
+  <span class="na">directives</span><span class="p">:</span> <span class="p">[</span><span class="nx">MyDir</span><span class="p">]</span> <span class="c1">// &lt;-- Don't forget me! (only if your ionic-angular version is below RC0)</span>
 <span class="p">})</span>
 <span class="kr">class</span> <span class="nx">MyPage</span> <span class="p">{}</span>
 </code></pre>
