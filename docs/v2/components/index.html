@@ -1929,9 +1929,11 @@ By default, it shows a spinner based on the mode. Dynamic content can be passed 
 </a></p>
 
 <div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;ion-menu</span> <span class="err">[</span><span class="na">content</span><span class="err">]="</span><span class="na">content</span><span class="err">"</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;ion-toolbar&gt;</span>
-    <span class="nt">&lt;ion-title&gt;</span>Pages<span class="nt">&lt;/ion-title&gt;</span>
-  <span class="nt">&lt;/ion-toolbar&gt;</span>
+  <span class="nt">&lt;ion-header&gt;</span>
+    <span class="nt">&lt;ion-toolbar&gt;</span>
+      <span class="nt">&lt;ion-title&gt;</span>Pages<span class="nt">&lt;/ion-title&gt;</span>
+    <span class="nt">&lt;/ion-toolbar&gt;</span>
+  <span class="nt">&lt;/ion-header&gt;</span>
   <span class="nt">&lt;ion-content&gt;</span>
     <span class="nt">&lt;ion-list&gt;</span>
       <span class="nt">&lt;button</span> <span class="na">ion-item</span> <span class="err">(</span><span class="na">click</span><span class="err">)="</span><span class="na">openPage</span><span class="err">(</span><span class="na">loginPage</span><span class="err">)"</span><span class="nt">&gt;</span>
