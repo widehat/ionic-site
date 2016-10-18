@@ -408,26 +408,43 @@
 
 <h3 id="installing">Installing</h3>
 
-<p>For the latest version of Ionic 2, which runs on Angular 2 RC4, let’s install the release of NG2-Translate that’s built for Angular 2 RC4. To install the correct version, run <code class="highlighter-rouge">npm install ng2-translate@2.2.2 --save --save-exact</code>.</p>
+<p>To install NG2-Translate run <code class="highlighter-rouge">npm install ng2-translate --save</code>.</p>
 
 <h3 id="bootstrapping">Bootstrapping</h3>
 
-<p>To use NG2-Translate, it must first be imported and added it to the <code class="highlighter-rouge">ionicBootstrap</code> in the application. Here’s an example of how to do this:</p>
+<p>To use NG2-Translate, it must first be imported and added to the imports array in the NgModule of the application. Here’s an example of how to do this:</p>
 
-<div class="language-typescript highlighter-rouge"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">TranslateService</span><span class="p">,</span> <span class="nx">TranslateLoader</span><span class="p">,</span> <span class="nx">TranslateStaticLoader</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'ng2-translate/ng2-translate'</span><span class="p">;</span>
+<div class="language-typescript highlighter-rouge"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">TranslateModule</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'ng2-translate/ng2-translate'</span><span class="p">;</span>
 
-<span class="nx">ionicBootstrap</span><span class="p">(</span><span class="nx">MyApp</span><span class="p">,</span> <span class="p">[</span>
-  <span class="p">{</span> 
-    <span class="na">provide</span><span class="p">:</span> <span class="nx">TranslateLoader</span><span class="p">,</span>
-    <span class="na">useFactory</span><span class="p">:</span> <span class="p">(</span><span class="na">http</span><span class="p">:</span> <span class="nx">Http</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="k">new</span> <span class="nx">TranslateStaticLoader</span><span class="p">(</span><span class="nx">http</span><span class="p">,</span> <span class="s1">'assets/i18n'</span><span class="p">,</span> <span class="s1">'.json'</span><span class="p">),</span>
-    <span class="na">deps</span><span class="p">:</span> <span class="p">[</span><span class="nx">Http</span><span class="p">]</span>
-  <span class="p">},</span>
-  <span class="nx">TranslateService</span>
-<span class="p">]);</span>
+<span class="err">@</span><span class="nx">NgModule</span><span class="p">({</span>
+  <span class="na">imports</span><span class="p">:</span> <span class="p">[</span>
+    <span class="nx">TranslateModule</span><span class="p">.</span><span class="nx">forRoot</span><span class="p">()</span>
+  <span class="p">]</span>
+<span class="p">})</span>
 </code></pre>
 </div>
 
-<p>This loads the <code class="highlighter-rouge">TranslateService</code>, sets the default loader, and also bootstraps the Angular 2 HTTP module, which NG2-Translate requires. Normally, we’d also have to import the Angular 2 HTTP module, but because Ionic 2 already provides it , there’s no need to import and bootstrap it again. The most important part here is the <code class="highlighter-rouge">TranslateStaticLoader</code> constructor. The first argument is injecting the Angular 2 HTTP module, which it uses to fetch each translation file. The second argument is the path to the app’s translation assets, and the third argument is the type of file that the translation assets are in (usually json).</p>
+<p>By default this will look for your translation json files in <code class="highlighter-rouge">i18n/</code>, if you would like to customize this path you can create a function that returns a new
+TranslateLoader:</p>
+
+<div class="language-typescript highlighter-rouge"><pre class="highlight"><code><span class="k">export</span> <span class="kd">function</span> <span class="nx">createTranslateLoader</span><span class="p">(</span><span class="nx">http</span><span class="err">:</span> <span class="nx">Http</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="k">new</span> <span class="nx">TranslateStaticLoader</span><span class="p">(</span><span class="nx">http</span><span class="p">,</span> <span class="s1">'./assets/i18n'</span><span class="p">,</span> <span class="s1">'.json'</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+<p>and then add the following to your NgModules imports array:</p>
+
+<div class="language-typescript highlighter-rouge"><pre class="highlight"><code><span class="err">@</span><span class="nx">NgModule</span><span class="p">({</span>
+  <span class="na">imports</span><span class="p">:</span> <span class="p">[</span>
+    <span class="nx">TranslateModule</span><span class="p">.</span><span class="nx">forRoot</span><span class="p">({</span>
+      <span class="na">provide</span><span class="p">:</span> <span class="nx">TranslateLoader</span><span class="p">,</span>
+      <span class="na">useFactory</span><span class="p">:</span> <span class="p">(</span><span class="nx">createTranslateLoader</span><span class="p">),</span>
+      <span class="na">deps</span><span class="p">:</span> <span class="p">[</span><span class="nx">Http</span><span class="p">]</span>
+    <span class="p">})</span>
+  <span class="p">]</span>
+<span class="p">})</span>
+</code></pre>
+</div>
 
 <h3 id="usage">Usage</h3>
 
