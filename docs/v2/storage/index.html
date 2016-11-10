@@ -13,11 +13,11 @@
 
 
     
-      <title>Project Structure - Tutorial</title>
+      <title>Ionic Framework | Storage</title>
     
   </head>
-  <body id="docs-page-tutorial"
-        class="v2 docs page-tutorial"
+  <body id="docs-page-storage"
+        class="v2 docs page-storage"
         data-spy="scroll"
         data-offset="100"
         data-target="#components-index"
@@ -119,12 +119,9 @@
   </li>
 
   
-  <li class="
-             active">
+  <li class="">
     <a ng-click="showGettingStarted = !showGettingStarted">Getting Started</a>
     <ul ng-show="showGettingStarted"
-        
-          ng-init="showGettingStarted = true"
         >
       <li class="">
         <a href="/docs/v2/getting-started">Welcome</a>
@@ -132,7 +129,7 @@
       <li class="">
         <a href="/docs/v2/getting-started/installation">Installation</a>
       </li>
-      <li class="active">
+      <li class="">
         <a href="/docs/v2/getting-started/tutorial">Tutorial</a>
       </li>
       <li class="">
@@ -272,7 +269,7 @@
    </li>
 
    
-    <li class="">
+    <li class="top-level active">
       <a href="/docs/v2/storage/">Storage</a>
     </li>
 
@@ -405,107 +402,305 @@
       </nav>
       
       <main>
-        <h1 id="project-structure">Project Structure</h1>
+        <h1 class="api-title">
+<a class="anchor" name="storage" href="#storage"></a>
 
-<p><a class="improve-v2-docs" href="https://github.com/driftyco/ionic-site/edit/master/docs/v2/getting-started/tutorial/project-structure/index.md">
-  Improve this doc
+Storage
+
+
+
+
+</h1>
+
+<p><a class="improve-docs" href="http://github.com/driftyco/ionic/edit/master/src/storage.ts#L4">
+Improve this doc
 </a></p>
 
-<p>Let’s walk through the anatomy of an Ionic 2 app. Inside of the folder that was created, we have a typical <a href="/docs/what-is/#cordova">Cordova</a> project structure where we can install native plugins, and create platform-specific project files.</p>
+<p>Storage is an easy way to store key/value pairs and JSON objects.
+Storage uses a variety of storage engines underneath, picking the best one available
+depending on the platform.</p>
+<p>When running in a native app context, Storage will prioritize using SQLite, as it&#39;s one of
+the most stable and widely used file-based databases, and avoids some of the
+pitfalls of things like localstorage and IndexedDB, such as the OS deciding to clear out such
+data in low disk-space situations.</p>
+<p>When running in the web or as a Progressive Web App, Storage will attempt to use
+IndexedDB, WebSQL, and localstorage, in that order.</p>
 
-<h3 class="file-title">./src/index.html</h3>
+<!-- @usage tag -->
 
-<p><code class="highlighter-rouge">src/index.html</code> is the main entry point for the app, though its purpose is to set up script and CSS includes and bootstrap, or start running, our app. We won’t spend much of our time in this file.</p>
+<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 
-<p>For your app to function, Ionic looks for the <code class="highlighter-rouge">&lt;ion-app&gt;</code> tag in your HTML. In this example we have:</p>
-
-<div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;ion-app&gt;&lt;/ion-app&gt;</span>
+<p>First, if you&#39;d like to use SQLite, install the cordova-sqlite-storage plugin:</p>
+<pre><code class="lang-bash">cordova plugin add cordova-sqlite-storage --save
 </code></pre>
-</div>
-
-<p>And the following scripts near the bottom:</p>
-
-<div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"cordova.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
-<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"build/main.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+<p>Next, install the package (comes by default for Ionic 2 apps &gt;= RC.0)</p>
+<pre><code class="lang-bash">npm install --save @ionic/storage
 </code></pre>
-</div>
+<p>Next, add it to the providers list in your <code>NgModule</code> declaration (for example, in <code>src/app.module.ts</code>):</p>
+<pre><code class="lang-typescript">import { Storage } from &#39;@ionic/storage&#39;;
 
-<ul>
-  <li>
-    <p><code class="highlighter-rouge">build/main.js</code> is a concatenated file containing Ionic, Angular and your app’s JavaScript.</p>
-  </li>
-  <li>
-    <p><code class="highlighter-rouge">cordova.js</code> will 404 during local development, as it gets injected into your project during Cordova’s build process.</p>
-  </li>
-</ul>
-
-<h3 class="file-title">./src/</h3>
-
-<p>Inside of the <code class="highlighter-rouge">src</code> directory we find our raw, uncompiled code. This is where most of the work for an Ionic 2 app will take place. When we run <code class="highlighter-rouge">ionic serve</code>, our code inside of <code class="highlighter-rouge">src/</code> is <a href="/docs/v2/resources/what-is/#transpiler">transpiled</a> into the correct Javascript version that the browser understands (currently, <a href="/docs/v2/resources/what-is/#es5">ES5</a>). That means we can work at a higher level using TypeScript, but compile down to the older form of Javascript the browser needs.</p>
-
-<p><code class="highlighter-rouge">src/app/app.module.ts</code> is the entry point for our app.</p>
-
-<p>Near the top of the file, we should see this:</p>
-
-<div class="language-ts highlighter-rouge"><pre class="highlight"><code>
-<span class="err">@</span><span class="nx">NgModule</span><span class="p">({</span>
-  <span class="na">declarations</span><span class="p">:</span> <span class="p">[</span><span class="nx">MyApp</span><span class="p">,</span><span class="nx">HelloIonicPage</span><span class="p">,</span> <span class="nx">ItemDetailsPage</span><span class="p">,</span> <span class="nx">ListPage</span><span class="p">],</span>
-  <span class="na">imports</span><span class="p">:</span> <span class="p">[</span><span class="nx">IonicModule</span><span class="p">.</span><span class="nx">forRoot</span><span class="p">(</span><span class="nx">MyApp</span><span class="p">)],</span>
-  <span class="na">bootstrap</span><span class="p">:</span> <span class="p">[</span><span class="nx">IonicApp</span><span class="p">],</span>
-  <span class="na">entryComponents</span><span class="p">:</span> <span class="p">[</span><span class="nx">MyApp</span><span class="p">,</span><span class="nx">HelloIonicPage</span><span class="p">,</span><span class="nx">ItemDetailsPage</span><span class="p">,</span><span class="nx">ListPage</span><span class="p">],</span>
-  <span class="na">providers</span><span class="p">:</span> <span class="p">[]</span>
-<span class="p">})</span>
-<span class="k">export</span> <span class="kr">class</span> <span class="nx">AppModule</span> <span class="p">{}</span>
+@NgModule({
+  declarations: [
+    // ...
+  ],
+  imports: [
+    IonicModule.forRoot(MyApp)
+  ],
+  bootstrap: [IonicApp],
+  entryComponents: [
+    // ...
+  ],
+  providers: [
+    Storage
+  ]
+})
+export class AppModule {}
 </code></pre>
-</div>
+<p>Finally, inject it into any of your components or pages:</p>
+<pre><code class="lang-typescript">import { Storage } from &#39;@ionic/storage&#39;;
 
-<p>Every app has a <em>root module</em> that essentially controls the rest of the application. This is very similar to <code class="highlighter-rouge">ng-app</code> from Ionic and Angular 1. This is also where we bootstrap our app using <code class="highlighter-rouge">ionicBootstrap</code>.</p>
+export class MyApp {
+  constructor(storage: Storage) {
+     storage.set(&#39;name&#39;, &#39;Max&#39;);
+     storage.get(&#39;name&#39;).then((val) =&gt; {
+       console.log(&#39;Your name is&#39;, val);
+     })
+  }
+}
+</code></pre>
 
-<p>In this module, we’re setting the root component to MyApp, in <code class="highlighter-rouge">src/app/app.component.ts</code>. This is the first component that gets loaded in our app, and it typically is a empty shell for other components to loaded into. In <code class="highlighter-rouge">app.component.ts</code>, we’re setting out template to <code class="highlighter-rouge">src/app/app.html</code>, so let’s look in there.</p>
+<!-- @property tags -->
 
-<h3 class="file-title">./src/app/app.html</h3>
-
-<p>Here’s the main template for the app in <code class="highlighter-rouge">src/app/app.html</code>:</p>
-
-<div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;ion-menu</span> <span class="err">[</span><span class="na">content</span><span class="err">]="</span><span class="na">content</span><span class="err">"</span><span class="nt">&gt;</span>
-
-  <span class="nt">&lt;ion-header&gt;</span>
-    <span class="nt">&lt;ion-toolbar&gt;</span>
-      <span class="nt">&lt;ion-title&gt;</span>Pages<span class="nt">&lt;/ion-title&gt;</span>
-    <span class="nt">&lt;/ion-toolbar&gt;</span>
-  <span class="nt">&lt;/ion-header&gt;</span>
+<!-- instance methods on the class -->
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
+<div id="get"></div>
+<h3><a class="anchor" name="get" href="#get"></a><code>get()</code>
   
-  <span class="nt">&lt;ion-content&gt;</span>
-    <span class="nt">&lt;ion-list&gt;</span>
-      <span class="nt">&lt;button</span> <span class="na">ion-item</span> <span class="err">*</span><span class="na">ngFor=</span><span class="s">"let p of pages"</span> <span class="err">(</span><span class="na">click</span><span class="err">)="</span><span class="na">openPage</span><span class="err">(</span><span class="na">p</span><span class="err">)"</span><span class="nt">&gt;</span>
-        {{p.title}}
-      <span class="nt">&lt;/button&gt;</span>
-    <span class="nt">&lt;/ion-list&gt;</span>
-  <span class="nt">&lt;/ion-content&gt;</span>
+</h3>
+<p>Get the value assocated with the given key.</p>
 
-<span class="nt">&lt;/ion-menu&gt;</span>
+<div class="return-value">
+<b>Returns:</b> 
+   <p>Promise that resolves with the value</p>
 
-<span class="nt">&lt;ion-nav</span> <span class="na">id=</span><span class="s">"nav"</span> <span class="err">[</span><span class="na">root</span><span class="err">]="</span><span class="na">rootPage</span><span class="err">"</span> <span class="err">#</span><span class="na">content</span> <span class="na">swipeBackEnabled=</span><span class="s">"false"</span><span class="nt">&gt;&lt;/ion-nav&gt;</span>
-</code></pre>
+
 </div>
 
-<p>In this template, we set up an <a href="/docs/v2/components/#menus"><code class="highlighter-rouge">ion-menu</code></a> to function as a side menu, and then an <a href="/docs/v2/api/components/nav/Nav/"><code class="highlighter-rouge">ion-nav</code></a> component to act as the main content area. The <a href="/docs/v2/components/#menus"><code class="highlighter-rouge">ion-menu</code></a>’s <code class="highlighter-rouge">[content]</code> property is bound to the local variable <code class="highlighter-rouge">content</code> from our <a href="/docs/v2/api/components/nav/Nav/"><code class="highlighter-rouge">ion-nav</code></a>, so it knows where it should animate around.</p>
+<div id="set"></div>
+<h3><a class="anchor" name="set" href="#set"></a><code>set(key,&nbsp;value)</code>
+  
+</h3>
+<p>Set the value for the given key.</p>
+<table class="table param-table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        key
+        
+        
+      </td>
+      <td>
+        
+  <code>string</code>
+      </td>
+      <td>
+        <p>the key to identify this value</p>
 
-<p>Next let’s see how to create more pages and perform basic navigation.</p>
+        
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        value
+        
+        
+      </td>
+      <td>
+        
+  <code>any</code>
+      </td>
+      <td>
+        <p>the value for this key</p>
+
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+<div class="return-value">
+<b>Returns:</b> 
+   <p>Promise that resolves when the value is set</p>
+
+
+</div>
+
+<div id="remove"></div>
+<h3><a class="anchor" name="remove" href="#remove"></a><code>remove(key)</code>
+  
+</h3>
+<p>Remove any value associated with this key.</p>
+<table class="table param-table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        key
+        
+        
+      </td>
+      <td>
+        
+  <code>string</code>
+      </td>
+      <td>
+        <p>the key to identify this value</p>
+
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+<div class="return-value">
+<b>Returns:</b> 
+   <p>Promise that resolves when the value is removed</p>
+
+
+</div>
+
+<div id="clear"></div>
+<h3><a class="anchor" name="clear" href="#clear"></a><code>clear()</code>
+  
+</h3>
+<p>Clear the entire key value store. WARNING: HOT!</p>
+
+<div class="return-value">
+<b>Returns:</b> 
+   <p>Promise that resolves when the kv store is cleared</p>
+
+
+</div>
+
+<div id="length"></div>
+<h3><a class="anchor" name="length" href="#length"></a><code>length()</code>
+  
+</h3>
+
+<div class="return-value">
+<b>Returns:</b> 
+   <p>the number of keys stored.</p>
+
+
+</div>
+
+<div id="keys"></div>
+<h3><a class="anchor" name="keys" href="#keys"></a><code>keys()</code>
+  
+</h3>
+
+<div class="return-value">
+<b>Returns:</b> 
+   <p>the keys in the store.</p>
+
+
+</div>
+
+<div id="forEach"></div>
+<h3><a class="anchor" name="forEach" href="#forEach"></a><code>forEach(iteratorCallback)</code>
+  
+</h3>
+<p>Iterate through each key,value pair.</p>
+<table class="table param-table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        iteratorCallback
+        
+        
+      </td>
+      <td>
+        
+  <code>any</code>
+      </td>
+      <td>
+        <p>a callback of the form (value, key, iterationNumber)</p>
+
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+<div id="setDriver"></div>
+<h3><a class="anchor" name="setDriver" href="#setDriver"></a><code>setDriver(engine)</code>
+  
+</h3>
+<p>Set storage engine</p>
+<table class="table param-table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        engine
+        
+        
+      </td>
+      <td>
+        
+  <code>string</code>
+      </td>
+      <td>
+        <p>engine allows you to specify a specific storage engine to use.</p>
+
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+<!-- related link -->
+<!-- end content block -->
+
+<!-- end body block -->
+
 
       </main>
-    </div>
-    
-    <div class="footer-links">
-      <hr>
-      
-        <a class="footer-link prev" href="/docs/v2/getting-started/tutorial/">
-          Learn the basics</a>
-      
-      
-        <a class="footer-link next" href="/docs/v2/getting-started/tutorial/adding-pages">
-          Adding Pages</a>
-      
     </div>
     
     <div id="search-results">
