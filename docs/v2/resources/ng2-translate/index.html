@@ -424,15 +424,14 @@
 </code></pre>
 </div>
 
-<p>By default this will look for your translation json files in <code class="highlighter-rouge">i18n/</code>, if you would like to customize this path you can create a function that returns a new
-TranslateLoader:</p>
+<p>By default this will look for your translation json files in <code class="highlighter-rouge">i18n/</code>, but for Ionic 2 you must change this to look in the <code class="highlighter-rouge">src/assets</code> directory. We can do this by creating a function that returns a new TranslateLoader:</p>
 
 <div class="language-typescript highlighter-rouge"><pre class="highlight"><code><span class="k">export</span> <span class="kd">function</span> <span class="nx">createTranslateLoader</span><span class="p">(</span><span class="nx">http</span><span class="err">:</span> <span class="nx">Http</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="k">new</span> <span class="nx">TranslateStaticLoader</span><span class="p">(</span><span class="nx">http</span><span class="p">,</span> <span class="s1">'./assets/i18n'</span><span class="p">,</span> <span class="s1">'.json'</span><span class="p">);</span>
+    <span class="k">return</span> <span class="k">new</span> <span class="nx">TranslateStaticLoader</span><span class="p">(</span><span class="nx">http</span><span class="p">,</span> <span class="s1">'assets/i18n'</span><span class="p">,</span> <span class="s1">'.json'</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre>
 </div>
-<p>and then add the following to your NgModules imports array:</p>
+<p>and then adding the following to your NgModules imports array:</p>
 
 <div class="language-typescript highlighter-rouge"><pre class="highlight"><code><span class="err">@</span><span class="nx">NgModule</span><span class="p">({</span>
   <span class="na">imports</span><span class="p">:</span> <span class="p">[</span>
@@ -472,7 +471,24 @@ TranslateLoader:</p>
 
 <p>Instead of writing the actual string as the title, we write the key of the string that should be there. The translate pipe then takes care of the rest.</p>
 
-<p>The <code class="highlighter-rouge">TranslateService</code>  can be used both to change the current language the app is using and to translate JavaScript values in an application. To change the language the app is currently using, there’s the <code class="highlighter-rouge">use</code> method of the TranslationService.</p>
+<p>The <code class="highlighter-rouge">TranslateService</code>  can be used both to change the current language the app is using and to translate JavaScript values in an application. To use the <code class="highlighter-rouge">TranslateService</code> in your app you must first import it and set the default language.</p>
+
+<div class="language-typescript highlighter-rouge"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span><span class="nx">TranslateService</span><span class="p">}</span> <span class="k">from</span> <span class="s1">'ng2-translate'</span><span class="p">;</span>
+
+<span class="err">@</span><span class="nx">Component</span><span class="p">({</span>
+    <span class="na">selector</span><span class="p">:</span> <span class="s1">'page-schedule'</span><span class="p">,</span>
+    <span class="na">templateUrl</span><span class="p">:</span> <span class="s1">'schedule.html'</span>
+<span class="p">})</span>
+<span class="k">export</span> <span class="kr">class</span> <span class="nx">SchedulePage</span> <span class="p">{</span>
+    <span class="kd">constructor</span><span class="p">(</span><span class="nx">translate</span><span class="err">:</span> <span class="nx">TranslateService</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// this language will be used as a fallback when a translation isn't found in the current language</span>
+        <span class="nx">translate</span><span class="p">.</span><span class="nx">setDefaultLang</span><span class="p">(</span><span class="s1">'en'</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<p>To change the language the app is currently using, there’s the <code class="highlighter-rouge">use</code> method of the TranslationService.</p>
 
 <div class="language-typescript highlighter-rouge"><pre class="highlight"><code><span class="nx">translateService</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="s1">'en'</span><span class="p">)</span>
 </code></pre>
