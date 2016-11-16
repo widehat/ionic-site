@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Ionic makes it incredibly easy to build beautiful and interactive mobile apps using HTML5 and AngularJS.">
@@ -8,22 +9,24 @@
 <meta name="author" content="Drifty">
 <meta property="og:image" content="http://ionicframework.com/img/ionic-logo-blog.png"/>
 
-<link href="/css/v2.css?v=e2697d7e58278787662d689c0b2115bf" rel="stylesheet">
+<link href="/css/styles.css?v=b9cfeeac55f9ea51157237ea4d51d5eb" rel="stylesheet">
 
 
 
-    
-      <title>ActionSheetCmp - Ionic API Documentation -  Ionic Framework</title>
-    
+  <title>ActionSheetCmp - Ionic API Documentation -  Ionic Framework</title>
+
+
   </head>
-  <body id="docs-page-actionsheetcmp"
-        class="v2 docs page-actionsheetcmp"
+  <body id="page-actionsheetcmp"
+        class="page-actionsheetcmp"
         data-spy="scroll"
         data-offset="100"
-        data-target="#components-index"
-        ng-app="IonicDocs">
-    <nav class="navbar navbar-default">
-  <div class="container-fluid">
+        
+        ng-app="IonicSite">
+
+    
+      <nav class="navbar navbar-default">
+  <div class="container">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
       <button type="button"
@@ -33,85 +36,71 @@
         <span class="sr-only">Toggle navigation</span>
         <i class="ion-md-more"></i>
       </button>
-      <button type="button"
-              class="sidebar-toggle collapsed"
-              id="sidebar-toggle">
-        <span class="sr-only">Toggle sidebar</span>
-        <i class="ion-md-menu"></i>
-        <i class="ion-md-close"></i>
-      </button>
-      <a class="navbar-brand" href="/docs/v2">
-        <img src="/img/ionic-docs-logo-sm.png" id="ionic-docs-logo" />
+      <a class="navbar-brand" href="/">
+        <div id="ionic-io-logo"></div>
       </a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="navbar-collapse">
-      
-      <form class="navbar-form navbar-left"
-            role="search"
-            data-searchpos="header">
-        <div class="form-group">
-          <input type="text"
-                 class="form-control search-input"
-                 placeholder="Search"
-                 data-searchpos="header"
-                 ng-model="searchTerm">
-        </div>
-      </form>
-      
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="/docs/v2/getting-started/installation/">Getting Started</a></li>
-        <li class="active"><a href="/docs/v2/">Docs</a></li>
-        <li><a href="http://blog.ionic.io/?utm_source=framework&utm_medium=navbar&utm_campaign=blog%20CTA">Blog</a></li>
-        <li class="hide-sm"><a href="https://forum.ionicframework.com/?utm_source=framework&utm_medium=navbar&utm_campaign=forum%20CTA">Forum</a></li>
-        <li><a target="_blank" href="http://ionic.io/enterprise?utm_source=framework&utm_medium=navbar&utm_campaign=enterprise%20CTA">Enterprise</a></li>
-        <li class="dropdown">
-          <a href="#"
-             class="dropdown-toggle"
-             data-toggle="dropdown"
-             role="button"
-             aria-haspopup="true"
-             aria-expanded="false">
-            More <span class="caret"></span>
-          </a>
-          <ul class="dropdown-menu">
-            <li><a target="_blank" href="http://ionic.io/?utm_source=framework&utm_medium=navbar&utm_campaign=platform%20CTA">
-              Ionic Cloud</a></li>
-            <li><a target="_blank" href="http://showcase.ionicframework.com/">
-              Showcase</a></li>
-            <li><a target="_blank" href="http://jobs.ionic.io/">
-              Job Board</a></li>
-            <li><a target="_blank" href="http://market.ionic.io/">
-              Market</a></li>
-            <li><a target="_blank" href="http://ionicworldwide.herokuapp.com/">
-              Ionic Worldwide</a></li>
-            <li><a target="_blank" href="http://play.ionic.io/">
-              Playground</a></li>
-            <li><a target="_blank" href="http://creator.ionic.io/">
-              Creator</a></li>
-            <li><a target="_blank" href="http://shop.ionic.io/">Shop</a></li>
-            <li><a target="_blank" href="https://ionic.io/trusted-partners">
-              Trusted Partners</a></li>
-          </ul>
-        </li>
+        <li><a
+  href="/getting-started/">Getting Started</a></li>
+<li><a href="/docs/v2/">
+  Documentation</a></li>
+<li class="hide-sm"><a href="https://forum.ionicframework.com/?utm_source=framework&utm_medium=navbar&utm_campaign=forum%20CTA">Forum</a></li>
+<li><a target="_blank" href="http://showcase.ionicframework.com/">Showcase</a>
+  </li>
+
+<li class="dropdown">
+  <a href="#"
+     class="dropdown-toggle"
+     data-toggle="dropdown"
+     role="button"
+     aria-haspopup="true"
+     aria-expanded="false">
+    Ecosystem <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu">
+    <li><a target="_blank" href="http://ionic.io/?utm_source=framework&utm_medium=navbar&utm_campaign=platform%20CTA">
+      Ionic Cloud</a></li>
+    <li><a href="http://blog.ionic.io/?utm_source=framework&utm_medium=navbar&utm_campaign=blog%20CTA">Blog</a></li>
+    <li><a target="_blank" href="http://ionic.io/enterprise?utm_source=framework&utm_medium=navbar&utm_campaign=enterprise%20CTA">Enterprise</a></li>
+    <li><a target="_blank" href="http://jobs.ionic.io/">
+      Job Board</a></li>
+    <li><a target="_blank" href="http://market.ionic.io/">
+      Market</a></li>
+    <li><a target="_blank" href="http://ionicworldwide.herokuapp.com/">
+      Ionic Worldwide</a></li>
+    <li><a target="_blank" href="http://play.ionic.io/">
+      Playground</a></li>
+    <li><a target="_blank" href="http://creator.ionic.io/">
+      Creator</a></li>
+    <li><a target="_blank" href="http://shop.ionic.io/">Shop</a></li>
+    <li><a target="_blank" href="https://ionic.io/trusted-partners">
+      Trusted Partners</a></li>
+  </ul>
+</li>
+
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
 
+    
+
     <div class="docs-container"
-         >
-      <nav class="side-nav" id="side-nav">
-        <form class="form-group search" role="search">
-          <input type="text"
-                 class="form-control search-input"
-                 placeholder="Search"
-                 data-searchpos="sidebar"
-                 ng-model="searchTerm">
-        </form>
-        
-          <form class="form-group api-select">
+     >
+  <nav class="side-nav" id="side-nav">
+    <form class="form-group search" role="search">
+      <input type="text"
+             class="form-control search-input"
+             placeholder="Search"
+             data-searchpos="sidebar"
+             ng-model="searchTerm">
+    </form>
+    
+      <form class="form-group api-select">
   <select name="version"
         id="version-toggle"
         onchange="window.location.href=this.options[this.selectedIndex].value">
@@ -385,11 +374,11 @@
 
 </ul>
 
-        
-      </nav>
-      
-      <main>
-        <h1 class="api-title">
+    
+  </nav>
+  
+  <main>
+    <h1 class="api-title">
 <a class="anchor" name="action-sheet-cmp" href="#action-sheet-cmp"></a>
 
 ActionSheetCmp
@@ -1131,9 +1120,86 @@ Improve this doc
 <!-- end body block -->
 
 
-      </main>
-    </div>
+  </main>
+</div>
+
+
     
+
+    
+      <footer>
+  <nav class="container">
+    <div class="logo"></div>
+    <ul>
+      <li><strong>Developers</strong></li>
+      <li><a href="/getting-started/">Getting Started</a></li>
+      <li><a href="/docs/v2">Documentation</a></li>
+      <li><a href="/docs/v2/components/">UI Components</a></li>
+      <li><a href="/docs/v2/api/">API Reference</a></li>
+      <li><a href="/docs/v2/native/">Ionic Native</a></li>
+    </ul>
+    <ul>
+      <li><strong>Resources</strong></li>
+      <li><a href="/docs/v2/theming/">Theming</a></li>
+      <li><a href="/docs/v2/ionicons/">Ionicons</a></li>
+      <li><a href="http://showcase.ionicframework.com/">Showcase</a></li>
+      <li><a href="https://jobs.ionic.io">Job Board</a></li>
+      <li><a href="https://market.ionic.io">Ionic Market</a></li>
+    </ul>
+    <ul>
+      <li><strong>Contribute</strong></li>
+      <li><a href="https://forum.ionicframework.com">Community Forum</a></li>
+      <li><a href="http://ionicworldwide.herokuapp.com">Worldwide Slack</a></li>
+      <li><a href="/contribute/">Contribute</a></li>
+      <li><a href="/submit-issue/">Submit Issue</a></li>
+      <li><a href="https://shop.ionic.io">Ionic Shop</a></li>
+    </ul>
+    <ul>
+      <li><strong>Connect</strong></li>
+      <li><a href="https://twitter.com/IonicFramework">Twitter</a></li>
+      <li><a href="https://github.com/driftyco/ionic">GitHub</a></li>
+      <li><a href="https://www.facebook.com/ionicframework">Facebook</a></li>
+      <li><a href="https://plus.google.com/+Ionicframework">Google+</a></li>
+      <li><a href="https://www.youtube.com/c/Ionicframework">YouTube</a></li>
+    </ul>
+    <ul>
+      <li><strong>Products</strong></li>
+      <li><a href="/">Ionic Framework</a></li>
+      <li><a href="https://ionic.io">Ionic Cloud</a></li>
+      <li><a href="https://ionic.io/products/creator">Ionic Creator</a></li>
+      <li><a href="http://view.ionic.io">Ionic View app</a></li>
+      <li><a href="http://ionic.io/enterprise">Enterprise</a></li>
+    </ul>
+  </nav>
+  <div class="signup container">
+    <form action="http://codiqa.createsend.com/t/t/s/jytylh/" method="post">
+      <input type="text" class="form-control" placeholder="Email address">
+      <button class="btn">Subscribe</button>
+    </form>
+    <hgroup>
+      <h3>Stay in the loop!</h3>
+      <p>
+        Sign up to receive emails for the latest Framework updates, features,
+        and news.
+      </p>
+    </hgroup>
+  </div>
+  <div class="copyright">
+    <div class="container">
+      <span class="left">&copy;2013 - 2016 Ionic</span>
+      <span class="right">
+        Ionic Framework is licensed under <a target="_blank"
+        href="https://github.com/driftyco/ionic/blob/master/LICENSE">MIT</a>.
+        Docs under <a target="_blank"
+        href="https://github.com/driftyco/ionic-site/blob/master/LICENSE">Apache
+        2</a>
+      </span>
+    </div>
+  </div>
+</footer>
+
+    
+
     <div id="search-results">
       <div id="results-api">
         <h3>API</h3>
@@ -1148,7 +1214,7 @@ Improve this doc
         <ul></ul>
       </div>
     </div>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular-animate.min.js"></script>
