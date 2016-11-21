@@ -435,16 +435,17 @@ Keyboard
 Improve this doc
 </a></p>
 
-<p>The <code>Keyboard</code> class allows you to work with the keyboard events provided by the Ionic keyboard plugin.</p>
+<p>The <code>Keyboard</code> class allows you to work with the keyboard events provided
+by the Ionic keyboard plugin.</p>
 
 <!-- @usage tag -->
 
 <h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 
-<pre><code class="lang-ts">export class MyClass{
- constructor(keyboard: Keyboard){
-   this.keyboard = keyboard;
- }
+<pre><code class="lang-ts">export class MyClass {
+  constructor(public keyboard: Keyboard) {
+
+  }
 }
 </code></pre>
 
@@ -465,22 +466,22 @@ Improve this doc
 
 <p>Check to see if the keyboard is open or not.</p>
 
-<div class="language-ts highlighter-rouge"><pre class="highlight"><code><span class="k">export</span> <span class="kr">class</span> <span class="nx">MyClass</span><span class="p">{</span>
- <span class="kd">constructor</span><span class="p">(</span><span class="nx">keyboard</span><span class="err">:</span> <span class="nx">Keyboard</span><span class="p">){</span>
-   <span class="k">this</span><span class="p">.</span><span class="nx">keyboard</span> <span class="o">=</span> <span class="nx">keyboard</span><span class="p">;</span>
- <span class="p">}</span>
- <span class="nx">keyboardCheck</span><span class="p">(){</span>
-   <span class="nx">setTimeout</span><span class="p">(()</span>  <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'is the keyboard open '</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">keyboard</span><span class="p">.</span><span class="nx">isOpen</span><span class="p">()));</span>
- <span class="p">}</span>
-<span class="p">}</span>
+<div class="language-ts highlighter-rouge"><pre class="highlight"><code><span class="k">export</span> <span class="kr">class</span> <span class="nx">MyClass</span> <span class="p">{</span>
+  <span class="kd">constructor</span><span class="p">(</span><span class="k">public</span> <span class="nx">keyboard</span><span class="err">:</span> <span class="nx">Keyboard</span><span class="p">)</span> <span class="p">{</span>
 
+  <span class="p">}</span>
+
+  <span class="nx">keyboardCheck</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'The keyboard is open:'</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">keyboard</span><span class="p">.</span><span class="nx">isOpen</span><span class="p">());</span>
+  <span class="p">}</span>
+<span class="p">}</span>
 </code></pre>
 </div>
 
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
-  <code>boolean</code> <p>returns a true or flase value if the keyboard is open or not</p>
+  <code>boolean</code> <p>returns a true or false value if the keyboard is open or not.</p>
 
 
 </div>
@@ -494,19 +495,17 @@ Improve this doc
 
 </h3>
 
-<p>When the keyboard is closed, call any methods you want</p>
+<p>When the keyboard is closed, call any methods you want.</p>
 
-<div class="language-ts highlighter-rouge"><pre class="highlight"><code><span class="k">export</span> <span class="kr">class</span> <span class="nx">MyClass</span><span class="p">{</span>
- <span class="kd">constructor</span><span class="p">(</span><span class="nx">keyboard</span><span class="err">:</span> <span class="nx">Keyboard</span><span class="p">){</span>
-   <span class="k">this</span><span class="p">.</span><span class="nx">keyboard</span> <span class="o">=</span> <span class="nx">keyboard</span><span class="p">;</span>
-   <span class="k">this</span><span class="p">.</span><span class="nx">keyboard</span><span class="p">.</span><span class="nx">onClose</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">closeCallback</span><span class="p">);</span>
- <span class="p">}</span>
- <span class="nx">closeCallback</span><span class="p">(){</span>
+<div class="language-ts highlighter-rouge"><pre class="highlight"><code><span class="k">export</span> <span class="kr">class</span> <span class="nx">MyClass</span> <span class="p">{</span>
+  <span class="kd">constructor</span><span class="p">(</span><span class="k">public</span> <span class="nx">keyboard</span><span class="err">:</span> <span class="nx">Keyboard</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">keyboard</span><span class="p">.</span><span class="nx">onClose</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">closeCallback</span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="nx">closeCallback</span><span class="p">()</span> <span class="p">{</span>
     <span class="c1">// call what ever functionality you want on keyboard close</span>
     <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'Closing time'</span><span class="p">);</span>
- <span class="p">}</span>
+  <span class="p">}</span>
 <span class="p">}</span>
-
 </code></pre>
 </div>
 
@@ -531,7 +530,7 @@ Improve this doc
   <code>function</code>
       </td>
       <td>
-        <p>method you want to call when the keyboard has been closed</p>
+        <p>method you want to call when the keyboard has been closed.</p>
 
         
       </td>
@@ -543,7 +542,7 @@ Improve this doc
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
-  <code>function</code> <p>returns a callback that gets fired when the keyboard is closed</p>
+  <code>function</code> <p>returns a callback that gets fired when the keyboard is closed.</p>
 
 
 </div>
@@ -557,7 +556,7 @@ Improve this doc
 
 </h3>
 
-<p>Programmatically close the keyboard</p>
+<p>Programmatically close the keyboard.</p>
 
 <!-- related link -->
 <!-- end content block -->
