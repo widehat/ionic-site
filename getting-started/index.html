@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Ionic makes it incredibly easy to build beautiful and interactive mobile apps using HTML5 and AngularJS.">
@@ -8,444 +9,354 @@
 <meta name="author" content="Drifty">
 <meta property="og:image" content="http://ionicframework.com/img/ionic-logo-blog.png"/>
 
-    <title>Getting Started with Ionic - Ionic Framework</title>
-    <link href="/css/site.css?v=83327a39b62ec8d2b3731f20ca601d7a" rel="stylesheet">
-<!--<script src="//cdn.optimizely.com/js/595530035.js"></script>-->
-<script type="text/javascript">var _sf_startpt=(new Date()).getTime()</script>
-
-<script>
-(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-44023830-1', 'ionicframework.com');
-
-  ga('create', 'UA-77242104-1', 'auto');
-
-  // Universal ID
-  ga('create', 'UA-44023830-23', 'auto', {'allowLinker': true}, 'universalID');
-  ga('require', 'linker');
-  ga('linker:autoLink', ['ionic.io','blog.ionic.io','apps.ionic.io',
-     'creator.ionic.io','ideas.ionic.io','showcase.ionic.io','market.ionic.io']);
-  ga('send', 'pageview');
-</script>
+<link href="/css/styles.min.css?v=6" rel="stylesheet">
 
 
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+  <title>Getting Started with Ionic</title>
+
 
   </head>
+  <body id="page-getting-started"
+        class="page-getting-started
+               transparent"
+        data-spy="scroll"
+        data-offset="100"
+        
+        ng-app="IonicSite">
 
-  <body class="getting-started-page">
-
-    <nav class="navbar navbar-default horizontal-gradient" role="navigation">
+    
+      <nav class="navbar navbar-default transparent">
   <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle button ionic" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-        <i class="icon ion-navicon"></i>
+      <button type="button"
+              class="navbar-toggle collapsed"
+              id="collapse-toggle"
+              aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <i class="ion-md-more"></i>
       </button>
       <a class="navbar-brand" href="/">
-        
-          <img src="/img/ionic-logo-white.svg" width="123" height="43" alt="Ionic Framework">
-        
-      </a>
-      <a href="http://blog.ionic.io/announcing-ionic-1-3/" target="_blank" class="paper-tag">
-      <img src="/img/1-3-note.png" alt="Ionic 1.3 is out!" width="28" height="32" >
-      </a>
-      <a href="/docs/v2" class="beta-tag">
-      <img src="/img/beta-tag.png" alt="2 beta is out!" width="31" height="31">
+        <div id="ionic-io-logo"></div>
       </a>
     </div>
 
-    <div class="collapse navbar-collapse navbar-ex1-collapse">
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="navbar-collapse">
       <ul class="nav navbar-nav navbar-right">
-        <li><a class="getting-started-nav nav-link" href="/getting-started/">Getting Started</a></li>
-        <li><a class="docs-nav nav-link" href="/docs/">Docs</a></li>
-        <li class="hide-sm"><a class="nav-link" href="https://forum.ionicframework.com/?utm_source=framework&utm_medium=navbar&utm_campaign=forum%20CTA">Forum</a></li>
-        <li><a class="blog-nav nav-link" href="http://blog.ionic.io/?utm_source=framework&utm_medium=navbar&utm_campaign=blog%20CTA">Blog <span id="blog-badge">1</span></a></li>
-        <li><a class="products-nav nav-link" href="http://ionic.io/?utm_source=framework&utm_medium=navbar&utm_campaign=platform%20CTA">Cloud</a></li>
-        <li><a class="examples-nav nav-link" href="http://ionic.io/enterprise?utm_source=framework&utm_medium=navbar&utm_campaign=enterprise%20CTA">Enterprise</a></li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle nav-link " data-toggle="dropdown" role="button" aria-expanded="false">More <span class="caret"></span></a>
-          <ul class="dropdown-menu" role="menu">
-            <div class="arrow-up"></div>
-            <li><a class="examples-nav nav-link" href="http://showcase.ionicframework.com/">Showcase</a></li>
-            <li><a class="nav-link" href="http://jobs.ionic.io/">Job Board</a></li>
-            <li><a class="nav-link" href="http://market.ionic.io/">Market</a></li>
-            <li><a class="nav-link" href="http://ionicworldwide.herokuapp.com/">Ionic Worldwide</a></li>
-            <li><a class="nav-link" href="http://play.ionic.io/">Playground</a></li>
-            <li><a class="nav-link" href="http://creator.ionic.io/">Creator</a></li>
-            <li><a class="nav-link" href="http://shop.ionic.io/">Shop</a></li>
-            <li><a class="nav-link" href="https://ionic.io/trusted-partners">
-              Trusted Partners</a></li>
-            <!--<li><a class="nav-link" href="http://ngcordova.com/">ngCordova</a></li>-->
-          </ul>
-        </li>
+        <li class="active"><a
+  href="/getting-started/">Getting Started</a></li>
+<li><a href="/docs/v2/">
+  Documentation</a></li>
+<li class="hide-sm"><a href="https://forum.ionicframework.com/?utm_source=framework&utm_medium=navbar&utm_campaign=forum%20CTA">Forum</a></li>
+<li><a target="_blank" href="http://showcase.ionicframework.com/">Showcase</a>
+  </li>
+
+<li class="dropdown">
+  <a href="#"
+     class="dropdown-toggle"
+     data-toggle="dropdown"
+     role="button"
+     aria-haspopup="true"
+     aria-expanded="false">
+    Ecosystem <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu">
+    <li><a target="_blank" href="http://ionic.io/?utm_source=framework&utm_medium=navbar&utm_campaign=platform%20CTA">
+      Ionic Cloud</a></li>
+    <li><a href="http://blog.ionic.io/?utm_source=framework&utm_medium=navbar&utm_campaign=blog%20CTA">Blog</a></li>
+    <li><a target="_blank" href="http://ionic.io/enterprise?utm_source=framework&utm_medium=navbar&utm_campaign=enterprise%20CTA">Enterprise</a></li>
+    <li><a target="_blank" href="http://jobs.ionic.io/">
+      Job Board</a></li>
+    <li><a target="_blank" href="http://market.ionic.io/">
+      Market</a></li>
+    <li><a target="_blank" href="http://ionicworldwide.herokuapp.com/">
+      Ionic Worldwide</a></li>
+    <li><a target="_blank" href="http://play.ionic.io/">
+      Playground</a></li>
+    <li><a target="_blank" href="http://creator.ionic.io/">
+      Creator</a></li>
+    <li><a target="_blank" href="http://shop.ionic.io/">Shop</a></li>
+    <li><a target="_blank" href="https://ionic.io/trusted-partners">
+      Trusted Partners</a></li>
+  </ul>
+</li>
+
       </ul>
-    </div>
-  </div>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
 </nav>
 
+    
 
-    <div class="header horizontal-gradient">
-  <div class="container">
-    <h3>Start building with Ionic!</h3>
-    <h4>Follow these quick 3 steps to build mobile apps faster with the web technologies you know and love.</h4>
-  </div>
-  <div class="news">
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-8 news-col">
-          Questions? Head over to our <a href="http://forum.ionicframework.com/">Community Forum</a>  to <a href="">Worldwide Slack Channel</a> to chat with other developers building Ionic apps.
-        </div>
-        <div class="col-sm-4 search-col">
-          <div class="search-bar">
-  <span class="search-icon ionic"><i class="ion-ios7-search-strong"></i></span>
-  <input type="search" id="search-input" value="Search">
-</div>
-
-        </div>
-      </div>
-    </div>
+    
+      <div class="cta gradient">
+  <hgroup class="container center">
+    <h1>Get started with Ionic Framework</h1>
+    <h4>
+      Start building high-quality mobile apps with the tech you know and love.
+    </h4>
+  </hgroup>
+  <div class="alert">
+    Welcome to the Ionic v2 Getting Started guide! Looking for our v1 Getting
+    Started guide? Head <a href="/docs/v1/getting-started">over here</a>.
   </div>
 </div>
 
-<div id="search-results" class="search-results" style="display:none">
-  <div class="container">
-    <div class="search-section search-api">
-      <h4>JavaScript</h4>
-      <ul id="results-api"></ul>
-    </div>
-    <div class="search-section search-css">
-      <h4>CSS</h4>
-      <ul id="results-css"></ul>
-    </div>
-    <div class="search-section search-content">
-      <h4>Resources</h4>
-      <ul id="results-content"></ul>
-    </div>
-  </div>
-</div>
-
-
-
-    <div class="container content-container">
-
-      <!--<iframe style="display: block; margin: 10px auto 80px auto;" src="//player.vimeo.com/video/86064716" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>-->
-<p class="alert">
-  Welcome to the Ionic v1 getting started guide! Looking for our v2 getting
-  started guide? Head <a href="/docs/v2/getting-started">over here</a>.
-</p>
-
-<div id="getting-started">
-  <div class="text-center">
-    <h2>Start building with Ionic!</h2>
-    <p class="sub-heading">
-      These three simple steps will have you building high-quality mobile apps
-      in minutes. For a more in-depth overview, watch our <a target="_blank" href="https://www.youtube.com/watch?v=C-UwOWB9Io4&feature=youtu.be">Crash
-      Course video</a>, or take our free online Ionic and Angular course, <a target="_blank" href=http://appcamp.io/>Appcamp</a>.
-    </p>
-  </div>
-  <div class="row" id="first-step">
-    <div class="col-md-6 step-desc">
-      <div class="num">
-        <img src="/img/docs/symbols/step-1@2x.png" width="52" height="52">
-      </div>
-      <div class="desc">
+<main>
+  <section class="code container">
+    <ul class="steps">
+      <li>
         <h3>Install Ionic</h3>
-        <p>
-        First, install <a href="http://nodejs.org/">Node.js 6.x LTS</a>. Then, install the latest Cordova and Ionic command-line tools in your terminal (read our <a href="http://blog.ionic.io/new-to-the-command-line/">Terminal tutorial</a> if you're new to the command line!). Follow the <a href="http://cordova.apache.org/docs/en/latest/guide/platforms/android/index.html">Android</a> and <a href="http://cordova.apache.org/docs/en/5.1.1/guide/platforms/ios/index.html">iOS</a> platform guides to install required tools for iOS and Android development.
-        </p>
-      </div>
-    </div>
-    <div class="col-md-6 code">
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">npm install -g cordova ionic</code></pre></figure>
-      <div id="vs-start-box">
-        <img src="/img/vs.png" style="width: 54px">
-        <div class="info">
-          <b>Windows users:</b> We strongly recommend <a href="https://www.visualstudio.com/cordova-vs?wt.mc_id=o~display~ionic~dn948185">Visual Studio Community</a> for development which comes with everything you need (including <a href="https://taco.visualstudio.com/en-us/docs/tutorial-ionic/">templates</a>!)
+        <div class="left">
+          <figure class="highlight"><pre><code class="language-bash" data-lang="bash">npm install -g cordova ionic</code></pre></figure>
+          <div class="vs">
+            <img src="/img/vs.png" style="width: 30px">
+            <p>
+              <strong>Windows Developers:</strong> We recommend <a
+              href="https://www.visualstudio.com/cordova-vs?wt.mc_id=o~display~ionic~dn948185">
+              Visual Studio Community</a>, which comes with everything you need,
+              including<a
+              href="https://taco.visualstudio.com/en-us/docs/tutorial-ionic/">
+              starter templates</a>!
+            </p>
+          </div>
         </div>
-      </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-6 step-desc">
-      <div class="num">
-        <img src="/img/docs/symbols/step-2@2x.png" width="52" height="52">
-      </div>
-      <div class="desc">
+        <div class="right">
+          <p>
+            First, install <a href="http://nodejs.org/">Node.js</a>. Then,
+            install the latest Cordova and Ionic command-line tools in your
+            terminal. Follow the <a
+            href="https://cordova.apache.org/docs/en/latest/guide/platforms/android">
+            Android</a> and <a
+            href="https://cordova.apache.org/docs/en/latest/guide/platforms/ios">
+            iOS</a> platform guides to install required tools for development.
+          </p>
+          <div class="info-container">
+            <a class="info" href="http://blog.ionic.io/new-to-the-command-line/">
+              If you’re new to the command line, read our Terminal tutorial
+              <i class="ion-ios-arrow-forward"></i>
+            </a>
+          </div>
+        </div>
+      </li>
+      <li>
         <h3>Start a project</h3>
-        <p>
-          Create an Ionic project using one of our ready-made app templates, or a blank one to start
-          fresh.
-        </p>
-        <i>
-          Ionic 2 is coming soon! Try the <a
-          href="/docs/v2/getting-started/installation/">Release Candidate</a> today, the
-          next generation of Ionic
-        </i>
-      </div>
-    </div>
-    <div class="col-md-6 code">
-  <figure class="highlight"><pre><code class="language-bash" data-lang="bash">ionic start myApp tabs</code></pre></figure>
-    </div>
-  </div>
-  <div class="row" id="template-images">
-    <div class="template">
-      <div class="template-image" id="start-template-blank-image"></div>
-      <code>ionic start myApp blank</code>
-    </div>
-    <div class="template">
-      <div class="template-image" id="start-template-tabs-image"></div>
-      <code>ionic start myApp tabs</code>
-    </div>
-    <div class="template">
-      <div class="template-image" id="start-template-sidemenu-image"></div>
-      <code>ionic start myApp sidemenu</code>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-6 step-desc">
-      <div class="num">
-        <img src="/img/docs/symbols/step-3@2x.png" width="52" height="52">
-      </div>
-      <div class="desc">
+        <div class="left">
+          <figure class="highlight"><pre><code class="language-bash" data-lang="bash">ionic start --v2 myApp tabs</code></pre></figure>
+        </div>
+        <div class="right">
+          <p>
+            Create an Ionic project using one of our ready-made app templates,
+            or a blank one to start fresh. Check out the <a  target="_blank"
+            href="https://market.ionic.io/starters/">Market</a> for more
+            designs.
+          </p>
+        </div>
+        <ul class="templates">
+          <li class="blank">
+            <code>$ ionic start myApp blank</code>
+          </li>
+          <li class="tabs">
+            <code>$ ionic start myApp tabs</code>
+          </li>
+          <li class="sidemenu">
+            <code>$ ionic start myApp sidemenu</code>
+          </li>
+        </ul>
+      </li>
+      <li>
         <h3>Run it</h3>
-        <p>
-          Use the Ionic tool to build, test, and run your apps (or use Cordova
-          directly). Make sure to substitute iOS with Android to build for Android.
-        </p>
-        <p>
-          Then, try <a href="http://view.ionic.io/">Ionic View</a> to share your
-          apps with testers and clients or to easily test on new devices.
-        </p>
-      </div>
-    </div>
-    <div class="col-md-6 code">
+        <div class="left">
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">cd </span>myApp
 ionic platform add ios
 ionic build ios
 ionic emulate ios</code></pre></figure>
-    </div>
-  </div>
-</div>
-</div><!-- bump beyond template base to get full width bar -->
-<div id="getting-started-cont">
-<section class="container what-next">
-  <hgroup>
-    <h2>Yep, it's that easy. So what's next?</h2>
-    <p>
-      Head on over to the <a href="/docs/">Docs</a> and join the <a
-      href="https://forum.ionicframework.com">Forum</a> to connect with other
-      Ionic devs.
-      <br>Then, check out some of our helpful tools and services to help you
-      build better apps!
-    </p>
-  </hgroup>
-  <div class="items">
-    <div class="item creator">
-      <h3>Ionic Creator</h3>
+        </div>
+        <div class="right">
+          <p>
+            Create an Ionic project using one of our ready-made app templates,
+            or a blank one to start fresh.
+          </p>
+          <div class="info-container">
+            <a class="info" href="http://view.ionic.io/">
+              Try <strong>Ionic View app</strong> to preview, test, and share
+              your app, live on the device <i class="ion-ios-arrow-forward"></i>
+            </a>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </section>
+  <section class="what-next">
+    <hgroup class="container">
+      <h2>That’s it. You’re done.</h2>
       <p>
-        Jumpstart your all Ionic apps with our rapid drag-and-drop visual
-        prototyping tool. Export clean, ready-to-use ionic code!
+        Head over to the <a href="/docs/v2">Docs</a> for more information, or
+        explore some of the Ionic Framework’s other features below.
       </p>
-      <a href="http://ionic.io/products/creator?utm_source=framework&utm_medium=whatsNext&utm_campaign=Creator%20CTA" class="more">Learn more</a>
+    </hgroup>
+    <div class="items container">
+      <a class="native" href="/docs/v2/native/">
+        <h3>Ionic Native</h3>
+        <p>
+          A curated set of ES5/ES6/TypeScript wrappers for plugins to easily add
+          any native functionality to your Ionic apps.
+        </p>
+      </a>
+      <a class="components">
+        <h3>Components</h3>
+        <p>
+          Tabs, buttons, inputs, lists, cards, and more! A comprehensive library
+          of mobile UI components, ready to go.
+        </p>
+      </a>
+      <a class="theming">
+        <h3>Theming</h3>
+        <p>
+          Learn how to easily customize and modify your app’s design to fit your
+          brand across all mobile platform styles.
+        </p>
+      </a>
     </div>
-    <div class="item platform">
-      <h3>Ionic Cloud</h3>
+    <div class="subscribe container">
+      <h4>
+        Subscribe to our Email Newsletter for the latest updates, news, and
+        tips!
+      </h4>
+      <form action="http://codiqa.createsend.com/t/t/s/jytylh/" method="post">
+        <input type="text" class="form-control" placeholder="Email address">
+        <button class="btn">
+          <i class="ion-md-checkmark-circle-outline"></i> Subscribe
+        </button>
+      </form>
+  </section>
+</main>
+
+    
+
+
+
+    
+
+    
+      <section id="pre-footer" class="continue">
+  <ul class="container">
+    
+      <li class="forum">
+        <a href="https://forum.ionicframework.com">Community Forum</a>
+        <p>
+          Stop by and say hello. The Forum is the best place to connect, ask a
+          question, or help out other Ionic developers!
+        </p>
+      </li>
+    
+    <li class="explor-docs">
+      <a href="/docs/v2/">Explore the docs</a>
       <p>
-        Scale your app with features like native app building, user
-        authentication, push notifications, and real-time deploy services.
+        Take a look and get coding! Our documentation covers all you need to
+        know to get an app up and running in minutes.
       </p>
-      <a href="http://ionic.io/?utm_source=framework&utm_medium=whatsNext&utm_campaign=Platform%20CTA" class="more">Learn more</a>
-    </div>
-    <div class="item enterprise">
-      <h3>Enterprise Framework</h3>
-      <p>
-        Looking for expert support from the Ionic Framework team on your next
-        enterprise app? Get in touch.
-      </p>
-      <a href="http://ionic.io/enterprise?utm_source=framework&utm_medium=whatsNext&utm_campaign=Enterprise%20CTA" class="more">Learn more</a>
-    </div>
-  </div>
+    </li>
+  </ul>
 </section>
 
-      
-    </div>
+    
 
     
-    <div class="pre-footer">
-
-      <div class="row ionic">
-
-        <div class="col-sm-6 col-a">
-          <h4>
-            <a href="/getting-started/">Getting started <span class="icon ion-arrow-right-c"></span></a>
-          </h4>
-          <p>
-            Learn more about how Ionic was built, why you should use it, and what's included. We'll cover
-            the basics and help you get started from the ground up.
-          </p>
-        </div>
-
-        <div class="col-sm-6 col-b">
-          <h4>
-            <a href="/docs/">Documentation <span class="icon ion-arrow-right-c"></span></a>
-          </h4>
-          <p>
-            What are you waiting for? Take a look and get coding! Our documentation covers all you need to know
-            to get an app up and running in minutes.
-          </p>
-        </div>
-
-      </div>
-
-    </div>
-    
-  
-    <footer class="footer">
-
-  <nav class="base-links">
-
-    <dl>
-      <dt>Docs</dt>
-      <dd><a href="http://ionicframework.com/docs/">Documentation</a></dd>
-      <dd><a href="http://ionicframework.com/getting-started/">Getting Started</a></dd>
-      <dd><a href="http://ionicframework.com/docs/overview/">Overview</a></dd>
-      <dd><a href="http://ionicframework.com/docs/components/">CSS Components</a></dd>
-      <dd><a href="http://ionicframework.com/docs/api/">JavaScript</a></dd>
-      <dd><a href="http://ionicframework.com/submit-issue/">Submit Issue</a></dd>
-    </dl>
-
-    <dl>
-      <dt>Resources</dt>
-      <dd><a href="http://github.com/driftyco/ionic-native/">Ionic Native</a></dd>
-      <dd><a href="http://ionicons.com/">Ionicons</a></dd>
-      <dd><a href="http://view.ionic.io">View</a></dd>
-      <dd><a href="http://creator.ionic.io/">Creator</a></dd>
-      <dd><a href="http://showcase.ionicframework.com/">Showcase</a></dd>
-      <dd><a href="http://manning.com/wilken/?a_aid=ionicinactionben&a_bid=1f0a0e1d">The Ionic Book</a></dd>
-    </dl>
-
-    <dl>
-      <dt>Contribute</dt>
-      <dd><a href="http://forum.ionicframework.com/">Community Forum</a></dd>
-      <dd><a href="http://webchat.freenode.net/?randomnick=1&amp;channels=%23ionic&amp;uio=d4">Ionic Slack</a></dd>
-      <dd><a href="http://ionicframework.com/present-ionic/">Present Ionic</a></dd>
-      <dd><a href="http://ionicframework.com/contribute/">Contribute</a></dd>
-      <dd><a href="https://github.com/driftyco/ionic-learn/issues/new">Write for us</a></dd>
-      <dd><a href="http://shop.ionic.io/">Ionic Shop</a></dd>
-    </dl>
-
-    <dl class="small-break">
-      <dt>About</dt>
-      <dd><a href="http://blog.ionic.io/">Blog</a></dd>
-      <dd><a href="http://ionic.io/platform">Services</a></dd>
-      <dd><a href="http://ionic.io/about">Company</a></dd>
-      <dd><a href="https://s3.amazonaws.com/ionicframework.com/logo-pack.zip">Logo Pack</a></dd>
-      <dd><a href="http://ionic.io/discover">Discover</a></dd>
-      <dd><a href="http://ionic.io/jobs">Jobs</a></dd>
-    </dl>
-
-    <dl>
-      <dt>Connect</dt>
-      <dd><a href="https://twitter.com/IonicFramework">Twitter</a></dd>
-      <dd><a href="https://github.com/driftyco/ionic">GitHub</a></dd>
-      <dd><a href="https://www.facebook.com/ionicframework">Facebook</a></dd>
-      <dd><a href="https://plus.google.com/b/112280728135675018538/+Ionicframework/posts">Google+</a></dd>
-      <dd><a href="https://www.youtube.com/channel/UChYheBnVeCfhCmqZfCUdJQw">YouTube</a></dd>
-      <dd><a href="http://ionicworldwide.herokuapp.com/">Slack</a></dd>
-    </dl>
-
+      <footer>
+  <nav class="container">
+    <div class="logo"></div>
+    <ul>
+      <li><strong>Developers</strong></li>
+      <li><a href="/getting-started/">Getting Started</a></li>
+      <li><a href="/docs/v2">Documentation</a></li>
+      <li><a href="/docs/v2/components/">UI Components</a></li>
+      <li><a href="/docs/v2/api/">API Reference</a></li>
+      <li><a href="/docs/v2/native/">Ionic Native</a></li>
+    </ul>
+    <ul>
+      <li><strong>Resources</strong></li>
+      <li><a href="/docs/v2/theming/">Theming</a></li>
+      <li><a href="/docs/v2/ionicons/">Ionicons</a></li>
+      <li><a href="http://showcase.ionicframework.com/">Showcase</a></li>
+      <li><a href="https://jobs.ionic.io">Job Board</a></li>
+      <li><a href="https://market.ionic.io">Ionic Market</a></li>
+    </ul>
+    <ul>
+      <li><strong>Contribute</strong></li>
+      <li><a href="https://forum.ionicframework.com">Community Forum</a></li>
+      <li><a href="http://ionicworldwide.herokuapp.com">Worldwide Slack</a></li>
+      <li><a href="/contribute/">Contribute</a></li>
+      <li><a href="/submit-issue/">Submit Issue</a></li>
+      <li><a href="https://shop.ionic.io">Ionic Shop</a></li>
+    </ul>
+    <ul>
+      <li><strong>Connect</strong></li>
+      <li><a href="https://twitter.com/IonicFramework">Twitter</a></li>
+      <li><a href="https://github.com/driftyco/ionic">GitHub</a></li>
+      <li><a href="https://www.facebook.com/ionicframework">Facebook</a></li>
+      <li><a href="https://plus.google.com/+Ionicframework">Google+</a></li>
+      <li><a href="https://www.youtube.com/c/Ionicframework">YouTube</a></li>
+    </ul>
+    <ul>
+      <li><strong>Products</strong></li>
+      <li><a href="/">Ionic Framework</a></li>
+      <li><a href="https://ionic.io">Ionic Cloud</a></li>
+      <li><a href="https://ionic.io/products/creator">Ionic Creator</a></li>
+      <li><a href="http://view.ionic.io">Ionic View app</a></li>
+      <li><a href="http://ionic.io/enterprise">Enterprise</a></li>
+    </ul>
   </nav>
-
-  <div class="newsletter row">
-
-    <div class="newsletter-container">
-
-      <div class="col-sm-7">
-        <div class="newsletter-text">Stay in the loop</div>
-        <div class="sign-up">Sign up to receive emails for the latest updates, features, and news on the framework.</div>
-      </div>
-
-      <form action="http://codiqa.createsend.com/t/t/s/jytylh/" method="post" class="input-group col-sm-5">
-        <input id="fieldEmail" name="cm-jytylh-jytylh" class="form-control" type="email" placeholder="Email" required />
-        <span class="input-group-btn">
-          <button class="btn btn-default" type="submit">Subscribe</button>
-        </span>
-      </form>
-
-    </div>
-
-  </div>
-
-  <div class="copy">
-    <div class="copy-container">
-      <p class="authors">
-        Code licensed under <a href="https://github.com/driftyco/ionic/blob/master/LICENSE">MIT</a>.
-        Docs under <a href="https://tldrlegal.com/license/apache-license-2.0-(apache-2.0)">Apache 2</a>
-        <span>|</span>
-        &copy; 2013-2016 <a href="http://ionic.io/about">Drifty Co</a>
+  <div class="signup container">
+    <form action="http://codiqa.createsend.com/t/t/s/jytylh/" method="post">
+      <input type="text" class="form-control" placeholder="Email address">
+      <button class="btn">Subscribe</button>
+    </form>
+    <hgroup>
+      <h3>Stay in the loop!</h3>
+      <p>
+        Sign up to receive emails for the latest Framework updates, features,
+        and news.
       </p>
+    </hgroup>
+  </div>
+  <div class="copyright">
+    <div class="container">
+      <span class="left">&copy;2013 - 2016 Ionic</span>
+      <span class="right">
+        Ionic Framework is licensed under <a target="_blank"
+        href="https://github.com/driftyco/ionic/blob/master/LICENSE">MIT</a>.
+        Docs under <a target="_blank"
+        href="https://github.com/driftyco/ionic-site/blob/master/LICENSE">Apache
+        2</a>
+      </span>
     </div>
   </div>
-
 </footer>
 
+    
 
-    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
-<script src="/js/site.js?1"></script>
-
-<script src="//cdnjs.cloudflare.com/ajax/libs/Cookies.js/0.4.0/cookies.min.js"></script>
-
-<script>
-
-  $('.navbar .dropdown').on('show.bs.dropdown', function(e){
-    //$(this).find('.dropdown-menu').addClass('animated fadeInDown');
-  });
-
-  // ADD SLIDEUP ANIMATION TO DROPDOWN //
-  $('.navbar .dropdown').on('hide.bs.dropdown', function(e){
-    //$(this).find('.dropdown-menu').first().stop(true, true).slideUp(200);
-    //$(this).find('.dropdown-menu').removeClass('animated fadeInDown');
-  });
-
-
-try {
-  var d = new Date('');
-  var ts = d.getTime();
-
-  var cd = Cookies.get('_iondj');
-  if(cd) {
-    cd = JSON.parse(atob(cd));
-    if(parseInt(cd.lp) < ts) {
-      var bt = document.getElementById('blog-badge');
-      bt.style.display = 'block';
-    }
-
-    cd.lp = ts;
-  } else {
-    var bt = document.getElementById('blog-badge');
-    bt.style.display = 'block';
-    cd = {
-      lp: ts
-    }
-  }
-
-  Cookies.set('_iondj', btoa(JSON.stringify(cd)));
-} catch(e) {
-}
-</script>
-
-<div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
+    <div id="search-results">
+      <div id="results-api">
+        <h3>API</h3>
+        <ul></ul>
+      </div>
+      <div id="results-native">
+        <h3>Native</h3>
+        <ul></ul>
+      </div>
+      <div id="results-other">
+        <h3>General</h3>
+        <ul></ul>
+      </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular-animate.min.js"></script>
+<script src="/js/ionic-docs.min.js?7"></script>
 
 
   </body>
