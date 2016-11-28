@@ -541,44 +541,6 @@ moment-timezone dt     http://momentjs.com/timezone/                    1       
 </div>
 
 <h2 id="common-mistakes">Common mistakes</h2>
-<h3 id="page-components-acting-odd">Page components acting odd</h3>
-
-<p>Page components that are loaded with NavController do not need selectors added to them.
-If you place a selector on a page component, chances are it will animate incorrectly and have the wrong styles applied to it.</p>
-
-<p><strong>Wrong</strong></p>
-
-<div class="language-typescript highlighter-rouge"><pre class="highlight"><code><span class="err">@</span><span class="nx">Component</span><span class="p">({</span>
-  <span class="na">selector</span><span class="p">:</span> <span class="s1">'my-page'</span><span class="p">,</span>
-  <span class="na">template</span><span class="p">:</span> <span class="err">`</span>
-  <span class="o">&lt;</span><span class="nx">ion</span><span class="o">-</span><span class="nx">header</span><span class="o">&gt;</span>
-    <span class="o">&lt;</span><span class="nx">ion</span><span class="o">-</span><span class="nx">navbar</span><span class="o">&gt;</span>
-      <span class="o">&lt;</span><span class="nx">ion</span><span class="o">-</span><span class="nx">title</span><span class="o">&gt;</span><span class="nx">Login</span><span class="o">&lt;</span><span class="sr">/ion-title</span><span class="err">&gt;
-</span>    <span class="o">&lt;</span><span class="sr">/ion-navbar</span><span class="err">&gt;
-</span>  <span class="o">&lt;</span><span class="sr">/ion-header</span><span class="err">&gt;
-</span>
-  <span class="o">&lt;</span><span class="nx">ion</span><span class="o">-</span><span class="nx">content</span><span class="o">&gt;</span><span class="nx">Hello</span> <span class="nx">World</span><span class="o">&lt;</span><span class="sr">/ion-content&gt;</span><span class="err">`
-</span><span class="p">})</span>
-<span class="k">export</span> <span class="kr">class</span> <span class="nx">StartPage</span> <span class="p">{}</span>
-</code></pre>
-</div>
-
-<p><strong>Correct</strong></p>
-
-<div class="language-typescript highlighter-rouge"><pre class="highlight"><code><span class="err">@</span><span class="nx">Component</span><span class="p">({</span>
-  <span class="na">template</span><span class="p">:</span> <span class="err">`</span>
-  <span class="o">&lt;</span><span class="nx">ion</span><span class="o">-</span><span class="nx">header</span><span class="o">&gt;</span>
-    <span class="o">&lt;</span><span class="nx">ion</span><span class="o">-</span><span class="nx">navbar</span><span class="o">&gt;</span>
-      <span class="o">&lt;</span><span class="nx">ion</span><span class="o">-</span><span class="nx">title</span><span class="o">&gt;</span><span class="nx">Login</span><span class="o">&lt;</span><span class="sr">/ion-title</span><span class="err">&gt;
-</span>    <span class="o">&lt;</span><span class="sr">/ion-navbar</span><span class="err">&gt;
-</span>  <span class="o">&lt;</span><span class="sr">/ion-header</span><span class="err">&gt;
-</span>
-  <span class="o">&lt;</span><span class="nx">ion</span><span class="o">-</span><span class="nx">content</span><span class="o">&gt;</span><span class="nx">Hello</span> <span class="nx">World</span><span class="o">&lt;</span><span class="sr">/ion-content&gt;</span><span class="err">`
-</span><span class="p">})</span>
-<span class="k">export</span> <span class="kr">class</span> <span class="nx">StartPage</span> <span class="p">{}</span>
-</code></pre>
-</div>
-
 <h3 id="forgetting-parentheses-on-a-decorator">Forgetting Parentheses on a Decorator</h3>
 
 <p>Decorators should have parentheses <code class="highlighter-rouge">()</code> after an annotation. Some examples include: <code class="highlighter-rouge">@Injectable()</code>, <code class="highlighter-rouge">@Optional()</code>, <code class="highlighter-rouge">@Input()</code>, etc.</p>
