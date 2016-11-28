@@ -1700,9 +1700,9 @@ export class MyPage {
 <p>By default, all lists will be styled with divider lines:</p>
 
 <div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;ion-list&gt;</span>
-  <span class="nt">&lt;ion-item</span> <span class="err">*</span><span class="na">ngFor=</span><span class="s">"let item of items"</span> <span class="err">(</span><span class="na">click</span><span class="err">)="</span><span class="na">itemSelected</span><span class="err">(</span><span class="na">item</span><span class="err">)"</span><span class="nt">&gt;</span>
-    {{item.title}}
-  <span class="nt">&lt;/ion-item&gt;</span>
+  <span class="nt">&lt;button</span> <span class="na">ion-item</span> <span class="err">*</span><span class="na">ngFor=</span><span class="s">"let item of items"</span> <span class="err">(</span><span class="na">click</span><span class="err">)="</span><span class="na">itemSelected</span><span class="err">(</span><span class="na">item</span><span class="err">)"</span><span class="nt">&gt;</span>
+    {{ item }}
+  <span class="nt">&lt;/button&gt;</span>  
 <span class="nt">&lt;/ion-list&gt;</span>
 </code></pre>
 </div>
@@ -1715,9 +1715,9 @@ export class MyPage {
 <p>Adding the <code class="highlighter-rouge">no-lines</code> attribute will hide the dividers between list items:</p>
 
 <div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;ion-list</span> <span class="na">no-lines</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;ion-item</span> <span class="err">*</span><span class="na">ngFor=</span><span class="s">"let item of items"</span> <span class="err">(</span><span class="na">click</span><span class="err">)="</span><span class="na">itemSelected</span><span class="err">(</span><span class="na">item</span><span class="err">)"</span><span class="nt">&gt;</span>
-    {{item.title}}
-  <span class="nt">&lt;/ion-item&gt;</span>
+  <span class="nt">&lt;button</span> <span class="na">ion-item</span> <span class="err">*</span><span class="na">ngFor=</span><span class="s">"let item of items"</span> <span class="err">(</span><span class="na">click</span><span class="err">)="</span><span class="na">itemSelected</span><span class="err">(</span><span class="na">item</span><span class="err">)"</span><span class="nt">&gt;</span>
+    {{ item }}
+  <span class="nt">&lt;/button&gt;</span> 
 <span class="nt">&lt;/ion-list&gt;</span>
 </code></pre>
 </div>
@@ -1730,9 +1730,9 @@ export class MyPage {
 <p>Lists don’t have an outside margin by default.  To add one, add the <code class="highlighter-rouge">inset</code> attribute to <code class="highlighter-rouge">ion-list</code> component.</p>
 
 <div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;ion-list</span> <span class="na">inset</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;ion-item</span> <span class="err">*</span><span class="na">ngFor=</span><span class="s">"let item of items"</span> <span class="err">(</span><span class="na">click</span><span class="err">)="</span><span class="na">itemSelected</span><span class="err">(</span><span class="na">item</span><span class="err">)"</span><span class="nt">&gt;</span>
-    {{item.title}}
-  <span class="nt">&lt;/ion-item&gt;</span>
+  <span class="nt">&lt;button</span> <span class="na">ion-item</span> <span class="err">*</span><span class="na">ngFor=</span><span class="s">"let item of items"</span> <span class="err">(</span><span class="na">click</span><span class="err">)="</span><span class="na">itemSelected</span><span class="err">(</span><span class="na">item</span><span class="err">)"</span><span class="nt">&gt;</span>
+    {{ item }}
+  <span class="nt">&lt;/button&gt;</span> 
 <span class="nt">&lt;/ion-list&gt;</span>
 </code></pre>
 </div>
