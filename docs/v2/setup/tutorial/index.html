@@ -5,16 +5,16 @@
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link href="/css/styles.min.css?v=9" rel="stylesheet">
+<link href="/css/styles.min.css?v=10" rel="stylesheet">
 
 
-  <title>Migration</title>
+  <title>Tutorial</title>
 
 
 <meta name="author" content="Drifty">
 <meta name="description" content="Ionic lets developers build beautiful and interactive mobile apps using HTML5 and AngularJS.">
 <meta name="keywords" content="html5,javascript,mobile,drifty,ionic,hybrid,phonegap,cordova,native,ios,android,angularjs">
-<link rel="canonical" href="https://ionicframework.com/docs/v2/getting-started/migration/">
+<link rel="canonical" href="https://ionicframework.com/docs/v2/setup/tutorial/">
 
 
 <!-- Social: Twitter -->
@@ -27,7 +27,7 @@
 
 <!-- Social: Facebook / Open Graph -->
 <meta property="fb:app_id" content="1321836767955949">
-<meta property="og:url" content="https://ionicframework.com/docs/v2/getting-started/migration/">
+<meta property="og:url" content="https://ionicframework.com/docs/v2/setup/tutorial/">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Ionic Framework">
 <meta property="og:image" content="https://ionicframework.com/img/ionic-meta.jpg"/>
@@ -62,8 +62,8 @@
 
 
   </head>
-  <body id="docs-page-migration"
-        class="v2 docs page-migration
+  <body id="docs-page-tutorial"
+        class="v2 docs page-tutorial
                "
         data-spy="scroll"
         data-offset="100"
@@ -174,29 +174,24 @@
   </li>
 
   
-  <li class="
-             active">
-    <a ng-click="showGettingStarted = !showGettingStarted">Getting Started</a>
-    <ul ng-show="showGettingStarted"
+  <li class="active">
+    <a ng-click="showSetup = !showSetup">Setup</a>
+    <ul ng-show="showSetup"
         
-          ng-init="showGettingStarted = true"
+          ng-init="showSetup = true"
         >
       <li class="">
-        <a href="/docs/v2/getting-started">Welcome</a>
-      </li>
-      <li class="">
-        <a href="/docs/v2/getting-started/installation">Installation</a>
-      </li>
-      <li class="">
-        <a href="/docs/v2/getting-started/tutorial">Tutorial</a>
+        <a href="/docs/v2/setup/installation">Installation</a>
       </li>
       <li class="active">
-        <a href="/docs/v2/getting-started/migration">Migration</a>
+        <a href="/docs/v2/setup/tutorial">Tutorial</a>
       </li>
       <li class="">
-        <a href="/docs/v2/getting&#45;started/concepts">Concepts</a>
+        <a href="/docs/v2/setup/migration">Migration</a>
       </li>
-      
+      <li class="">
+        <a href="/docs/v2/setup/concepts">Concepts</a>
+      </li>
     </ul>
   </li>
 
@@ -460,175 +455,58 @@
   </nav>
   
   <main>
-    <h1 id="migration-concepts">Migration Concepts</h1>
+    <h1 id="ionic-2-tutorial">Ionic 2 Tutorial</h1>
 
-<p><a class="improve-v2-docs" href="https://github.com/driftyco/ionic-site/edit/master/docs/v2/getting-started/migration/index.md">Improve this doc</a></p>
+<p><a class="improve-v2-docs" href="https://github.com/driftyco/ionic-site/edit/master/docs/v2/setup/tutorial/index.md">
+  Improve this doc
+</a></p>
 
-<p>Ionic 2 is built on top of Angular 2, which is a complete rewrite of the original framework. All the parts of Angular you know are still there, but there are new syntax and structural changes about which developers need to be aware. For an overview of the changes in Angular 2, take a look at <a href="http://learnangular2.com/">Learn Angular 2</a>.</p>
+<p>Now that you have <a href="../installation">Ionic and its dependencies installed</a>, you can build your first app! This section will guide you through the process of starting a new application, adding pages, navigating between those pages, and more. Let’s get started!</p>
 
-<p>In Ionic 2, things should feel quite familiar. All the concepts from Ionic V1 are still in V2, though they may look slightly different. You still have views and controllers like you did in V1, but in V2, they have been merged into one instance.</p>
+<h3 id="starting-a-new-ionic-2-app">Starting a New Ionic 2 App</h3>
 
-<p>Take this V1 example.</p>
+<p>Let’s create a new app! Use the <code class="highlighter-rouge">start</code> command to initialize a new Ionic app. Specify that you want it to be an Ionic 2 app by passing in the <code class="highlighter-rouge">--v2</code> option. We also specify that the <code class="highlighter-rouge">tutorial</code> template should be used. Ionic 2 applications are created as TypeScript.</p>
 
-<p>V1</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>.config(function($stateProvider){
-  $stateProvider
-  .state('main', {
-    url: '/',
-    templateUrl: 'templates/main.html',
-    controller: 'MainCtrl'
-  })
-})
-
-.controller('MainCtrl', function(){
-
-})
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>ionic start MyIonic2Project tutorial --v2
 </code></pre>
 </div>
 
-<p>You can rewrite this in V2 like this:</p>
+<p>This will pull Ionic 2 down, install <a href="../../resources/what-is/#npm">npm modules</a> for the application, and get <a href="../../resources/what-is/#cordova">Cordova</a> set up and ready to go.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>@Component({
-  templateUrl:'main/main.html'
-})
-export class MainCmp {
-  constructor(){
+<blockquote>
+  <p>You may have noticed that we passed in <strong>tutorial</strong> to the <code class="highlighter-rouge">ionic start</code> command. This tells Ionic to initialize your application using the <a href="https://github.com/driftyco/ionic2-starter-tutorial">tutorial template</a>. If you don’t specify a template by running <code class="highlighter-rouge">ionic start MyIonic2Project --v2</code>, the <a href="https://github.com/driftyco/ionic2-starter-tabs">tabs template</a> will be used.</p>
+</blockquote>
 
-  }
-}
+<h3 id="viewing-the-app-in-a-browser">Viewing the app in a browser</h3>
+<p>Now, you can <code class="highlighter-rouge">cd</code> into the folder that was created. To get a quick preview of your app in the browser, use the <code class="highlighter-rouge">serve</code> command.</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span><span class="nb">cd </span>MyIonic2Project/
+<span class="gp">$ </span>ionic serve
 </code></pre>
 </div>
 
-<p>Other changes, like navigation changes, are much different, but for good reasons, we promise. Now, you can treat components as arbitrary views and navigate to them any way you want to. This makes navigation much more flexible and allows for much more native-styled navigation stacks.</p>
+<p><img src="/img/docs/tutorial-screen.png" style="max-width: 320px" /></p>
 
-<h1 id="migrating-from-angular-1">Migrating from Angular 1</h1>
+<p>You should see the welcome message shown above if everything was installed successfully.</p>
 
-<p>While Angular 2 requires apps to be updated for the syntax change, developers can be proactive and make sure their app is upgradable by following best practices and working with <a href="https://github.com/johnpapa/angular-styleguide">John Papa’s Angular Style guide</a> or <a href="https://github.com/toddmotto/angularjs-styleguide">Todd Motto’s Angular Style guide</a>. Both of these will provide you with steps you can take to prepare your code for migration.</p>
-
-<h3 id="controlleras-syntax">ControllerAs Syntax</h3>
-
-<p>ControllerAs Syntax is a feature in Angular 1.x where, instead of binding data to <code class="highlighter-rouge">$scope</code>, you can bind to the direct instance of the controller. This makes migrating a Angular 1.x controller to an Angular 2 class much easier. It’s fairly easy to migrate to <code class="highlighter-rouge">controllerAs</code> from a traditional controller:</p>
-
-<p><em>index.html</em></p>
-
-<div class="language-html highlighter-rouge"><pre class="highlight"><code>
-    <span class="nt">&lt;ion-content</span> <span class="na">ng-controller=</span><span class="s">"MainCtrl"</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;ion-item&gt;</span>
-        {{data.text}}
-      <span class="nt">&lt;/ion-item&gt;</span>
-    <span class="nt">&lt;/ion-content&gt;</span>
-
-</code></pre>
-</div>
-
-<p><em>app.js</em></p>
-
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code>    <span class="p">.</span><span class="nx">controller</span><span class="p">(</span><span class="s1">'MainCtrl'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">$scope</span><span class="p">){</span>
-      <span class="nx">$scope</span><span class="p">.</span><span class="nx">data</span> <span class="o">=</span><span class="p">{</span>
-        <span class="na">text</span><span class="p">:</span> <span class="s1">'Hello World'</span>
-      <span class="p">}</span>
-    <span class="p">})</span>
-</code></pre>
-</div>
-
-<p>To convert this to <code class="highlighter-rouge">controllerAs</code> syntax, you only have to change a few things.</p>
-
-<p><em>index.html</em></p>
-
-<div class="language-html highlighter-rouge"><pre class="highlight"><code>
-    <span class="nt">&lt;ion-content</span> <span class="na">ng-controller=</span><span class="s">"MainCtrl as main"</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;ion-item&gt;</span>
-        {{main.data.text}}
-      <span class="nt">&lt;/ion-item&gt;</span>
-    <span class="nt">&lt;/ion-content&gt;</span>
-
-</code></pre>
-</div>
-
-<p><em>app.js</em></p>
-
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code>    <span class="p">.</span><span class="nx">controller</span><span class="p">(</span><span class="s1">'MainCtrl'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(){</span>
-      <span class="k">this</span><span class="p">.</span><span class="nx">data</span> <span class="o">=</span><span class="p">{</span>
-        <span class="na">text</span><span class="p">:</span> <span class="s1">'Hello World'</span>
-      <span class="p">}</span>
-    <span class="p">})</span>
-
-</code></pre>
-</div>
-
-<h3 id="typescript">TypeScript</h3>
-
-<p>TypeScript is a superset of JavaScript that provides ES6 Classes and type annotations in your code. By adopting TypeScript now, you can write your code as ES6 Classes that will be easy to move to Ionic 2. The best part is that any valid JavaScript is also valid TypeScript, so you can convert your code piece by piece. If you take your controller from before, you can easily convert it to a TypeScript class like this.</p>
-
-<p><em>app.js</em></p>
-
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code>    <span class="p">.</span><span class="nx">controller</span><span class="p">(</span><span class="s1">'MainCtrl'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(){</span>
-      <span class="k">this</span><span class="p">.</span><span class="nx">data</span> <span class="o">=</span><span class="p">{</span>
-        <span class="na">text</span><span class="p">:</span> <span class="s1">'Hello World'</span>
-      <span class="p">}</span>
-    <span class="p">})</span>
-
-</code></pre>
-</div>
-
-<p><em>app.ts</em></p>
-
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code>
-    <span class="kr">export</span> <span class="kr">class</span> <span class="nx">MainCtrl</span><span class="p">{</span>
-      <span class="nx">constructor</span><span class="p">(){</span>
-        <span class="k">this</span><span class="p">.</span><span class="nx">data</span> <span class="o">=</span><span class="p">{</span>
-          <span class="na">text</span><span class="p">:</span> <span class="s1">'Hello World'</span>
-        <span class="p">}</span>
-      <span class="p">}</span>
-    <span class="p">}</span>
-
-</code></pre>
-</div>
-
-<h3 id="project-structure">Project Structure</h3>
-
-<p>With Angular 1, it was a practice to keep all your JavaScript together and separate from your templates. Since Ionic 2 and Angular 2 will be moving to a component base setup, you can reorganize your project to help mentally enforce that concept. So a project whose directory looks like this…</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>    |-www/
-    |
-    |--js/
-    |--|-app.js
-    |--|-HomeCtrl.js
-    |--|-DetailCtrl.js
-    |
-    |--templates/
-    |--|-Home.html
-    |--|-Detail.html
-    |
-    |-index.html
-
-</code></pre>
-</div>
-
-<p>could start to be reorganized to look like this:</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>    |-www/
-    |
-    |--Home/
-    |--|-HomeCtrl.js
-    |--|-Home.html
-    |
-    |--Detail/
-    |--|-DetailCtrl.js
-    |--|-Detail.html
-    |
-    |-index.html
-    |-app.js
-</code></pre>
-</div>
-
-<p>Organizing your project like this can help get you in the mindset that each of your app’s views/states are a component, with a template and a controller.</p>
+<p>In the next section, let’s go over the project structure created by the <code class="highlighter-rouge">ionic start</code> command.</p>
 
   </main>
 </div>
 
 
+    
+      <div class="footer-links">
+        <hr>
+        
+          <a class="footer-link prev" href="/docs/v2/setup/installation/">
+            Installing Ionic</a>
+        
+        
+          <a class="footer-link next" href="/docs/v2/setup/tutorial/project-structure/">
+            Project Structure</a>
+        
+      </div>
     
 
     

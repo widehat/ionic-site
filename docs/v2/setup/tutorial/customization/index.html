@@ -5,16 +5,16 @@
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link href="/css/styles.min.css?v=9" rel="stylesheet">
+<link href="/css/styles.min.css?v=10" rel="stylesheet">
 
 
-  <title>Concepts</title>
+  <title>Customizing Styles - Tutorial</title>
 
 
 <meta name="author" content="Drifty">
 <meta name="description" content="Ionic lets developers build beautiful and interactive mobile apps using HTML5 and AngularJS.">
 <meta name="keywords" content="html5,javascript,mobile,drifty,ionic,hybrid,phonegap,cordova,native,ios,android,angularjs">
-<link rel="canonical" href="https://ionicframework.com/docs/v2/getting-started/concepts/">
+<link rel="canonical" href="https://ionicframework.com/docs/v2/setup/tutorial/customization/">
 
 
 <!-- Social: Twitter -->
@@ -27,7 +27,7 @@
 
 <!-- Social: Facebook / Open Graph -->
 <meta property="fb:app_id" content="1321836767955949">
-<meta property="og:url" content="https://ionicframework.com/docs/v2/getting-started/concepts/">
+<meta property="og:url" content="https://ionicframework.com/docs/v2/setup/tutorial/customization/">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Ionic Framework">
 <meta property="og:image" content="https://ionicframework.com/img/ionic-meta.jpg"/>
@@ -62,8 +62,8 @@
 
 
   </head>
-  <body id="docs-page-concepts"
-        class="v2 docs page-concepts
+  <body id="docs-page-tutorial"
+        class="v2 docs page-tutorial
                "
         data-spy="scroll"
         data-offset="100"
@@ -174,29 +174,24 @@
   </li>
 
   
-  <li class="
-             active">
-    <a ng-click="showGettingStarted = !showGettingStarted">Getting Started</a>
-    <ul ng-show="showGettingStarted"
+  <li class="active">
+    <a ng-click="showSetup = !showSetup">Setup</a>
+    <ul ng-show="showSetup"
         
-          ng-init="showGettingStarted = true"
+          ng-init="showSetup = true"
         >
       <li class="">
-        <a href="/docs/v2/getting-started">Welcome</a>
-      </li>
-      <li class="">
-        <a href="/docs/v2/getting-started/installation">Installation</a>
-      </li>
-      <li class="">
-        <a href="/docs/v2/getting-started/tutorial">Tutorial</a>
-      </li>
-      <li class="">
-        <a href="/docs/v2/getting-started/migration">Migration</a>
+        <a href="/docs/v2/setup/installation">Installation</a>
       </li>
       <li class="active">
-        <a href="/docs/v2/getting&#45;started/concepts">Concepts</a>
+        <a href="/docs/v2/setup/tutorial">Tutorial</a>
       </li>
-      
+      <li class="">
+        <a href="/docs/v2/setup/migration">Migration</a>
+      </li>
+      <li class="">
+        <a href="/docs/v2/setup/concepts">Concepts</a>
+      </li>
     </ul>
   </li>
 
@@ -460,50 +455,21 @@
   </nav>
   
   <main>
-    <h1 id="core-concepts">Core Concepts</h1>
+    <p><a class="improve-v2-docs" href="https://github.com/driftyco/ionic-site/edit/ionic2/docs/v2/guide/adding-pages/index.md">
+Improve this doc
+</a></p>
 
-<p><a class="improve-v2-docs" href="https://github.com/driftyco/ionic-site/edit/master/docs/v2/getting-started/concepts/index.md">Improve this doc</a></p>
+<h1 id="customizing-styles">Customizing Styles</h1>
 
-<p>If you’re completely new to Ionic and/or hybrid mobile app development, it can be helpful to get a high-level understanding of the core philosophy, concepts, and tools behind Ionic. The information below can help you familiarize yourself with what Ionic is and how it works.</p>
+<h2 id="starter-themes">Starter Themes</h2>
 
-<h3 id="the-ionic-show--ionic-2">The Ionic Show / Ionic 2</h3>
-<p><a href="http://www.youtube.com/watch?v=u6BFxtv_L-8"><img src="http://img.youtube.com/vi/u6BFxtv_L-8/0.jpg" alt="Ionic 2" /></a></p>
+<h2 id="sass-variables">Sass Variables</h2>
 
-<h3 id="what-is-ionic-framework">What is Ionic Framework?</h3>
+<h2 id="custom-colors">Custom Colors</h2>
 
-<p>Ionic Framework is an open source SDK that enables developers to build performant, high-quality mobile apps using familiar web technologies (HTML, CSS, and JavaScript).</p>
+<h2 id="custom-stylesheets">Custom Stylesheets</h2>
 
-<p>Ionic is focused mainly on the look and feel, or the UI interaction, of an app. This means that it’s not a replacement for PhoneGap or your favorite JavaScript framework. Instead, Ionic fits in well with these projects, in order to simplify one big part of your app development process: the front-end. Check out <a href="http://blog.ionic.io/where-does-the-ionic-framework-fit-in/">“Where does the Ionic Framework fit in?”</a> to get a good understanding of Ionic’s core philosophy and goals.</p>
-
-<p><strong>Ionic currently requires AngularJS in order to work at its full potential.</strong> While you can still use the CSS portion of the framework, you’ll miss out on powerful UI interactions, gestures, animations, and other things. In the future, Ionic plans to become more agnostic in order to support a broader variety of JavaScript frameworks.</p>
-
-<h3 id="how-is-ionic-licensed">How is Ionic Licensed?</h3>
-
-<p>Ionic is completely free and open source, released under the permissive <a href="http://opensource.org/licenses/MIT">MIT</a> license, which means you can use Ionic in personal or commercial projects for free. For example, MIT is the same license used by such popular projects as jQuery and Ruby on Rails.</p>
-
-<p>This website and documentation content (found in the <a href="https://github.com/driftyco/ionic-site">ionic-site</a> repo) is licensed under the Apache 2 license.</p>
-
-<h3 id="what-is-the-ionic-cli">What is the Ionic CLI?</h3>
-
-<p>The <a href="../../resources/what-is/#cli">CLI</a>, or command line interface, is a tool that provides a number of helpful commands to Ionic developers. In addition to installing and updating Ionic, the CLI comes with a built-in development server, build and debugging tools, and much more. If you are using the <a href="http://ionic.io/">Ionic Cloud</a>, the CLI can be used to export code and even interact with your account programmatically.</p>
-
-<h3 id="what-are-components">What are components?</h3>
-
-<p>Components in Ionic are reusable UI elements that serve as the building blocks for your mobile app. Components are made up of HTML, CSS, and sometimes JavaScript. Every Ionic component adapts to the platform on which your app is running. We call this <strong>Platform Continuity</strong> and go more in depth on how it works in Theming.</p>
-
-<h3 id="what-is-theming">What is theming?</h3>
-
-<p>Themes are sets of styles that get applied to an app. Ionic uses a light theme by default, but it also comes with a dark theme. In addition to theming, Ionic’s <strong>Platform Continuity</strong> enables components to have platform-specific styles. This means the app’s styles will change based on the platform (iOS, Android, etc.) on which it’s being run, offering your users an experience with which they’re familiar.</p>
-
-<h3 id="how-does-navigation-work">How does navigation work?</h3>
-
-<p>Navigation works like a stack — <strong>push</strong> a page to the stack to navigate to it, and <strong>pop</strong> to go back. Modals and alerts can also be displayed by pushing them onto the navigation stack.</p>
-
-<h3 id="who-is-behind-ionic">Who is behind Ionic?</h3>
-
-<p>Ionic was originally built by <a href="https://twitter.com/benjsperry">@benjsperry</a>, <a href="https://twitter.com/adamdbradley">@adamdbradley</a>, and <a href="https://twitter.com/maxlynch">@maxlynch</a>. After releasing an alpha version of Ionic in November 2013, we released a 1.0 beta in March 2014 and a 1.0 final in May 2015.</p>
-
-<p>Now, Ionic has a massive international community of developers and contributors propelling its growth and adoption. Companies small and large are using Ionic to build better apps, faster. In 2015 Ionic developers reportedly created over 1.3M apps with Ionic, a number that continues to grow each day.</p>
+<p><a href="../building-forms/" class="btn btn-primary" role="button">Building Forms</a></p>
 
   </main>
 </div>

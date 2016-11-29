@@ -5,16 +5,16 @@
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link href="/css/styles.min.css?v=9" rel="stylesheet">
+<link href="/css/styles.min.css?v=10" rel="stylesheet">
 
 
-  <title>Navigating</title>
+  <title>Using Platform Plugins - Tutorial</title>
 
 
 <meta name="author" content="Drifty">
 <meta name="description" content="Ionic lets developers build beautiful and interactive mobile apps using HTML5 and AngularJS.">
 <meta name="keywords" content="html5,javascript,mobile,drifty,ionic,hybrid,phonegap,cordova,native,ios,android,angularjs">
-<link rel="canonical" href="https://ionicframework.com/docs/v2/getting-started/navigating/">
+<link rel="canonical" href="https://ionicframework.com/docs/v2/setup/tutorial/using-platform-plugins/">
 
 
 <!-- Social: Twitter -->
@@ -27,7 +27,7 @@
 
 <!-- Social: Facebook / Open Graph -->
 <meta property="fb:app_id" content="1321836767955949">
-<meta property="og:url" content="https://ionicframework.com/docs/v2/getting-started/navigating/">
+<meta property="og:url" content="https://ionicframework.com/docs/v2/setup/tutorial/using-platform-plugins/">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Ionic Framework">
 <meta property="og:image" content="https://ionicframework.com/img/ionic-meta.jpg"/>
@@ -174,29 +174,24 @@
   </li>
 
   
-  <li class="
-             active">
-    <a ng-click="showGettingStarted = !showGettingStarted">Getting Started</a>
-    <ul ng-show="showGettingStarted"
+  <li class="active">
+    <a ng-click="showSetup = !showSetup">Setup</a>
+    <ul ng-show="showSetup"
         
-          ng-init="showGettingStarted = true"
+          ng-init="showSetup = true"
         >
       <li class="">
-        <a href="/docs/v2/getting-started">Welcome</a>
-      </li>
-      <li class="">
-        <a href="/docs/v2/getting-started/installation">Installation</a>
+        <a href="/docs/v2/setup/installation">Installation</a>
       </li>
       <li class="active">
-        <a href="/docs/v2/getting-started/tutorial">Tutorial</a>
+        <a href="/docs/v2/setup/tutorial">Tutorial</a>
       </li>
       <li class="">
-        <a href="/docs/v2/getting-started/migration">Migration</a>
+        <a href="/docs/v2/setup/migration">Migration</a>
       </li>
       <li class="">
-        <a href="/docs/v2/getting&#45;started/concepts">Concepts</a>
+        <a href="/docs/v2/setup/concepts">Concepts</a>
       </li>
-      
     </ul>
   </li>
 
@@ -460,42 +455,23 @@
   </nav>
   
   <main>
-    <h1 class="title">Navigating to Pages</h1>
-<p><a class="improve-v2-docs" href="https://github.com/driftyco/ionic-site/edit/ionic2/docs/v2/getting-started/navigating/index.md">
+    <h1 id="using-platform-plugins">Using Platform Plugins</h1>
+
+<p><a class="improve-v2-docs" href="https://github.com/driftyco/ionic-site/edit/ionic2/docs/v2/guide/adding-pages/index.md">
 Improve this doc
 </a></p>
 
-<p>You created a new page in the last section, and now you need to navigate to it.</p>
+<p>Great Ionic apps don’t just live in a web view in an app, they embrace the entire native environment they run on. They take pictures, track location, integrate with bluetooth devices, and power Watch apps (among many other things!)</p>
 
-<p>Navigation in Ionic 2 works like a simple stack, where you <code class="highlighter-rouge">push</code> new pages onto the
-top of the stack, which takes you forwards in the app and shows a back button,
-and then you <code class="highlighter-rouge">pop</code> the top one off to go back to the page before it.</p>
+<h2 id="ionic-platform">Ionic Platform</h2>
 
-<p><strong>Note:</strong> When it comes to URLs, Ionic 2 works a bit differently than Ionic 1. Instead of using URLs to navigate, you use them to make sure you can always come back to a page (on app launch, for example). You can navigate to pages from anywhere, which wasn’t possible in v1. For example, you can show the same Playlist page instead of a tab, a side menu, or a modal. This means you don’t use <code class="highlighter-rouge">href</code> to navigate around.</p>
+<h2 id="cordova-plugins">Cordova Plugins</h2>
 
-<p>So, take your <code class="highlighter-rouge">PlaylistPage</code> from the previous example and navigate to it when you tap on a specific play list from the <code class="highlighter-rouge">PlaylistsPage</code> (note the ‘s’). Open up <code class="highlighter-rouge">app/playlists/playlists.html</code>, and find the <code class="highlighter-rouge">&lt;ion-item&gt;</code> entry:</p>
+<h2 id="geolocation-plugin">Geolocation Plugin</h2>
 
-<div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;ion-item</span> <span class="err">*</span><span class="na">ng-for=</span><span class="s">"#playlist of playlists"</span> <span class="err">(</span><span class="na">click</span><span class="err">)="</span><span class="na">openPlaylist</span><span class="err">(</span><span class="na">playlist</span><span class="err">)"</span><span class="nt">&gt;&lt;/ion-item&gt;</span>
-</code></pre>
-</div>
+<h2 id="push-notifications">Push Notifications</h2>
 
-<p>When the user taps this, the <code class="highlighter-rouge">openPlaylist()</code> function will be called with a reference to the playlist that was tapped.</p>
-
-<p>Open <code class="highlighter-rouge">app/playlists/playlists.js</code>, and add a method to <code class="highlighter-rouge">PlaylistsPage</code> to handle this:</p>
-
-<div class="language-ts highlighter-rouge"><pre class="highlight"><code><span class="k">export</span> <span class="kr">class</span> <span class="nx">PlaylistsPage</span> <span class="p">{</span>
-  <span class="c1">// constructor and other methods above here...</span>
-
-  <span class="nx">openPlaylist</span><span class="p">(</span><span class="nx">playlist</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">nav</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">PlaylistPage</span><span class="p">,</span> <span class="p">{</span>
-      <span class="na">playlist</span><span class="p">:</span> <span class="nx">playlist</span>
-    <span class="p">})</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-</code></pre>
-</div>
-
-<p>Open the app and navigate to the playlists page. When you tap on the page, you should see the new playlist page open with the title set to the playlist you just clicked!</p>
+<p><a href="../building-forms/" class="btn btn-primary" role="button">Building Forms</a></p>
 
   </main>
 </div>

@@ -5,16 +5,16 @@
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link href="/css/styles.min.css?v=9" rel="stylesheet">
+<link href="/css/styles.min.css?v=10" rel="stylesheet">
 
 
-  <title>Adding Pages - Tutorial</title>
+  <title>Navigating - Tutorial</title>
 
 
 <meta name="author" content="Drifty">
 <meta name="description" content="Ionic lets developers build beautiful and interactive mobile apps using HTML5 and AngularJS.">
 <meta name="keywords" content="html5,javascript,mobile,drifty,ionic,hybrid,phonegap,cordova,native,ios,android,angularjs">
-<link rel="canonical" href="https://ionicframework.com/docs/v2/getting-started/tutorial/adding-pages/">
+<link rel="canonical" href="https://ionicframework.com/docs/v2/setup/tutorial/navigation/">
 
 
 <!-- Social: Twitter -->
@@ -27,7 +27,7 @@
 
 <!-- Social: Facebook / Open Graph -->
 <meta property="fb:app_id" content="1321836767955949">
-<meta property="og:url" content="https://ionicframework.com/docs/v2/getting-started/tutorial/adding-pages/">
+<meta property="og:url" content="https://ionicframework.com/docs/v2/setup/tutorial/navigation/">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Ionic Framework">
 <meta property="og:image" content="https://ionicframework.com/img/ionic-meta.jpg"/>
@@ -174,29 +174,24 @@
   </li>
 
   
-  <li class="
-             active">
-    <a ng-click="showGettingStarted = !showGettingStarted">Getting Started</a>
-    <ul ng-show="showGettingStarted"
+  <li class="active">
+    <a ng-click="showSetup = !showSetup">Setup</a>
+    <ul ng-show="showSetup"
         
-          ng-init="showGettingStarted = true"
+          ng-init="showSetup = true"
         >
       <li class="">
-        <a href="/docs/v2/getting-started">Welcome</a>
-      </li>
-      <li class="">
-        <a href="/docs/v2/getting-started/installation">Installation</a>
+        <a href="/docs/v2/setup/installation">Installation</a>
       </li>
       <li class="active">
-        <a href="/docs/v2/getting-started/tutorial">Tutorial</a>
+        <a href="/docs/v2/setup/tutorial">Tutorial</a>
       </li>
       <li class="">
-        <a href="/docs/v2/getting-started/migration">Migration</a>
+        <a href="/docs/v2/setup/migration">Migration</a>
       </li>
       <li class="">
-        <a href="/docs/v2/getting&#45;started/concepts">Concepts</a>
+        <a href="/docs/v2/setup/concepts">Concepts</a>
       </li>
-      
     </ul>
   </li>
 
@@ -460,153 +455,42 @@
   </nav>
   
   <main>
-    <h1 class="title">Adding Pages</h1>
+    <h1 class="title">Navigating to Pages</h1>
 
-<p><a class="improve-v2-docs" href="https://github.com/driftyco/ionic-site/edit/master/docs/v2/getting-started/tutorial/adding-pages/index.md">
-  Improve this doc
+<p><a class="improve-v2-docs" href="https://github.com/driftyco/ionic-site/edit/master/docs/v2/setup/tutorial/navigation/index.md">
+Improve this doc
 </a></p>
 
-<p>Now that we have a basic understanding of the layout of an Ionic 2 app, let’s walk through the process of creating and navigating to pages in our app.</p>
+<p>Recall from the previous section we had a function inside our <code class="highlighter-rouge">ListPage</code> class that looked something like this:</p>
 
-<p>Taking a look at <code class="highlighter-rouge">src/app/app.html</code>, we see this line near the bottom:</p>
-
-<div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;ion-nav</span> <span class="na">id=</span><span class="s">"nav"</span> <span class="err">[</span><span class="na">root</span><span class="err">]="</span><span class="na">rootPage</span><span class="err">"</span> <span class="err">#</span><span class="na">content</span> <span class="na">swipeBackEnabled=</span><span class="s">"false"</span><span class="nt">&gt;&lt;/ion-nav&gt;</span>
+<div class="language-ts highlighter-rouge"><pre class="highlight"><code><span class="nx">itemTapped</span><span class="p">(</span><span class="nx">event</span><span class="p">,</span> <span class="nx">item</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">navCtrl</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">ItemDetailsPage</span><span class="p">,</span> <span class="p">{</span>
+      <span class="na">item</span><span class="p">:</span> <span class="nx">item</span>
+    <span class="p">});</span>
+<span class="p">}</span>
 </code></pre>
 </div>
 
-<p>Pay attention to the <code class="highlighter-rouge">[root]</code> property binding. This sets what is essentially the first, or “root” page for the <code class="highlighter-rouge">ion-nav</code> component. When <code class="highlighter-rouge">ion-nav</code> loads, the component referenced by the variable <code class="highlighter-rouge">rootPage</code> will be the root page.</p>
-
-<p>In <code class="highlighter-rouge">src/app/app.component.ts</code>, the <code class="highlighter-rouge">MyApp</code> component specifies this in its constructor:</p>
+<p>You might have noticed we are referencing <code class="highlighter-rouge">ItemDetailsPage</code>. This is a page included in the tutorial starter.  Let’s import it in <code class="highlighter-rouge">app/pages/list/list.ts</code> so we can use it:</p>
 
 <div class="language-ts highlighter-rouge"><pre class="highlight"><code><span class="p">...</span>
-<span class="k">import</span> <span class="p">{</span><span class="nx">HelloIonicPage</span><span class="p">}</span> <span class="k">from</span> <span class="s1">'../pages/hello-ionic/hello-ionic'</span><span class="p">;</span>
-<span class="p">...</span>
-
-<span class="k">export</span> <span class="kr">class</span> <span class="nx">MyApp</span> <span class="p">{</span>
-  <span class="p">...</span>
-  
-  <span class="c1">// make HelloIonicPage the root (or first) page</span>
-  <span class="nl">rootPage</span><span class="p">:</span> <span class="kr">any</span> <span class="o">=</span> <span class="nx">HelloIonicPage</span><span class="p">;</span>
-  <span class="nl">pages</span><span class="p">:</span> <span class="nb">Array</span><span class="o">&lt;</span><span class="p">{</span><span class="na">title</span><span class="p">:</span> <span class="kr">string</span><span class="p">,</span> <span class="na">component</span><span class="p">:</span> <span class="kr">any</span><span class="p">}</span><span class="o">&gt;</span><span class="p">;</span>
-
-    <span class="kd">constructor</span><span class="p">(</span>
-      <span class="k">private</span> <span class="nx">platform</span><span class="err">:</span> <span class="nx">Platform</span><span class="p">,</span>
-      <span class="k">private</span> <span class="nx">menu</span><span class="err">:</span> <span class="nx">MenuController</span>
-    <span class="p">)</span> <span class="p">{</span>
-    <span class="p">...</span>
-  <span class="p">}</span>
-
-  <span class="p">...</span>
-<span class="p">}</span>
-
+<span class="k">import</span> <span class="p">{</span><span class="nx">ItemDetailsPage</span><span class="p">}</span> <span class="k">from</span> <span class="s1">'../item-details/item-details'</span><span class="p">;</span>
 </code></pre>
 </div>
 
-<p>We see that <code class="highlighter-rouge">rootPage</code> is set to <code class="highlighter-rouge">HelloIonicPage</code>, so <code class="highlighter-rouge">HelloIonicPage</code> will be the first page loaded in the nav controller. Let’s take a look at it.</p>
+<p>After saving the file, you will notice the <code class="highlighter-rouge">ionic serve</code> process will recompile your app with the new changes, and reload the browser. Let’s revisit our app in the browser, and when we tap an item, it will navigate to the item details page! Notice that the menu-toggle is replaced with a back button instead. This is a native style that Ionic follows, but can be configured.</p>
 
-<h3 id="creating-a-page">Creating a Page</h3>
+<h3 id="how-it-works">How It Works</h3>
 
-<p>Next, let’s check out the <code class="highlighter-rouge">HelloIonicPage</code> that we are importing. Inside the <code class="highlighter-rouge">src/pages/hello-ionic/</code> folder, go and open up <code class="highlighter-rouge">hello-ionic.ts</code>.</p>
+<p>Navigation in Ionic 2 works like a simple stack, where we <code class="highlighter-rouge">push</code> new pages onto the top of the stack, which takes us forwards in the app and shows a back button. To go backwards, we <code class="highlighter-rouge">pop</code> the top page off. Since we set <code class="highlighter-rouge">this.navCtrl</code> in the constructor, we can call <code class="highlighter-rouge">this.navCtrl.push()</code>, and pass it the page we want to navigate to. We can also pass it an object containing data we would like to pass to the page being navigated to. Using <code class="highlighter-rouge">push</code> to navigate to a new page is simple, but Ionic’s <a href="../../../components/#navigation">navigation system</a> is very flexible. Check out the <a href="../../../components/#navigation">navigation docs</a> to see more advanced navigation examples.</p>
 
 <blockquote>
-  <p>You may have noticed that each page has its own folder that is named after the page. Inside each folder, we also see a <code class="highlighter-rouge">.html</code> and a <code class="highlighter-rouge">.scss</code> file with the same name. For example, inside of <code class="highlighter-rouge">hello-ionic/</code> we will find <code class="highlighter-rouge">hello-ionic.ts</code>, <code class="highlighter-rouge">hello-ionic.html</code>, and <code class="highlighter-rouge">hello-ionic.scss</code>. Although using this pattern is not required, it can be helpful to keep things organized.</p>
+  <p>When it comes to URLs, Ionic 2 works a bit differently than Ionic 1. Instead of using URLs to navigate, we use them to make sure we can always come back to a page (on app launch, for example).  This means we aren’t limited to using <code class="highlighter-rouge">href</code> to navigate around. However,  we still have the option to use a URL to navigate to a page when necessary.</p>
 </blockquote>
 
-<p>Below, we see the <code class="highlighter-rouge">HelloIonicPage</code> class. This creates a Page - an Angular component with all Ionic directives already provided, to be loaded using Ionic’s navigation system.  Notice that because Pages are meant to be loaded dynamically, they don’t have a selector:</p>
+<h3 id="next-steps">Next Steps</h3>
 
-<div class="language-ts highlighter-rouge"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span><span class="nx">Component</span><span class="p">}</span> <span class="k">from</span> <span class="s1">'@angular/core'</span><span class="p">;</span>
-
-<span class="err">@</span><span class="nx">Component</span><span class="p">({</span>
-  <span class="na">templateUrl</span><span class="p">:</span> <span class="s1">'build/pages/hello-ionic/hello-ionic.html'</span>
-<span class="p">})</span>
-<span class="k">export</span> <span class="kr">class</span> <span class="nx">HelloIonicPage</span> <span class="p">{}</span>
-</code></pre>
-</div>
-
-<p>All pages have both a class, and an associated template that’s being compiled as well. Let’s check out <code class="highlighter-rouge">src/pages/hello-ionic/hello-ionic.html</code> - the template file for this page:</p>
-
-<div class="language-html highlighter-rouge"><pre class="highlight"><code>
-<span class="nt">&lt;ion-header&gt;</span>
-  <span class="nt">&lt;ion-navbar&gt;</span>
-    <span class="nt">&lt;button</span> <span class="na">menuToggle</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;ion-icon</span> <span class="na">name=</span><span class="s">"menu"</span><span class="nt">&gt;&lt;/ion-icon&gt;</span>
-    <span class="nt">&lt;/button&gt;</span>
-    <span class="nt">&lt;ion-title&gt;</span>Hello Ionic<span class="nt">&lt;/ion-title&gt;</span>
-  <span class="nt">&lt;/ion-navbar&gt;</span>
-<span class="nt">&lt;/ion-header&gt;</span>
-
-
-<span class="nt">&lt;ion-content</span> <span class="na">padding</span> <span class="na">class=</span><span class="s">"getting-started"</span><span class="nt">&gt;</span>
-
-  <span class="nt">&lt;h3&gt;</span>Welcome to your first Ionic app!<span class="nt">&lt;/h3&gt;</span>
-
-  <span class="nt">&lt;p&gt;</span>
-    This starter project is our way of helping you get a functional app running in record time.
-  <span class="nt">&lt;/p&gt;</span>
-  <span class="nt">&lt;p&gt;</span>
-    Follow along on the tutorial section of the Ionic docs!
-  <span class="nt">&lt;/p&gt;</span>
-  <span class="nt">&lt;p&gt;</span>
-    <span class="nt">&lt;button</span> <span class="na">primary</span> <span class="na">menuToggle</span><span class="nt">&gt;</span>Toggle Menu<span class="nt">&lt;/button&gt;</span>
-  <span class="nt">&lt;/p&gt;</span>
-
-<span class="nt">&lt;/ion-content&gt;</span>
-
-</code></pre>
-</div>
-
-<p>The <code class="highlighter-rouge">&lt;ion-navbar&gt;</code> is a template for the <a href="/docs/v2/api/components/navbar/Navbar/">navigation bar</a> on this page. As we navigate to this page, the button and title of the navigation bar transition in as part of the page transition.</p>
-
-<p>The rest of the template is standard Ionic code that sets up our content area and prints our welcome message.</p>
-
-<h3 id="creating-additional-pages">Creating Additional Pages</h3>
-
-<p>To create an additional page, we don’t need to do much beyond making sure we correctly configure the title and anything else we want the navigation bar to display.</p>
-
-<p>Let’s check out the contents of <code class="highlighter-rouge">src/pages/list/list.ts</code>. Inside, you will see a new page is defined:</p>
-
-<div class="language-ts highlighter-rouge"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span><span class="nx">Component</span><span class="p">}</span> <span class="k">from</span> <span class="s2">"@angular/core"</span><span class="p">;</span>
-<span class="k">import</span> <span class="p">{</span><span class="nx">NavController</span><span class="p">,</span> <span class="nx">NavParams</span><span class="p">}</span> <span class="k">from</span> <span class="s1">'ionic-angular'</span><span class="p">;</span>
-<span class="k">import</span> <span class="p">{</span><span class="nx">ItemDetailsPage</span><span class="p">}</span> <span class="k">from</span> <span class="s1">'../item-details/item-details'</span><span class="p">;</span>
-
-
-<span class="err">@</span><span class="nx">Component</span><span class="p">({</span>
-  <span class="na">templateUrl</span><span class="p">:</span> <span class="s1">'build/pages/list/list.html'</span>
-<span class="p">})</span>
-<span class="k">export</span> <span class="kr">class</span> <span class="nx">ListPage</span> <span class="p">{</span>
-  <span class="nl">selectedItem</span><span class="p">:</span> <span class="kr">any</span><span class="p">;</span>
-  <span class="nl">icons</span><span class="p">:</span> <span class="kr">string</span><span class="p">[];</span>
-  <span class="nl">items</span><span class="p">:</span> <span class="nb">Array</span><span class="o">&lt;</span><span class="p">{</span><span class="na">title</span><span class="p">:</span> <span class="kr">string</span><span class="p">,</span> <span class="na">note</span><span class="p">:</span> <span class="kr">string</span><span class="p">,</span> <span class="na">icon</span><span class="p">:</span> <span class="kr">string</span><span class="p">}</span><span class="o">&gt;</span><span class="p">;</span>
-
-  <span class="kd">constructor</span><span class="p">(</span><span class="k">private</span> <span class="nx">navCtrl</span><span class="err">:</span> <span class="nx">NavController</span><span class="p">,</span> <span class="nx">navParams</span><span class="err">:</span> <span class="nx">NavParams</span><span class="p">)</span> <span class="p">{</span>
-    <span class="c1">// If we navigated to this page, we will have an item available as a nav param</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">selectedItem</span> <span class="o">=</span> <span class="nx">navParams</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'item'</span><span class="p">);</span>
-
-    <span class="k">this</span><span class="p">.</span><span class="nx">icons</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'flask'</span><span class="p">,</span> <span class="s1">'wifi'</span><span class="p">,</span> <span class="s1">'beer'</span><span class="p">,</span> <span class="s1">'football'</span><span class="p">,</span> <span class="s1">'basketball'</span><span class="p">,</span> <span class="s1">'paper-plane'</span><span class="p">,</span>
-    <span class="s1">'american-football'</span><span class="p">,</span> <span class="s1">'boat'</span><span class="p">,</span> <span class="s1">'bluetooth'</span><span class="p">,</span> <span class="s1">'build'</span><span class="p">];</span>
-
-    <span class="k">this</span><span class="p">.</span><span class="nx">items</span> <span class="o">=</span> <span class="p">[];</span>
-    <span class="k">for</span><span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">11</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-      <span class="k">this</span><span class="p">.</span><span class="nx">items</span><span class="p">.</span><span class="nx">push</span><span class="p">({</span>
-        <span class="na">title</span><span class="p">:</span> <span class="s1">'Item '</span> <span class="o">+</span> <span class="nx">i</span><span class="p">,</span>
-        <span class="na">note</span><span class="p">:</span> <span class="s1">'This is item #'</span> <span class="o">+</span> <span class="nx">i</span><span class="p">,</span>
-        <span class="na">icon</span><span class="p">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">icons</span><span class="p">[</span><span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span> <span class="o">*</span> <span class="k">this</span><span class="p">.</span><span class="nx">icons</span><span class="p">.</span><span class="nx">length</span><span class="p">)]</span>
-      <span class="p">});</span>
-    <span class="p">}</span>
-  <span class="p">}</span>
-
-  <span class="nx">itemTapped</span><span class="p">(</span><span class="nx">event</span><span class="p">,</span> <span class="nx">item</span><span class="p">)</span> <span class="p">{</span>
-     <span class="k">this</span><span class="p">.</span><span class="nx">navCtrl</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">ItemDetailsPage</span><span class="p">,</span> <span class="p">{</span>
-       <span class="na">item</span><span class="p">:</span> <span class="nx">item</span>
-     <span class="p">});</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-</code></pre>
-</div>
-
-<p>This page will create a basic list page containing a number of items.</p>
-
-<p>Overall, this page is very similar to the <code class="highlighter-rouge">HelloIonicPage</code> we saw earlier. In the next section, we will learn how to navigate to a new page!</p>
+<p><em>Nice job</em>! You’ve made it through the tutorial and are on your way towards <em>Ionic mastery</em>! If you’re looking for an overview on what else is included with Ionic, check out the <a href="../../../components">Component docs</a>. To learn about using device APIs, head over to the <a href="../../../native/">Native section</a>. If at any point you need help, check out our <a href="../../../resources/">developer resources section</a>, or ask a question on <a href="http://forum.ionicframework.com/">the forums</a>.</p>
 
   </main>
 </div>
@@ -616,12 +500,12 @@
       <div class="footer-links">
         <hr>
         
-          <a class="footer-link prev" href="/docs/v2/getting-started/tutorial/project-structure">
-            Project Structure</a>
+          <a class="footer-link prev" href="/docs/v2/setup/tutorial/adding-pages/">
+            Adding Pages</a>
         
         
-          <a class="footer-link next" href="/docs/v2/getting-started/tutorial/navigation">
-            Navigating to Pages</a>
+          <a class="footer-link next" href="/docs/v2/components">
+            Component Docs</a>
         
       </div>
     

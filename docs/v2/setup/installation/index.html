@@ -5,7 +5,7 @@
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link href="/css/styles.min.css?v=9" rel="stylesheet">
+<link href="/css/styles.min.css?v=10" rel="stylesheet">
 
 
   <title>Installing Ionic</title>
@@ -14,7 +14,7 @@
 <meta name="author" content="Drifty">
 <meta name="description" content="Ionic lets developers build beautiful and interactive mobile apps using HTML5 and AngularJS.">
 <meta name="keywords" content="html5,javascript,mobile,drifty,ionic,hybrid,phonegap,cordova,native,ios,android,angularjs">
-<link rel="canonical" href="https://ionicframework.com/docs/v2/getting-started/installation/">
+<link rel="canonical" href="https://ionicframework.com/docs/v2/setup/installation/">
 
 
 <!-- Social: Twitter -->
@@ -27,7 +27,7 @@
 
 <!-- Social: Facebook / Open Graph -->
 <meta property="fb:app_id" content="1321836767955949">
-<meta property="og:url" content="https://ionicframework.com/docs/v2/getting-started/installation/">
+<meta property="og:url" content="https://ionicframework.com/docs/v2/setup/installation/">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Ionic Framework">
 <meta property="og:image" content="https://ionicframework.com/img/ionic-meta.jpg"/>
@@ -174,29 +174,24 @@
   </li>
 
   
-  <li class="
-             active">
-    <a ng-click="showGettingStarted = !showGettingStarted">Getting Started</a>
-    <ul ng-show="showGettingStarted"
+  <li class="active">
+    <a ng-click="showSetup = !showSetup">Setup</a>
+    <ul ng-show="showSetup"
         
-          ng-init="showGettingStarted = true"
+          ng-init="showSetup = true"
         >
-      <li class="">
-        <a href="/docs/v2/getting-started">Welcome</a>
-      </li>
       <li class="active">
-        <a href="/docs/v2/getting-started/installation">Installation</a>
+        <a href="/docs/v2/setup/installation">Installation</a>
       </li>
       <li class="">
-        <a href="/docs/v2/getting-started/tutorial">Tutorial</a>
+        <a href="/docs/v2/setup/tutorial">Tutorial</a>
       </li>
       <li class="">
-        <a href="/docs/v2/getting-started/migration">Migration</a>
+        <a href="/docs/v2/setup/migration">Migration</a>
       </li>
       <li class="">
-        <a href="/docs/v2/getting&#45;started/concepts">Concepts</a>
+        <a href="/docs/v2/setup/concepts">Concepts</a>
       </li>
-      
     </ul>
   </li>
 
@@ -462,7 +457,7 @@
   <main>
     <h1 id="installing-ionic">Installing Ionic</h1>
 
-<p><a class="improve-v2-docs" href="https://github.com/driftyco/ionic-site/edit/master/docs/v2/getting-started/installation/index.md">Improve this doc</a></p>
+<p><a class="improve-v2-docs" href="https://github.com/driftyco/ionic-site/edit/master/docs/v2/setup/installation/index.md">Improve this doc</a></p>
 
 <p>Ionic 2 apps are created and developed primarily through the Ionic command line utility (the “CLI”), and use Cordova to build and deploy as a native app. This means we need to install a few utilities to get developing.</p>
 
@@ -528,12 +523,9 @@ We also have a fun side-by-side development tool called Lab that you can run wit
       <div class="footer-links">
         <hr>
         
-          <a class="footer-link prev" href="/docs/v2/getting-started/">
-            Welcome to Ionic</a>
         
-        
-          <a class="footer-link next" href="/docs/v2/getting-started/tutorial">
-            Learn the basics</a>
+          <a class="footer-link next" href="/docs/v2/setup/tutorial">
+            Tutorial</a>
         
       </div>
     
