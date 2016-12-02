@@ -8,13 +8,13 @@
 <link href="/css/styles.min.css?v=18" rel="stylesheet">
 
 
-  <title>Customizing Styles - Tutorial</title>
+  <title>Deploying</title>
 
 
 <meta name="author" content="Drifty">
 <meta name="description" content="Ionic lets developers build beautiful and interactive mobile apps using HTML5 and AngularJS.">
 <meta name="keywords" content="html5,javascript,mobile,drifty,ionic,hybrid,phonegap,cordova,native,ios,android,angularjs">
-<link rel="canonical" href="https://ionicframework.com/docs/v2/setup/tutorial/customization/">
+<link rel="canonical" href="https://ionicframework.com/docs/v2/setup/deploying/">
 
 <!-- Social: Twitter -->
 <meta name="twitter:card" content="summary_large_image">
@@ -26,7 +26,7 @@
 
 <!-- Social: Facebook / Open Graph -->
 <meta property="fb:app_id" content="1321836767955949">
-<meta property="og:url" content="https://ionicframework.com/docs/v2/setup/tutorial/customization/">
+<meta property="og:url" content="https://ionicframework.com/docs/v2/setup/deploying/">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Ionic Framework">
 <meta property="og:image" content="https://ionicframework.com/img/ionic-meta.jpg"/>
@@ -61,8 +61,8 @@
 
 
   </head>
-  <body id="docs-page-tutorial"
-        class="v2 docs fluid page-tutorial
+  <body id="docs-page-deploying"
+        class="v2 docs fluid page-deploying
                "
         data-spy="scroll"
         data-offset="100"
@@ -202,10 +202,10 @@
       <li class="">
         <a href="/docs/v2/setup/installation">Installation</a>
       </li>      
-      <li class="active">
+      <li class="">
         <a href="/docs/v2/setup/tutorial">Tutorial</a>
       </li>
-      <li class="">
+      <li class="active">
         <a href="/docs/v2/setup/deploying">Deploying</a>
       </li>
       <li class="">
@@ -481,21 +481,120 @@
   </nav>
   
   <main>
-    <p><a class="improve-v2-docs" href="https://github.com/driftyco/ionic-site/edit/ionic2/docs/v2/guide/adding-pages/index.md">
-Improve this doc
-</a></p>
+    <h1 id="deploying-to-a-device">Deploying to a Device</h1>
 
-<h1 id="customizing-styles">Customizing Styles</h1>
+<p><a class="improve-v2-docs" href="https://github.com/driftyco/ionic-site/edit/master/docs/v2/setup/migration/index.md">Improve this doc</a></p>
 
-<h2 id="starter-themes">Starter Themes</h2>
+<p>Testing your app in the browser with <code class="highlighter-rouge">ionic serve</code> or with an emulator is fast, easy and convenient when your app is in development, but eventually you’re going to have to test on a device. Not only is it the only way to accurately test how your app will behave and perform, many <a href="http://ionicframework.com/docs/v2/native/">Ionic Native</a> plugins will only work when they are run on actual hardware.</p>
 
-<h2 id="sass-variables">Sass Variables</h2>
+<h2 id="android-devices">Android Devices</h2>
 
-<h2 id="custom-colors">Custom Colors</h2>
+<p>Deploying to an Android device is a fairly straightforward process. If you have a working Android development environment, you’re ready to go.</p>
 
-<h2 id="custom-stylesheets">Custom Stylesheets</h2>
+<h3 id="requirements">Requirements</h3>
 
-<p><a href="../building-forms/" class="btn btn-primary" role="button">Building Forms</a></p>
+<ul>
+  <li><a href="https://developer.android.com/studio/index.html">Android Studio</a></li>
+  <li>Updated Android SDK tools, platform and component dependencies. Available through Android Studio’s <a href="https://developer.android.com/studio/intro/update.html">SDK Manager</a></li>
+</ul>
+
+<h3 id="running-your-app">Running Your App</h3>
+
+<p>To run your app, all you have to do is enable USB debugging and Developer Mode on your Android device, then run <code class="highlighter-rouge">ionic run android --device</code> from the command line.</p>
+
+<p>Enabling USB debugging and Developer Mode can vary between devices, but is easy to look up with a Google search. You can also check out <a href="https://developer.android.com/studio/run/device.html#developer-device-options">Enabling On-device Developer Options</a> in the Android docs.</p>
+
+<h2 id="ios-devices">iOS Devices</h2>
+
+<p>Unlike Android, iOS developers need to generate a provisioning profile to code sign their apps for testing. The good news is that, as of iOS9, you can develop and test your apps on your iOS device without a paid Apple Developer account. This is particularly great for developers who want to try out mobile development with Ionic, since it saves the cost but still provides a lot of the features of having a full Apple Developer account. For a full breakdown of the features included, check out <a href="https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/AppDistributionGuide/SupportedCapabilities/SupportedCapabilities.html#//apple_ref/doc/uid/TP40012582-CH38-SW1">Apple’s docs</a>.</p>
+
+<h3 id="requirements-1">Requirements</h3>
+
+<ul>
+  <li>Xcode 7 or higher</li>
+  <li>iOS 9</li>
+  <li>A free <a href="https://appleid.apple.com/">Apple ID</a> or paid Apple Developer account</li>
+</ul>
+
+<h3 id="creating-a-provisioning-profile">Creating a Provisioning Profile</h3>
+
+<p>To start, you’ll need to set up a provisioning profile to code sign your apps.</p>
+
+<h4 id="using-an-apple-id">Using an Apple ID</h4>
+
+<ol>
+  <li>Open Xode preferences (Xcode &gt; Preferences…)</li>
+  <li>Click the ‘Accounts’ tab</li>
+  <li>Login with your Apple ID (+ &gt; Add Apple ID…)</li>
+</ol>
+
+<p>Once you’ve successfully logged in, a new ‘Personal Team’ with the role ‘Free’ will appear beneath your Apple ID.</p>
+
+<p><img src="/img/docs/deploying/profiles.jpg" alt="profiles" /></p>
+
+<h4 id="using-an-apple-developer-account">Using an Apple Developer Account</h4>
+
+<p>Creating a provisioning profile with a paid Apple Developer account is a little bit more involved. For full instructions, check out <a href="https://developer.apple.com/library/content/documentation/IDEs/Conceptual/AppDistributionGuide/LaunchingYourApponDevices/LaunchingYourApponDevices.html">Launching Your App on Devices</a> in the Apple Developer docs.</p>
+
+<h3 id="running-your-app-1">Running Your App</h3>
+
+<ol>
+  <li>Run a production build of your app with <code class="highlighter-rouge">ionic build ios</code></li>
+  <li>Open the <code class="highlighter-rouge">.xcodeproj</code> file in <code class="highlighter-rouge">platforms/ios/</code> in Xcode</li>
+  <li>Connect your phone via USB and select it as the run target</li>
+  <li>Click the play button in Xcode to try to run your app</li>
+</ol>
+
+<p>Oops, code signing error! No problem.</p>
+
+<h3 id="code-signing-your-app">Code Signing Your App</h3>
+
+<p>Next, you’ll need to code sign your app. How you do this will depend on if you are running Xcode 8 or an earlier version.</p>
+
+<h4 id="xcode-7-and-earlier">XCode 7 and Earlier</h4>
+
+<p>If you are running Xcode 7 or earlier, you’ll get a code signing error that looks like this when you try to run the app:</p>
+
+<p><img src="/img/docs/deploying/sign-fail-1.jpg" /></p>
+
+<p>Click the ‘Fix Issue’ button, then select your ‘Personal Team’ profile.</p>
+
+<p><img src="/img/docs/deploying/team-menu-1.jpg" /></p>
+
+<h4 id="xcode-8">XCode 8</h4>
+
+<p>If you are running Xcode 8, the code signing error will appear as a buildtime error, rather than as a pop-up:</p>
+
+<p><img src="/img/docs/deploying/code-sign-err-xcode8.png" /></p>
+
+<p>To select the certificate to sign your app with, do the following:</p>
+
+<ol>
+  <li>Go to the ‘Project Editor’ by clicking the name or your project in the ‘Project Navigator’</li>
+  <li>Select the ‘General’ section</li>
+  <li>Select the team associate with your signing certificate from the ‘Team’ dropdown in the ‘Signing’ section</li>
+</ol>
+
+<p><img src="/img/docs/deploying/code-sign-xcode8.png" /></p>
+
+<h3 id="trusting-the-certificate">Trusting the Certificate</h3>
+
+<p>Once you’ve code signed your app, you should get a launch error that looks like this. On Xcode 7 and below you’ll see this automatically. On Xcode 8 it will appear the next time you try to run the app:</p>
+
+<p><img src="/img/docs/deploying/launch-fail-1.jpg" /></p>
+
+<p>To get past this, we have to tell our iOS device to trust the certificate we code signed our app with:</p>
+
+<ol>
+  <li>Open the ‘Settings’ app on your iOS device</li>
+  <li>Go to ‘General &gt; Device Management’. You’ll see the email address associated with the Apple ID or Apple Developer account you used to code sign your app.</li>
+  <li>Tap the email address</li>
+  <li>Tap ‘Trust &lt;your_email&gt;’:</li>
+</ol>
+
+<p><img src="/img/docs/deploying/verify.jpg" /></p>
+
+<p>Now, go back to Xcode and hit that play button or run <code class="highlighter-rouge">ionic run ios --device</code> from the command line to install and launch your app on your iOS device.</p>
 
   </main>
 </div>
