@@ -703,8 +703,7 @@ Does nothing on other platforms.</p>
 <div class="return-value">
   <p><i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
- Returns a Promise.</p>
-
+<code>Promise&lt;any&gt;</code></p>
 </div>
 
 <div id="requestAlwaysAuthorization"></div>
@@ -721,8 +720,7 @@ Does nothing on other platforms.</p>
 <div class="return-value">
   <p><i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
- Returns a Promise.</p>
-
+<code>Promise&lt;any&gt;</code></p>
 </div>
 
 <div id="authorizationStatus"></div>
@@ -737,8 +735,7 @@ Does nothing on other platforms.</p>
 <div class="return-value">
   <p><i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
- Returns a Promise.</p>
-
+<code>Promise&lt;any&gt;</code></p>
 </div>
 
 <div id="startAdvertisingAsBeacon"></div>
@@ -832,8 +829,7 @@ Does nothing on other platforms.</p>
 <div class="return-value">
   <p><i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
- Returns a Promise.</p>
-
+<code>Promise&lt;any&gt;</code></p>
 </div>
 
 <div id="stopAdvertisingAsBeacon"></div>
@@ -846,8 +842,7 @@ Does nothing on other platforms.</p>
 <div class="return-value">
   <p><i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
- Returns a Promise.</p>
-
+<code>Promise&lt;any&gt;</code></p>
 </div>
 
 <div id="enableAnalytics"></div>
@@ -890,8 +885,7 @@ Does nothing on other platforms.</p>
 <div class="return-value">
   <p><i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
- Returns a Promise.</p>
-
+<code>Promise&lt;any&gt;</code></p>
 </div>
 
 <div id="isAnalyticsEnabled"></div>
@@ -904,8 +898,7 @@ Does nothing on other platforms.</p>
 <div class="return-value">
   <p><i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
- Returns a Promise.</p>
-
+<code>Promise&lt;any&gt;</code></p>
 </div>
 
 <div id="isAuthorized"></div>
@@ -918,8 +911,7 @@ Does nothing on other platforms.</p>
 <div class="return-value">
   <p><i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
- Returns a Promise.</p>
-
+<code>Promise&lt;any&gt;</code></p>
 </div>
 
 <div id="setupAppIDAndAppToken"></div>
@@ -979,8 +971,7 @@ Does nothing on other platforms.</p>
 <div class="return-value">
   <p><i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
- Returns a Promise.</p>
-
+<code>Promise&lt;any&gt;</code></p>
 </div>
 
 <div id="startEstimoteBeaconDiscovery"></div>
@@ -994,8 +985,7 @@ Available on iOS.</p>
 <div class="return-value">
   <p><i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
- Returns an Observable that notifies of each beacon discovered.</p>
-
+<code>Observable&lt;any&gt;</code> Returns an Observable that notifies of each beacon discovered.</p>
 </div>
 
 <div id="stopEstimoteBeaconDiscovery"></div>
@@ -1008,8 +998,7 @@ Available on iOS.</p>
 <div class="return-value">
   <p><i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
- returns a Promise.</p>
-
+<code>Promise&lt;any&gt;</code></p>
 </div>
 
 <div id="startRangingBeaconsInRegion"></div>
@@ -1052,8 +1041,7 @@ Available on iOS.</p>
 <div class="return-value">
   <p><i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
- Returns an Observable that notifies of each beacon discovered.</p>
-
+<code>Observable&lt;any&gt;</code> Returns an Observable that notifies of each beacon discovered.</p>
 </div>
 
 <div id="stopRangingBeaconsInRegion"></div>
@@ -1096,8 +1084,7 @@ Available on iOS.</p>
 <div class="return-value">
   <p><i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
- returns a Promise.</p>
-
+<code>Promise&lt;any&gt;</code></p>
 </div>
 
 <div id="startRangingSecureBeaconsInRegion"></div>
@@ -1111,6 +1098,12 @@ This function has the same parameters/behaviour as
 To use secure beacons set the App ID and App Token using
 <a href="undefined"><code>setupAppIDAndAppToken</code></a>.</p>
 
+<div class="return-value">
+  <p><i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Observable&lt;any&gt;</code></p>
+</div>
+
 <div id="stopRangingSecureBeaconsInRegion"></div>
 <h3><code>stopRangingSecureBeaconsInRegion()</code>
   
@@ -1119,6 +1112,12 @@ To use secure beacons set the App ID and App Token using
 <p>Stop ranging secure beacons. Available on iOS.
 This function has the same parameters/behaviour as
 <a href="undefined"><code>stopRangingBeaconsInRegion</code></a>.</p>
+
+<div class="return-value">
+  <p><i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code></p>
+</div>
 
 <div id="startMonitoringForRegion"></div>
 <h3><code>startMonitoringForRegion(region,&nbsp;notifyEntryStateOnDisplay)</code>
@@ -1180,8 +1179,7 @@ for further details (optional, defaults to false, iOS only).</p>
 <div class="return-value">
   <p><i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
- Returns an Observable that notifies of each region state discovered.</p>
-
+<code>Observable&lt;any&gt;</code> Returns an Observable that notifies of each region state discovered.</p>
 </div>
 
 <div id="stopMonitoringForRegion"></div>
@@ -1224,8 +1222,7 @@ for further details (optional, defaults to false, iOS only).</p>
 <div class="return-value">
   <p><i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
- returns a Promise.</p>
-
+<code>Promise&lt;any&gt;</code></p>
 </div>
 
 <div id="startSecureMonitoringForRegion"></div>
@@ -1285,6 +1282,12 @@ To use secure beacons set the App ID and App Token using
   </tbody>
 </table>
 
+<div class="return-value">
+  <p><i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Observable&lt;any&gt;</code></p>
+</div>
+
 <div id="stopSecureMonitoringForRegion"></div>
 <h3><code>stopSecureMonitoringForRegion(region)</code>
   
@@ -1323,6 +1326,12 @@ This function has the same parameters/behaviour as
   
   </tbody>
 </table>
+
+<div class="return-value">
+  <p><i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code></p>
+</div>
 
 <div id="connectToBeacon"></div>
 <h3><code>connectToBeacon(beacon)</code>
@@ -1364,8 +1373,7 @@ This function has the same parameters/behaviour as
 <div class="return-value">
   <p><i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
- returns a Promise.</p>
-
+<code>Promise&lt;any&gt;</code></p>
 </div>
 
 <div id="disconnectConnectedBeacon"></div>
@@ -1378,8 +1386,7 @@ This function has the same parameters/behaviour as
 <div class="return-value">
   <p><i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
- returns a Promise.</p>
-
+<code>Promise&lt;any&gt;</code></p>
 </div>
 
 <div id="writeConnectedProximityUUID"></div>

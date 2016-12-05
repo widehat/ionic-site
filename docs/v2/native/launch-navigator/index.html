@@ -666,12 +666,24 @@ LaunchNavigator.navigate(&#39;Toronto, ON&#39;, options)
   </tbody>
 </table>
 
+<div class="return-value">
+  <p><i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code></p>
+</div>
+
 <div id="availableApps"></div>
 <h3><code>availableApps()</code>
   
 </h3>
 
 <p>Returns a list indicating which apps are installed and available on the current device.</p>
+
+<div class="return-value">
+  <p><i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;string[]&gt;</code></p>
+</div>
 
 <div id="getAppDisplayName"></div>
 <h3><code>getAppDisplayName(app)</code>
@@ -709,6 +721,12 @@ LaunchNavigator.navigate(&#39;Toronto, ON&#39;, options)
   </tbody>
 </table>
 
+<div class="return-value">
+  <p><i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>string</code></p>
+</div>
+
 <div id="getAppsForPlatform"></div>
 <h3><code>getAppsForPlatform(platform)</code>
   
@@ -744,6 +762,12 @@ LaunchNavigator.navigate(&#39;Toronto, ON&#39;, options)
   
   </tbody>
 </table>
+
+<div class="return-value">
+  <p><i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>string[]</code></p>
+</div>
 
 <div id="supportsTransportMode"></div>
 <h3><code>supportsTransportMode(app,&nbsp;platform)</code>
@@ -798,6 +822,12 @@ LaunchNavigator.navigate(&#39;Toronto, ON&#39;, options)
   </tbody>
 </table>
 
+<div class="return-value">
+  <p><i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>boolean</code></p>
+</div>
+
 <div id="getTransportModes"></div>
 <h3><code>getTransportModes(app,&nbsp;platform)</code>
   
@@ -849,6 +879,12 @@ LaunchNavigator.navigate(&#39;Toronto, ON&#39;, options)
   
   </tbody>
 </table>
+
+<div class="return-value">
+  <p><i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>string[]</code></p>
+</div>
 
 <div id="supportsLaunchMode"></div>
 <h3><code>supportsLaunchMode(app,&nbsp;platform)</code>
@@ -903,6 +939,12 @@ Note that currently only Google Maps on Android does.</p>
   </tbody>
 </table>
 
+<div class="return-value">
+  <p><i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>boolean</code></p>
+</div>
+
 <div id="supportsStart"></div>
 <h3><code>supportsStart(app,&nbsp;platform)</code>
   
@@ -955,20 +997,173 @@ Note that currently only Google Maps on Android does.</p>
   </tbody>
 </table>
 
+<div class="return-value">
+  <p><i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>boolean</code></p>
+</div>
+
 <div id="supportsStartName"></div>
-<h3><code>supportsStartName()</code>
+<h3><code>supportsStartName(app,&nbsp;platform)</code>
   
 </h3>
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      app
+      
+      
+    </td>
+    <td>
+      
+<code>string</code>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      platform
+      
+      
+    </td>
+    <td>
+      
+<code>string</code>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
+
+<div class="return-value">
+  <p><i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>boolean</code></p>
+</div>
 
 <div id="supportsDestName"></div>
-<h3><code>supportsDestName()</code>
+<h3><code>supportsDestName(app,&nbsp;platform)</code>
   
 </h3>
 
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      app
+      
+      
+    </td>
+    <td>
+      
+<code>string</code>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      platform
+      
+      
+    </td>
+    <td>
+      
+<code>string</code>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
+
+<div class="return-value">
+  <p><i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>boolean</code></p>
+</div>
+
 <div id="userSelect"></div>
-<h3><code>userSelect()</code>
+<h3><code>userSelect(destination,&nbsp;options)</code>
   
 </h3>
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      destination
+      
+      
+    </td>
+    <td>
+      
+<code>string</code>|<code>Array.&lt;number&gt;</code>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      options
+      
+      
+    </td>
+    <td>
+      
+<code>LaunchNavigatorOptions</code>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
 
 <div id="APP"></div>
 <h3><code>APP()</code>

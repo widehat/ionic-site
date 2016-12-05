@@ -723,8 +723,7 @@ This value must not be blank nor invalid as a UUID.</p>
 <div class="return-value">
   <p><i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
- Returns the BeaconRegion that was created</p>
-
+<code>BeaconRegion</code> Returns the BeaconRegion that was created</p>
 </div>
 
 <div id="getDelegate"></div>
@@ -735,8 +734,7 @@ This value must not be blank nor invalid as a UUID.</p>
 <div class="return-value">
   <p><i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
- Returns the Delegate</p>
-
+<code>Delegate</code> Returns the Delegate</p>
 </div>
 
 <div id="setDelegate"></div>
@@ -777,8 +775,7 @@ This value must not be blank nor invalid as a UUID.</p>
 <div class="return-value">
   <p><i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
- Returns the Delegate</p>
-
+<code>Delegate</code> Returns the Delegate</p>
 </div>
 
 <div id="onDomDelegateReady"></div>
@@ -805,9 +802,8 @@ period of time.</p>
 <div class="return-value">
   <p><i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
- Returns a promise which is resolved as soon as the
+<code>Promise&lt;void&gt;</code> Returns a promise which is resolved as soon as the
 native layer acknowledged the request and started to send events.</p>
-
 </div>
 
 <div id="isBluetoothEnabled"></div>
@@ -820,7 +816,7 @@ native layer acknowledged the request and started to send events.</p>
 <div class="return-value">
   <p><i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Boolean</code> Returns a promise which is resolved with a 
+<code>Promise&lt;boolean&gt;</code> Returns a promise which is resolved with a {Boolean}
 indicating whether bluetooth is active.</p>
 </div>
 
@@ -834,9 +830,8 @@ indicating whether bluetooth is active.</p>
 <div class="return-value">
   <p><i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
- Returns a promise which is resolved when Bluetooth
+<code>Promise&lt;void&gt;</code> Returns a promise which is resolved when Bluetooth
 could be enabled. If not, the promise will be rejected with an error.</p>
-
 </div>
 
 <div id="disableBluetooth"></div>
@@ -849,9 +844,8 @@ could be enabled. If not, the promise will be rejected with an error.</p>
 <div class="return-value">
   <p><i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
- Returns a promise which is resolved when Bluetooth
+<code>Promise&lt;void&gt;</code> Returns a promise which is resolved when Bluetooth
 could be enabled. If not, the promise will be rejected with an error.</p>
-
 </div>
 
 <div id="startMonitoringForRegion"></div>
@@ -903,9 +897,8 @@ by the operating system.</p>
 <div class="return-value">
   <p><i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
- Returns a promise which is resolved as soon as the
+<code>Promise&lt;string&gt;</code> Returns a promise which is resolved as soon as the
 native layer acknowledged the dispatch of the monitoring request.</p>
-
 </div>
 
 <div id="stopMonitoringForRegion"></div>
@@ -954,9 +947,8 @@ by the operating system.</p>
 <div class="return-value">
   <p><i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
- Returns a promise which is resolved as soon as the
+<code>Promise&lt;void&gt;</code> Returns a promise which is resolved as soon as the
 native layer acknowledged the dispatch of the request to stop monitoring.</p>
-
 </div>
 
 <div id="requestStateForRegion"></div>
@@ -1004,9 +996,8 @@ by the operating system.</p>
 <div class="return-value">
   <p><i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
- Returns a promise which is resolved as soon as the
+<code>Promise&lt;void&gt;</code> Returns a promise which is resolved as soon as the
 native layer acknowledged the dispatch of the request to stop monitoring.</p>
-
 </div>
 
 <div id="startRangingBeaconsInRegion"></div>
@@ -1055,9 +1046,8 @@ by the operating system.</p>
 <div class="return-value">
   <p><i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
- Returns a promise which is resolved as soon as the
+<code>Promise&lt;void&gt;</code> Returns a promise which is resolved as soon as the
 native layer acknowledged the dispatch of the monitoring request.</p>
-
 </div>
 
 <div id="stopRangingBeaconsInRegion"></div>
@@ -1106,9 +1096,8 @@ by the operating system.</p>
 <div class="return-value">
   <p><i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
- Returns a promise which is resolved as soon as the
+<code>Promise&lt;void&gt;</code> Returns a promise which is resolved as soon as the
 native layer acknowledged the dispatch of the request to stop monitoring.</p>
-
 </div>
 
 <div id="getAuthorizationStatus"></div>
@@ -1121,9 +1110,8 @@ native layer acknowledged the dispatch of the request to stop monitoring.</p>
 <div class="return-value">
   <p><i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
- Returns a promise which is resolved with the
+<code>Promise&lt;any&gt;</code> Returns a promise which is resolved with the
 requested authorization status.</p>
-
 </div>
 
 <div id="requestWhenInUseAuthorization"></div>
@@ -1141,8 +1129,7 @@ explicitly request permissions via methods like these:
 <div class="return-value">
   <p><i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
- Returns a promise that is resolved when the request dialog is shown.</p>
-
+<code>Promise&lt;void&gt;</code> Returns a promise that is resolved when the request dialog is shown.</p>
 </div>
 
 <div id="requestAlwaysAuthorization"></div>
@@ -1155,9 +1142,8 @@ explicitly request permissions via methods like these:
 <div class="return-value">
   <p><i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
- Returns a promise which is resolved when the native layer
+<code>Promise&lt;void&gt;</code> Returns a promise which is resolved when the native layer
 shows the request dialog.</p>
-
 </div>
 
 <div id="getMonitoredRegions"></div>
@@ -1168,7 +1154,7 @@ shows the request dialog.</p>
 <div class="return-value">
   <p><i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Array</code> Returns a promise which is resolved with an 
+<code>Promise&lt;Region[]&gt;</code> Returns a promise which is resolved with an {Array}
 of {Region} instances that are being monitored by the native layer.</p>
 </div>
 
@@ -1180,7 +1166,7 @@ of {Region} instances that are being monitored by the native layer.</p>
 <div class="return-value">
   <p><i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Array</code> Returns a promise which is resolved with an 
+<code>Promise&lt;Region[]&gt;</code> Returns a promise which is resolved with an {Array}
 of {Region} instances that are being ranged by the native layer.</p>
 </div>
 
@@ -1194,7 +1180,7 @@ of {Region} instances that are being ranged by the native layer.</p>
 <div class="return-value">
   <p><i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Boolean</code> Returns a promise which is resolved with a 
+<code>Promise&lt;boolean&gt;</code> Returns a promise which is resolved with a {Boolean}
 indicating whether ranging is available or not.</p>
 </div>
 
@@ -1239,7 +1225,7 @@ by the operating system.</p>
 <div class="return-value">
   <p><i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Boolean</code> Returns a promise which is resolved with a 
+<code>Promise&lt;boolean&gt;</code> Returns a promise which is resolved with a {Boolean}
 indicating whether the region type is supported or not.</p>
 </div>
 
@@ -1308,9 +1294,8 @@ use it&#39;s own default value.</p>
 <div class="return-value">
   <p><i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
- Returns a promise which is resolved as soon as the
+<code>Promise&lt;void&gt;</code> Returns a promise which is resolved as soon as the
 native layer acknowledged the dispatch of the advertising request.</p>
-
 </div>
 
 <div id="stopAdvertising"></div>
@@ -1325,9 +1310,8 @@ native layer acknowledged the dispatch of the advertising request.</p>
 <div class="return-value">
   <p><i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
- Returns a promise which is resolved as soon as the
+<code>Promise&lt;void&gt;</code> Returns a promise which is resolved as soon as the
 native layer acknowledged the dispatch of the request to stop advertising.</p>
-
 </div>
 
 <div id="isAdvertisingAvailable"></div>
@@ -1340,7 +1324,7 @@ native layer acknowledged the dispatch of the request to stop advertising.</p>
 <div class="return-value">
   <p><i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Boolean</code> Returns a promise which is resolved with a 
+<code>Promise&lt;void&gt;</code> Returns a promise which is resolved with a {Boolean}
 indicating whether advertising is available or not.</p>
 </div>
 
@@ -1354,7 +1338,7 @@ indicating whether advertising is available or not.</p>
 <div class="return-value">
   <p><i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Boolean</code> Returns a promise which is resolved with a 
+<code>Promise&lt;void&gt;</code> Returns a promise which is resolved with a {Boolean}
 indicating whether advertising is active.</p>
 </div>
 
@@ -1369,9 +1353,8 @@ to prevent this plugin from writing to the device logs.</p>
 <div class="return-value">
   <p><i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
- Returns a promise which is resolved as soon as the
+<code>Promise&lt;void&gt;</code> Returns a promise which is resolved as soon as the
 native layer has set the logging level accordingly.</p>
-
 </div>
 
 <div id="enableDebugNotifications"></div>
@@ -1386,9 +1369,8 @@ This can be very helpful when debugging how to apps behave when launched into th
 <div class="return-value">
   <p><i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
- Returns a promise which is resolved as soon as the
+<code>Promise&lt;void&gt;</code> Returns a promise which is resolved as soon as the
 native layer has set the flag to enabled.</p>
-
 </div>
 
 <div id="disableDebugNotifications"></div>
@@ -1402,9 +1384,8 @@ to prevent the plugin from posting local notifications.</p>
 <div class="return-value">
   <p><i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
- Returns a promise which is resolved as soon as the
+<code>Promise&lt;void&gt;</code> Returns a promise which is resolved as soon as the
 native layer has set the flag to disabled.</p>
-
 </div>
 
 <div id="enableDebugLogs"></div>
@@ -1418,9 +1399,8 @@ a debug the inner workings of this plugin.</p>
 <div class="return-value">
   <p><i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
- Returns a promise which is resolved as soon as the
+<code>Promise&lt;void&gt;</code> Returns a promise which is resolved as soon as the
 native layer has set the logging level accordingly.</p>
-
 </div>
 
 <div id="appendToDeviceLog"></div>
@@ -1464,10 +1444,9 @@ Note: If debug logging is turned off, this won’t do anything.</p>
 <div class="return-value">
   <p><i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
- Returns a promise which is resolved with the log
+<code>Promise&lt;void&gt;</code> Returns a promise which is resolved with the log
 message received by the native layer for appending. The returned message
 is expected to be equivalent to the one provided in the original call.</p>
-
 </div>
 
 <!-- methods on the class -->

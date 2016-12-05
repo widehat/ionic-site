@@ -616,10 +616,11 @@ LocalNotifications.schedule({
     </td>
     <td>
       
-
+<code>Notification</code>|<code>Array.&lt;Notification&gt;</code>
     </td>
     <td>
-      
+      <p>optional</p>
+
       
     </td>
   </tr>
@@ -652,10 +653,11 @@ LocalNotifications.schedule({
     </td>
     <td>
       
-
+<code>Notification</code>
     </td>
     <td>
-      
+      <p>optional</p>
+
       
     </td>
   </tr>
@@ -688,7 +690,7 @@ LocalNotifications.schedule({
     </td>
     <td>
       
-
+<code>any</code>
     </td>
     <td>
       <p>A single notification id, or an array of notification ids.</p>
@@ -703,7 +705,7 @@ LocalNotifications.schedule({
 <div class="return-value">
   <p><i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise</code> Returns a promise when the notification had been cleared</p>
+<code>Promise&lt;any&gt;</code> Returns a promise when the notification had been cleared</p>
 </div>
 
 <div id="clearAll"></div>
@@ -716,7 +718,7 @@ LocalNotifications.schedule({
 <div class="return-value">
   <p><i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise</code> Returns a promise when all notifications have cleared</p>
+<code>Promise&lt;any&gt;</code> Returns a promise when all notifications have cleared</p>
 </div>
 
 <div id="cancel"></div>
@@ -744,7 +746,7 @@ LocalNotifications.schedule({
     </td>
     <td>
       
-
+<code>any</code>
     </td>
     <td>
       <p>A single notification id, or an array of notification ids.</p>
@@ -759,7 +761,7 @@ LocalNotifications.schedule({
 <div class="return-value">
   <p><i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise</code> Returns a promise when the notification is canceled</p>
+<code>Promise&lt;any&gt;</code> Returns a promise when the notification is canceled</p>
 </div>
 
 <div id="cancelAll"></div>
@@ -772,7 +774,7 @@ LocalNotifications.schedule({
 <div class="return-value">
   <p><i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise</code> Returns a promise when all notifications are canceled</p>
+<code>Promise&lt;any&gt;</code> Returns a promise when all notifications are canceled</p>
 </div>
 
 <div id="isPresent"></div>
@@ -800,7 +802,7 @@ LocalNotifications.schedule({
     </td>
     <td>
       
-
+<code>number</code>
     </td>
     <td>
       
@@ -814,7 +816,7 @@ LocalNotifications.schedule({
 <div class="return-value">
   <p><i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise</code> Returns a promise</p>
+<code>Promise&lt;boolean&gt;</code></p>
 </div>
 
 <div id="isScheduled"></div>
@@ -842,7 +844,7 @@ LocalNotifications.schedule({
     </td>
     <td>
       
-
+<code>number</code>
     </td>
     <td>
       
@@ -856,7 +858,7 @@ LocalNotifications.schedule({
 <div class="return-value">
   <p><i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise</code> Returns a promise</p>
+<code>Promise&lt;boolean&gt;</code></p>
 </div>
 
 <div id="isTriggered"></div>
@@ -884,7 +886,7 @@ LocalNotifications.schedule({
     </td>
     <td>
       
-
+<code>number</code>
     </td>
     <td>
       
@@ -898,7 +900,7 @@ LocalNotifications.schedule({
 <div class="return-value">
   <p><i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise</code> Returns a promise</p>
+<code>Promise&lt;boolean&gt;</code></p>
 </div>
 
 <div id="getAllIds"></div>
@@ -911,7 +913,7 @@ LocalNotifications.schedule({
 <div class="return-value">
   <p><i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise</code> Returns a promise</p>
+<code>Promise&lt;Array&lt;number&gt;&gt;</code></p>
 </div>
 
 <div id="getTriggeredIds"></div>
@@ -924,7 +926,7 @@ LocalNotifications.schedule({
 <div class="return-value">
   <p><i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise</code> Returns a promise</p>
+<code>Promise&lt;Array&lt;number&gt;&gt;</code></p>
 </div>
 
 <div id="getScheduledIds"></div>
@@ -937,7 +939,7 @@ LocalNotifications.schedule({
 <div class="return-value">
   <p><i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise</code> Returns a promise</p>
+<code>Promise&lt;Array&lt;number&gt;&gt;</code> Returns a promise</p>
 </div>
 
 <div id="get"></div>
@@ -965,7 +967,7 @@ LocalNotifications.schedule({
     </td>
     <td>
       
-
+<code>any</code>
     </td>
     <td>
       <p>The id of the notification to get</p>
@@ -980,7 +982,7 @@ LocalNotifications.schedule({
 <div class="return-value">
   <p><i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise</code> Returns a promise</p>
+<code>Promise&lt;Notification&gt;</code></p>
 </div>
 
 <div id="getScheduled"></div>
@@ -1008,7 +1010,7 @@ LocalNotifications.schedule({
     </td>
     <td>
       
-
+<code>any</code>
     </td>
     <td>
       <p>The id of the notification to get</p>
@@ -1023,7 +1025,7 @@ LocalNotifications.schedule({
 <div class="return-value">
   <p><i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise</code> Returns a promise</p>
+<code>Promise&lt;Notification&gt;</code></p>
 </div>
 
 <div id="getTriggered"></div>
@@ -1066,7 +1068,7 @@ LocalNotifications.schedule({
 <div class="return-value">
   <p><i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise</code> Returns a promise</p>
+<code>Promise&lt;Notification&gt;</code></p>
 </div>
 
 <div id="getAll"></div>
@@ -1079,7 +1081,7 @@ LocalNotifications.schedule({
 <div class="return-value">
   <p><i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise</code> Returns a promise</p>
+<code>Promise&lt;Array&lt;Notification&gt;&gt;</code></p>
 </div>
 
 <div id="getAllScheduled"></div>
@@ -1092,7 +1094,7 @@ LocalNotifications.schedule({
 <div class="return-value">
   <p><i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise</code> Returns a promise</p>
+<code>Promise&lt;Array&lt;Notification&gt;&gt;</code></p>
 </div>
 
 <div id="getAllTriggered"></div>
@@ -1105,7 +1107,7 @@ LocalNotifications.schedule({
 <div class="return-value">
   <p><i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise</code> Returns a promise</p>
+<code>Promise&lt;Array&lt;Notification&gt;&gt;</code></p>
 </div>
 
 <div id="registerPermission"></div>
@@ -1118,7 +1120,7 @@ LocalNotifications.schedule({
 <div class="return-value">
   <p><i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise</code> Returns a promise</p>
+<code>Promise&lt;boolean&gt;</code></p>
 </div>
 
 <div id="hasPermission"></div>
@@ -1131,7 +1133,7 @@ LocalNotifications.schedule({
 <div class="return-value">
   <p><i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise</code> Returns a promise</p>
+<code>Promise&lt;boolean&gt;</code></p>
 </div>
 
 <div id="on"></div>

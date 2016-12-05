@@ -597,7 +597,7 @@ Once the background mode has been disabled, the app will be paused when in backg
 <div class="return-value">
   <p><i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>boolean</code> returns a true of false if the background mode is enabled.</p>
+<code>Promise&lt;boolean&gt;</code> returns a promise that resolves with boolean that indicates if the background mode is enabled.</p>
 </div>
 
 <div id="isActive"></div>
@@ -610,7 +610,7 @@ Once the background mode has been disabled, the app will be paused when in backg
 <div class="return-value">
   <p><i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>boolean</code> returns tru or flase if the background mode is active.</p>
+<code>Promise&lt;boolean&gt;</code> returns a promise that resolves with boolean that indicates if the background mode is active.</p>
 </div>
 
 <div id="setDefaults"></div>
@@ -706,6 +706,12 @@ Available only for Android platform.</p>
 
 <p>Called when background mode is activated.</p>
 
+<div class="return-value">
+  <p><i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Observable&lt;any&gt;</code> returns an observable that emits when background mode is activated</p>
+</div>
+
 <div id="ondeactivate"></div>
 <h3><code>ondeactivate()</code>
   
@@ -713,12 +719,24 @@ Available only for Android platform.</p>
 
 <p>Called when background mode is deactivated.</p>
 
+<div class="return-value">
+  <p><i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Observable&lt;any&gt;</code> returns an observable that emits when background mode is deactivated</p>
+</div>
+
 <div id="onfailure"></div>
 <h3><code>onfailure()</code>
   
 </h3>
 
 <p>Called when background mode fails</p>
+
+<div class="return-value">
+  <p><i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Observable&lt;any&gt;</code> returns an observable that emits when background mode fails</p>
+</div>
 
 <!-- methods on the class -->
 

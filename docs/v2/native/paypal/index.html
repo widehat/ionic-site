@@ -606,6 +606,12 @@ PayPal.init({
 
 <p>Retrieve the version of the PayPal iOS SDK library. Useful when contacting support.</p>
 
+<div class="return-value">
+  <p><i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;string&gt;</code></p>
+</div>
+
 <div id="init"></div>
 <h3><code>init(clientIdsForEnvironments:)</code>
   
@@ -645,6 +651,12 @@ the recommended time to preconnect is on page load.</p>
   
   </tbody>
 </table>
+
+<div class="return-value">
+  <p><i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code></p>
+</div>
 
 <div id="prepareToRender"></div>
 <h3><code>prepareToRender(environment:,&nbsp;configuration:)</code>
@@ -702,6 +714,12 @@ The preconnect is valid for a limited time, so the recommended time to preconnec
   </tbody>
 </table>
 
+<div class="return-value">
+  <p><i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code></p>
+</div>
+
 <div id="renderSinglePaymentUI"></div>
 <h3><code>renderSinglePaymentUI(payment)</code>
   
@@ -741,6 +759,12 @@ for more documentation of the params.</p>
   </tbody>
 </table>
 
+<div class="return-value">
+  <p><i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code></p>
+</div>
+
 <div id="clientMetadataID"></div>
 <h3><code>clientMetadataID()</code>
   
@@ -754,12 +778,24 @@ This method MUST be called prior to initiating a pre-consented payment (a “fut
 Pass the result to your server, to include in the payment request sent to PayPal.
 Do not otherwise cache or store this value.</p>
 
+<div class="return-value">
+  <p><i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code></p>
+</div>
+
 <div id="renderFuturePaymentUI"></div>
 <h3><code>renderFuturePaymentUI()</code>
   
 </h3>
 
 <p>Please Read Docs on Future Payments at https://github.com/paypal/PayPal-iOS-SDK#future-payments</p>
+
+<div class="return-value">
+  <p><i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code></p>
+</div>
 
 <div id="renderProfileSharingUI"></div>
 <h3><code>renderProfileSharingUI(scopes)</code>
@@ -799,12 +835,18 @@ See <a href="https://developer.paypal.com/docs/integration/direct/identity/attri
   </tbody>
 </table>
 
+<div class="return-value">
+  <p><i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code></p>
+</div>
+
 <!-- methods on the class -->
 
 <!-- other classes -->
-<h2><a class="anchor" name="related-classes" href="#related-classes"></a>Related Classes</h2>
+<!--<h2><a class="anchor" name="related-classes" href="#related-classes"></a>Related Classes</h2>-->
 
-<h3><a class="anchor" name="PayPalPayment" href="#PayPalPayment"></a>PayPalPayment</h3>
+<h2><a class="anchor" name="PayPalPayment" href="#PayPalPayment"></a>PayPalPayment</h2>
 
 <!-- methods on the class -->
 
@@ -898,7 +940,7 @@ for your tracking purposes.</p>
 </h3>
 <p>Optional PayPalPaymentDetails object</p>
 
-<h3><a class="anchor" name="PayPalItem" href="#PayPalItem"></a>PayPalItem</h3>
+<h2><a class="anchor" name="PayPalItem" href="#PayPalItem"></a>PayPalItem</h2>
 
 <!-- methods on the class -->
 
@@ -943,7 +985,7 @@ for your tracking purposes.</p>
 </h3>
 <p>The stock keeping unit for this item. 50 characters max (optional)</p>
 
-<h3><a class="anchor" name="PayPalPaymentDetails" href="#PayPalPaymentDetails"></a>PayPalPaymentDetails</h3>
+<h2><a class="anchor" name="PayPalPaymentDetails" href="#PayPalPaymentDetails"></a>PayPalPaymentDetails</h2>
 
 <!-- methods on the class -->
 
@@ -972,7 +1014,7 @@ for your tracking purposes.</p>
 </h3>
 <p>Amount charged for tax. 10 characters max with support for 2 decimal places.</p>
 
-<h3><a class="anchor" name="PayPalShippingAddress" href="#PayPalShippingAddress"></a>PayPalShippingAddress</h3>
+<h2><a class="anchor" name="PayPalShippingAddress" href="#PayPalShippingAddress"></a>PayPalShippingAddress</h2>
 
 <!-- methods on the class -->
 
@@ -1037,9 +1079,9 @@ for your tracking purposes.</p>
 
 <!-- interfaces -->
 
-<h2><a class="anchor" name="interfaces" href="#interfaces"></a>Interfaces</h2>
+<!--<h2><a class="anchor" name="interfaces" href="#interfaces"></a>Interfaces</h2>-->
 
-<h3><a class="anchor" name="PayPalEnvironment" href="#PayPalEnvironment"></a>PayPalEnvironment</h3>
+<h2><a class="anchor" name="PayPalEnvironment" href="#PayPalEnvironment"></a>PayPalEnvironment</h2>
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -1057,7 +1099,7 @@ for your tracking purposes.</p>
       
     </td>
     <td>
-      string
+      <code>string</code>
     </td>
     <td>
       
@@ -1070,7 +1112,7 @@ for your tracking purposes.</p>
       
     </td>
     <td>
-      string
+      <code>string</code>
     </td>
     <td>
       
@@ -1080,7 +1122,7 @@ for your tracking purposes.</p>
   </tbody>
 </table>
 
-<h3><a class="anchor" name="PayPalConfigurationOptions" href="#PayPalConfigurationOptions"></a>PayPalConfigurationOptions</h3>
+<h2><a class="anchor" name="PayPalConfigurationOptions" href="#PayPalConfigurationOptions"></a>PayPalConfigurationOptions</h2>
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -1098,7 +1140,7 @@ for your tracking purposes.</p>
       <div><em>(optional)</em></div>
     </td>
     <td>
-      string
+      <code>string</code>
     </td>
     <td>
       <p>Will be overridden by email used in most recent PayPal login.</p>
@@ -1112,7 +1154,7 @@ for your tracking purposes.</p>
       <div><em>(optional)</em></div>
     </td>
     <td>
-      string
+      <code>string</code>
     </td>
     <td>
       <p>Will be overridden by phone country code used in most recent PayPal login</p>
@@ -1126,7 +1168,7 @@ for your tracking purposes.</p>
       <div><em>(optional)</em></div>
     </td>
     <td>
-      string
+      <code>string</code>
     </td>
     <td>
       <p>Will be overridden by phone number used in most recent PayPal login.</p>
@@ -1140,7 +1182,7 @@ for your tracking purposes.</p>
       <div><em>(optional)</em></div>
     </td>
     <td>
-      string
+      <code>string</code>
     </td>
     <td>
       <p>Your company name, as it should be displayed to the user when requesting consent via a PayPalFuturePaymentViewController.</p>
@@ -1154,7 +1196,7 @@ for your tracking purposes.</p>
       <div><em>(optional)</em></div>
     </td>
     <td>
-      string
+      <code>string</code>
     </td>
     <td>
       <p>URL of your company&#39;s privacy policy, which will be offered to the user when requesting consent via a PayPalFuturePaymentViewController.</p>
@@ -1168,7 +1210,7 @@ for your tracking purposes.</p>
       <div><em>(optional)</em></div>
     </td>
     <td>
-      string
+      <code>string</code>
     </td>
     <td>
       <p>URL of your company&#39;s user agreement, which will be offered to the user when requesting consent via a PayPalFuturePaymentViewController.</p>
@@ -1182,7 +1224,7 @@ for your tracking purposes.</p>
       <div><em>(optional)</em></div>
     </td>
     <td>
-      boolean
+      <code>boolean</code>
     </td>
     <td>
       <p>If set to NO, the SDK will only support paying with PayPal, not with credit cards.
@@ -1199,7 +1241,7 @@ Defaults to true</p>
       <div><em>(optional)</em></div>
     </td>
     <td>
-      number
+      <code>number</code>
     </td>
     <td>
       <p>For single payments, options for the shipping address.</p>
@@ -1223,7 +1265,7 @@ Defaults to 0 (PayPalShippingAddressOptionNone).</li>
       <div><em>(optional)</em></div>
     </td>
     <td>
-      boolean
+      <code>boolean</code>
     </td>
     <td>
       <p>If set to YES, then if the user pays via their PayPal account,
@@ -1244,7 +1286,7 @@ not be remembered.</p>
       <div><em>(optional)</em></div>
     </td>
     <td>
-      string
+      <code>string</code>
     </td>
     <td>
       <p>If not set, or if set to nil, defaults to the device&#39;s current language setting.</p>
@@ -1264,7 +1306,7 @@ E.g., specifying &quot;en&quot; on a device set to &quot;English&quot; and &quot
       <div><em>(optional)</em></div>
     </td>
     <td>
-      boolean
+      <code>boolean</code>
     </td>
     <td>
       <p>Normally, the SDK blurs the screen when the app is backgrounded,
@@ -1281,7 +1323,7 @@ Defaults to NO.</p>
       <div><em>(optional)</em></div>
     </td>
     <td>
-      boolean
+      <code>boolean</code>
     </td>
     <td>
       <p>If you will present the SDK&#39;s view controller within a popover, then set this property to YES.
@@ -1296,7 +1338,7 @@ Defaults to NO. (iOS only)</p>
       <div><em>(optional)</em></div>
     </td>
     <td>
-      boolean
+      <code>boolean</code>
     </td>
     <td>
       <p>Sandbox credentials can be difficult to type on a mobile device. Setting this flag to YES will
@@ -1311,7 +1353,7 @@ cause the sandboxUserPassword and sandboxUserPin to always be pre-populated into
       <div><em>(optional)</em></div>
     </td>
     <td>
-      string
+      <code>string</code>
     </td>
     <td>
       <p>Password to use for sandbox if &#39;forceDefaultsInSandbox&#39; is set.</p>
@@ -1325,7 +1367,7 @@ cause the sandboxUserPassword and sandboxUserPin to always be pre-populated into
       <div><em>(optional)</em></div>
     </td>
     <td>
-      string
+      <code>string</code>
     </td>
     <td>
       <p>PIN to use for sandbox if &#39;forceDefaultsInSandbox&#39; is set.</p>

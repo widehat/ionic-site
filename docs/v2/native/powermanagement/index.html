@@ -571,6 +571,12 @@ PowerManagement.acquire()
 
 <p>Acquire a wakelock by calling this.</p>
 
+<div class="return-value">
+  <p><i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code></p>
+</div>
+
 <div id="dim"></div>
 <h3><code>dim()</code>
   
@@ -578,12 +584,24 @@ PowerManagement.acquire()
 
 <p>This acquires a partial wakelock, allowing the screen to be dimmed.</p>
 
+<div class="return-value">
+  <p><i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code></p>
+</div>
+
 <div id="release"></div>
 <h3><code>release()</code>
   
 </h3>
 
 <p>Release the wakelock. It’s important to do this when you’re finished with the wakelock, to avoid unnecessary battery drain.</p>
+
+<div class="return-value">
+  <p><i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code></p>
+</div>
 
 <div id="setReleaseOnPause"></div>
 <h3><code>setReleaseOnPause(set)</code>
@@ -621,6 +639,12 @@ It will reacquire the wakelock upon app resume. If you would prefer to disable t
   
   </tbody>
 </table>
+
+<div class="return-value">
+  <p><i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code></p>
+</div>
 
 <!-- methods on the class -->
 

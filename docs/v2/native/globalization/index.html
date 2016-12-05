@@ -700,7 +700,7 @@
 <div class="return-value">
   <p><i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise&lt;{value: string}&gt;</code> Returns a promise when the date has been converted.</p>
+<code>Promise&lt;{ year: number, month: number, day: number, hour: number, minute: number, second: number, millisecond: number }&gt;</code> Returns a promise when the date has been converted.</p>
 </div>
 
 <div id="getDatePattern"></div>
@@ -743,7 +743,7 @@
 <div class="return-value">
   <p><i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise&lt;{value: string}&gt;</code> Returns a promise.</p>
+<code>Promise&lt;{pattern: string}&gt;</code> Returns a promise.</p>
 </div>
 
 <div id="getDateNames"></div>
@@ -786,7 +786,7 @@
 <div class="return-value">
   <p><i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise&lt;{value: string}&gt;</code> Returns a promise.</p>
+<code>Promise&lt;{value: Array&lt;string&gt;}&gt;</code> Returns a promise.</p>
 </div>
 
 <div id="isDayLightSavingsTime"></div>
@@ -829,7 +829,7 @@
 <div class="return-value">
   <p><i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise&lt;dst&gt;</code> reutrns a promise with the value</p>
+<code>Promise&lt;{dst: string}&gt;</code> reutrns a promise with the value</p>
 </div>
 
 <div id="getFirstDayOfWeek"></div>
@@ -842,11 +842,11 @@
 <div class="return-value">
   <p><i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise&lt;value&gt;</code> reutrns a promise with the value</p>
+<code>Promise&lt;{value: string}&gt;</code> returns a promise with the value</p>
 </div>
 
 <div id="numberToString"></div>
-<h3><code>numberToString(options)</code>
+<h3><code>numberToString(numberToConvert,&nbsp;options)</code>
   
 </h3>
 
@@ -864,16 +864,34 @@
   
   <tr>
     <td>
+      numberToConvert
+      
+      
+    </td>
+    <td>
+      
+<code>Number</code>
+    </td>
+    <td>
+      <p>The number to convert</p>
+
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
       options
       
       
     </td>
     <td>
       
-
+<code>Object</code>
     </td>
     <td>
-      
+      <p>Object with property <code>type</code> that can be set to: decimal, percent, or currency.</p>
+
       
     </td>
   </tr>
@@ -936,7 +954,7 @@
 <div class="return-value">
   <p><i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise</code> Returns a promise with the value.</p>
+<code>Promise&lt;{ value: number | string }&gt;</code> Returns a promise with the value.</p>
 </div>
 
 <div id="getNumberPattern"></div>
@@ -979,7 +997,7 @@
 <div class="return-value">
   <p><i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise</code> returns a promise with the value.</p>
+<code>Promise&lt;{ pattern: string, symbol: string, fraction: number, rounding: number, positive: string, negative: string, decimal: string, grouping: string }&gt;</code></p>
 </div>
 
 <div id="getCurrencyPattern"></div>
@@ -1022,7 +1040,7 @@
 <div class="return-value">
   <p><i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise</code> returns a promise with the value</p>
+<code>Promise&lt;{ pattern: string, code: string, fraction: number, rounding: number, decimal: number, grouping: string }&gt;</code></p>
 </div>
 
 <!-- methods on the class -->

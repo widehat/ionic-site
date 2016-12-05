@@ -623,9 +623,14 @@ if the InAppBrowser was already visible.</p>
   </tbody>
 </table>
 
+<div class="return-value">
+  <p><i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code></p>
+</div>
 <div id="insertCss"></div>
 <h3>
-  <code>insertCss(css)</code>
+  <code>insertCss(Details)</code>
   
 
 </h3>
@@ -642,16 +647,16 @@ if the InAppBrowser was already visible.</p>
   
   <tr>
     <td>
-      css
+      Details
       
       
     </td>
     <td>
       
-
+<code>Object</code>
     </td>
     <td>
-      <p>Details of the script to run, specifying either a file or code key.</p>
+      <p>of the script to run, specifying either a file or code key.</p>
 
       
     </td>
@@ -660,9 +665,14 @@ if the InAppBrowser was already visible.</p>
   </tbody>
 </table>
 
+<div class="return-value">
+  <p><i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code></p>
+</div>
 <div id="on"></div>
 <h3>
-  <code>on(event)</code>
+  <code>on(name)</code>
   
 
 </h3>
@@ -679,16 +689,16 @@ if the InAppBrowser was already visible.</p>
   
   <tr>
     <td>
-      event
+      name
       
       
     </td>
     <td>
       
-
+<code>string</code>
     </td>
     <td>
-      <p>Event name</p>
+      <p>of the event</p>
 
       
     </td>
@@ -700,7 +710,7 @@ if the InAppBrowser was already visible.</p>
 <div class="return-value">
   <p><i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Observable&lt;any&gt;</code> Returns back an observable that will listen to the event on subscribe, and will stop listening to the event on unsubscribe.</p>
+<code>Observable&lt;InAppBrowserEvent&gt;</code> Returns back an observable that will listen to the event on subscribe, and will stop listening to the event on unsubscribe.</p>
 </div>
 
 <!-- other classes -->

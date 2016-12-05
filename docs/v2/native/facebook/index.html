@@ -648,6 +648,12 @@
   </tbody>
 </table>
 
+<div class="return-value">
+  <p><i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code></p>
+</div>
+
 <div id="login"></div>
 <h3><code>login(permissions)</code>
   
@@ -717,8 +723,7 @@
 <div class="return-value">
   <p><i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
- Returns a Promise that resolves on a successful logout, and rejects if logout fails.</p>
-
+<code>Promise&lt;any&gt;</code> Returns a Promise that resolves on a successful logout, and rejects if logout fails.</p>
 </div>
 
 <div id="getLoginStatus"></div>
@@ -752,8 +757,7 @@
 <div class="return-value">
   <p><i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
- Returns a Promise that resolves with a status, or rejects with an error</p>
-
+<code>Promise&lt;any&gt;</code> Returns a Promise that resolves with a status, or rejects with an error</p>
 </div>
 
 <div id="getAccessToken"></div>
@@ -766,12 +770,11 @@
 <div class="return-value">
   <p><i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
- Returns a Promise that resolves with an access token, or rejects with an error</p>
-
+<code>Promise&lt;string&gt;</code> Returns a Promise that resolves with an access token, or rejects with an error</p>
 </div>
 
 <div id="showDialog"></div>
-<h3><code>showDialog()</code>
+<h3><code>showDialog(options)</code>
   
 </h3>
 
@@ -789,11 +792,40 @@
 
 <p>For more options see the <a href="https://github.com/jeduan/cordova-plugin-facebook4#show-a-dialog">Cordova plugin docs</a> and the <a href="https://developers.facebook.com/docs/javascript/reference/FB.ui">Facebook docs</a></p>
 
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      options
+      
+      
+    </td>
+    <td>
+      
+<code>Object</code>
+    </td>
+    <td>
+      <p>The dialog options</p>
+
+      
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
+
 <div class="return-value">
   <p><i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
- Returns a Promise that resolves with success data, or rejects with an error</p>
-
+<code>Promise&lt;any&gt;</code> Returns a Promise that resolves with success data, or rejects with an error</p>
 </div>
 
 <div id="api"></div>
@@ -859,8 +891,7 @@
 <div class="return-value">
   <p><i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
- Returns a Promise that resolves with the result of the request, or rejects with an error</p>
-
+<code>Promise&lt;any&gt;</code> Returns a Promise that resolves with the result of the request, or rejects with an error</p>
 </div>
 
 <div id="logEvent"></div>
@@ -936,8 +967,8 @@
 
 <div class="return-value">
   <p><i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b></p>
-
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code></p>
 </div>
 
 <div id="logPurchase"></div>
@@ -997,8 +1028,7 @@
 <div class="return-value">
   <p><i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
- Returns a Promise</p>
-
+<code>Promise&lt;any&gt;</code></p>
 </div>
 
 <div id="appInvite"></div>
@@ -1048,8 +1078,7 @@
 <div class="return-value">
   <p><i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
- Returns a Promise that resolves with the result data, or rejects with an error</p>
-
+<code>Promise&lt;any&gt;</code> Returns a Promise that resolves with the result data, or rejects with an error</p>
 </div>
 
 <!-- methods on the class -->

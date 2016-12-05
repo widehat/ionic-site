@@ -633,7 +633,7 @@ InAppPurchase
 <div class="return-value">
   <p><i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise</code> Returns a Promise that resolves with an array of objects.</p>
+<code>Promise&lt;any&gt;</code> Returns a Promise that resolves with an array of objects.</p>
 </div>
 
 <div id="buy"></div>
@@ -676,7 +676,7 @@ InAppPurchase
 <div class="return-value">
   <p><i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise</code> Returns a Promise that resolves with the transaction details.</p>
+<code>Promise&lt;{transactionId: string, receipt: string, signature: string, productType: string}&gt;</code> Returns a Promise that resolves with the transaction details.</p>
 </div>
 
 <div id="subscribe"></div>
@@ -719,7 +719,7 @@ InAppPurchase
 <div class="return-value">
   <p><i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise</code> Returns a Promise that resolves with the transaction details.</p>
+<code>Promise&lt;{transactionId: string, receipt: string, signature: string, productType: string}&gt;</code> Returns a Promise that resolves with the transaction details.</p>
 </div>
 
 <div id="consume"></div>
@@ -790,6 +790,12 @@ InAppPurchase
   </tbody>
 </table>
 
+<div class="return-value">
+  <p><i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code></p>
+</div>
+
 <div id="restorePurchases"></div>
 <h3><code>restorePurchases()</code>
   
@@ -800,7 +806,7 @@ InAppPurchase
 <div class="return-value">
   <p><i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise</code> Returns a promise with an array of purchases.</p>
+<code>Promise&lt;any&gt;</code> Returns a promise with an array of purchases.</p>
 </div>
 
 <div id="getReceipt"></div>
