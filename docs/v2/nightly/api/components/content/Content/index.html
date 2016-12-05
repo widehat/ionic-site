@@ -500,7 +500,7 @@ Content
 
 </h1>
 
-<p><a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/content/content.ts#L10">
+<p><a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/content/content.ts#L15">
 Improve this doc
 </a></p>
 
@@ -561,6 +561,107 @@ adjusted, which could be by either padding or margin.</p>
 
 <p>A number representing how many pixels the bottom of the content has been
 adjusted, which could be by either padding or margin.</p>
+
+<div id="scrollHeight"></div>
+
+<h3>
+<a class="anchor" name="scrollHeight" href="#scrollHeight"></a>
+<code>scrollHeight</code>
+  
+
+</h3>
+
+<p>The height the content, including content not visible
+on the screen due to overflow.</p>
+
+<div id="scrollWidth"></div>
+
+<h3>
+<a class="anchor" name="scrollWidth" href="#scrollWidth"></a>
+<code>scrollWidth</code>
+  
+
+</h3>
+
+<p>The width the content, including content not visible
+on the screen due to overflow.</p>
+
+<div id="scrollTop"></div>
+
+<h3>
+<a class="anchor" name="scrollTop" href="#scrollTop"></a>
+<code>scrollTop</code>
+  
+
+</h3>
+
+<p>The distance of the content’s top to its topmost visible content.</p>
+
+<div id="scrollLeft"></div>
+
+<h3>
+<a class="anchor" name="scrollLeft" href="#scrollLeft"></a>
+<code>scrollLeft</code>
+  
+
+</h3>
+
+<p>The distance of the content’s left to its leftmost visible content.</p>
+
+<div id="isScrolling"></div>
+
+<h3>
+<a class="anchor" name="isScrolling" href="#isScrolling"></a>
+<code>isScrolling</code>
+  
+
+</h3>
+
+<p>If the scrollable area is actively scrolling or not.</p>
+
+<div id="velocityY"></div>
+
+<h3>
+<a class="anchor" name="velocityY" href="#velocityY"></a>
+<code>velocityY</code>
+  
+
+</h3>
+
+<p>The current vertical scroll velocity.</p>
+
+<div id="velocityX"></div>
+
+<h3>
+<a class="anchor" name="velocityX" href="#velocityX"></a>
+<code>velocityX</code>
+  
+
+</h3>
+
+<p>The current horizontal scroll velocity.</p>
+
+<div id="directionY"></div>
+
+<h3>
+<a class="anchor" name="directionY" href="#directionY"></a>
+<code>directionY</code>
+  
+
+</h3>
+
+<p>The current, or last known, vertical scroll direction.</p>
+
+<div id="directionX"></div>
+
+<h3>
+<a class="anchor" name="directionX" href="#directionX"></a>
+<code>directionX</code>
+  
+
+</h3>
+
+<p>The current, or last known, horizontal scroll direction.</p>
 
 <div id="scrollTo"></div>
 
@@ -693,64 +794,6 @@ adjusted, which could be by either padding or margin.</p>
 
 
 </div>
-
-<div id="getScrollTop"></div>
-
-<h3>
-<a class="anchor" name="getScrollTop" href="#getScrollTop"></a>
-<code>getScrollTop()</code>
-  
-
-</h3>
-
-<p>Get the <code class="highlighter-rouge">scrollTop</code> property of the content’s scrollable element.</p>
-
-<div class="return-value">
-<i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
-  <code>number</code> 
-
-</div>
-
-<div id="setScrollTop"></div>
-
-<h3>
-<a class="anchor" name="setScrollTop" href="#setScrollTop"></a>
-<code>setScrollTop(top)</code>
-  
-
-</h3>
-
-<p>Set the <code class="highlighter-rouge">scrollTop</code> property of the content’s scrollable element.</p>
-
-<table class="table param-table" style="margin:0;">
-  <thead>
-    <tr>
-      <th>Param</th>
-      <th>Type</th>
-      <th>Details</th>
-    </tr>
-  </thead>
-  <tbody>
-    
-    <tr>
-      <td>
-        top
-        
-        
-      </td>
-      <td>
-        
-  <code>number</code>
-      </td>
-      <td>
-        
-        
-      </td>
-    </tr>
-    
-  </tbody>
-</table>
 
 <div id="scrollToBottom"></div>
 
@@ -1000,6 +1043,15 @@ adjusted, which could be by either padding or margin.</p>
 
 <p>Tell the content to recalculate its dimensions. This should be called
 after dynamically adding headers, footers, or tabs.</p>
+
+<div id="isImgsRefreshable"></div>
+
+<h3>
+<a class="anchor" name="isImgsRefreshable" href="#isImgsRefreshable"></a>
+<code>isImgsRefreshable()</code>
+  
+
+</h3>
 
 <!-- input methods on the class -->
 <h2><a class="anchor" name="input-properties" href="#input-properties"></a>Input Properties</h2>
