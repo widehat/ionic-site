@@ -8,13 +8,13 @@
 <link href="/css/styles.min.css?v=22" rel="stylesheet">
 
 
-  <title>Title - Ionic API Documentation -  Ionic Framework</title>
+  <title>ImgLoader - Ionic API Documentation -  Ionic Framework</title>
 
 
 <meta name="author" content="Drifty">
 <meta name="description" content="Ionic lets developers build beautiful and interactive mobile apps using HTML5 and AngularJS.">
 <meta name="keywords" content="html5,javascript,mobile,drifty,ionic,hybrid,phonegap,cordova,native,ios,android,angularjs">
-<link rel="canonical" href="https://ionicframework.com/docs/v2/nightly/api/components/toolbar/Title/">
+<link rel="canonical" href="https://ionicframework.com/docs/v2/nightly/api/components/img/ImgLoader/">
 
 <!-- Social: Twitter -->
 <meta name="twitter:card" content="summary_large_image">
@@ -26,7 +26,7 @@
 
 <!-- Social: Facebook / Open Graph -->
 <meta property="fb:app_id" content="1321836767955949">
-<meta property="og:url" content="https://ionicframework.com/docs/v2/nightly/api/components/toolbar/Title/">
+<meta property="og:url" content="https://ionicframework.com/docs/v2/nightly/api/components/img/ImgLoader/">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Ionic Framework">
 <meta property="og:image" content="https://ionicframework.com/img/ionic-meta.jpg"/>
@@ -61,8 +61,8 @@
 
 
   </head>
-  <body id="docs-page-title"
-        class="v2 docs fluid page-title
+  <body id="docs-page-imgloader"
+        class="v2 docs fluid page-imgloader
                "
         data-spy="scroll"
         data-offset="100"
@@ -174,8 +174,6 @@
     
 
     <div class="docs-container"
-     
-       ng-controller="APIDemoCtrl"
      >
   <nav class="side-nav" id="side-nav">
     <form class="form-group search" role="search">
@@ -318,7 +316,7 @@
 <li class="capitalize ">
   <a href="/docs/v2/nightly/api/components/icon/Icon">Icon</a>
 </li>
-<li class="capitalize ">
+<li class="capitalize active">
   <a href="/docs/v2/nightly/api/components/img/ImgLoader">ImgLoader</a>
 </li>
 <li class="capitalize ">
@@ -459,7 +457,7 @@
 <li class="capitalize ">
   <a href="/docs/v2/nightly/api/components/thumbnail/Thumbnail">Thumbnail</a>
 </li>
-<li class="capitalize active">
+<li class="capitalize ">
   <a href="/docs/v2/nightly/api/components/toolbar/Title">Title</a>
 </li>
 <li class="capitalize ">
@@ -491,54 +489,11 @@
     
   </nav>
   
-  <aside id="platform-preview" class="platform-preview">
-    <div class="platform-toggle">
-      <a ng-class="{active: iosActive}"
-         ng-click="setPlatform('ios')">iOS</a>
-      <a ng-class="{active: androidActive}"
-         ng-click="setPlatform('android')">Android</a>
-      <a ng-class="{active: windowsActive}"
-         ng-click="setPlatform('windows')">Windows</a>
-    </div>
-    <div id="demo-device-ios"
-         ng-class="previewPlatform"
-         ng-show="iosActive">
-      <iframe id="demo-ios"
-            
-              src="/docs/v2/demos/src/title/?production=true&ionicplatform=ios"
-            
-              frameborder="0">
-      </iframe>
-    </div>
-    <div id="demo-device-android"
-         ng-class="previewPlatform"
-         ng-show="androidActive">
-      <iframe id="demo-android"
-            
-              src="/docs/v2/demos/src/title/?production=true&ionicplatform=android"
-            
-              frameborder="0">
-      </iframe>
-    </div>
-    <div id="demo-device-windows"
-         ng-class="previewPlatform"
-         ng-show="windowsActive">
-      <iframe id="demo-windows"
-            
-              src="/docs/v2/demos/src/title/?production=true&ionicplatform=windows"
-            
-              frameborder="0">
-      </iframe>
-    </div>
-  </aside>
-  
   <main>
     <h1 class="api-title">
-<a class="anchor" name="title" href="#title"></a>
+<a class="anchor" name="img-loader" href="#img-loader"></a>
 
-Title
-<h3><code>ion-title</code></h3>
-
+ImgLoader
 
 
 
@@ -546,65 +501,92 @@ Title
 
 </h1>
 
-<p><a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/toolbar/toolbar-title.ts#L5">
+<p><a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/img/img-loader.ts#L0">
 Improve this doc
 </a></p>
 
-<p><code>ion-title</code> is a component that sets the title of the <code>Toolbar</code> or <code>Navbar</code></p>
-
 <!-- @usage tag -->
-
-<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
-
-<pre><code class="lang-html">&lt;ion-header&gt;
-
-  &lt;ion-navbar&gt;
-    &lt;ion-title&gt;Settings&lt;/ion-title&gt;
-  &lt;/ion-navbar&gt;
-
-&lt;/ion-header&gt;
-</code></pre>
-<p>Or to create a navbar with a toolbar as a subheader:</p>
-<pre><code class="lang-html">&lt;ion-header&gt;
-
-  &lt;ion-navbar&gt;
-    &lt;ion-title&gt;Main Header&lt;/ion-title&gt;
-  &lt;/ion-navbar&gt;
-
-  &lt;ion-toolbar&gt;
-    &lt;ion-title&gt;Subheader&lt;/ion-title&gt;
-  &lt;/ion-toolbar&gt;
-
-&lt;/ion-header&gt;
-</code></pre>
 
 <!-- @property tags -->
 
 <!-- instance methods on the class -->
 
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
+
+<div id="wkr"></div>
+
+<h3>
+<a class="anchor" name="wkr" href="#wkr"></a>
+<code>wkr</code>
+  
+
+</h3>
+
+<div id="callbacks"></div>
+
+<h3>
+<a class="anchor" name="callbacks" href="#callbacks"></a>
+<code>callbacks</code>
+  
+
+</h3>
+
+<div id="ids"></div>
+
+<h3>
+<a class="anchor" name="ids" href="#ids"></a>
+<code>ids</code>
+  
+
+</h3>
+
+<div id="load"></div>
+
+<h3>
+<a class="anchor" name="load" href="#load"></a>
+<code>load()</code>
+  
+
+</h3>
+
+<div id="cancelLoad"></div>
+
+<h3>
+<a class="anchor" name="cancelLoad" href="#cancelLoad"></a>
+<code>cancelLoad()</code>
+  
+
+</h3>
+
+<div id="abort"></div>
+
+<h3>
+<a class="anchor" name="abort" href="#abort"></a>
+<code>abort()</code>
+  
+
+</h3>
+
+<div id="worker"></div>
+
+<h3>
+<a class="anchor" name="worker" href="#worker"></a>
+<code>worker()</code>
+  
+
+</h3>
+
 <h2 id="sass-variable-header"><a class="anchor" name="sass-variables" href="#sass-variables"></a>Sass Variables</h2>
 <div id="sass-variables" ng-controller="SassToggleCtrl">
   <div class="sass-platform-toggle">
     
-      
-      
-      <a ng-init="setSassPlatform('ios')" ng-class="{ active: active === 'ios' }" ng-click="setSassPlatform('ios')">iOS</a>
-      
-      
-      
-      <a ng-class="{ active: active === 'md' }" ng-click="setSassPlatform('md')">Material Design</a>
-      
-      
-      
-      <a ng-class="{ active: active === 'wp' }" ng-click="setSassPlatform('wp')">Windows Platform</a>
-      
-      
+    <h3 ng-init="setSassPlatform('base')">All</h3>
     
   </div>
 
 
   
-  <table ng-show="active === 'ios'" id="sass-ios" class="table param-table" style="margin:0;">
+  <table ng-show="active === 'base'" id="sass-base" class="table param-table" style="margin:0;">
     <thead>
       <tr>
         <th>Property</th>
@@ -615,262 +597,11 @@ Improve this doc
     <tbody>
       
       <tr>
-        <td><code>$toolbar-order-ios</code></td>
+        <td><code>$img-placeholder-background</code></td>
         
-          <td><code>(&#10;  back-button: 0,&#10;  menu-toggle-start: 1,&#10;  buttons-left: 2,&#10;  buttons-start: 3,&#10;  content: 4,&#10;  buttons-end: 5,&#10;  buttons-right: 6,&#10;  menu-toggle-end: 7,&#10;)</code></td>
+          <td><code>#eee</code></td>
         
-        <td><p>Order of the toolbar elements</p>
-</td>
-      </tr>
-      
-      <tr>
-        <td><code>$toolbar-ios-button-font-size</code></td>
-        
-          <td><code>1.7rem</code></td>
-        
-        <td><p>Font size of the toolbar button</p>
-</td>
-      </tr>
-      
-      <tr>
-        <td><code>$toolbar-ios-title-font-size</code></td>
-        
-          <td><code>1.7rem</code></td>
-        
-        <td><p>Font size of the toolbar title</p>
-</td>
-      </tr>
-      
-      <tr>
-        <td><code>$toolbar-ios-title-font-weight</code></td>
-        
-          <td><code>600</code></td>
-        
-        <td><p>Font weight of the toolbar title</p>
-</td>
-      </tr>
-      
-      <tr>
-        <td><code>$toolbar-ios-title-text-align</code></td>
-        
-          <td><code>center</code></td>
-        
-        <td><p>Text alignment of the toolbar title</p>
-</td>
-      </tr>
-      
-      <tr>
-        <td><code>$toolbar-ios-title-text-color</code></td>
-        
-          <td><code>color-contrast($colors-ios, $toolbar-ios-background)</code></td>
-        
-        <td><p>Text color of the toolbar title</p>
-</td>
-      </tr>
-      
-      <tr>
-        <td><code>$toolbar-ios-button-color</code></td>
-        
-          <td><code>color-contrast($colors-ios, $toolbar-ios-background, ios)</code></td>
-        
-        <td><p>Text color of the toolbar button</p>
-</td>
-      </tr>
-      
-      <tr>
-        <td><code>$toolbar-ios-button-border-radius</code></td>
-        
-          <td><code>4px</code></td>
-        
-        <td><p>Border radius of the toolbar button</p>
-</td>
-      </tr>
-      
-      <tr>
-        <td><code>$navbar-ios-height</code></td>
-        
-          <td><code>$toolbar-ios-height</code></td>
-        
-        <td><p>Height of the navigation bar</p>
-</td>
-      </tr>
-      
-    </tbody>
-  </table>
-  
-  <table ng-show="active === 'md'" id="sass-md" class="table param-table" style="margin:0;">
-    <thead>
-      <tr>
-        <th>Property</th>
-        <th>Default</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      
-      <tr>
-        <td><code>$toolbar-order-md</code></td>
-        
-          <td><code>(&#10;  back-button: 0,&#10;  menu-toggle-start: 1,&#10;  buttons-left: 2,&#10;  content: 3,&#10;  buttons-start: 4,&#10;  buttons-end: 5,&#10;  buttons-right: 6,&#10;  menu-toggle-end: 7,&#10;)</code></td>
-        
-        <td><p>Order of the toolbar elements</p>
-</td>
-      </tr>
-      
-      <tr>
-        <td><code>$toolbar-md-title-font-size</code></td>
-        
-          <td><code>2rem</code></td>
-        
-        <td><p>Font size of the toolbar title</p>
-</td>
-      </tr>
-      
-      <tr>
-        <td><code>$toolbar-md-title-text-color</code></td>
-        
-          <td><code>color-contrast($colors-md, $toolbar-md-background, md)</code></td>
-        
-        <td><p>Text color of the toolbar title</p>
-</td>
-      </tr>
-      
-      <tr>
-        <td><code>$toolbar-md-button-font-size</code></td>
-        
-          <td><code>1.4rem</code></td>
-        
-        <td><p>Font size of the toolbar button</p>
-</td>
-      </tr>
-      
-      <tr>
-        <td><code>$toolbar-md-button-color</code></td>
-        
-          <td><code>$toolbar-md-title-text-color</code></td>
-        
-        <td><p>Text color of the toolbar button</p>
-</td>
-      </tr>
-      
-      <tr>
-        <td><code>$toolbar-md-button-border-radius</code></td>
-        
-          <td><code>2px</code></td>
-        
-        <td><p>Border radius of the toolbar button</p>
-</td>
-      </tr>
-      
-      <tr>
-        <td><code>$navbar-md-height</code></td>
-        
-          <td><code>$toolbar-md-height</code></td>
-        
-        <td><p>Height of the navigation bar</p>
-</td>
-      </tr>
-      
-    </tbody>
-  </table>
-  
-  <table ng-show="active === 'wp'" id="sass-wp" class="table param-table" style="margin:0;">
-    <thead>
-      <tr>
-        <th>Property</th>
-        <th>Default</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      
-      <tr>
-        <td><code>$toolbar-order-wp</code></td>
-        
-          <td><code>(&#10;  back-button: 0,&#10;  menu-toggle-start: 1,&#10;  buttons-left: 2,&#10;  content: 3,&#10;  buttons-start: 4,&#10;  buttons-end: 5,&#10;  buttons-right: 6,&#10;  menu-toggle-end: 7,&#10;)</code></td>
-        
-        <td><p>Order of the toolbar elements</p>
-</td>
-      </tr>
-      
-      <tr>
-        <td><code>$toolbar-wp-title-padding</code></td>
-        
-          <td><code>0 6px</code></td>
-        
-        <td><p>Padding of the toolbar title</p>
-</td>
-      </tr>
-      
-      <tr>
-        <td><code>$toolbar-wp-title-font-size</code></td>
-        
-          <td><code>1.5rem</code></td>
-        
-        <td><p>Font size of the toolbar title</p>
-</td>
-      </tr>
-      
-      <tr>
-        <td><code>$toolbar-wp-title-font-weight</code></td>
-        
-          <td><code>bold</code></td>
-        
-        <td><p>Font weight of the toolbar title</p>
-</td>
-      </tr>
-      
-      <tr>
-        <td><code>$toolbar-wp-title-text-transform</code></td>
-        
-          <td><code>uppercase</code></td>
-        
-        <td><p>Text transform of the toolbar title</p>
-</td>
-      </tr>
-      
-      <tr>
-        <td><code>$toolbar-wp-title-text-color</code></td>
-        
-          <td><code>color-contrast($colors-wp, $toolbar-wp-background, wp)</code></td>
-        
-        <td><p>Text color of the toolbar title</p>
-</td>
-      </tr>
-      
-      <tr>
-        <td><code>$toolbar-wp-button-font-size</code></td>
-        
-          <td><code>1.4rem</code></td>
-        
-        <td><p>Font size of the toolbar button</p>
-</td>
-      </tr>
-      
-      <tr>
-        <td><code>$toolbar-wp-button-color</code></td>
-        
-          <td><code>color-contrast($colors-wp, $toolbar-wp-background, wp)</code></td>
-        
-        <td><p>Text color of the toolbar button</p>
-</td>
-      </tr>
-      
-      <tr>
-        <td><code>$toolbar-wp-button-border-radius</code></td>
-        
-          <td><code>2px</code></td>
-        
-        <td><p>Border radius of the toolbar button</p>
-</td>
-      </tr>
-      
-      <tr>
-        <td><code>$navbar-wp-height</code></td>
-        
-          <td><code>$toolbar-wp-height</code></td>
-        
-        <td><p>Height of the navigation bar</p>
+        <td><p>Color of the image when it hasn&#39;t fully loaded yet</p>
 </td>
       </tr>
       
