@@ -8,13 +8,13 @@
 <link href="/css/styles.min.css?v=77ad770931112c2c11e09ad8b1483684" rel="stylesheet">
 
 
-  <title>FabList - Ionic API Documentation -  Ionic Framework</title>
+  <title>Javascript - Extend Ionic even further with the power of AngularJS -  Ionic Framework</title>
 
 
 <meta name="author" content="Drifty">
 <meta name="description" content="Ionic lets developers build beautiful and interactive mobile apps using HTML5 and AngularJS.">
 <meta name="keywords" content="html5,javascript,mobile,drifty,ionic,hybrid,phonegap,cordova,native,ios,android,angularjs">
-<link rel="canonical" href="https://ionicframework.com/docs/v2/nightly/api/components/fab/FabList/">
+<link rel="canonical" href="https://ionicframework.com/docs/v2/nightly/api/">
 
 <!-- Social: Twitter -->
 <meta name="twitter:card" content="summary_large_image">
@@ -26,7 +26,7 @@
 
 <!-- Social: Facebook / Open Graph -->
 <meta property="fb:app_id" content="1321836767955949">
-<meta property="og:url" content="https://ionicframework.com/docs/v2/nightly/api/components/fab/FabList/">
+<meta property="og:url" content="https://ionicframework.com/docs/v2/nightly/api/">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Ionic Framework">
 <meta property="og:image" content="https://ionicframework.com/img/ionic-meta.jpg"/>
@@ -61,8 +61,8 @@
 
 
   </head>
-  <body id="docs-page-fablist"
-        class="v2 docs fluid page-fablist
+  <body id="docs-page-api"
+        class="v2 docs fluid page-api
                "
         data-spy="scroll"
         data-offset="100"
@@ -174,8 +174,6 @@
     
 
     <div class="docs-container"
-     
-       ng-controller="APIDemoCtrl"
      >
   <nav class="side-nav" id="side-nav">
     <form class="form-group search" role="search">
@@ -300,7 +298,7 @@
 <li class="capitalize ">
   <a href="/docs/v2/nightly/api/components/fab/FabContainer">FabContainer</a>
 </li>
-<li class="capitalize active">
+<li class="capitalize ">
   <a href="/docs/v2/nightly/api/components/fab/FabList">FabList</a>
 </li>
 <li class="capitalize ">
@@ -494,482 +492,18 @@
     
   </nav>
   
-  <aside id="platform-preview" class="platform-preview">
-    <div class="platform-toggle">
-      <a ng-class="{active: iosActive}"
-         ng-click="setPlatform('ios')">iOS</a>
-      <a ng-class="{active: androidActive}"
-         ng-click="setPlatform('android')">Android</a>
-      <a ng-class="{active: windowsActive}"
-         ng-click="setPlatform('windows')">Windows</a>
-    </div>
-    <div id="demo-device-ios"
-         ng-class="previewPlatform"
-         ng-show="iosActive">
-      <iframe id="demo-ios"
-            
-              src="/docs/v2/demos/src/fab/?production=true&ionicplatform=ios"
-            
-              frameborder="0">
-      </iframe>
-    </div>
-    <div id="demo-device-android"
-         ng-class="previewPlatform"
-         ng-show="androidActive">
-      <iframe id="demo-android"
-            
-              src="/docs/v2/demos/src/fab/?production=true&ionicplatform=android"
-            
-              frameborder="0">
-      </iframe>
-    </div>
-    <div id="demo-device-windows"
-         ng-class="previewPlatform"
-         ng-show="windowsActive">
-      <iframe id="demo-windows"
-            
-              src="/docs/v2/demos/src/fab/?production=true&ionicplatform=windows"
-            
-              frameborder="0">
-      </iframe>
-    </div>
-  </aside>
-  
   <main>
-    <h1 class="api-title">
-<a class="anchor" name="fab-list" href="#fab-list"></a>
+    <h1 id="ionic-2-api-docs">Ionic 2 API Docs</h1>
 
-FabList
-<h3><code>ion-fab-list</code></h3>
+<p><img class="section-header" src="/img/docs/api-intro-header.png" /></p>
 
+<p>Ionic 2 takes everything you know and loved about Ionic 1, and builds on top of it to provide a much more flexible framework.</p>
 
+<p>In the API docs, you’ll find two kinds of doc pages: Component and Service APIs.</p>
 
+<p>The Component APIs include classes like <code class="highlighter-rouge">Checkbox</code>, <code class="highlighter-rouge">Toggle</code> or <code class="highlighter-rouge">Item</code> and show you how to use them, in addition to listing their selectors, available properties and events.</p>
 
-
-
-</h1>
-
-<p><a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/fab/fab.ts#L98">
-Improve this doc
-</a></p>
-
-<p><code>ion-fab-list</code> is a container for multiple FAB buttons. They are components of <code>ion-fab</code> and allow you to specificy the buttons position, left, right, top, bottom.</p>
-
-<!-- @usage tag -->
-
-<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
-
-<pre><code class="lang-html">&lt;ion-fab bottom right &gt;
-  &lt;button ion-fab&gt;Share&lt;/button&gt;
-  &lt;ion-fab-list side=&quot;top&quot;&gt;
-    &lt;button ion-fab&gt;Facebook&lt;/button&gt;
-    &lt;button ion-fab&gt;Twitter&lt;/button&gt;
-    &lt;button ion-fab&gt;Youtube&lt;/button&gt;
-  &lt;/ion-fab-list&gt;
-  &lt;ion-fab-list side=&quot;left&quot;&gt;
-    &lt;button ion-fab&gt;Vimeo&lt;/button&gt;
-  &lt;/ion-fab-list&gt;
-&lt;/ion-fab&gt;
-</code></pre>
-
-<!-- @property tags -->
-
-<!-- instance methods on the class -->
-
-<h2 id="sass-variable-header"><a class="anchor" name="sass-variables" href="#sass-variables"></a>Sass Variables</h2>
-<div id="sass-variables" ng-controller="SassToggleCtrl">
-  <div class="sass-platform-toggle">
-    
-      
-      
-      <a ng-init="setSassPlatform('base')" ng-class="{ active: active === 'base' }" ng-click="setSassPlatform('base')">All</a>
-      
-      
-      
-      <a ng-class="{ active: active === 'ios' }" ng-click="setSassPlatform('ios')">iOS</a>
-      
-      
-      
-      <a ng-class="{ active: active === 'md' }" ng-click="setSassPlatform('md')">Material Design</a>
-      
-      
-      
-      <a ng-class="{ active: active === 'wp' }" ng-click="setSassPlatform('wp')">Windows Platform</a>
-      
-      
-    
-  </div>
-
-
-  
-  <table ng-show="active === 'base'" id="sass-base" class="table param-table" style="margin:0;">
-    <thead>
-      <tr>
-        <th>Property</th>
-        <th>Default</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      
-      <tr>
-        <td><code>$fab-size</code></td>
-        
-          <td><code>56px</code></td>
-        
-        <td><p>Width and height of the FAB button</p>
-</td>
-      </tr>
-      
-      <tr>
-        <td><code>$fab-mini-size</code></td>
-        
-          <td><code>40px</code></td>
-        
-        <td><p>Width and height of the FAB button mini</p>
-</td>
-      </tr>
-      
-      <tr>
-        <td><code>$fab-content-margin</code></td>
-        
-          <td><code>10px</code></td>
-        
-        <td><p>Margin of the FAB Container</p>
-</td>
-      </tr>
-      
-      <tr>
-        <td><code>$fab-list-margin</code></td>
-        
-          <td><code>10px</code></td>
-        
-        <td><p>Margin of the FAB List</p>
-</td>
-      </tr>
-      
-      <tr>
-        <td><code>$fab-list-button-background-color</code></td>
-        
-          <td><code>#f4f4f4</code></td>
-        
-        <td><p>Background color of the button in a list</p>
-</td>
-      </tr>
-      
-    </tbody>
-  </table>
-  
-  <table ng-show="active === 'ios'" id="sass-ios" class="table param-table" style="margin:0;">
-    <thead>
-      <tr>
-        <th>Property</th>
-        <th>Default</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      
-      <tr>
-        <td><code>$fab-ios-background-color</code></td>
-        
-          <td><code>color($colors-ios, primary)</code></td>
-        
-        <td><p>Background color of the button</p>
-</td>
-      </tr>
-      
-      <tr>
-        <td><code>$fab-ios-text-color</code></td>
-        
-          <td><code>color-contrast($colors-ios, $fab-ios-background-color)</code></td>
-        
-        <td><p>Text color of the button</p>
-</td>
-      </tr>
-      
-      <tr>
-        <td><code>$fab-ios-background-color-activated</code></td>
-        
-          <td><code>color-shade($fab-ios-background-color)</code></td>
-        
-        <td><p>Background color of the activated button</p>
-</td>
-      </tr>
-      
-      <tr>
-        <td><code>$fab-ios-list-button-background-color</code></td>
-        
-          <td><code>$fab-list-button-background-color</code></td>
-        
-        <td><p>Background color of the button in a list</p>
-</td>
-      </tr>
-      
-      <tr>
-        <td><code>$fab-ios-list-button-text-color</code></td>
-        
-          <td><code>color-contrast($colors-ios, $fab-ios-list-button-background-color)</code></td>
-        
-        <td><p>Text color of the button in a list</p>
-</td>
-      </tr>
-      
-      <tr>
-        <td><code>$fab-ios-list-button-background-color-activated</code></td>
-        
-          <td><code>color-shade($fab-ios-list-button-background-color)</code></td>
-        
-        <td><p>Background color of the activated button in a list</p>
-</td>
-      </tr>
-      
-      <tr>
-        <td><code>$fab-ios-list-button-transition-duration</code></td>
-        
-          <td><code>200ms</code></td>
-        
-        <td><p>Transition duration of the transform and opacity of the button in a list</p>
-</td>
-      </tr>
-      
-      <tr>
-        <td><code>$fab-ios-list-button-transition-timing-function</code></td>
-        
-          <td><code>ease</code></td>
-        
-        <td><p>Speed curve of the transition of the transform and opacity of the button in a list</p>
-</td>
-      </tr>
-      
-      <tr>
-        <td><code>$fab-ios-list-button-transition-delay</code></td>
-        
-          <td><code>10ms</code></td>
-        
-        <td><p>Transition delay of the transform and opacity of the button in a list</p>
-</td>
-      </tr>
-      
-    </tbody>
-  </table>
-  
-  <table ng-show="active === 'md'" id="sass-md" class="table param-table" style="margin:0;">
-    <thead>
-      <tr>
-        <th>Property</th>
-        <th>Default</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      
-      <tr>
-        <td><code>$fab-md-box-shadow</code></td>
-        
-          <td><code>0 4px 6px 0 rgba(0, 0, 0, .14), 0 4px 5px rgba(0, 0, 0, .1)</code></td>
-        
-        <td><p>Box shadow of the FAB button</p>
-</td>
-      </tr>
-      
-      <tr>
-        <td><code>$fab-md-box-shadow-activated</code></td>
-        
-          <td><code>0 5px 15px 0 rgba(0, 0, 0, .4), 0 4px 7px 0 rgba(0, 0, 0, .1)</code></td>
-        
-        <td><p>Box shadow of the activated FAB button</p>
-</td>
-      </tr>
-      
-      <tr>
-        <td><code>$fab-md-background-color</code></td>
-        
-          <td><code>color($colors-md, primary)</code></td>
-        
-        <td><p>Background color of the button</p>
-</td>
-      </tr>
-      
-      <tr>
-        <td><code>$fab-md-text-color</code></td>
-        
-          <td><code>color-contrast($colors-md, $fab-md-background-color)</code></td>
-        
-        <td><p>Text color of the button</p>
-</td>
-      </tr>
-      
-      <tr>
-        <td><code>$fab-md-background-color-activated</code></td>
-        
-          <td><code>color-shade($fab-md-background-color)</code></td>
-        
-        <td><p>Background color of the activated button</p>
-</td>
-      </tr>
-      
-      <tr>
-        <td><code>$fab-md-list-button-background-color</code></td>
-        
-          <td><code>$fab-list-button-background-color</code></td>
-        
-        <td><p>Background color of the button in a list</p>
-</td>
-      </tr>
-      
-      <tr>
-        <td><code>$fab-md-list-button-text-color</code></td>
-        
-          <td><code>color-contrast($colors-md, $fab-md-list-button-background-color)</code></td>
-        
-        <td><p>Text color of the button in a list</p>
-</td>
-      </tr>
-      
-      <tr>
-        <td><code>$fab-md-list-button-background-color-activated</code></td>
-        
-          <td><code>color-shade($fab-md-list-button-background-color)</code></td>
-        
-        <td><p>Background color of the activated button in a list</p>
-</td>
-      </tr>
-      
-      <tr>
-        <td><code>$fab-md-list-button-transition-duration</code></td>
-        
-          <td><code>200ms</code></td>
-        
-        <td><p>Transition duration of the transform and opacity of the button in a list</p>
-</td>
-      </tr>
-      
-      <tr>
-        <td><code>$fab-md-list-button-transition-timing-function</code></td>
-        
-          <td><code>ease</code></td>
-        
-        <td><p>Speed curve of the transition of the transform and opacity of the button in a list</p>
-</td>
-      </tr>
-      
-      <tr>
-        <td><code>$fab-md-list-button-transition-delay</code></td>
-        
-          <td><code>10ms</code></td>
-        
-        <td><p>Transition delay of the transform and opacity of the button in a list</p>
-</td>
-      </tr>
-      
-    </tbody>
-  </table>
-  
-  <table ng-show="active === 'wp'" id="sass-wp" class="table param-table" style="margin:0;">
-    <thead>
-      <tr>
-        <th>Property</th>
-        <th>Default</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      
-      <tr>
-        <td><code>$fab-wp-background-color</code></td>
-        
-          <td><code>color($colors-wp, primary)</code></td>
-        
-        <td><p>Background color of the button</p>
-</td>
-      </tr>
-      
-      <tr>
-        <td><code>$fab-wp-text-color</code></td>
-        
-          <td><code>color-contrast($colors-wp, $fab-wp-background-color)</code></td>
-        
-        <td><p>Text color of the button</p>
-</td>
-      </tr>
-      
-      <tr>
-        <td><code>$fab-wp-background-color-activated</code></td>
-        
-          <td><code>color-shade($fab-wp-background-color)</code></td>
-        
-        <td><p>Background color of the activated button</p>
-</td>
-      </tr>
-      
-      <tr>
-        <td><code>$fab-wp-list-button-background-color</code></td>
-        
-          <td><code>$fab-list-button-background-color</code></td>
-        
-        <td><p>Background color of the button in a list</p>
-</td>
-      </tr>
-      
-      <tr>
-        <td><code>$fab-wp-list-button-text-color</code></td>
-        
-          <td><code>color-contrast($colors-wp, $fab-wp-list-button-background-color)</code></td>
-        
-        <td><p>Text color of the button in a list</p>
-</td>
-      </tr>
-      
-      <tr>
-        <td><code>$fab-wp-list-button-background-color-activated</code></td>
-        
-          <td><code>color-shade($fab-wp-list-button-background-color)</code></td>
-        
-        <td><p>Background color of the activated button in a list</p>
-</td>
-      </tr>
-      
-      <tr>
-        <td><code>$fab-wp-list-button-transition-duration</code></td>
-        
-          <td><code>200ms</code></td>
-        
-        <td><p>Transition duration of the transform and opacity of the button in a list</p>
-</td>
-      </tr>
-      
-      <tr>
-        <td><code>$fab-wp-list-button-transition-timing-function</code></td>
-        
-          <td><code>ease</code></td>
-        
-        <td><p>Speed curve of the transition of the transform and opacity of the button in a list</p>
-</td>
-      </tr>
-      
-      <tr>
-        <td><code>$fab-wp-list-button-transition-delay</code></td>
-        
-          <td><code>10ms</code></td>
-        
-        <td><p>Transition delay of the transform and opacity of the button in a list</p>
-</td>
-      </tr>
-      
-    </tbody>
-  </table>
-  
-</div>
-
-<!-- related link -->
-
-<h2><a class="anchor" name="related" href="#related"></a>Related</h2>
-
-<p><a href="/docs/v2/components#fab">Fab Component Docs</a><!-- end content block --></p>
-
-<!-- end body block -->
-
+<p>The Service APIs are classes like <code class="highlighter-rouge">MenuController</code>, <code class="highlighter-rouge">Config</code> or <code class="highlighter-rouge">Platform</code>. These are services provided by Ionic 2 that can be injected into your classes.</p>
 
   </main>
 </div>
