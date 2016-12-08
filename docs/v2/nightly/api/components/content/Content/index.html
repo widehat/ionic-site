@@ -544,6 +544,45 @@ export class MyPage{
 
 <h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 
+<div id="contentHeight"></div>
+
+<h3>
+<a class="anchor" name="contentHeight" href="#contentHeight"></a>
+<code>contentHeight</code>
+  
+
+</h3>
+
+<p>Content height of the viewable area. This does not include content
+which is outside the overflow area, or content area which is under
+headers and footers. Read-only.</p>
+
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>number</code> 
+
+</div>
+
+<div id="contentWidth"></div>
+
+<h3>
+<a class="anchor" name="contentWidth" href="#contentWidth"></a>
+<code>contentWidth</code>
+  
+
+</h3>
+
+<p>Content width including content which is not visible on the screen
+due to overflow. Read-only.</p>
+
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>number</code> 
+
+</div>
+
 <div id="contentTop"></div>
 
 <h3>
@@ -554,7 +593,8 @@ export class MyPage{
 </h3>
 
 <p>A number representing how many pixels the top of the content has been
-adjusted, which could be by either padding or margin.</p>
+adjusted, which could be by either padding or margin. This adjustment
+is to account for the space needed for the header.</p>
 
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
@@ -573,7 +613,8 @@ adjusted, which could be by either padding or margin.</p>
 </h3>
 
 <p>A number representing how many pixels the bottom of the content has been
-adjusted, which could be by either padding or margin.</p>
+adjusted, which could be by either padding or margin. This adjustment
+is to account for the space needed for the footer.</p>
 
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
@@ -591,8 +632,8 @@ adjusted, which could be by either padding or margin.</p>
 
 </h3>
 
-<p>The height the content, including content not visible
-on the screen due to overflow.</p>
+<p>Content height including content which is not visible on the screen
+due to overflow. Read-only.</p>
 
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
@@ -610,8 +651,8 @@ on the screen due to overflow.</p>
 
 </h3>
 
-<p>The width the content, including content not visible
-on the screen due to overflow.</p>
+<p>Content width including content which is not visible due to
+overflow. Read-only.</p>
 
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
@@ -665,7 +706,7 @@ on the screen due to overflow.</p>
 
 </h3>
 
-<p>If the scrollable area is actively scrolling or not.</p>
+<p>If the content is actively scrolling or not.</p>
 
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
@@ -719,7 +760,8 @@ on the screen due to overflow.</p>
 
 </h3>
 
-<p>The current, or last known, vertical scroll direction.</p>
+<p>The current, or last known, vertical scroll direction. Possible
+string values include <code class="highlighter-rouge">down</code> and <code class="highlighter-rouge">up</code>.</p>
 
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
@@ -737,7 +779,8 @@ on the screen due to overflow.</p>
 
 </h3>
 
-<p>The current, or last known, horizontal scroll direction.</p>
+<p>The current, or last known, horizontal scroll direction. Possible
+string values include <code class="highlighter-rouge">right</code> and <code class="highlighter-rouge">left</code>.</p>
 
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
