@@ -1,0 +1,28 @@
+#page-pricing {
+  main {
+    padding: 50px 0;
+  }
+
+  #pricing-table {
+    td.lifecycle-dev {
+      background-color: #eee;
+    }
+    td.lifecycle-testing {
+      background-color: #cdeccd;
+    }
+    td.lifecycle-hosting {
+      background-color: #ffc9c9;
+    }
+
+    .btn {
+      line-height: 1.1em;
+      padding: 12px 33px;
+      font-size: 13px;
+    }
+
+    .btn-beta {
+      background-color: #eee;
+      color: #555;
+    }
+  }
+}
