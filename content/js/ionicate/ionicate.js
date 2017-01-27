@@ -9,7 +9,7 @@ angular.module('ionicate', [])
       onClose: '&'
     },
     template: '<div class="ionicate-wrap">' +
-                '<div class="ionicate-close"><a ng-click="close()"><i class="ion-close"></i></a></div>' +
+                '<div class="ionicate-close"><a ng-click="close()"><i class="ion-ios-close"></i></a></div>' +
                 '<div class="ionicate-title" ng-if="question">{{question.title}}</div>' +
                 '<div class="ionicate-title" ng-if="!question">{{done.title}}</div>' +
                 '<div class="ionicate-content">' +
@@ -40,7 +40,6 @@ angular.module('ionicate', [])
               '</div>',
     link: function($scope) {
       $scope.results = [];
-      console.log('LINKED', $scope);
 
       $scope.questionIndex = -1;
       $scope.done = $scope.questions && $scope.questions.done;
@@ -50,7 +49,6 @@ angular.module('ionicate', [])
         if(!$scope.question) {
           var results = $scope.getResults();
           $scope.results = results;
-          console.log('Got results', results);
           $scope.showContact = $scope.shouldShowContact(results);
 
           // Only send the results if we aren't asking them if we can contact them
@@ -69,14 +67,9 @@ angular.module('ionicate', [])
           ifHasValue = [ifHasValue];
         }
 
-        console.log('Checking results', JSON.stringify(results));
-
-        console.log('Checking parts', results);
-
         for(var ifv = 0 ; ifv < ifHasValue.length; ifv++) {
           var path = ifHasValue[ifv];
           var parts = path.split('.');
-          console.log('Checking parts', parts);
           var r, q;
           var pi = 0;
           for(var k in results) {
@@ -131,7 +124,6 @@ angular.module('ionicate', [])
               value: q.$otherValue
             });
           }
-          console.log("GENERATED", qResults);
 
           if(qResults.length) {
             results[q.tag] = qResults;
@@ -166,13 +158,11 @@ angular.module('ionicate', [])
         q.$value = !!!q.$value;
 
         $scope.checkLimit(question, q);
-        console.log('Select option', q.$value, q.value);
       };
       $scope.optionChanged = function(question, q) {
         $scope.checkLimit(question, q);
       };
       $scope.checkLimit = function(question, q) {
-        console.log('Checking limit');
         var limit = question.limit || 99999;
         var q1;
         var selected = 0;
@@ -187,7 +177,6 @@ angular.module('ionicate', [])
             for(var j = 0; j < question.options.length; j++) {
               q2 = question.options[j];
               if(q2 !== q) {
-                console.log('RESETTING');
                 q2.$value = false;
               }
             }

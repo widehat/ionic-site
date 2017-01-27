@@ -1,4 +1,4 @@
-var IonicSiteModule = angular.module('IonicSite', ['ngAnimate', 'ionicate'])
+var IonicSiteModule = angular.module('IonicSite', ['ngAnimate', 'ionicate', 'ngSanitize'])
 .controller('DocsNavCtrl', ['$scope', '$timeout', function($scope, $timeout) {
   var navItemPos = $('#side-nav > ul > .active').length ?
                     $('#side-nav > ul > .active').offset().top : null;
@@ -276,6 +276,19 @@ var IonicSiteModule = angular.module('IonicSite', ['ngAnimate', 'ionicate'])
 .controller('PricingReserveCtrl', ['$scope', function($scope) {
   $scope.launched = false;
   $scope.showSurvey = true;
+
+  $scope.form = {};
+
+  $scope.submit = function() {
+    $http.post('https://apps.ionic.io/api/v1/reservespot/v1pricing', {
+      email: $scope.form.email
+    }).then(function(res) {
+
+    }, function(err) {
+
+    })
+  };
+
   $scope.surveyQuestions = {
     questions: [
       {

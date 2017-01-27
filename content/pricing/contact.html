@@ -25,12 +25,12 @@ footer_includes: |
     <section class="container">
       <h2>Reserve your Spot</h2>
       <p>
-        We're working on new features to help your team do more on top of Ionic Framework.
+        Our pricing packages aren't quite ready. Leave your email below to be notified when they're ready to go!
       </p>
       <form ng-submit="submit()" method="post">
         <div class="form-group">
           <label>Email</label>
-          <input type="email" name="email" class="form-control" />
+          <input type="email" name="email" class="form-control" ng-model="form.email" />
         </div>
         <div class="form-group">
           <button type="submit" class="btn btn-primary">Submit</button>

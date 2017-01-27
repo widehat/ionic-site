@@ -37,6 +37,7 @@ ionicate .ionicate-contact-buttons a {
   flex: 1;
 }
 ionicate .ionicate-submit-button {
+  cursor: pointer;
   display: flex;
   padding-bottom: 15px;
 }
@@ -77,4 +78,9 @@ ionicate .ionicate-close {
   position: absolute;
   right: 10px;
   top: 10px;
+  cursor: pointer;
+}
+ionicate .ionicate-close i {
+  font-size: 20px;
+  color: #222;
 }
