@@ -59,6 +59,19 @@
     td.lifecycle-hosting {
     }
 
+    qtt {
+      display: inline-block;
+      margin-left: 5px;
+    }
+    .btn.question {
+      background-color: #eee;
+      padding: 0;
+      border-radius: 100%;
+      color: #777;
+      width: 16px;
+      height: 16px;
+      font-size: 18px;
+    }
     .btn {
       line-height: 1.1em;
       padding: 12px 33px;
