@@ -1,0 +1,50 @@
+---
+layout: v2_fluid/default
+title: Reserve your Spot
+body_css: pricing-page
+id: pricing-contact
+header_style: transparent
+centered: true
+has_container: true
+pre_footer: true
+---
+
+<div class="cta gradient">
+  <hgroup class="container center">
+    <h1>Build, test, and deploy cross-platform apps from a single codebase with Ionic</h1>
+    <h4>
+      From the always free Ionic Framework, to powerful tools and collaboration features to help you do more
+    </h4>
+  </hgroup>
+</div>
+
+<main ng-app="reserveApp">
+  <section class="container" ng-controller="ReserveCtrl">
+    <h2>Reserve your Spot</h2>
+    <p>
+      We're working on new features to help your team do more on top of Ionic Framework.
+    </p>
+    <form ng-submit="submit()" method="post">
+      <div class="form-group">
+        <label>Email</label>
+        <input type="email" name="email" class="form-control" />
+      </div>
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
+    </form>
+  </section>
+</main>
+
+<script>
+setTimeout(function() {
+
+angular.module('IonicSite')
+.controller('ReserveCtrl', ['$scope', function($scope) {
+  $scope.submit = function() {
+    console.log('Submit');
+  };
+}]);
+
+});
+</script>
