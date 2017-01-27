@@ -271,10 +271,58 @@ var IonicSiteModule = angular.module('IonicSite', ['ngAnimate'])
     return iconObj.icons[2].name;
   };
 
-}])
+}]);
 
+angular.module('IonicSite.Reserve', ['IonicSite', 'ionicate'])
 .controller('PricingReserveCtrl', ['$scope', function($scope) {
   $scope.submit = function() {
     console.log('Submit');
   };
+  $scope.showSurvey = true;
+  $scope.surveyQuestions = {
+    questions: [
+      {
+        title: 'What kind of developer are you?',
+        tag: 'aboutyourself',
+        options: [
+          { title: 'Novice Developer', value: 'novice-dev' },
+          { title: 'Expert Developer', value: 'expert-dev' },
+          { title: 'Designer', value: 'designer' },
+          { title: 'Product Manager', value: 'pm' },
+          { title: 'Student', value: 'student' },
+        ],
+        allowOther: true
+      },
+      {
+        title: 'What are you building?',
+        tag: 'whatyoucreate',
+        options: [
+          { title: 'An app for my company', value: 'for-company' },
+          { title: 'A personal project', value: 'for-personal' },
+          { title: 'An app for a client', value: 'for-client' },
+          { title: 'An app for school', value: 'for-school' },
+          { title: 'I\'m just kicking the tires', value: 'for-nothing' },
+        ],
+        allowOther: true
+      }
+    ],
+    done: {
+      title: 'Thanks!',
+      text: 'Keep building awesome apps 🎉'
+    }
+  };
+  $scope.finishedSurvey = function(results) {
+    console.log('Finished!', results);
+    $http.post('/api/survey', {
+      campaign: 'wizard_2017_q1',
+      results: results,
+    }).then(function(resp) {
+      console.log('Survey saved', resp);
+    }).catch(function(err) {
+      console.error('Unable to save survey', err);
+    });
+  }
+  $scope.closedSurvey = function() {
+    $scope.showSurvey = false;
+  }
 }]);
