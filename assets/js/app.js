@@ -271,4 +271,10 @@ var IonicSiteModule = angular.module('IonicSite', ['ngAnimate'])
     return iconObj.icons[2].name;
   };
 
+}])
+
+.controller('PricingReserveCtrl', ['$scope', function($scope) {
+  $scope.submit = function() {
+    console.log('Submit');
+  };
 }]);

@@ -7,6 +7,8 @@ header_style: transparent
 centered: true
 has_container: true
 pre_footer: true
+footer_includes: |
+  <script src="../js/ionicate/ionicate.js"></script>
 ---
 
 <div class="cta gradient">
@@ -18,8 +20,8 @@ pre_footer: true
   </hgroup>
 </div>
 
-<main ng-app="reserveApp">
-  <section class="container" ng-controller="ReserveCtrl">
+<main>
+  <section class="container" ng-controller="PricingReserveCtrl">
     <h2>Reserve your Spot</h2>
     <p>
       We're working on new features to help your team do more on top of Ionic Framework.
@@ -35,16 +37,3 @@ pre_footer: true
     </form>
   </section>
 </main>
-
-<script>
-setTimeout(function() {
-
-angular.module('IonicSite')
-.controller('ReserveCtrl', ['$scope', function($scope) {
-  $scope.submit = function() {
-    console.log('Submit');
-  };
-}]);
-
-});
-</script>
