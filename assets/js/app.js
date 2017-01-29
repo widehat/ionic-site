@@ -273,14 +273,14 @@ var IonicSiteModule = angular.module('IonicSite', ['ngAnimate', 'ionicate', 'ngS
 
 }])
 
-.controller('PricingReserveCtrl', ['$scope', function($scope) {
+.controller('PricingReserveCtrl', ['$scope', '$http', function($scope, $http) {
   $scope.launched = false;
   $scope.showSurvey = true;
 
   $scope.form = {};
 
   $scope.submit = function() {
-    $http.post('https://apps.ionic.io/api/v1/reservespot/v1pricing', {
+    $http.post('http://survey.apis.ionicjs.com/reservespot/v1pricing', {
       email: $scope.form.email
     }).then(function(res) {
 
@@ -340,10 +340,11 @@ var IonicSiteModule = angular.module('IonicSite', ['ngAnimate', 'ionicate', 'ngS
       message: 'We are collecting feedback on Ionic. Would you be willing to speak with us briefly? If so, please choose a time <a href="https://calendly.com/ionic-research/ionic-wiz-research" target="_blank">here</a>.'
     }
   };
+
   $scope.finishedSurvey = function(results) {
     console.log('Finished!', results);
-    $http.post('/api/survey', {
-      campaign: 'wizard_2017_q1',
+    $http.post('http://survey.apis.ionicjs.com/survey/', {
+      campaign: 'pricing_v1',
       results: results,
     }).then(function(resp) {
       console.log('Survey saved', resp);

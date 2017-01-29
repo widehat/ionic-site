@@ -52,11 +52,9 @@ angular.module('ionicate', [])
           $scope.showContact = $scope.shouldShowContact(results);
 
           // Only send the results if we aren't asking them if we can contact them
-          if(!$scope.showContact) {
-            $scope.onFinish({
-              results: results
-            });
-          }
+          $scope.onFinish({
+            results: results
+          });
         }
       }
 
