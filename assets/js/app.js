@@ -275,17 +275,25 @@ var IonicSiteModule = angular.module('IonicSite', ['ngAnimate', 'ionicate', 'ngS
 
 .controller('PricingReserveCtrl', ['$scope', '$http', function($scope, $http) {
   $scope.launched = false;
-  $scope.showSurvey = true;
+  $scope.showSurvey = false;
+  $scope.submitting = false;
+  $scope.thanks = false;
 
   $scope.form = {};
 
   $scope.submit = function() {
+    $scope.submitting = true;
     $http.post('http://survey.apis.ionicjs.com/reservespot/v1pricing', {
       email: $scope.form.email
     }).then(function(res) {
-
+      $scope.thanks = true;
+      $scope.submitting = false;
+      $scope.showSurvey = true;
     }, function(err) {
-
+      $scope.submitting = false;
+      alert('Unable to reserve spot. Please contact help@ionic.io (see console for more info)');
+      console.error(err);
+      $scope.showSurvey = true;
     })
   };
 
@@ -342,12 +350,10 @@ var IonicSiteModule = angular.module('IonicSite', ['ngAnimate', 'ionicate', 'ngS
   };
 
   $scope.finishedSurvey = function(results) {
-    console.log('Finished!', results);
     $http.post('http://survey.apis.ionicjs.com/survey/', {
       campaign: 'pricing_v1',
       results: results,
     }).then(function(resp) {
-      console.log('Survey saved', resp);
     }).catch(function(err) {
       console.error('Unable to save survey', err);
     });

@@ -35,6 +35,12 @@ footer_includes: |
         <div class="form-group">
           <button type="submit" class="btn btn-primary">Submit</button>
         </div>
+        <div ng-if="submitting">
+          <b>Submitting...</b>
+        </div>
+        <div ng-if="thanks">
+          <b>Thanks!</b> We will be in touch when we're ready.
+        </div>
       </form>
     </section>
   </main>
