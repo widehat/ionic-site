@@ -312,11 +312,23 @@
       }
     }
 
-    #dash-cta {
+    #dashboard-cta {
       background: url('/img/getting-started/dashboard.png') no-repeat center center;
       background-size: 100%;
       width: 1173px;
       height: 680px;
+      margin: -50px auto 50px auto;
+
+      position: relative;
+
+      .help {
+        position: absolute;
+        width: 400px;
+        left: 50%;
+        bottom: -15px;
+        margin-left: -200px;
+        text-align: center;
+      }
     }
 
     .view-cta {
