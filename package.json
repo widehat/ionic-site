@@ -4,6 +4,7 @@
   "description": "Ionic Framework main site - IonicFramework.com",
   "main": "Gulpfile.js",
   "scripts": {
+    "heroku-prebuild": "bundle exec bundle install",
     "heroku-postbuild": "gulp build.clean && gulp slug.prep"
   },
   "engines": {
