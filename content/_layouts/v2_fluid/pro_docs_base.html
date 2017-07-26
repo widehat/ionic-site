@@ -1,0 +1,22 @@
+---
+layout: v2_fluid/default
+---
+
+<div class="docs-container"
+     {% if page.angular_controller %}
+       ng-controller="{{ page.angular_controller }}"
+     {% endif %}>
+  <nav class="side-nav" id="side-nav">
+    <form class="form-group search" role="search">
+      <input type="text"
+             class="form-control search-input"
+             placeholder="Search"
+             data-searchpos="sidebar"
+             ng-model="searchTerm">
+    </form>
+    {% include v2_fluid/pro_docs_side_nav_main.html %}
+  </nav>
+  <main>
+    {{ content }}
+  </main>
+</div>

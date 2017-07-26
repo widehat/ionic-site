@@ -1,0 +1,32 @@
+<ul ng-controller="DocsNavCtrl">
+
+  <li class="{% if page.id == 'home' %}active top-level{% endif %}">
+    <a href="/docs/pro/">Ionic Pro</a>
+  </li>
+
+  <li class="active">
+    <ul
+      <li class="{% if page.id == 'pro-installation' %}active{% endif %}">
+        <a href="/docs/pro/getting-started.html">Getting Started</a>
+      </li>
+      <li class="{% if page.id == 'pro-setup' %}active{% endif %}">
+        <a href="/docs/pro/git.html">Git Workflow</a>
+      </li>
+      <li class="{% if page.id == 'pro-device-testing' %}active{% endif %}">
+        <a href="/docs/pro/dev-app.html">Local Device Testing</a>
+      </li>
+      <li class="{% if page.id == 'pro-beta-testing' %}active{% endif %}">
+        <a href="/docs/pro/beta-testing.html">Beta Testing</a>
+      </li>
+      <li class="{% if page.id == 'pro-error-monitoring' %}active{% endif %}">
+        <a href="/docs/pro/error-monitoring.html">Error Monitoring</a>
+      </li>
+      <li class="{% if page.id == 'pro-live-deploy' %}active{% endif %}">
+        <a href="/docs/pro/live-deploy.html">Live Deployments</a>
+      </li>
+      <li class="{% if page.id == 'pro-pwa' %}active{% endif %}">
+        <a href="/docs/pro/pwa-hosting.html">Progressive Web App Hosting</a>
+      </li>
+    </ul>
+  </li>
+</ul>
