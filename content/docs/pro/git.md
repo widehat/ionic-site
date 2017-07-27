@@ -1,8 +1,9 @@
 ---
 layout: v2_fluid/pro_docs_base
-category: pro-git
+category: pro
 id: pro-git
 title: Working with Git - Ionic Pro Documentation
+body_class: 'pro-docs'
 hide_header_search: true
 pre_footer: true
 dark_header: true
@@ -54,7 +55,7 @@ Once you have changes you'd like to build and manage on Ionic Pro, first commit 
 ```bash
 git add -u
 git commit -m "Million dollar commit"
-git push ionic master
+
 ```
 
 Don't forget to also periodically push to your existing `origin`, as Ionic Pro is not a replacement for GitHub, GitLab, or a self-hosted git repository.

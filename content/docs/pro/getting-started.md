@@ -1,8 +1,9 @@
 ---
 layout: v2_fluid/pro_docs_base
-category: pro-getting-started
+category: pro
 id: pro-getting-started
 title: Getting Started with Ionic Pro - Ionic Pro Documentation
+body_class: 'pro-docs'
 hide_header_search: true
 dark_header: true
 ---
@@ -20,5 +21,3 @@ Ionic Pro was built from the ground up to integrate perfectly with Ionic Framewo
  * Native app binary builds
  * Progressive Web App hosting
  * And more
-
- 

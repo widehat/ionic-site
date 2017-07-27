@@ -1,8 +1,9 @@
 ---
 layout: v2_fluid/pro_docs_base
-category: pro-getting-started
+category: pro
 id: pro-getting-started
 title: Ionic Developer App - Ionic Pro Documentation
+body_class: 'pro-docs'
 hide_header_search: true
 dark_header: true
 ---

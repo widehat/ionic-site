@@ -1,8 +1,9 @@
 ---
 layout: v2_fluid/pro_docs_base
-category: pro-beta-testing
+category: pro
 id: pro-beta-testing
 title: Beta Testing with Ionic View - Ionic Pro Documentation
+body_class: 'pro-docs'
 hide_header_search: true
 dark_header: true
 ---
