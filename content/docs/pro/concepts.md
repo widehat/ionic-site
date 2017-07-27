@@ -22,4 +22,4 @@ A `Build` in Ionic Pro is triggered when running `git push ionic master` with ne
 
 ## Channels
 
-Every build of your app can be distributed through what we call `Channels`. A Channel is a specific "branch" of your app that will be shared with specific testers and users.
+Every build of your app can be distributed through what we call `Channels`. A Channel points to a specific Build of your app that will be shared with specific testers and users. Channels are used for both Ionic View and Ionic Deploy.
