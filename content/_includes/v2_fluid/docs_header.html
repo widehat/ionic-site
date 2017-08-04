@@ -21,8 +21,14 @@
         <img src="/img/docs/ionic-docs-icon-back.png" id="ionic-docs-back" />
       </a>
       <a class="navbar-brand" href="/docs/v2">
+        {% if layout.back_button_text_image %}
+        <img src="{{layout.back_button_text_image}}" id="ionic-pro-docs-text" />
+        {% else %}
         <img src="/img/docs/ionic-docs-type.png" id="ionic-docs-text" />
+        {% endif %}
       </a>
+      {% if layout.hide_version_dropdown %}
+      {% else %}
       <ul class="version">
         <li class="dropdown">
           <a href="#"
@@ -41,6 +47,7 @@
           </ul>
         </li>
       </ul>
+      {% endif %}
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
